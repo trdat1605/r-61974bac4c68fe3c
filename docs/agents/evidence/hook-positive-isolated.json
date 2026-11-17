@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-17T20:00:57.607164+00:00",
+  "tested_commit": "af22b1397ce054a130fb413dd3bca65f98236110",
+  "status": "PASS",
+  "exit_code": 0,
+  "method": "Actual positive and negative invocation-scoped pre-commit in fresh native Windows disposable clone",
+  "positive": {
+    "exit_code": 0,
+    "selected_output": [
+      {
+        "status": "PASS",
+        "files_scanned": 45,
+        "tasks_validated": 1,
+        "current_review_bound_paths": 3,
+        "limits": "Pattern scan and contract checks do not attest all secrets, execution truth, reviewer identity or product acceptance"
+      }
+    ],
+    "expected_tree_matches_commit": true,
+    "single_expected_commit": true,
+    "config_byte_unchanged": true,
+    "clean_after_commit": true,
+    "tests_summary": [
+      "Ran 40 tests in 26.766s",
+      "OK"
+    ]
+  },
+  "negative": {
+    "commit_exit_code": 1,
+    "head_unchanged": true,
+    "selected_output": [
+      {
+        "status": "BLOCKED",
+        "error": "Missing task list: acceptance"
+      }
+    ]
+  },
+  "outside_clone_control_head_config_index_refs_status_unchanged": true,
+  "limits": "Not OS sandbox or required GitHub check; actual root hook remains a separate verification; no runtime mutation"
+}
