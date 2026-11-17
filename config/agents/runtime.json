@@ -1,0 +1,25 @@
+{
+  "profile_id": "chatwoot-local-desktop-v1",
+  "distribution": "Ubuntu-22.04",
+  "source_root": "/root/code/chatwoot-worktrees/wsl-preflight",
+  "source_branch": "codex/wsl-migration",
+  "source_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "engine_os": "Docker Desktop",
+  "engine_id": "7d184b2e-2d31-4493-b91e-b18601e02f7b",
+  "compose_project": "cwlab-9200023e",
+  "app_services": [
+    "rails",
+    "vite",
+    "sidekiq"
+  ],
+  "runtime_access": "read-only",
+  "shared_runtime": true,
+  "public_ports": {
+    "rails": "127.0.0.1:44330",
+    "vite": "127.0.0.1:44331",
+    "mailhog": "127.0.0.1:44332"
+  },
+  "database_name": "chatwoot_9200023e_dev",
+  "redis_database": 0,
+  "note": "Non-secret identity profile of existing runtime, not a deployment template. No credential values."
+}
