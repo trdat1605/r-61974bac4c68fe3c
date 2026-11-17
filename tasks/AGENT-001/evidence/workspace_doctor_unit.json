@@ -1,0 +1,24 @@
+{
+  "subject_commit": "c10c00ad9a299d92d1a48eb43d5f8d37640d8bdd",
+  "status": "PASS",
+  "exit_code": 0,
+  "actual_command_exit_code": 0,
+  "expected_command_exit_code": 0,
+  "at": "2026-11-17T19:23:02.528882+00:00",
+  "command": [
+    "python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_workspace_doctor.py",
+    "-v"
+  ],
+  "summary": "15 test methods exercise fail-closed behavior with mocked runner; no application mutation",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "ac97483e994a92a0d11ced3c9dd9947ba79b13fc4d7f6bfd66a2e099d1817a6f",
+  "test_methods": 15
+}

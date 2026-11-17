@@ -3,7 +3,7 @@
   "goal": "Ngăn tiếp tục trên checkout hoặc Docker runtime sai bằng một workspace doctor chỉ đọc",
   "repository": "https://github.com/trdat1605/chatwoot-vn",
   "branch": "codex/agent-workspace-doctor",
-  "baseline_commit": "5b0d689",
+  "baseline_commit": "5b0d68962d6758b9aebd31afc5cde04fccb412ba",
   "application": {
     "repository": "https://github.com/chatwoot/chatwoot",
     "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"

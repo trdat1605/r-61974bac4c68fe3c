@@ -1,0 +1,55 @@
+{
+  "subject_commit": "c10c00ad9a299d92d1a48eb43d5f8d37640d8bdd",
+  "status": "PASS",
+  "exit_code": 0,
+  "actual_command_exit_code": 0,
+  "expected_command_exit_code": 0,
+  "at": "2026-11-17T19:23:06.089174+00:00",
+  "command": [
+    "python",
+    "-B",
+    "tools/agents/workspace_doctor.py",
+    "--profile",
+    "config/agents/runtime.json"
+  ],
+  "summary": "Current source/runtime identity checked read-only",
+  "stdout_sha256": "0f5b5280bcd3db239a7c6a6a564d9b2ca26801f4f924011b142f71b04b93d111",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "selected_result": {
+    "checks": [
+      {
+        "check": "profile",
+        "status": "PASS"
+      },
+      {
+        "check": "source_path",
+        "status": "PASS"
+      },
+      {
+        "check": "git_identity",
+        "status": "PASS"
+      },
+      {
+        "check": "source_directory",
+        "status": "PASS"
+      },
+      {
+        "check": "engine_identity",
+        "status": "PASS"
+      },
+      {
+        "check": "service_rails",
+        "status": "PASS"
+      },
+      {
+        "check": "service_vite",
+        "status": "PASS"
+      },
+      {
+        "check": "service_sidekiq",
+        "status": "PASS"
+      }
+    ],
+    "status": "HEALTHY"
+  }
+}
