@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from workflow import WorkflowError, load, validate_task, verify_handoff
+from workflow import WorkflowError, verify_task_set
 
 
 def git(root, *args):
@@ -17,7 +17,7 @@ def git(root, *args):
 def scan_file(path, data):
     issues = []
     parts = [x.casefold() for x in path.split('/')]
-    if '.env' in parts or Path(path).suffix.casefold() in ['.dump', '.rdb', '.sqlite', '.sqlite3', '.vhdx']:
+    if any(p == '.env' or (p.startswith('.env.') and p != '.env.example') for p in parts) or Path(path).suffix.casefold() in ['.dump', '.rdb', '.sqlite', '.sqlite3', '.vhdx']:
         issues.append('sensitive_file_type')
     text = data.decode('utf-8-sig', errors='replace')
     patterns = {
@@ -32,6 +32,22 @@ def scan_file(path, data):
     return issues
 
 
+def index_snapshot(root):
+    """Checks the full index against the working files used by Python/tests, including deletions."""
+    paths = git(root, 'ls-files', '-z').decode().split('\0')
+    paths = [p for p in paths if p]
+    findings = []
+    for path in paths:
+        target = Path(root) / path
+        if not target.is_file() or target.read_bytes() != git(root, 'show', ':' + path):
+            findings.append({'path': path, 'check': 'staged_working_mismatch'})
+    removed = git(root, 'diff', '--cached', '--name-only', '--diff-filter=D', '-z').decode().split('\0')
+    for path in filter(None, removed):
+        if (Path(root) / path).exists():
+            findings.append({'path': path, 'check': 'staged_deleted_but_working_exists'})
+    return paths, findings
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--staged', action='store_true')
@@ -40,32 +56,27 @@ def main():
     root = Path(__file__).resolve().parents[2]
     try:
         if args.staged:
-            paths = git(root, 'diff', '--cached', '--name-only', '--diff-filter=ACMR').decode().splitlines()
+            paths, findings = index_snapshot(root)
         else:
-            paths = git(root, 'ls-files').decode().splitlines()
-        findings = []
+            paths = [p for p in git(root, 'ls-files', '-z').decode().split('\0') if p]
+            findings = []
+        if findings:
+            print(json.dumps({'status': 'BLOCKED', 'findings': findings}))
+            return 2
         for path in paths:
             data = git(root, 'show', ':' + path) if args.staged else (root / path).read_bytes()
-            if args.staged and (root / path).read_bytes() != data:
-                findings.append({'path': path, 'check': 'staged_working_mismatch'})
             findings.extend({'path': path, 'check': issue} for issue in scan_file(path, data))
         if findings:
             print(json.dumps({'status': 'BLOCKED', 'findings': findings}))
             return 2
-        tasks = list((root / 'tasks').glob('*/task.json'))
-        for task_path in tasks:
-            validate_task(load(task_path))
-            handoff, review = task_path.parent / 'handoff.json', task_path.parent / 'review.json'
-            if handoff.exists() and review.exists():
-                verify_handoff(root, task_path, handoff, review)
-            elif args.require_handoffs:
-                raise WorkflowError('Task lacks handoff/review: ' + task_path.parent.name)
+        tasks = [root / p for p in paths if re.fullmatch(r'tasks/[^/]+/task\.json', p)]
+        task_result = verify_task_set(root, tasks, args.require_handoffs)
         environment = os.environ.copy()
         environment['PYTHONDONTWRITEBYTECODE'] = '1'
         result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-v'], cwd=root, env=environment)
         if result.returncode:
             return result.returncode
-        print(json.dumps({'status': 'PASS', 'files_scanned': len(paths), 'tasks_validated': len(tasks),
+        print(json.dumps({'status': 'PASS', 'files_scanned': len(paths), **task_result,
                           'limits': 'Pattern scan and contract checks do not attest all secrets, execution truth, reviewer identity or product acceptance'}))
         return 0
     except (WorkflowError, OSError, subprocess.SubprocessError, json.JSONDecodeError, ValueError) as error:

@@ -22,7 +22,9 @@ def relative_file(value):
     require(chr(92) not in value and ':' not in value, 'Ambiguous or absolute path')
     require(not any(p.casefold() in ('', '.', '..', '.git') for p in value.split('/')), 'Unsafe path')
     require(not any(c in value for c in '*?[]'), 'Exact file paths are required')
-    require(Path(value).name.casefold() not in ('.env', 'auth.json', 'credentials.json'), 'Secret file path is forbidden')
+    name = Path(value).name.casefold()
+    require(name not in ('.env', 'auth.json', 'credentials.json') and
+            not (name.startswith('.env.') and name != '.env.example'), 'Secret file path is forbidden')
     return value
 
 
@@ -50,6 +52,10 @@ def validate_task(task):
         require(len(set(task[key])) == len(task[key]), 'Duplicate entries: ' + key)
     for path in task['write_scope']:
         relative_file(path)
+    require(isinstance(task.get('bound_inputs'), list), 'Declare bound_inputs, empty only when no file input affects the result')
+    require(len(set(task['bound_inputs'])) == len(task['bound_inputs']), 'Duplicate bound inputs')
+    for path in task['bound_inputs']:
+        relative_file(path)
     relative_file(task['role_brief'])
     relative_file(task['evidence_location'].rstrip('/') + '/placeholder.json')
     require(isinstance(task.get('environment'), dict) and task['environment'].get('runtime_access') in ['read-only', 'exclusive-write'], 'Declare runtime access')
@@ -69,7 +75,23 @@ def checked_artifact(root, task, path):
     return target.read_bytes()
 
 
-def verify_handoff(root, task_path, handoff_path, review_path):
+def file_at(root, commit, path):
+    relative_file(path)
+    entries = git(root, 'ls-tree', '-z', commit, '--', path)
+    if not entries:
+        return None
+    return git(root, 'show', commit + ':' + path)
+
+
+def current_matches(root, commit, path):
+    expected = file_at(root, commit, path)
+    require(file_at(root, 'HEAD', path) == expected, 'Reviewed code/input differs from current HEAD: ' + path)
+    target = Path(root) / path
+    actual = target.read_bytes() if target.is_file() else None
+    require(actual == expected, 'Working file differs from reviewed code/input: ' + path)
+
+
+def verify_handoff(root, task_path, handoff_path, review_path, check_current=True):
     task = validate_task(load(task_path))
     handoff, review = load(handoff_path), load(review_path)
     require(isinstance(handoff, dict) and isinstance(review, dict), 'Handoff and review must be objects')
@@ -80,16 +102,22 @@ def verify_handoff(root, task_path, handoff_path, review_path):
     baseline = resolve_commit(root, task['baseline_commit'])
     require(subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', baseline, base], capture_output=True).returncode == 0, 'Implementation base does not descend from task baseline')
     require(subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', base, subject], capture_output=True).returncode == 0, 'Subject does not descend from implementation base')
-    paths = git(root, 'diff', '--name-only', base, subject).decode().splitlines()
+    paths = [p for p in git(root, 'diff', '--name-only', '-z', base, subject).decode().split('\0') if p]
     require(paths and set(paths).issubset(task['write_scope']), 'Committed change outside task write scope')
     require(set(handoff.get('changed_files', [])) == set(paths), 'Handoff changed files disagree with Git')
-    for path in paths:
-        require(git(root, 'show', subject + ':' + path) == git(root, 'show', 'HEAD:' + path), 'Reviewed code differs from current HEAD: ' + path)
-        require((Path(root) / path).read_bytes() == git(root, 'show', 'HEAD:' + path), 'Working file differs from reviewed code: ' + path)
     require(review.get('reviewed_commit') == subject, 'Review refers to stale/wrong commit')
     require(review.get('reviewer') and review['reviewer'] != handoff['implementer'], 'Implementer cannot be independent reviewer')
     require(review.get('result') == 'PASS' and review.get('blocking_findings') == [], 'Review is not clear of blocking findings')
     require(review.get('limits'), 'Review must state its limits')
+    inputs = handoff.get('input_hashes')
+    require(isinstance(inputs, dict) and set(inputs) == set(task['bound_inputs']), 'Bound input hashes disagree with task')
+    require(review.get('input_hashes') == inputs, 'Review input hashes disagree with handoff')
+    for path, digest in inputs.items():
+        data = file_at(root, subject, path)
+        require(data is not None and hashlib.sha256(data).hexdigest() == digest, 'Input differs from reviewed subject: ' + path)
+    if check_current:
+        for path in set(paths) | set(inputs):
+            current_matches(root, subject, path)
     records = handoff.get('checks', [])
     require(isinstance(records, list) and all(isinstance(r, dict) for r in records), 'Checks must be object records')
     require(len({r.get('name') for r in records}) == len(records), 'Duplicate check names')
@@ -105,9 +133,33 @@ def verify_handoff(root, task_path, handoff_path, review_path):
         require(artifact.get('subject_commit') == subject, 'Evidence refers to a different code commit')
         require(artifact.get('status') == 'PASS' and artifact.get('exit_code') == 0, 'Receipt does not record a passing check')
     require(handoff.get('next_step') and handoff.get('open_issues') is not None, 'Missing handoff continuation')
-    return {'status': 'READY_FOR_OWNER', 'task_id': task['id'], 'subject_commit': subject,
-            'reviewer': review['reviewer'], 'changed_files': paths,
+    return {'status': 'READY_FOR_OWNER' if check_current else 'REVIEW_RECORD_VALID', 'task_id': task['id'], 'subject_commit': subject,
+            'reviewer': review['reviewer'], 'changed_files': paths, 'bound_inputs': sorted(inputs),
             'limits': 'Version/scope/receipt consistency only; no identity attestation, test truth guarantee or product acceptance'}
+
+
+def verify_task_set(root, task_paths, require_handoffs=False):
+    """Keep historical reviews valid; current bytes must match the latest reviewed owner per path."""
+    owners = {}
+    for task_path in task_paths:
+        task = validate_task(load(task_path))
+        handoff, review = task_path.parent / 'handoff.json', task_path.parent / 'review.json'
+        if not (handoff.is_file() and review.is_file()):
+            require(not require_handoffs, 'Task lacks handoff/review: ' + task['id'])
+            continue
+        result = verify_handoff(root, task_path, handoff, review, check_current=False)
+        subject = result['subject_commit']
+        require(subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', subject, 'HEAD'], capture_output=True).returncode == 0,
+                'Reviewed subject is not integrated in HEAD: ' + task['id'])
+        for path in result['changed_files'] + result['bound_inputs']:
+            owners.setdefault(path, set()).add(subject)
+    for path, commits in owners.items():
+        latest = [candidate for candidate in commits if all(
+            subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', earlier, candidate], capture_output=True).returncode == 0
+            for earlier in commits)]
+        require(len(latest) == 1, 'Ambiguous overlapping reviewed owners: ' + path)
+        current_matches(root, latest[0], path)
+    return {'tasks_validated': len(task_paths), 'current_review_bound_paths': len(owners)}
 
 
 def render_brief(root, role, task_path):
@@ -132,6 +184,7 @@ def main():
     parser.add_argument('--role', choices=['coordinator', 'implementer', 'reviewer'])
     parser.add_argument('--handoff')
     parser.add_argument('--review')
+    parser.add_argument('--historical', action='store_true', help='Validate a historical record, without declaring current HEAD ready')
     args = parser.parse_args()
     try:
         if args.action == 'validate':
@@ -142,7 +195,7 @@ def main():
             print(render_brief(args.repo, args.role, args.task))
         else:
             require(args.handoff and args.review, '--handoff and --review are required')
-            print(json.dumps(verify_handoff(args.repo, args.task, args.handoff, args.review), ensure_ascii=False))
+            print(json.dumps(verify_handoff(args.repo, args.task, args.handoff, args.review, check_current=not args.historical), ensure_ascii=False))
         return 0
     except (WorkflowError, OSError, subprocess.SubprocessError, json.JSONDecodeError, KeyError, TypeError) as error:
         print(json.dumps({'status': 'BLOCKED', 'error': str(error)}, ensure_ascii=False))

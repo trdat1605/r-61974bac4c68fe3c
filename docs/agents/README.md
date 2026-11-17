@@ -40,7 +40,11 @@ Git hook được version-control và có thể gọi theo từng lệnh, không
 git -c core.hooksPath=.githooks commit -m "type(scope): description"
 ```
 
-Hook gọi repository_check, chặn khi staged/working khác hoặc contract/checks không đạt. Dùng Git trực tiếp hoặc no-verify có thể bỏ qua; CI cũng chưa là required check. Không gọi hai cơ chế này là chính sách quản trị không thể vượt. Trạng thái hook/CI đã thực chạy xem state và evidence, không suy từ file tồn tại.
+Hook này dành cho commit bàn giao/tích hợp đã có review, không phải commit implementation đầu tiên chưa thể có review exact commit. Implementation tạo commit trên nhánh riêng sau checks; bước bàn giao sau đó mới dùng hook có --require-handoffs.
+
+Hook kiểm toàn index so với các file working được tests đọc, gồm deletion; chặn snapshot khác nhau hoặc contract/checks không đạt. Dùng Git trực tiếp/no-verify có thể bỏ qua; CI chưa là required check. Không gọi đây là chính sách quản trị không thể vượt. Trạng thái hook/CI thực chạy xem state/evidence.
+
+Phiếu khai báo `bound_inputs` cho cấu hình/tệp ảnh hưởng kết quả. Handoff và review cùng ghi SHA256 các input tại subject commit. Gate toàn repo giữ review lịch sử, rồi chọn owner review mới nhất theo Git ancestry cho từng code/input path; bytes hiện tại phải khớp. Sau này sửa cùng tệp cần task/review mới, không sửa receipt cũ hoặc khóa nó mãi ở HEAD cũ. Lệnh handoff có `--historical` chỉ trả REVIEW_RECORD_VALID cho hồ sơ cũ, không READY_FOR_OWNER.
 
 ## Bàn giao và tiếp tục
 

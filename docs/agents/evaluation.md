@@ -19,6 +19,9 @@ Ngày18/11/2026. Không chấm bằng số lượng tài liệu/agent/test. Phâ
 3. Một lệnh shell ghi nhóm docs bị công cụ chặn. Chuyển sang công cụ sửa tệp chuyên dụng; không đổi permissions hoặc bypass. Không suy đó là lỗi model/runtime của Chatwoot.
 4. README bootstrap trỏ docs chưa tạo trong lúc worker bắt đầu. Worker báo rõ thay vì giả đã đọc; coordinator hoàn thiện docs trước bàn giao. Kiểm liên kết cuối để không để lại lỗi bàn giao.
 5. JSON bằng chứng ghi trên Windows có CRLF, làm whitespace check không đạt và cần chuẩn hóa trước khi hash. Đã dùng LF và cập nhật digest receipts; gitattributes versioned quy định line endings. Không đổi cấu hình Git/global locale để giấu kết quả không đạt.
+6. Review toàn gói tại commit050c6ac bị BLOCK với ba fixture thật: staged deletion còn file working bị bỏ lọt, task cũ chặn task mới sửa cùng tệp, scanner bỏ lọt .env.production. Đã sửa kiểm toàn index/deletion, review lịch sử với owner mới nhất theo tệp, và họ env files; thêm regression tests. Kết quả review lại xem evidence/system-review.json, không coi test cũ xanh là đủ.
+7. Review cũng chỉ ra profile dependency chưa bind bytes. Phiếu/handoff/review hiện khai báo input hashes; đổi profile ngoài task review mới bị chặn. Đây là bổ sung theo rủi ro cấu hình thực, không tuyên bố xác thực mọi input ngoài danh sách.
+8. Probe hook đầu chỉ phân tích stdout, trong khi Git đưa output hook vào stderr; sửa phép thu và xác nhận commit fixture bị chặn, không thay hook hoặc làm sai kết quả để pass.
 
 ## Mở / NOT_RUN
 

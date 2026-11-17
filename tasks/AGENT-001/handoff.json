@@ -38,5 +38,8 @@
   ],
   "next_step": "Product owner reviews Draft PR; retain read-only runtime and do not merge automatically",
   "receiver": "coordinator, then product owner",
-  "status": "awaiting_product_owner"
+  "status": "awaiting_product_owner",
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271"
+  }
 }

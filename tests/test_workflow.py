@@ -37,6 +37,9 @@ class ContentChecks(unittest.TestCase):
 
     def test_sensitive_data_files_block_and_normal_task_is_clean(self):
         self.assertIn('sensitive_file_type', repository_check.scan_file('.env', b'fixture'))
+        self.assertIn('sensitive_file_type', repository_check.scan_file('.env.production', b'fixture'))
+        self.assertIn('sensitive_file_type', repository_check.scan_file('nested/.ENV.local', b'fixture'))
+        self.assertEqual(repository_check.scan_file('.env.example', b'PUBLIC_SETTING=placeholder'), [])
         self.assertIn('sensitive_file_type', repository_check.scan_file('fixture.dump', b'fixture'))
         self.assertEqual(repository_check.scan_file('task.json', b'{"status":"NOT_RUN"}'), [])
 
@@ -85,7 +88,8 @@ class GitFixture(unittest.TestCase):
         self.git('config', 'user.email', 'fixture@localhost')
         self.git('config', 'core.autocrlf', 'false')
         self.write('code.py', 'print(1)\n')
-        self.git('add', '--', 'code.py')
+        self.write('profile.json', '{"revision":1}\n')
+        self.git('add', '--', 'code.py', 'profile.json')
         self.git('commit', '-m', 'fixture base')
         self.base = self.git('rev-parse', 'HEAD').strip()
 
@@ -109,7 +113,7 @@ class Handoffs(GitFixture):
         self.git('commit', '-m', 'fixture subject')
         self.subject = self.git('rev-parse', 'HEAD').strip()
         self.task = workflow.load(ROOT / 'tasks/AGENT-001/task.json')
-        self.task.update(baseline_commit=self.base, write_scope=['code.py'], checks=['unit'])
+        self.task.update(baseline_commit=self.base, write_scope=['code.py'], bound_inputs=['profile.json'], checks=['unit'])
         self.receipt = {'subject_commit': self.subject, 'status': 'PASS', 'exit_code': 0}
         self.evidence = 'tasks/AGENT-001/evidence/unit.json'
         self.write(self.evidence, json.dumps(self.receipt))
@@ -119,9 +123,11 @@ class Handoffs(GitFixture):
                         'changed_files': ['code.py'], 'next_step': 'owner review', 'open_issues': [],
                         'checks': [{'name': 'unit', 'status': 'PASS', 'exit_code': 0,
                                     'evidence': self.evidence, 'sha256': digest}]}
+        self.handoff['input_hashes'] = {'profile.json': hashlib.sha256((self.root / 'profile.json').read_bytes()).hexdigest()}
         self.review = {'task_id': 'AGENT-001', 'reviewer': 'different-reviewer',
                        'reviewed_commit': self.subject, 'result': 'PASS', 'blocking_findings': [],
                        'limits': ['Synthetic receipt does not attest execution truth']}
+        self.review['input_hashes'] = self.handoff['input_hashes'].copy()
 
     def verify(self):
         for name, value in [('task.json', self.task), ('handoff.json', self.handoff), ('review.json', self.review)]:
@@ -165,6 +171,52 @@ class Handoffs(GitFixture):
         self.write('code.py', 'print(3)\n')
         with self.assertRaises(workflow.WorkflowError):
             self.verify()
+
+    def test_changed_bound_profile_requires_new_review(self):
+        self.write('profile.json', '{"revision":2}\n')
+        self.git('add', '--', 'profile.json')
+        self.git('commit', '-m', 'unreviewed profile change')
+        with self.assertRaises(workflow.WorkflowError):
+            self.verify()
+
+    def test_historical_review_and_later_reviewed_edit_can_coexist(self):
+        self.verify()
+        self.write('code.py', 'print(3)\n')
+        self.git('add', '--', 'code.py')
+        self.git('commit', '-m', 'second task subject')
+        subject2 = self.git('rev-parse', 'HEAD').strip()
+        task2 = copy.deepcopy(self.task)
+        task2.update(id='AGENT-002', evidence_location='tasks/AGENT-002/evidence/')
+        handoff2 = copy.deepcopy(self.handoff)
+        handoff2.update(task_id='AGENT-002', implementation_base=self.subject, subject_commit=subject2)
+        review2 = copy.deepcopy(self.review)
+        review2.update(task_id='AGENT-002', reviewed_commit=subject2)
+        path2 = 'tasks/AGENT-002/evidence/unit.json'
+        self.write(path2, json.dumps({'subject_commit': subject2, 'status': 'PASS', 'exit_code': 0}))
+        handoff2['checks'][0].update(evidence=path2, sha256=hashlib.sha256((self.root / path2).read_bytes()).hexdigest())
+        for name, data in [('task.json', task2), ('handoff.json', handoff2), ('review.json', review2)]:
+            self.write('second/' + name, json.dumps(data))
+        paths = [self.root / 'task.json', self.root / 'second/task.json']
+        result = workflow.verify_task_set(self.root, paths, require_handoffs=True)
+        self.assertEqual(result['tasks_validated'], 2)
+        historical = workflow.verify_handoff(self.root, paths[0], self.root / 'handoff.json', self.root / 'review.json', check_current=False)
+        self.assertEqual(historical['status'], 'REVIEW_RECORD_VALID')
+        self.write('code.py', 'print(4)\n')
+        with self.assertRaises(workflow.WorkflowError):
+            workflow.verify_task_set(self.root, paths, require_handoffs=True)
+
+
+class IndexSnapshot(GitFixture):
+    def test_staged_deletion_with_working_file_remaining_is_blocked(self):
+        self.git('rm', '--cached', '--', 'code.py')
+        paths, findings = repository_check.index_snapshot(self.root)
+        self.assertNotIn('code.py', paths)
+        self.assertIn({'path': 'code.py', 'check': 'staged_deleted_but_working_exists'}, findings)
+
+    def test_unstaged_working_code_cannot_supply_passing_tests_for_other_index(self):
+        self.write('code.py', 'print(999)\n')
+        _, findings = repository_check.index_snapshot(self.root)
+        self.assertIn({'path': 'code.py', 'check': 'staged_working_mismatch'}, findings)
 
 
 class Claims(GitFixture):

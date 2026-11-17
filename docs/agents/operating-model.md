@@ -34,7 +34,7 @@ Chọn coordinator + subagents, tuần tự hóa ghi cùng phạm vi/runtime. Ch
 5. Lưu commit và PASS/FAIL/NOT_RUN; không sửa dữ liệu/test để hợp thức hóa kết quả.
 6. Reviewer ngữ cảnh riêng nhận spec/base/subject và hashes; tự đọc diff/nguồn, chạy kiểm tra hoặc ghi rõ giới hạn receipts.
 7. Finding cần điều kiện lỗi, ảnh hưởng, vị trí, căn cứ và phép xác minh. Sửa rồi review commit mới. Sau ba vòng chưa hội tụ xem lại hướng, không tự cho qua.
-8. Tích hợp local sau review và kiểm tổ hợp. Code thay sau review phải kiểm lại phần ảnh hưởng. Bàn giao next step/open issues/receiver rồi tạo Draft PR.
+8. Tích hợp local sau review và kiểm tổ hợp. Code/input thay sau review phải có kiểm tra/review mới cho phần ảnh hưởng. Review cũ giữ giá trị lịch sử; gate chọn owner mới nhất theo tệp, không yêu cầu code tương lai luôn bằng mọi phiên bản cũ. Bàn giao next step/open issues/receiver rồi tạo Draft PR.
 
 ## Cấu hình được nạp và giới hạn
 

@@ -15,5 +15,9 @@
     "Shared machine permissions, not a security boundary",
     "No product/UI acceptance"
   ],
-  "recorded_by": "coordinator from reviewer tool message; reviewer did not write this file"
+  "recorded_by": "coordinator from reviewer tool message; reviewer did not write this file",
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271"
+  },
+  "input_hash_note": "Profile SHA verified in original independent task review and exact brief; normalized as explicit binding after system review finding"
 }

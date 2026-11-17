@@ -59,5 +59,8 @@
   "reviewer": "independent reviewer assigned by coordinator",
   "receiver": "coordinator, then product owner",
   "role_brief": "agents/codex/implementer.md",
-  "status": "specified"
+  "status": "specified",
+  "bound_inputs": [
+    "config/agents/runtime.json"
+  ]
 }

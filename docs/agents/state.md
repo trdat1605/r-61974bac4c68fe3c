@@ -22,6 +22,6 @@ Ngày: 18/11/2026. Coordinator: phiên Codex hiện tại. Đây là repo quản
 | repository_check + hook | Checker có content/contract/tests; hook chỉ theo lệnh git -c | Chưa cài hook global/shared Git config. Kết quả lệnh commit có hook phải ghi riêng khi thực hiện |
 | GitHub workflow | File CI pin actions, quyền contents:read, không runtime access | Trước publish chưa có run; kết quả live xem Draft PR/checks và bằng chứng cập nhật, không tự là required check |
 
-Tests coordinator đã chạy: Windows33/33, Ubuntu33 cases với1 Windows-specific skip; không dùng số lượng làm điểm chất lượng. Reviewer task ban đầu chạy15 doctor tests, không gắn nhãn họ đã chạy toàn framework. Chưa có kết luận full product hoặc hiệu năng mới.
+Tests coordinator sau các lỗi review đã chạy: Windows37/37, Ubuntu37 cases với1 Windows-specific skip; không dùng số lượng làm điểm chất lượng. Reviewer task ban đầu chạy15 doctor tests; review toàn gói vòng1 đã BLOCK và ghi trong evidence/system-review.json. Cần review lại commit sửa, không gắn nhãn test xanh là review pass. Chưa có kết luận full product hoặc hiệu năng mới.
 
 Các tài liệu lịch sử11/11 nói chưa có kho/chưa chạy app đã bị checkpoint hiện tại và PR1 thay thế trong phạm vi agent-ops. Không sửa hoặc xóa lịch sử ấy. Repo canonical mới là trdat1605/chatwoot-vn; runtime source vẫn có remote upstream riêng. Phiên mở riêng app chưa được chứng minh tự nạp policy control repo, nên điều phối phải truyền brief/context rõ.
