@@ -10,6 +10,8 @@ Ngày thiết lập: 18/11/2026. Trạng thái triển khai/kiểm chứng hiệ
 
 [PR nền móng #1](https://github.com/trdat1605/chatwoot-vn/pull/1) là baseline. Nhánh agent-ops dựa trên head PR1 để tái dùng báo cáo, không sửa năm báo cáo lịch sử đó. Draft PR mới phụ thuộc PR1, không merge PR1 trong nhiệm vụ này.
 
+[Draft PR agent-ops #2](https://github.com/trdat1605/chatwoot-vn/pull/2) dùng base `review/project-foundation`. [CI đầu tiên của PR](https://github.com/trdat1605/chatwoot-vn/actions/runs/44165473970) đã đạt tại head70a0df6; bản chứng cứ ghi riêng commit checkout thực. Kết quả các revision mới hơn xem checks trong PR, không suy từ kết quả cũ.
+
 ## Lệnh dùng từ root repo điều phối
 
 Yêu cầu Python 3.10+ và Git; máy đã thử dùng Python Windows3.13.5. Không cần cài package Python ngoài standard library. Repo này dùng Git Windows, không dùng Git Linux để đọc metadata worktree trỏ đường dẫn Windows.

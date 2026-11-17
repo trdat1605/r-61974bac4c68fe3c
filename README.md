@@ -5,5 +5,6 @@ Kho riêng tư này lưu báo cáo, cấu hình không bí mật và công cụ 
 - [Bắt đầu làm việc với agent](docs/agents/README.md).
 - [Trạng thái hiện hành và việc còn mở](docs/agents/state.md).
 - [Báo cáo nền móng của PR #1](docs/reviews/project-foundation/README.md).
+- [Draft PR #2 — vận hành agent](https://github.com/trdat1605/chatwoot-vn/pull/2), phụ thuộc PR #1; xem checks hiện tại tại PR.
 
 Nhánh agent-ops phụ thuộc PR #1; chưa merge hoặc nghiệm thu sản phẩm. Đọc AGENTS.md trước khi thực hiện. Không lưu thông tin đăng nhập, dữ liệu khách hàng hoặc bản sao database trong kho này.
