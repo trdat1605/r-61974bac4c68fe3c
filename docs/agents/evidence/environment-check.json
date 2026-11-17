@@ -1,0 +1,58 @@
+{
+  "at": "2026-11-17T19:48:38.100071+00:00",
+  "tested_commit": "c2fdd6423c74e0a00a2718d5d080eb5748673788",
+  "status": "PASS",
+  "doctor_exit_code": 0,
+  "doctor": {
+    "checks": [
+      {
+        "check": "profile",
+        "status": "PASS"
+      },
+      {
+        "check": "source_path",
+        "status": "PASS"
+      },
+      {
+        "check": "git_identity",
+        "status": "PASS"
+      },
+      {
+        "check": "source_directory",
+        "status": "PASS"
+      },
+      {
+        "check": "engine_identity",
+        "status": "PASS"
+      },
+      {
+        "check": "service_rails",
+        "status": "PASS"
+      },
+      {
+        "check": "service_vite",
+        "status": "PASS"
+      },
+      {
+        "check": "service_sidekiq",
+        "status": "PASS"
+      }
+    ],
+    "status": "HEALTHY"
+  },
+  "source_status": [
+    {
+      "checkout": "application_linux",
+      "exit_code": 0,
+      "clean": true
+    },
+    {
+      "checkout": "old_windows_checkout",
+      "exit_code": 0,
+      "clean": true
+    }
+  ],
+  "shared_core_hooks_path_unset": true,
+  "profile_sha256": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+  "limits": "Current observation, not proof no external process ran. No runtime restart/config/data mutation in this probe; no new UI/performance/upgrade measurement."
+}

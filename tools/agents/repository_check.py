@@ -14,6 +14,16 @@ def git(root, *args):
     return subprocess.check_output(['git', '-C', str(root), *args], stderr=subprocess.PIPE)
 
 
+def test_environment(root, source=None):
+    """Foreign Git fixtures must not inherit the caller hook's repository/index/config."""
+    environment = dict(os.environ if source is None else source)
+    names = git(root, 'rev-parse', '--local-env-vars').decode().splitlines()
+    for name in names:
+        environment.pop(name, None)
+    environment['PYTHONDONTWRITEBYTECODE'] = '1'
+    return environment
+
+
 def scan_file(path, data):
     issues = []
     parts = [x.casefold() for x in path.split('/')]
@@ -71,8 +81,7 @@ def main():
             return 2
         tasks = [root / p for p in paths if re.fullmatch(r'tasks/[^/]+/task\.json', p)]
         task_result = verify_task_set(root, tasks, args.require_handoffs, allowed_artifacts=set(paths))
-        environment = os.environ.copy()
-        environment['PYTHONDONTWRITEBYTECODE'] = '1'
+        environment = test_environment(root)
         result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-v'], cwd=root, env=environment)
         if result.returncode:
             return result.returncode

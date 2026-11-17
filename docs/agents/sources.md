@@ -38,3 +38,5 @@ Collaboration tools của phiên: spawn/followup/send/wait/list; bốn slot tổ
 CLI help xác nhận exec --ephemeral, --sandbox read-only và --json. Probe loading/sandbox phải có evidence riêng; không dùng --trust hoặc bỏ sandbox để ép thành công. Role briefs của dự án được đọc rõ, không tự giả native role discovery. Git hook và GitHub CI là cơ chế khác native Codex hooks.
 
 [actions/checkout](https://github.com/actions/checkout) và [setup-python](https://github.com/actions/setup-python) được đọc từ nguồn chính thức; CI pin commit refs đã tra API và fetch history để kiểm handoff theo commit. Không tự bật required checks, cấp quyền hoặc merge.
+
+[Git hooks](https://git-scm.com/docs/githooks), mục DESCRIPTION, được mở/đọc thêm18/11 khi positive hook lộ lỗi: Git export Git-local environment; khi chạy Git trong kho khác cần loại các biến này. Dùng danh sách tên từ `git rev-parse --local-env-vars` theo ví dụ chính thức. Áp dụng: chỉ làm sạch môi trường test subprocess/foreign fixtures; checker vẫn cần index của kho gọi hook. Không gọi đây là cô lập bảo mật.

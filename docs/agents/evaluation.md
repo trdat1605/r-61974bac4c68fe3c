@@ -8,7 +8,7 @@ Ngày18/11/2026. Không chấm bằng số lượng tài liệu/agent/test. Phâ
 | Phạm vi và bảo toàn | Worker commit chỉ hai tệp; source app sạch; claims qua common Gitdir và tests tranh claim/worktree | Đạt phạm vi thử; editor không dùng helper vẫn có thể ghi |
 | Yêu cầu thực tế | Doctor chặn nhầm checkout được PR1 xác nhận là nguy cơ thật | Có ích cho preflight, không là một feature Zalo hoặc cải thiện UI |
 | Review đúng phiên bản | review.json gắn exact subject; validator/tests stale commit và code thay sau review | Kiểm được quan hệ commit/bytes; không xác thực danh tính reviewer bằng chữ ký |
-| Agent mới tiếp tục | Role briefs/task được worker đọc; CLI mới nhận policy ID tự nạp | Có bằng chứng nạp và tiếp nhận giới hạn; chưa thử mọi tình huống mất context hoặc máy khác |
+| Agent mới tiếp tục | CLI mới nhận policy ID tự nạp; agent fresh-context tìm đúng mục tiêu/source/quyền/lệnh/trạng thái và chạy handoff | evidence/fresh-handover.json tại050c6ac là phép thử tiếp nhận lịch sử; không kiểm gate sửa sau đó hoặc mọi tình huống mất context/máy khác |
 | Cấu hình tái dùng | Root rules/roles/profile/tools versioned; brief đọc role map, tests chạy không cần package ngoài | Profile lab cần thay theo máy/task; không triển khai native Claude/Codex role/hook chưa thử |
 | Hỗ trợ cập nhật | Source ref, profile và policy tách khỏi app; ADR yêu cầu kiểm compatibility/delta | Chưa nâng cấp Chatwoot hoặc thử rollback/full integrations |
 
@@ -24,6 +24,7 @@ Ngày18/11/2026. Không chấm bằng số lượng tài liệu/agent/test. Phâ
 8. Probe hook đầu chỉ phân tích stdout, trong khi Git đưa output hook vào stderr; sửa phép thu và xác nhận commit fixture bị chặn, không thay hook hoặc làm sai kết quả để pass.
 9. Fresh clone Windows ở commit9bf đổi .gitattributes/.gitignore thành CRLF do thiếu quy định LF cho chính hai tệp này. Checker chặn cả checkout sạch, nên kết quả negative khi ấy không chứng minh chặn thiếu acceptance. Đã thêm hai quy định LF; clone mới kiểm sạch đạt và hook chặn đúng missing acceptance. Giữ lỗi đo trong receipt mới, không thay global autocrlf.
 10. Review vòng2 phát hiện handoff staged có thể đọc receipt untracked; commit sẽ thiếu bằng chứng và CI checkout sạch sẽ lỗi. Đã xem lại ranh giới gate: kiểm toàn index chưa đủ, phải đóng tập artifact được đọc. Bổ sung index membership cho task/handoff/review/receipts, cùng ca untracked bị chặn và staged hợp lệ. Không mở rộng thành tuyên bố test hermetic hay xác thực mọi lời khai.
+11. Positive hook thật sau PASS059 phát hiện Git-local environment đi vào fixtures, khiến Git ở thư mục thử sửa nhầm metadata kho điều phối: tạo một commit local ngoài ý muốn chứa metadata đã stage và hai fixture paths, đổi một số Git config. Đã dừng publish, giữ bundle/config/index ngoài Git, phục hồi đúng nhánh/index bằng old-SHA guard và giữ hashes các tệp công việc. Config đã tái dựng các mục xác định, không có snapshot trước sự cố để khẳng định byte-identical. PASS059 không còn là kết luận toàn gói. Đọc lại tài liệu Git, xem lại ranh giới checker/test thay vì chỉ lặp review; sửa môi trường test theo Git-local vars, giữ index thực cho checker. Positive hook mới phải chứng minh không đổi config/ngoại vi, chỉ tạo commit/tree dự kiến trong clone tạm trước khi dùng lại tại root.
 
 ## Mở / NOT_RUN
 

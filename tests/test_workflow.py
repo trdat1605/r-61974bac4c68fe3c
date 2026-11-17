@@ -83,6 +83,7 @@ class GitFixture(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name) / 'repo'
         self.root.mkdir()
+        self.environment = repository_check.test_environment(ROOT)
         self.git('init', '-b', 'fixture')
         self.git('config', 'user.name', 'Fixture')
         self.git('config', 'user.email', 'fixture@localhost')
@@ -97,7 +98,7 @@ class GitFixture(unittest.TestCase):
         self.temp.cleanup()
 
     def git(self, *args):
-        return subprocess.check_output(['git', '-C', str(self.root), *args], text=True, stderr=subprocess.PIPE)
+        return subprocess.check_output(['git', '-C', str(self.root), *args], text=True, stderr=subprocess.PIPE, env=self.environment)
 
     def write(self, name, value):
         p = self.root / name
@@ -228,6 +229,18 @@ class Handoffs(GitFixture):
 
 
 class IndexSnapshot(GitFixture):
+    def test_hook_git_environment_is_removed_only_for_foreign_test_process(self):
+        contaminated = os.environ.copy()
+        names = self.git('rev-parse', '--local-env-vars').splitlines()
+        for name in names:
+            contaminated[name] = 'fixture-hook-value'
+        contaminated['GIT_TERMINAL_PROMPT'] = '0'
+        clean = repository_check.test_environment(self.root, contaminated)
+        self.assertTrue(all(name not in clean for name in names))
+        self.assertEqual(clean['GIT_TERMINAL_PROMPT'], '0')
+        self.assertEqual(clean['PYTHONDONTWRITEBYTECODE'], '1')
+        self.assertEqual(contaminated['GIT_DIR'], 'fixture-hook-value')
+
     def test_staged_deletion_with_working_file_remaining_is_blocked(self):
         self.git('rm', '--cached', '--', 'code.py')
         paths, findings = repository_check.index_snapshot(self.root)
