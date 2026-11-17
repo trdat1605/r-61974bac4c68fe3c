@@ -22,6 +22,8 @@ Ngày18/11/2026. Không chấm bằng số lượng tài liệu/agent/test. Phâ
 6. Review toàn gói tại commit050c6ac bị BLOCK với ba fixture thật: staged deletion còn file working bị bỏ lọt, task cũ chặn task mới sửa cùng tệp, scanner bỏ lọt .env.production. Đã sửa kiểm toàn index/deletion, review lịch sử với owner mới nhất theo tệp, và họ env files; thêm regression tests. Kết quả review lại xem evidence/system-review.json, không coi test cũ xanh là đủ.
 7. Review cũng chỉ ra profile dependency chưa bind bytes. Phiếu/handoff/review hiện khai báo input hashes; đổi profile ngoài task review mới bị chặn. Đây là bổ sung theo rủi ro cấu hình thực, không tuyên bố xác thực mọi input ngoài danh sách.
 8. Probe hook đầu chỉ phân tích stdout, trong khi Git đưa output hook vào stderr; sửa phép thu và xác nhận commit fixture bị chặn, không thay hook hoặc làm sai kết quả để pass.
+9. Fresh clone Windows ở commit9bf đổi .gitattributes/.gitignore thành CRLF do thiếu quy định LF cho chính hai tệp này. Checker chặn cả checkout sạch, nên kết quả negative khi ấy không chứng minh chặn thiếu acceptance. Đã thêm hai quy định LF; clone mới kiểm sạch đạt và hook chặn đúng missing acceptance. Giữ lỗi đo trong receipt mới, không thay global autocrlf.
+10. Review vòng2 phát hiện handoff staged có thể đọc receipt untracked; commit sẽ thiếu bằng chứng và CI checkout sạch sẽ lỗi. Đã xem lại ranh giới gate: kiểm toàn index chưa đủ, phải đóng tập artifact được đọc. Bổ sung index membership cho task/handoff/review/receipts, cùng ca untracked bị chặn và staged hợp lệ. Không mở rộng thành tuyên bố test hermetic hay xác thực mọi lời khai.
 
 ## Mở / NOT_RUN
 

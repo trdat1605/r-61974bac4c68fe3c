@@ -44,6 +44,8 @@ Hook này dành cho commit bàn giao/tích hợp đã có review, không phải 
 
 Hook kiểm toàn index so với các file working được tests đọc, gồm deletion; chặn snapshot khác nhau hoặc contract/checks không đạt. Dùng Git trực tiếp/no-verify có thể bỏ qua; CI chưa là required check. Không gọi đây là chính sách quản trị không thể vượt. Trạng thái hook/CI thực chạy xem state/evidence.
 
+Repository checker còn yêu cầu task/handoff/review và mọi receipt được dùng phải có trong index. Một tệp bằng chứng chỉ có trên máy sẽ bị chặn. Lệnh handoff riêng là phép chẩn đoán hồ sơ; để bàn giao phải chạy repository checker. Gate chưa tạo môi trường test kín hoàn toàn hoặc xác thực lời khai trong receipt.
+
 Phiếu khai báo `bound_inputs` cho cấu hình/tệp ảnh hưởng kết quả. Handoff và review cùng ghi SHA256 các input tại subject commit. Gate toàn repo giữ review lịch sử, rồi chọn owner review mới nhất theo Git ancestry cho từng code/input path; bytes hiện tại phải khớp. Sau này sửa cùng tệp cần task/review mới, không sửa receipt cũ hoặc khóa nó mãi ở HEAD cũ. Lệnh handoff có `--historical` chỉ trả REVIEW_RECORD_VALID cho hồ sơ cũ, không READY_FOR_OWNER.
 
 ## Bàn giao và tiếp tục

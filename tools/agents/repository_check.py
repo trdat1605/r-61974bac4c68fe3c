@@ -70,7 +70,7 @@ def main():
             print(json.dumps({'status': 'BLOCKED', 'findings': findings}))
             return 2
         tasks = [root / p for p in paths if re.fullmatch(r'tasks/[^/]+/task\.json', p)]
-        task_result = verify_task_set(root, tasks, args.require_handoffs)
+        task_result = verify_task_set(root, tasks, args.require_handoffs, allowed_artifacts=set(paths))
         environment = os.environ.copy()
         environment['PYTHONDONTWRITEBYTECODE'] = '1'
         result = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'discover', '-s', 'tests', '-v'], cwd=root, env=environment)

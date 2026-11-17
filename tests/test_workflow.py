@@ -137,6 +137,27 @@ class Handoffs(GitFixture):
     def test_consistent_handoff_ready_not_owner_accepted(self):
         self.assertEqual(self.verify()['status'], 'READY_FOR_OWNER')
 
+    def test_untracked_consumed_receipt_blocks_then_staged_receipt_passes(self):
+        self.verify()
+        self.git('add', '--', 'task.json', 'handoff.json', 'review.json')
+        def gate():
+            paths, findings = repository_check.index_snapshot(self.root)
+            self.assertEqual(findings, [])
+            return workflow.verify_task_set(self.root, [self.root / 'task.json'], True, set(paths))
+        with self.assertRaisesRegex(workflow.WorkflowError, 'Consumed artifact is not in index: tasks/AGENT-001/evidence/unit.json'):
+            gate()
+        self.git('add', '--', self.evidence)
+        self.assertEqual(gate()['tasks_validated'], 1)
+
+    def test_untracked_task_handoff_or_review_cannot_supply_gate(self):
+        self.verify()
+        self.git('add', '--', 'task.json', 'handoff.json', 'review.json', self.evidence)
+        paths, findings = repository_check.index_snapshot(self.root)
+        self.assertEqual(findings, [])
+        for name in ['task.json', 'handoff.json', 'review.json']:
+            with self.subTest(name=name), self.assertRaisesRegex(workflow.WorkflowError, 'Consumed artifact is not in index: ' + name):
+                workflow.verify_task_set(self.root, [self.root / 'task.json'], True, set(paths) - {name})
+
     def test_stale_review_blocked(self):
         self.review['reviewed_commit'] = self.base
         with self.assertRaises(workflow.WorkflowError):

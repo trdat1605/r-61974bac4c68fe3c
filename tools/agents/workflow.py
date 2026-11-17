@@ -66,10 +66,17 @@ def validate_task(task):
     return task
 
 
-def checked_artifact(root, task, path):
+def require_indexed_artifact(root, path, allowed_artifacts):
+    if allowed_artifacts is not None:
+        name = Path(path).resolve().relative_to(Path(root).resolve()).as_posix()
+        require(name in allowed_artifacts, 'Consumed artifact is not in index: ' + name)
+
+
+def checked_artifact(root, task, path, allowed_artifacts=None):
     relative_file(path)
     require(path.startswith(task['evidence_location'].rstrip('/') + '/'), 'Evidence outside task evidence directory')
     target = Path(root) / path
+    require_indexed_artifact(root, target, allowed_artifacts)
     require(not any(p.is_symlink() for p in [target, *target.parents] if p != Path(root).parent), 'Symlink evidence is unsupported')
     require(target.resolve().is_relative_to(Path(root).resolve()) and target.is_file(), 'Missing evidence file')
     return target.read_bytes()
@@ -91,7 +98,9 @@ def current_matches(root, commit, path):
     require(actual == expected, 'Working file differs from reviewed code/input: ' + path)
 
 
-def verify_handoff(root, task_path, handoff_path, review_path, check_current=True):
+def verify_handoff(root, task_path, handoff_path, review_path, check_current=True, allowed_artifacts=None):
+    for path in [task_path, handoff_path, review_path]:
+        require_indexed_artifact(root, path, allowed_artifacts)
     task = validate_task(load(task_path))
     handoff, review = load(handoff_path), load(review_path)
     require(isinstance(handoff, dict) and isinstance(review, dict), 'Handoff and review must be objects')
@@ -126,7 +135,7 @@ def verify_handoff(root, task_path, handoff_path, review_path, check_current=Tru
         require(name in by_name, 'Missing required check: ' + name)
         record = by_name[name]
         require(record.get('status') == 'PASS' and record.get('exit_code') == 0, 'Required check did not pass: ' + name)
-        data = checked_artifact(root, task, record.get('evidence', ''))
+        data = checked_artifact(root, task, record.get('evidence', ''), allowed_artifacts)
         require(hashlib.sha256(data).hexdigest() == record.get('sha256'), 'Evidence bytes changed after handoff: ' + name)
         artifact = json.loads(data.decode('utf-8-sig'))
         require(isinstance(artifact, dict), 'Evidence receipt must be an object')
@@ -138,7 +147,7 @@ def verify_handoff(root, task_path, handoff_path, review_path, check_current=Tru
             'limits': 'Version/scope/receipt consistency only; no identity attestation, test truth guarantee or product acceptance'}
 
 
-def verify_task_set(root, task_paths, require_handoffs=False):
+def verify_task_set(root, task_paths, require_handoffs=False, allowed_artifacts=None):
     """Keep historical reviews valid; current bytes must match the latest reviewed owner per path."""
     owners = {}
     for task_path in task_paths:
@@ -147,7 +156,7 @@ def verify_task_set(root, task_paths, require_handoffs=False):
         if not (handoff.is_file() and review.is_file()):
             require(not require_handoffs, 'Task lacks handoff/review: ' + task['id'])
             continue
-        result = verify_handoff(root, task_path, handoff, review, check_current=False)
+        result = verify_handoff(root, task_path, handoff, review, check_current=False, allowed_artifacts=allowed_artifacts)
         subject = result['subject_commit']
         require(subprocess.run(['git', '-C', str(root), 'merge-base', '--is-ancestor', subject, 'HEAD'], capture_output=True).returncode == 0,
                 'Reviewed subject is not integrated in HEAD: ' + task['id'])
