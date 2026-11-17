@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-17T20:01:30.028324+00:00",
+  "tested_commit": "af22b1397ce054a130fb413dd3bca65f98236110",
+  "status": "PASS",
+  "files_scanned": 44,
+  "pattern_findings": [],
+  "broken_relative_links": [],
+  "unexpected_paths_vs_PR1": [],
+  "foundation_reports_unchanged": true,
+  "limits": "Selected secret patterns and path/link checks, plus coordinator content review of authored diff; not a guarantee every secret can be detected. App and five historical reports excluded from change."
+}

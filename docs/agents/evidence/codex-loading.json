@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-18T02:20:21+07:00",
+  "cli": "0.169.0-alpha.11.1",
+  "argv_options": [
+    "exec",
+    "--ephemeral",
+    "--sandbox",
+    "read-only",
+    "--json",
+    "-C <control-repo>"
+  ],
+  "policy_file_sha256": "77cd9b0df0804a37128cf69880becbd6a9c5f6399ee6cf7c0195577373b78d45",
+  "exit_code": 0,
+  "status": "PASS",
+  "final_selected": {
+    "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+    "entrypoint": "docs/agents/README.md",
+    "is_application_repository": false,
+    "runtime_write_allowed": false,
+    "merge_allowed": false
+  },
+  "observed_item_types": [
+    "agent_message"
+  ],
+  "raw_transcript_outside_git": true,
+  "limits": "No write-denial or complete policy compliance test; confirms automatic instruction visibility for this invocation only"
+}

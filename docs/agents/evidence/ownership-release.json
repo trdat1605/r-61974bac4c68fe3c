@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-17T19:54:38.555813+00:00",
+  "owner": "AGENT-001",
+  "status": "RELEASED",
+  "resources": [
+    "file:tools/agents/workspace_doctor.py",
+    "file:tests/test_workspace_doctor.py"
+  ],
+  "basis": "Worker exact commit independently reviewed and locally integrated; doctor bytes unchanged in full tooling review059aef12",
+  "limits": "Cooperative common-Gitdir claims only; no source/runtime mutation"
+}

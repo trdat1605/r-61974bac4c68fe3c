@@ -1,0 +1,52 @@
+{
+  "at": "2026-11-17T20:05:42.815808+00:00",
+  "status": "PASS",
+  "runs": [
+    {
+      "conclusion": "success",
+      "headSha": "70a0df6c71deafb9b6fc14250292f9f681ad6f0e",
+      "jobs": [
+        {
+          "name": "contracts-and-tests",
+          "conclusion": "success",
+          "url": "https://github.com/trdat1605/chatwoot-vn/actions/runs/44165473970/job/134330232656"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/trdat1605/chatwoot-vn/actions/runs/44165473970",
+      "selected_test_summary": [
+        "Ran 40 tests in 1.248s",
+        "OK (skipped=1)",
+        "{\"status\": \"PASS\", \"files_scanned\": 46, \"tasks_validated\": 1, \"current_review_bound_paths\": 3, \"limits\": \"Pattern scan and contract checks do not attest all secrets, execution truth, reviewer identity or product acceptance\"}"
+      ],
+      "event": "pull_request",
+      "run_id": "44165473970",
+      "checkout_commit_observed_in_log": "14fcc4e3d0e063c2fd9dc8b2f9c2526a45de80c4",
+      "ref_note": "run headSha identifies PR head; checkout_commit records actual checkout (PR merge ref may differ)"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "70a0df6c71deafb9b6fc14250292f9f681ad6f0e",
+      "jobs": [
+        {
+          "name": "contracts-and-tests",
+          "conclusion": "success",
+          "url": "https://github.com/trdat1605/chatwoot-vn/actions/runs/44165446555/job/134330142567"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/trdat1605/chatwoot-vn/actions/runs/44165446555",
+      "selected_test_summary": [
+        "Ran 40 tests in 3.183s",
+        "OK (skipped=1)",
+        "{\"status\": \"PASS\", \"files_scanned\": 46, \"tasks_validated\": 1, \"current_review_bound_paths\": 3, \"limits\": \"Pattern scan and contract checks do not attest all secrets, execution truth, reviewer identity or product acceptance\"}"
+      ],
+      "event": "push",
+      "run_id": "44165446555",
+      "checkout_commit_observed_in_log": "70a0df6c71deafb9b6fc14250292f9f681ad6f0e",
+      "ref_note": "run headSha identifies PR head; checkout_commit records actual checkout (PR merge ref may differ)"
+    }
+  ],
+  "limits": "CI Ubuntu24.04/Python3.13 tooling checks only; Windows-only claim test skipped on Linux; no live app/runtime access, not a required branch check",
+  "extraction_note": "Checkout SHA parsed from end of git-log output line after timestamp; action SHA in step label is not checkout revision. Initial uncommitted extraction corrected before publication."
+}

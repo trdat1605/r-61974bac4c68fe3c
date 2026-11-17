@@ -1,0 +1,3 @@
+#!/bin/sh
+# Invocation-scoped: git -c core.hooksPath=.githooks commit ...
+exec python -B tools/agents/repository_check.py --staged --require-handoffs
