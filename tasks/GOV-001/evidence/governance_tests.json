@@ -1,0 +1,15 @@
+{
+  "command": "python -B -m unittest discover -s tests -v",
+  "tests": 80,
+  "duration_seconds": 86.32,
+  "log": "tasks/GOV-001/evidence/governance-tests.txt",
+  "limits": [
+    "Tools/test bytes unchanged at subject; noapplication/runtime tests",
+    "LocalWindows run; hostedLinux results separate"
+  ],
+  "task_id": "GOV-001",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "a4e3dbd520d95fd27266ba539b6f6ab08900a31e",
+  "date": "2026-11-23"
+}

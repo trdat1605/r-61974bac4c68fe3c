@@ -1,0 +1,23 @@
+{
+  "command": "Run reviewed GitHubREST setup/negativeprobes/actualPRCI fail-to-pass/readiness and cleanup; exactrulesetmainreadback, alloldheadsguards, appActionsdisabled",
+  "evidence": [
+    "execution.json",
+    "ruleset-plan-review.json",
+    "cleanup-review.json",
+    "execution-script.py.txt",
+    "cleanup-script.snapshot.json"
+  ],
+  "limits": [
+    "No actualmerge, runtime/appsource/billing changes",
+    "Synthetic PUB-001 content replay, notGOV-001productdelivery or businessacceptance",
+    "Freshheadmissingcheck probe deniedbyPRrule; separate directFFsuite proves statuscheckFAIL",
+    "Onlydefaultmain protected; feature/stack branches not protected",
+    "ZeroGitHubapprovals soleowner; agentreview nothumanGitHubapproval",
+    "Admincanmodifysettings; workflows require review, apphasno productCI"
+  ],
+  "task_id": "GOV-001",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "a4e3dbd520d95fd27266ba539b6f6ab08900a31e",
+  "date": "2026-11-23"
+}

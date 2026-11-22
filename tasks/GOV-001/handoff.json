@@ -1,0 +1,56 @@
+{
+  "task_id": "GOV-001",
+  "implementer": "root_branch_protection",
+  "implementation_branch": "codex/branch-protection",
+  "implementation_base": "f3048145f5d7143c1a666d4e89911cd950092af5",
+  "subject_commit": "a4e3dbd520d95fd27266ba539b6f6ab08900a31e",
+  "changed_files": [
+    "README.md",
+    "config/github/app-main.ruleset.json",
+    "config/github/control-main.ruleset.json",
+    "docs/agents/README.md",
+    "docs/development/branch-protection.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/review-and-merge.md",
+    "docs/status.md"
+  ],
+  "checks": [
+    {
+      "name": "ruleset_contract_and_scope",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/GOV-001/evidence/ruleset_contract_and_scope.json",
+      "sha256": "d0ddb122249dfdcc6c1dd02a64dc0ed41d424b7f7bdd93bb95f08e98250d57b5"
+    },
+    {
+      "name": "live_enforcement",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/GOV-001/evidence/live_enforcement.json",
+      "sha256": "8357db8eb43eb55ad41e8366d8d0a4ea6b3d721925c3b44f46c0fb1fd555d543"
+    },
+    {
+      "name": "governance_tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/GOV-001/evidence/governance_tests.json",
+      "sha256": "ba37840e0fdd01210a1f6c85cf79abd63a2f6b70b9b91fd0d4f85064f357b17a"
+    }
+  ],
+  "input_hashes": {
+    "config/github/control-main.ruleset.json": "7c995bcd74295c73fa2b702eaf0790aa95b029a1a96fe8cba417ae7f402ad9e2",
+    "config/github/app-main.ruleset.json": "c34090d842245a9c97671e0a9cdd6da41ae88c4c202ce38bb0513edbee442a66",
+    "config/agents/repositories.json": "3d917599e4d6aa0df9b79bbe90ee30ee8dba5a5c524717424ccbb101ddcf19ab"
+  },
+  "receiver": "product owner",
+  "status": "awaiting_product_owner",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/15",
+  "open_issues": [
+    "Only main protected; oldDraftPRstack integration needs plan/checks and separate mergepermission",
+    "ZeroGitHubapprovals soleowner; noindependent humanreviewer configured, agentreviews nothumanGitHubapprovals",
+    "Application Actionsdisabled/no productCI; sourcebootstrap/freshenv/pilot/Zalo/mobile/upgrades remainpending",
+    "Syntheticreadiness tests notactualmerge or productacceptance; freshheadmissingcheckquirk andexpectedfailedjob preserved",
+    "Admincanmodify policy; requiredGitHubActions source notattestationworkflowcorrectness"
+  ],
+  "next_step": "Stage sanitized exacthandoff/review/checkreceipts; strictrepositoryhook; pushcodex/branch-protection; dependentDraftPR basedcodex/repository-publication andverifyhostedCI. No merges/release. Nextscopedwork: portable sourcebootstrap+isolatedfreshsetup and productpilot; stackintegration plan separately needed for main."
+}

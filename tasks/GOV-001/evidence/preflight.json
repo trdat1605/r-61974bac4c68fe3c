@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1461752107,
+    "repository": "trdat1605/r-61974bac4c68fe3c",
+    "default_branch": "main",
+    "branches": {
+      "codex/agent-operating-system": "344f3a8a6315d1a5814479caa54434e571df3033",
+      "codex/docs-home": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+      "codex/knowledge-handoff": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+      "codex/product-foundation": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+      "codex/repository-publication": "3feef9bc3de94748bfda61d01c2093dee79056b4",
+      "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+      "review/project-foundation": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3"
+    },
+    "branch_protected": {
+      "codex/agent-operating-system": false,
+      "codex/docs-home": false,
+      "codex/knowledge-handoff": false,
+      "codex/product-foundation": false,
+      "codex/repository-publication": false,
+      "main": false,
+      "review/project-foundation": false
+    },
+    "rulesets": [],
+    "collaborators": [
+      {
+        "login": "trdat1605",
+        "role": "admin"
+      }
+    ],
+    "actions_enabled": true,
+    "merge_methods": {
+      "allow_merge_commit": true,
+      "allow_squash_merge": true,
+      "allow_rebase_merge": true
+    },
+    "open_prs": [
+      {
+        "number": 14,
+        "draft": true,
+        "head": "codex/repository-publication",
+        "sha": "3feef9bc3de94748bfda61d01c2093dee79056b4",
+        "base": "codex/product-foundation"
+      },
+      {
+        "number": 12,
+        "draft": true,
+        "head": "codex/product-foundation",
+        "sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+        "base": "codex/knowledge-handoff"
+      },
+      {
+        "number": 4,
+        "draft": true,
+        "head": "codex/knowledge-handoff",
+        "sha": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+        "base": "codex/docs-home"
+      },
+      {
+        "number": 3,
+        "draft": true,
+        "head": "codex/docs-home",
+        "sha": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+        "base": "codex/agent-operating-system"
+      },
+      {
+        "number": 2,
+        "draft": true,
+        "head": "codex/agent-operating-system",
+        "sha": "344f3a8a6315d1a5814479caa54434e571df3033",
+        "base": "review/project-foundation"
+      },
+      {
+        "number": 1,
+        "draft": true,
+        "head": "review/project-foundation",
+        "sha": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3",
+        "base": "main"
+      }
+    ],
+    "check_sources": [
+      {
+        "name": "issue-and-product-record",
+        "app_id": 15368,
+        "app_slug": "github-actions",
+        "status": "completed",
+        "conclusion": "success",
+        "sha": "3feef9bc3de94748bfda61d01c2093dee79056b4"
+      },
+      {
+        "name": "contracts-and-tests",
+        "app_id": 15368,
+        "app_slug": "github-actions",
+        "status": "completed",
+        "conclusion": "success",
+        "sha": "3feef9bc3de94748bfda61d01c2093dee79056b4"
+      }
+    ]
+  },
+  {
+    "id": 1467945011,
+    "repository": "trdat1605/s-251521f7e9131fb0",
+    "default_branch": "main",
+    "branches": {
+      "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+    },
+    "branch_protected": {
+      "main": false
+    },
+    "rulesets": [],
+    "collaborators": [
+      {
+        "login": "trdat1605",
+        "role": "admin"
+      }
+    ],
+    "actions_enabled": false,
+    "merge_methods": {
+      "allow_merge_commit": true,
+      "allow_squash_merge": true,
+      "allow_rebase_merge": true
+    },
+    "open_prs": [],
+    "check_sources": []
+  }
+]

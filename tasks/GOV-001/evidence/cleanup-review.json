@@ -1,0 +1,18 @@
+{
+  "task_id": "GOV-001",
+  "reviewer": "/root/branch_rules_plan_review",
+  "result": "PASS",
+  "blocking_findings": [],
+  "cleanup_script_sha256": "c01c92de8a3e44285dacbf906d2572859f088587550e5e04077608dd1629b106",
+  "helper_script_sha256": "fb6f04e8f85d7db35f601a886fd965a58e047f117e8aa75d888f38541242e044",
+  "recorded_by": "Coordinator transcribed independent reviewer final output",
+  "independently_checked": [
+    "Concrete cleanup script exactowned ruleset/policy/heads/refsSHAguards, closeonlyown unmergedPR, PUTpreservesmain removesonlyprobetarget, effective mainreadback then ownedrefdelete",
+    "PublicAPI active rulesets27859154/27859157 exactdefault+probe targets andallheads matched receipt"
+  ],
+  "limits": [
+    "Reviewer didnotrun cleanup; no mutation",
+    "Missingcheck freshhead suite5294561172 statusrulePASS andPRruleFAIL; onlyseparate directFFsuite5294561671 proves2expectedstatuschecksFAIL",
+    "Cleanup notautomaticallyresumable; inspectreceipt/review correctiveaction onfailure"
+  ]
+}
