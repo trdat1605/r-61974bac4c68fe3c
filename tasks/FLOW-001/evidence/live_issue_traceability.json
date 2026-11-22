@@ -1,0 +1,66 @@
+{
+  "subject_commit": "48f8a14ffcad7c5c5051ab5041c85074c60a620f",
+  "limits": [
+    "Event payload constructed locally for planned PR body; issue existence/identity checked live. Actual hosted PR check follows publication.",
+    "Does not prove issue quality, app behaviour, server merge enforcement or owner acceptance"
+  ],
+  "commands": [
+    "python -B tools/agents/product_check.py pr --repo . --expected-repository trdat1605/chatwoot-vn --event <synthetic-body-event>",
+    "gh api repos/trdat1605/chatwoot-vn/issues?state=open&per_page=100 (read-only selected metadata)"
+  ],
+  "observed_local_date": "2026-11-23",
+  "exit_code": 0,
+  "results": {
+    "checker": {
+      "status": "PR_TRACEABILITY_VALID",
+      "task_id": "FLOW-001",
+      "issues_checked": 1,
+      "limits": "Consistency only: no reviewer identity or execution-truth attestation, product acceptance, security certification or merge enforcement"
+    },
+    "issues": [
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/11",
+        "number": 11,
+        "state": "open",
+        "title": "DOCS-003: Đồng bộ trạng thái và bản bàn giao có nguồn"
+      },
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/10",
+        "number": 10,
+        "state": "open",
+        "title": "GOV-003: Kiểm soát review, merge và giới hạn gói GitHub private"
+      },
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/9",
+        "number": 9,
+        "state": "open",
+        "title": "QA-001: Thiết lập kiểm thử sản phẩm và pilot Chatwoot thực tế"
+      },
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/8",
+        "number": 8,
+        "state": "open",
+        "title": "ENV-001: Quản lý source Chatwoot và cấu hình tái lập trong kho riêng tư"
+      },
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/7",
+        "number": 7,
+        "state": "open",
+        "title": "GOV-002: Liên kết GitHub issue, phiếu agent và PR bằng kiểm tra"
+      },
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/6",
+        "number": 6,
+        "state": "open",
+        "title": "GOV-001: Lựa chọn mô hình agent bằng bằng chứng và eval"
+      },
+      {
+        "html_url": "https://github.com/trdat1605/chatwoot-vn/issues/5",
+        "number": 5,
+        "state": "open",
+        "title": "PROD-001: Triển khai và kiểm chứng quy trình công việc sản phẩm"
+      }
+    ]
+  },
+  "status": "PASS"
+}

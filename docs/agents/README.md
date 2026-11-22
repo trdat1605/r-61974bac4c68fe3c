@@ -8,6 +8,8 @@ Ngày thiết lập: 18/11/2026. [README dự án](../../README.md) là cửa v�
 4. Kiểm script/commands và bằng chứng ở từng phiếu; dùng PASS/FAIL/NOT_RUN. Không tự thao tác runtime dùng chung.
 5. Handoff ghi đúng commit, checks, reviewer và next step; chủ sản phẩm còn quyết định cuối. Chưa merge.
 
+Công việc sản phẩm dùng [G1–G10](../development/product-workflow.md), [tracker bảy cải tiến](../development/improvement-tracker.md) và [pilot](../development/pilot.md). Issue là nơi giữ yêu cầu; task giữ brief/phạm vi/checks, PR giữ diff và bằng chứng đúng bản. Công cụ `product_check.py plan|verify|pr` bổ sung traceability; không thay test app, quyền GitHub hoặc core handoff gate. GitHub rulesets private hiện bị giới hạn gói, xem [review/merge](../development/review-and-merge.md).
+
 [PR nền móng #1](https://github.com/trdat1605/chatwoot-vn/pull/1) là baseline. Nhánh agent-ops dựa trên head PR1 để tái dùng báo cáo, không sửa năm báo cáo lịch sử đó. Draft PR mới phụ thuộc PR1, không merge PR1 trong nhiệm vụ này.
 
 [Draft PR agent-ops #2](https://github.com/trdat1605/chatwoot-vn/pull/2) dùng base `review/project-foundation`. [CI đầu tiên của PR](https://github.com/trdat1605/chatwoot-vn/actions/runs/44165473970) đã đạt tại head70a0df6; bản chứng cứ ghi riêng commit checkout thực. Kết quả các revision mới hơn xem checks trong PR, không suy từ kết quả cũ.

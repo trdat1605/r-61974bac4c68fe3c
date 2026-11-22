@@ -1,0 +1,17 @@
+{
+  "observed_local_date": "2026-11-23",
+  "stage": "pre-subject integration test",
+  "command": "python -B -m unittest discover -s tests -v",
+  "initial_result": {
+    "status": "FAIL",
+    "tests_run": 62,
+    "errors": 19,
+    "elapsed_seconds": 46.511,
+    "pattern": "22 new product-check cases passed; legacy Git fixture calls then failed with exit128"
+  },
+  "investigation_by": "/root/product_workflow_design",
+  "root_cause": "Test patch.dict(os.environ) restored Python mapping but Windows native child environment lost an empty GIT_CONFIG_VALUE_0, producing missing config value in later inherited Git calls.",
+  "repair_scope": "Only new test environment simulation; no core tooling or global Git config changes. Use patched module environment mapping instead of clearing/updating process OS environment.",
+  "retest": "Result at final subject will be recorded separately; initial failing result retained.",
+  "limits": "Failure was tooling test-process environment, not an observed Chatwoot runtime error."
+}

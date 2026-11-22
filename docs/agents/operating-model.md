@@ -10,7 +10,7 @@ Ngày quyết định: 18/11/2026. [Nguồn](sources.md), [baseline PR1](https:/
 | Coordinator + subagents theo nhiệm vụ | Khảo sát độc lập, implementer sở hữu phạm vi, reviewer nhận bản ổn định | Phải giao đủ brief/ref và thu bằng chứng; không tăng agent chỉ để đặt chức danh |
 | Nhiều phiên/team | Các phần độc lập, cần đối thoại và tài nguyên đã kiểm | Claude Agent teams là tính năng thử nghiệm của Claude, chưa triển khai ở đây; worktrees không tách runtime |
 
-Chọn coordinator + subagents, tuần tự hóa ghi cùng phạm vi/runtime. Chọn theo phụ thuộc và khả năng kiểm chứng, không tối ưu số token hoặc số agent. Bốn slot là giới hạn của phiên, không quy mô tối ưu.
+Chọn coordinator + subagents, tuần tự hóa ghi cùng phạm vi/runtime. Đây là lựa chọn tạm có thử nghiệm ở phạm vi docs/tooling, chưa được chứng minh tối ưu cho công việc sản phẩm Chatwoot; chưa A/B native Agent Teams. Chọn theo phụ thuộc và khả năng kiểm chứng, không tối ưu số token hoặc số agent. Bốn slot là giới hạn của phiên, không quy mô tối ưu. [Nguồn nghiên cứu/giới hạn và kế hoạch eval](../development/agent-selection.md).
 
 ## Trách nhiệm và quyết định
 
@@ -26,6 +26,8 @@ Chọn coordinator + subagents, tuần tự hóa ghi cùng phạm vi/runtime. Ch
 `READY_FOR_OWNER` chỉ là sẵn sàng để người dùng quyết định khi đủ checks/review áp dụng. Không dùng Done hoặc tests pass đơn lẻ. PR nhiệm vụ này vẫn Draft, chưa merge.
 
 ## Trình tự
+
+Trình tự dưới đây là workflow kỹ thuật của agent từ ngày18/11; quy trình công việc sản phẩm đầy đủ và các cổng mới xem [product-workflow.md](../development/product-workflow.md). Không coi đoạn lịch sử này đã thực hiện issue/merge/release hoặc cổng sản phẩm G1–G10.
 
 1. Đọc state/task và nguồn theo tuyến; kiểm repo/ref/runtime. Không giả định các việc source/config/UI/performance của PR1 đã xong.
 2. Phiếu JSON ghi mục tiêu, repo/branch/base, application ref, acceptance, scope/ảnh hưởng, phụ thuộc/điều kiện bắt đầu, môi trường/quyền, checks/evidence, điều kiện dừng và receiver. Task AGENT-001 là mẫu thực, không sao chép nguyên giá trị cho việc khác.

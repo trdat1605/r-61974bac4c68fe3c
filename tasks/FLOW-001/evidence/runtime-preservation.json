@@ -1,0 +1,16 @@
+{
+  "observed_local_date": "2026-11-23",
+  "status": "OBSERVED",
+  "source_head": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "source_git_status": "",
+  "source_branch": "codex/wsl-migration",
+  "commands": [
+    "wsl.exe -d Ubuntu-22.04 --exec git -C /root/code/chatwoot-worktrees/wsl-preflight rev-parse HEAD",
+    "same explicit Git status --short and branch --show-current"
+  ],
+  "task_scope": "No app source/runtime/config/DB/container mutation performed; source baseline copied through Git objects to new private remote only",
+  "limits": [
+    "Git clean does not attest ignored-file bytes or DB data",
+    "No application UI/runtime measurement repeated in governance task"
+  ]
+}

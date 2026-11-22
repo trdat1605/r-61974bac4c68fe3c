@@ -1,0 +1,23 @@
+{
+  "observed_local_date": "2026-11-23",
+  "repository": "https://github.com/trdat1605/chatwoot-vn",
+  "private": true,
+  "has_issues": true,
+  "permissions_observed": {
+    "admin": true,
+    "push": true,
+    "pull": true
+  },
+  "rulesets_probe": {
+    "command": "gh api repos/trdat1605/chatwoot-vn/rulesets",
+    "status": "BLOCKED",
+    "http_status": 403,
+    "message": "Upgrade to GitHub Pro or make this repository public to enable this feature."
+  },
+  "changes_applied": [],
+  "disposition": "Private visibility retained; no paid plan, branch rules, repository permissions or required checks changed. Prepare policy and record limitation; do not claim enforcement.",
+  "limits": [
+    "No negative server merge-denial proof",
+    "Local hook/CI successful execution does not establish server required checks"
+  ]
+}

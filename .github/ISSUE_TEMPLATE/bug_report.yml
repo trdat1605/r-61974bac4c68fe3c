@@ -1,0 +1,34 @@
+name: Báo lỗi sản phẩm
+description: Ghi hành vi sai, cách tái hiện và tiêu chí kiểm chứng.
+title: "bug: "
+body:
+  - type: markdown
+    attributes:
+      value: "Không đính kèm .env, token, dump hoặc log khách hàng. Đây là thu thập yêu cầu, không phải bằng chứng issue đã được nghiệm thu."
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Hành vi thực tế và mong đợi
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Cách tái hiện
+      description: Bước thao tác và dữ liệu tổng hợp tối thiểu.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Repository, commit và môi trường
+      description: Phân biệt app source và kho điều phối; không gửi credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Tiêu chí đạt và rủi ro
+      description: AC-01, AC-02; scope/ngoài scope, regression cần bắt và phần chưa biết.
+    validations:
+      required: true

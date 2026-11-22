@@ -1,0 +1,24 @@
+{
+  "actions_enabled_before": false,
+  "branches_before": 0,
+  "private_after": true,
+  "actions_enabled_after": false,
+  "plan_sha256": "d98c9a27c720598298027772857395aa84ab1493a9aeaa70db248e1f4a8eb52d",
+  "status": "OBSERVED",
+  "observed_local_date": "2026-11-23",
+  "private_before": true,
+  "push_scope": "exact SHA:refs/heads/main, --no-follow-tags; no mirror/all/tags/force",
+  "default_branch": "main",
+  "target_repository": "https://github.com/trdat1605/chatwoot-vn-app",
+  "limits": [
+    "Only upstream source baseline shared; adapters/reproduction/product CI and tests NOT_RUN",
+    "No application runtime source/config or database mutation; data backup remains separate"
+  ],
+  "source_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "source_checkout_after": {
+    "head": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "branch": "codex/wsl-migration",
+    "tracked_and_untracked_status": ""
+  },
+  "push_warning": "Public upstream ONNX model about65.78MB exceeds GitHub recommended50MB; push succeeded. No LFS/history rewrite performed."
+}
