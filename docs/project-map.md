@@ -2,11 +2,13 @@
 
 Quyết định dự án ngày **23/11/2026** trong nhiệm vụ [DOCS-001](../tasks/DOCS-001/task.json), bổ sung nguồn/tuyến đọc trong [DOCS-002](../tasks/DOCS-002/task.json). Đây là bố trí áp dụng cho hiện trạng; chưa chứng minh là phương án tối ưu bằng benchmark.
 
+[PUB-001](development/repository-publication.md) ghi quyết định đổi tên và công khai hai kho ngày 23/11. Tên/visibility trong hồ sơ lịch sử giữ nguyên theo ngày ghi; map ID/alias dùng cho kiểm tra hiện hành.
+
 ## Bản chính của từng loại thông tin
 
 | Loại thông tin | Nơi dùng làm bản chính | Cách sử dụng / giới hạn |
 | --- | --- | --- |
-| Điểm bắt đầu | [README gốc](../README.md) của kho riêng tư [trdat1605/chatwoot-vn](https://github.com/trdat1605/chatwoot-vn) | Người có quyền truy cập đọc trên web hoặc clone. Bộ mới ở nhánh `codex/knowledge-handoff`, nối tiếp `codex/docs-home`; chưa có trên main |
+| Điểm bắt đầu | [README gốc](../README.md) của kho công khai [trdat1605/r-61974bac4c68fe3c](https://github.com/trdat1605/r-61974bac4c68fe3c) | Đọc trên web hoặc clone. Bộ mới ở nhánh `codex/repository-publication`, nối tiếp các Draft PR; chưa có trên main |
 | Trạng thái dự án | [status.md](status.md) | Người bàn giao cập nhật khi có kết quả mới, dẫn tới bằng chứng có ngày; không dùng báo cáo cũ như trạng thái hôm nay |
 | Danh tính source/runtime | [runtime.json](../config/agents/runtime.json) | Là profile máy hiện có, không là template triển khai. Source app ở Linux; kho tài liệu chưa chứa source app |
 | Cách chạy local | [local-development.md](runbooks/local-development.md) | Dùng trên máy hiện có; thiếu adapter local trong Git nên chưa là hướng dẫn cài máy mới |

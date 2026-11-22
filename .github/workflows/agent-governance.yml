@@ -41,4 +41,5 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python -B tools/agents/product_check.py pr --repo . --expected-repository trdat1605/chatwoot-vn
+          EXPECTED_REPOSITORY: ${{ github.repository }}
+        run: python -B tools/agents/product_check.py pr --repo . --expected-repository "$EXPECTED_REPOSITORY"

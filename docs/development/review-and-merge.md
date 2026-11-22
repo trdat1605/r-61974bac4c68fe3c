@@ -1,10 +1,12 @@
 # Review, CI và quyền merge thực tế
 
-Ngày **23/11/2026**, [GOV-003 / issue #10](https://github.com/trdat1605/chatwoot-vn/issues/10). Owner quyết định quyền: chủ sản phẩm. Coordinator chuẩn bị, reviewer khác kiểm; không tự merge/phát hành.
+Ngày **23/11/2026**, [GOV-003 / issue #10](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10). Owner quyết định quyền: chủ sản phẩm. Coordinator chuẩn bị, reviewer khác kiểm; không tự merge/phát hành.
 
 ## Trạng thái quan sát
 
-Kho control là private; API xác nhận quyền admin của tài khoản nhưng GET rulesets trả **HTTP403: Upgrade to GitHub Pro or make this repository public**. Đây là giới hạn gói GitHub quan sát được, không phải lý do đổi public hoặc mua gói. Không có server enforcement được nghiệm thu trong lượt này.
+**Lịch sử FLOW-001 trước chuyển đổi:** kho control là private; API xác nhận quyền admin của tài khoản nhưng GET rulesets trả **HTTP403: Upgrade to GitHub Pro or make this repository public**. Đây là giới hạn gói GitHub quan sát được, không phải lý do đổi public hoặc mua gói. Không có server enforcement được nghiệm thu trong lượt này.
+
+**PUB-001:** chủ sản phẩm sau đó yêu cầu công khai cả hai kho, chấp nhận discoverability. Kho đã đổi tên; [publication](repository-publication.md) giữ bằng chứng riêng. GET rulesets sau chuyển đổi trả HTTP200 ở cả hai kho và danh sách rỗng; có khả năng sử dụng không tự là đã cài/enforce. Không mua gói hoặc tự merge.
 
 Local hook chỉ chạy khi gọi/cài đúng và có thể bỏ qua. Governance CI kiểm hợp đồng/tools; job PR issue kiểm traceability; cả hai chưa là required checks phía server và chưa là CI sản phẩm. Review JSON khác implementer không tự là GitHub approval của người khác hoặc cách ly quyền máy.
 
@@ -20,7 +22,7 @@ Local hook chỉ chạy khi gọi/cài đúng và có thể bỏ qua. Governance
 
 Khi có tính năng/gói và quyết định quyền phù hợp: reviewer đọc target settings/Active state, actor/bypass, expected checks và stale approval; thử có kiểm soát một PR thiếu check hoặc review phải bị chặn, rồi positive case đúng bản. Ghi API/settings và kết quả, không suy từ file cấu hình. Không thực hiện thử merge vào nhánh thật trong lượt FLOW-001.
 
-Điểm cần owner quyết sau khi có cấu hình cụ thể: có nâng gói không, ai là reviewer người có quyền và nhánh bảo vệ nào. Không cần quyết các việc này để tiếp tục khảo sát/branch/CI/Draft PR hiện tại.
+Điểm cần owner quyết sau khi có cấu hình cụ thể: ai là reviewer người có quyền và nhánh bảo vệ nào. Quyết định public đã có ở PUB-001; không cần hỏi lại hoặc mua gói trong nhiệm vụ này. Không cần quyết các việc này để tiếp tục khảo sát/branch/CI/Draft PR hiện tại.
 
 ## Nguồn
 

@@ -73,6 +73,48 @@ def load(path):
     return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
 
+def repository_identities(root):
+    """Read reviewed local aliases, never learn aliases from HTTP redirects.
+
+    Absence preserves strict URL equality for unrelated repositories/fixtures.
+    This map records trusted identity; it does not attest remote identity itself.
+    """
+    name = 'config/agents/repositories.json'
+    path = Path(root) / name
+    if not path.exists() and not path.is_symlink():
+        return {}
+    document = load(local_file(root, name))
+    require(isinstance(document, dict) and set(document) == {'schema_version', 'repositories'} and
+            type(document.get('schema_version')) is int and document['schema_version'] == 1,
+            'Unsupported repository identity schema')
+    entries = document['repositories']
+    require(isinstance(entries, list) and entries, 'Missing repository identities')
+    identities, ids = {}, set()
+    for entry in entries:
+        require(isinstance(entry, dict) and set(entry) == {'id', 'repository', 'aliases'},
+                'Invalid repository identity entry')
+        rid = entry['id']
+        require(type(rid) is int and rid > 0 and rid not in ids, 'Invalid or duplicate repository ID')
+        ids.add(rid)
+        aliases = entry['aliases']
+        require(isinstance(aliases, list), 'Invalid repository aliases')
+        canonical = repository(entry['repository'])
+        for url in [entry['repository'], *aliases]:
+            slug = repository(url)
+            require(url == 'https://github.com/' + slug, 'Repository map requires canonical GitHub URL syntax')
+            require(slug not in identities, 'Duplicate or ambiguous repository alias')
+            identities[slug] = {'canonical': canonical, 'id': rid}
+    return identities
+
+
+def canonical_slug(slug, identities):
+    return identities.get(slug, {}).get('canonical', slug)
+
+
+def canonical_repository(url, identities):
+    return canonical_slug(repository(url), identities)
+
+
 def validate_plan(record):
     require(isinstance(record, dict) and record.get('schema_version') == 1, 'Unsupported product schema')
     require(isinstance(record.get('task_id'), str) and re.fullmatch(NAME, record['task_id']) and
@@ -148,9 +190,12 @@ def verify(record, source_repo, root):
     require(source_repo != root, 'Application source must be a separate checkout')
     require(Path(git(source_repo, 'rev-parse', '--show-toplevel')).resolve() == source_repo, 'Use the application checkout root')
     source = record['source']
-    require(repository(source['repository']) != remote_identity(git(root, 'remote', 'get-url', 'origin')),
+    identities = repository_identities(root)
+    source_identity = canonical_repository(source['repository'], identities)
+    require(source_identity != canonical_slug(remote_identity(git(root, 'remote', 'get-url', 'origin')), identities),
             'Application repository cannot be the control repository')
-    require(remote_identity(git(source_repo, 'remote', 'get-url', 'origin')) == repository(source['repository']), 'Application repository identity mismatch')
+    require(canonical_slug(remote_identity(git(source_repo, 'remote', 'get-url', 'origin')), identities) == source_identity,
+            'Application repository identity mismatch')
     implementation = record.get('implementation')
     require(isinstance(implementation, dict), 'Missing implementation')
     subject = implementation.get('subject_commit')
@@ -187,7 +232,8 @@ def verify(record, source_repo, root):
             require(hashlib.sha256(data).hexdigest() == check.get('sha256'), 'Evidence hash mismatch')
             receipt = json.loads(data.decode('utf-8-sig'))
             require(isinstance(receipt, dict), 'Invalid check receipt')
-            require(repository(receipt.get('source_repository')) == repository(source['repository']), 'Receipt application repository mismatch')
+            require(canonical_repository(receipt.get('source_repository'), identities) == source_identity,
+                    'Receipt application repository mismatch')
             require(receipt.get('subject_commit') == subject, 'Receipt application subject mismatch')
             require(receipt.get('status') == 'PASS' and receipt.get('exit_code') == 0, 'Receipt is FAIL or NOT_RUN')
             text_field(receipt.get('command'), 'check command or steps')
@@ -222,11 +268,16 @@ def read_issue(slug, number, token, opener=None):
 
 
 def check_pr(event, expected_repository, root, token, opener=None):
-    expected = repository('https://github.com/' + expected_repository)
+    identities = repository_identities(root)
+    expected = canonical_repository('https://github.com/' + expected_repository, identities)
     require(isinstance(event, dict), 'Invalid GitHub event')
     repo = event.get('repository')
     require(isinstance(repo, dict) and isinstance(repo.get('full_name'), str) and
-            repo['full_name'].casefold() == expected, 'PR event repository mismatch')
+            canonical_slug(repo['full_name'].casefold(), identities) == expected,
+            'PR event repository mismatch')
+    if expected in identities:
+        require(type(repo.get('id')) is int and repo['id'] == identities[expected]['id'],
+                'PR event repository ID mismatch')
     pr = event.get('pull_request')
     require(isinstance(pr, dict), 'Expected a pull_request event')
     body = pr.get('body')
@@ -236,14 +287,16 @@ def check_pr(event, expected_repository, root, token, opener=None):
     task_path, task_id = task_matches[0]
     task = load(local_file(root, task_path))
     require(isinstance(task, dict) and task.get('id') == task_id, 'PR task ID mismatch')
-    require(repository(task.get('repository')) == expected, 'PR task repository mismatch')
-    task_issue = issue_identity(task.get('issue_url'))
+    require(canonical_repository(task.get('repository'), identities) == expected, 'PR task repository mismatch')
+    slug, number = issue_identity(task.get('issue_url'))
+    task_issue = canonical_slug(slug, identities), number
     require(task_issue[0] == expected, 'PR task issue repository mismatch')
     issue_urls = re.findall(r'https://github\.com/' + NAME + '/' + NAME + r'/issues/[1-9][0-9]*(?![0-9])[^\s<>)]*', body)
     require(issue_urls, 'PR requires full GitHub issue URL')
     issues = set()
     for url in issue_urls:
         slug, number = issue_identity(url)
+        slug = canonical_slug(slug, identities)
         require(slug == expected, 'PR issue must belong to expected repository')
         issues.add((slug, number))
     require(task_issue in issues, 'PR body does not reference the task issue')
