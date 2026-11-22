@@ -1,0 +1,159 @@
+{
+  "task_id": "DOCS-002",
+  "reviewer": "/root/knowledge_handoff_review",
+  "reviewed_commit": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+  "implementation_base": "5b78a26ab92fa621d189ab62a6590fc599ffcd95",
+  "result": "PASS",
+  "blocking_findings": [],
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "docs/knowledge/sources.json": "419934b4696e5d9d76d8089b9cb73198abfe171a7b0fd9b17b2df9a298f20b5b",
+    "agents/codex/roles.json": "2dcdafc3f2c285ce090013687087f13a063420fe7e8beb2c684d10c4782cf481"
+  },
+  "recorded_by": "Coordinator transcribed independent reviewer tool messages and subsequent native-returncode clarification; reviewer did not edit reviewed files or metadata.",
+  "observed_local_date": "2026-11-23",
+  "review_scope": "Documentation content and declared portable knowledge takeover from independent HTTPS GitHub clone; not product acceptance or permission to merge.",
+  "takeover_trace": [
+    {
+      "need": "Task goal, scope and permissions",
+      "route": [
+        "AGENTS.md",
+        "README.md",
+        "agents/codex/reviewer.md",
+        "tasks/DOCS-002/task.json"
+      ],
+      "result": "Found policy, acceptance, scope, source ref, permissions/dependencies and receiver without asking user again."
+    },
+    {
+      "need": "Current status and unfinished work",
+      "route": [
+        "README.md",
+        "docs/status.md"
+      ],
+      "result": "Found DOCS-001/002, Draft PR chain, source/adapters gap, F5 not repaired, feature/mobile/Zalo/upgrade limitations."
+    },
+    {
+      "need": "Canonical documents versus historical archive",
+      "route": [
+        "README.md",
+        "docs/project-map.md"
+      ],
+      "result": "Found authority table; local archive cache is not portable project input, legacy_local_snapshot is not a file in clone."
+    },
+    {
+      "need": "Application source and local runtime",
+      "route": [
+        "README.md",
+        "docs/runbooks/local-development.md",
+        "config/agents/runtime.json"
+      ],
+      "result": "Found pinned application source/ref, Linux root, WSL/Desktop/project; did not access runtime. Clone lacks app source and adapters, so cannot recreate app from clone alone."
+    },
+    {
+      "need": "Hosting sources",
+      "route": [
+        "docs/knowledge/README.md",
+        "docs/knowledge/reading-routes.md R-08",
+        "CW-13",
+        "docs/runbooks/local-development.md"
+      ],
+      "result": "Found Docker development source and distinction from production CW-10; start/stop permission limits clear."
+    },
+    {
+      "need": "Backend/API task reading",
+      "route": [
+        "docs/knowledge/reading-routes.md R-01/R-02",
+        "CW-01",
+        "CW-02",
+        "CW-06",
+        "CW-26"
+      ],
+      "result": "Found relevant guideline sections and when to expand into data/messages/clients/enterprise; output includes routes/policies and allowed/denied/cross-account cases."
+    },
+    {
+      "need": "Mobile limitations",
+      "route": [
+        "docs/knowledge/reading-routes.md R-06",
+        "CW-08/CW-09/CW-21/CW-29/CW-30"
+      ],
+      "result": "Found separate mobile ref and untested server/mobile compatibility, auth/account/realtime and platform-specific checks."
+    },
+    {
+      "need": "Original user reference and primary review article",
+      "route": [
+        "README.md",
+        "docs/knowledge/user-materials/README.md",
+        "docs/knowledge/user-materials/ai-code-review-transcript.txt",
+        "docs/knowledge/supplemental-sources.json",
+        "docs/knowledge/source-notes.md AN-REVIEW"
+      ],
+      "result": "Read complete transcript from clone; selected attachment/hash and unavailable audio/speaker fidelity explicit; opened primary article and verified author/date, reference is not active policy."
+    },
+    {
+      "need": "Agent workflow and validation",
+      "route": [
+        "README.md",
+        "docs/agents/README.md",
+        "docs/agents/operating-model.md",
+        "agents/codex/roles.json",
+        "agents/codex/reviewer.md",
+        "tasks/DOCS-002/task.json"
+      ],
+      "result": "Found ownership, runtime shared limits, separate implementer/reviewer, exact commit/input binding, tooling commands, evidence, handover and owner approval."
+    }
+  ],
+  "questions_required_for_this_documentation_task": [],
+  "future_product_decisions": "New product work still needs priority/scope, verified channel contracts and suitable permissions/environment; these are documented gaps, not missing task handover information.",
+  "clone_verification": {
+    "origin": "https://github.com/trdat1605/chatwoot-vn.git",
+    "branch": "codex/knowledge-handoff",
+    "head": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+    "reflog_verified_clone_origin": true,
+    "standalone_gitdir": true,
+    "object_alternates_present": false,
+    "working_status_after_review": ""
+  },
+  "independently_executed": [
+    "Read actual diff, handwritten docs, transcript, upstream references and entry points; 14 changed paths and all bound input bytes match subject",
+    "40 existing tooling unit tests PASS in 31.447 seconds",
+    "workflow.py validate: VALID; 30 tracked JSON parse",
+    "36 catalog IDs/URLs and index anchors match; 120 relative Markdown targets including anchors valid",
+    "Three stored artifact hashes/UTF-8/LF match supplemental metadata",
+    "Fetched raw upstream AGENTS, LICENSE and selected mobile/controller source at pinned refs; hashes matched metadata/catalog",
+    "Repository pattern scan on 68 tracked files plus manual diff/transcript read: no findings",
+    "Read primary AN-REVIEW, AN-MEMORY, AN-SUBAGENTS, AN-TEAMS, AN-HARNESS, AN-CONTEXT and selected Chatwoot backend/API/Docker/mobile docs",
+    "Fresh-context takeover used clone and linked URLs only; no local archive, original attachments or WSL/runtime accessed"
+  ],
+  "non_passing_checks": [
+    {
+      "command": "git diff --check 5b78a26ab92fa621d189ab62a6590fc599ffcd95 a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+      "status": "FAIL",
+      "native_exit_code": 2,
+      "warning_count": 6,
+      "disposition": "Five original trailing-whitespace lines in upstream AGENTS.txt and one in original transcript; accept byte-identical raw references, handwritten docs pass separately. Full check not claimed PASS.",
+      "receipt_correction": "Reviewer initially confused shell wrapper exit1 with Git status; direct subprocess confirmation native exit2, six warnings, empty stderr."
+    },
+    {
+      "command": "python -B tools/agents/repository_check.py --require-handoffs at implementation subject before metadata",
+      "status": "BLOCKED",
+      "exit_code": 2,
+      "reason": "Task lacks handoff/review: DOCS-002",
+      "disposition": "Expected before coordinator records review and hash-bound handoff. Final gate must run after metadata is staged."
+    },
+    {
+      "command": "verify_task_set(require_handoffs=False) before new review metadata",
+      "status": "BLOCKED",
+      "reason": "README current bytes have no new reviewed owner yet",
+      "disposition": "Do not claim gate PASS from documentation review; coordinator must add metadata and recheck."
+    }
+  ],
+  "limits": [
+    "Same physical machine; brief restriction to clone/linked URLs is not OS isolation or clean-device installation",
+    "Reviewer did not read original attachments/archive, so did not independently validate their hashes or historical route-table hash; verified stored artifact hashes and selected raw upstream independently",
+    "Did not reread every historical URL or reproduce every old snapshot",
+    "Did not verify private visibility/live PR/CI via API; coordinator verified separately",
+    "No WSL/runtime doctor, app build/test/UI/F5, app-chat auto-loading, mobile binary, upgrade/rollback or production acceptance",
+    "Selected secret patterns/manual read cannot guarantee absence of every secret",
+    "Pre-handoff gate failures above require final coordinator gate; no reviewer edits or self-approval"
+  ]
+}

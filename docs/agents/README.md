@@ -4,7 +4,7 @@ Ngày thiết lập: 18/11/2026. [README dự án](../../README.md) là cửa v�
 
 1. Đọc AGENTS.md của repo điều phối và [operating-model.md](operating-model.md).
 2. Định vị source/runtime bằng `config/agents/runtime.json` và phiếu việc. Repo app đang chạy khác repo này. Khi làm ở app đọc AGENTS/override tại app.
-3. Chọn tuyến: khảo sát và quyết định tại [sources.md](sources.md); giao việc tại `tasks/<id>/task.json`; roles Codex tại `agents/codex/roles.json` và các brief. Các brief được đọc rõ trong giao việc, không là native role tự phát hiện của Claude hoặc Codex.
+3. Chọn [tuyến theo việc](../knowledge/reading-routes.md) và điền [gói ngữ cảnh](../knowledge/context-packet.md). Nguồn khảo sát ngày 18/11 tại [sources.md](sources.md), nguồn bổ sung/tài liệu người dùng tại [thư viện](../knowledge/README.md). Giao việc tại `tasks/<id>/task.json`; roles Codex tại `agents/codex/roles.json` và các brief. Các brief được đọc rõ trong giao việc, không là native role tự phát hiện của Claude hoặc Codex.
 4. Kiểm script/commands và bằng chứng ở từng phiếu; dùng PASS/FAIL/NOT_RUN. Không tự thao tác runtime dùng chung.
 5. Handoff ghi đúng commit, checks, reviewer và next step; chủ sản phẩm còn quyết định cuối. Chưa merge.
 

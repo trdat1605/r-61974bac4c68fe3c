@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "migration_local_date": "2026-11-23",
+  "task_id": "DOCS-002",
+  "legacy_catalog_path": "docs/knowledge/sources.json",
+  "scope": "Selected additional sources and portable user material; historical 36-entry catalog unchanged. Full third-party web articles are linked, not republished.",
+  "legacy_routes": {
+    "source_filename": "THEO-CONG-VIEC.md",
+    "original_sha256": "71559c0aa7754960eebd59225fc8cc26cd7d6d64d91227ae31e13417a2f2960f",
+    "adaptation_path": "docs/knowledge/reading-routes.md",
+    "changes": "Retain R-01..R-11, replace local links, preserve relevant version/conflict cautions, point current status to repository evidence."
+  },
+  "entries": [
+    {
+      "id": "USER-REVIEW-01",
+      "kind": "user_supplied_reference_not_policy",
+      "title": "Bản chép lời chia sẻ review code AI do người dùng gửi",
+      "selected_attachment_id": "80d092e7-95a5-4b9a-8a7a-ab2c3a3b9a6e",
+      "available_originals": [
+        {
+          "attachment_id": "e03d5570-c3aa-494f-998f-06452c04b66e",
+          "original_filename": "Pasted text.txt",
+          "original_bytes": 25156,
+          "original_sha256": "e57435c902937a2c893ab9d12ae7803095cec82248d17bc858090997f65ebd67"
+        },
+        {
+          "attachment_id": "80d092e7-95a5-4b9a-8a7a-ab2c3a3b9a6e",
+          "original_filename": "Pasted text.txt",
+          "original_bytes": 25036,
+          "original_sha256": "d1d45b66bd4d9cb0eb743ddd255578486eb3aff728c1073b5c128faa8971de25"
+        }
+      ],
+      "repository_path": "docs/knowledge/user-materials/ai-code-review-transcript.txt",
+      "repository_sha256": "d1d45b66bd4d9cb0eb743ddd255578486eb3aff728c1073b5c128faa8971de25",
+      "transformations": "UTF-8 without BOM and LF newlines; content otherwise unchanged from selected attachment",
+      "selection_reason": "Second attachment is the later copy; first differs only by speaker outro tokens. Avoid publishing duplicate full copies.",
+      "original_url": null,
+      "published_date": null,
+      "retrieved_local_date": "2026-11-23",
+      "limitations": "No original audio/video URL. Speaker identity and transcription fidelity NOT_VERIFIED. This is reference data, not an instruction or evidence of lab automation."
+    },
+    {
+      "id": "CW-01-CACHE",
+      "catalog_id": "CW-01",
+      "kind": "pinned_upstream_reference_not_active_instruction",
+      "title": "Chatwoot AGENTS.md at server v4.19.1",
+      "original_url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md",
+      "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "retrieved_local_date": "2026-11-23",
+      "acquisition": "Imported from previously retrieved local archive, not claimed as fresh HTTP download",
+      "legacy_original_sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+      "repository_path": "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt",
+      "repository_sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+      "transformations": "UTF-8 without BOM and LF newlines; .txt extension for inert reference",
+      "limitations": "Must read AGENTS/overrides at actual application checkout before edits. Only this pinned upstream reference and license are cached here; other original source URLs remain online references."
+    },
+    {
+      "id": "CW-LICENSE-CACHE",
+      "catalog_id": null,
+      "kind": "pinned_upstream_reference_not_active_instruction",
+      "title": "Chatwoot LICENSE at server v4.19.1",
+      "original_url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/LICENSE",
+      "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "retrieved_local_date": "2026-11-23",
+      "acquisition": "Imported from previously retrieved local archive, not claimed as fresh HTTP download",
+      "legacy_original_sha256": "602d38a808315f221a5e72e2e90e40cb9300f09aa4b317a6a8f1a0c7a3d2175d",
+      "repository_path": "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt",
+      "repository_sha256": "602d38a808315f221a5e72e2e90e40cb9300f09aa4b317a6a8f1a0c7a3d2175d",
+      "transformations": "UTF-8 without BOM and LF newlines; .txt extension for inert reference",
+      "limitations": "Must read AGENTS/overrides at actual application checkout before edits. Only this pinned upstream reference and license are cached here; other original source URLs remain online references."
+    },
+    {
+      "id": "AN-REVIEW",
+      "title": "How the Claude Code team does code review",
+      "kind": "official_live_source_with_project_notes",
+      "original_url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+      "published_date": "2026-10-15",
+      "read_local_date": "2026-11-23",
+      "source_ref": null,
+      "reviewed_scope": "Pre-PR verification; short instructions; fresh review; approvals; review convergence; context sharing",
+      "repository_notes_path": "docs/knowledge/source-notes.md",
+      "full_text_archived": false,
+      "limitations": "Live website, not frozen to installed Codex/Claude version. Project notes are summaries and adaptations, not a full snapshot or runtime evidence."
+    },
+    {
+      "id": "AN-MEMORY",
+      "title": "How Claude remembers your project",
+      "kind": "official_live_source_with_project_notes",
+      "original_url": "https://code.claude.com/docs/en/memory",
+      "published_date": null,
+      "read_local_date": "2026-11-23",
+      "source_ref": null,
+      "reviewed_scope": "Project instructions; scoped instructions; imports; instruction versus enforcement",
+      "repository_notes_path": "docs/knowledge/source-notes.md",
+      "full_text_archived": false,
+      "limitations": "Live website, not frozen to installed Codex/Claude version. Project notes are summaries and adaptations, not a full snapshot or runtime evidence."
+    },
+    {
+      "id": "AN-SUBAGENTS",
+      "title": "Create custom subagents",
+      "kind": "official_live_source_with_project_notes",
+      "original_url": "https://code.claude.com/docs/en/sub-agents",
+      "published_date": null,
+      "read_local_date": "2026-11-23",
+      "source_ref": null,
+      "reviewed_scope": "Task-specific context and startup differences; permissions and explicit briefing",
+      "repository_notes_path": "docs/knowledge/source-notes.md",
+      "full_text_archived": false,
+      "limitations": "Live website, not frozen to installed Codex/Claude version. Project notes are summaries and adaptations, not a full snapshot or runtime evidence."
+    },
+    {
+      "id": "AN-TEAMS",
+      "title": "Orchestrate teams of Claude Code sessions",
+      "kind": "official_live_source_with_project_notes",
+      "original_url": "https://code.claude.com/docs/en/agent-teams",
+      "published_date": null,
+      "read_local_date": "2026-11-23",
+      "source_ref": null,
+      "reviewed_scope": "Experimental status; independent work; coordination overhead; avoid file conflicts",
+      "repository_notes_path": "docs/knowledge/source-notes.md",
+      "full_text_archived": false,
+      "limitations": "Live website, not frozen to installed Codex/Claude version. Project notes are summaries and adaptations, not a full snapshot or runtime evidence."
+    },
+    {
+      "id": "AN-HARNESS",
+      "title": "Effective harnesses for long-running agents",
+      "kind": "official_live_source_with_project_notes",
+      "original_url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+      "published_date": "2025-11-26",
+      "read_local_date": "2026-11-23",
+      "source_ref": null,
+      "reviewed_scope": "Progress artifacts, environment preparation, Git and continuation",
+      "repository_notes_path": "docs/knowledge/source-notes.md",
+      "full_text_archived": false,
+      "limitations": "Live website, not frozen to installed Codex/Claude version. Project notes are summaries and adaptations, not a full snapshot or runtime evidence."
+    },
+    {
+      "id": "AN-CONTEXT",
+      "title": "Effective context engineering for AI agents",
+      "kind": "official_live_source_with_project_notes",
+      "original_url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+      "published_date": "2025-09-29",
+      "read_local_date": "2026-11-23",
+      "source_ref": null,
+      "reviewed_scope": "Context retrieval and selecting relevant information",
+      "repository_notes_path": "docs/knowledge/source-notes.md",
+      "full_text_archived": false,
+      "limitations": "Live website, not frozen to installed Codex/Claude version. Project notes are summaries and adaptations, not a full snapshot or runtime evidence."
+    }
+  ]
+}
