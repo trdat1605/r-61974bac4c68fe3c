@@ -1,0 +1,71 @@
+{
+  "id": "DOCS-001",
+  "goal": "Chốt nơi lưu bản chính và một điểm bắt đầu cho tài liệu Chatwoot, chỉ rõ source runtime và trạng thái hiện hành",
+  "repository": "https://github.com/trdat1605/chatwoot-vn",
+  "branch": "codex/docs-home",
+  "baseline_commit": "344f3a8a6315d1a5814479caa54434e571df3033",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "README gốc là điểm bắt đầu, dẫn được tới trạng thái, nơi lưu bản chính, cách chạy, nguồn gốc và quy trình agent",
+    "Phân biệt GitHub dùng chung, worktree local, source Linux, tài liệu lưu cũ và dữ liệu riêng tư",
+    "Danh mục nguồn có URL/ref/ngày thu thập và ghi rõ snapshot cũ nằm ngoài repo, không giả đã tải lại tất cả",
+    "Trạng thái mới liên kết bằng chứng F5 ngày 23/11, giữ giới hạn phép đo và các báo cáo lịch sử",
+    "Liên kết tương đối của các Markdown thay đổi mở được trong checkout, JSON hợp lệ và nội dung được kiểm bí mật trước push",
+    "Reviewer ngữ cảnh riêng tìm được các thông tin cần tiếp quản và đối chiếu đúng commit, source ứng dụng giữ sạch"
+  ],
+  "write_scope": [
+    "AGENTS.md",
+    "README.md",
+    "docs/project-map.md",
+    "docs/status.md",
+    "docs/runbooks/local-development.md",
+    "docs/knowledge/sources.json",
+    "docs/agents/README.md",
+    "docs/agents/state.md",
+    "docs/reviews/performance/2026-11-23-f5.md"
+  ],
+  "affected": [
+    "Project documentation entry point and authority",
+    "Current-state handover and reference discovery"
+  ],
+  "dependencies": [
+    "Existing agent-ops commit and foundation reports",
+    "Runtime identity profile and read-only Linux source inspection",
+    "Legacy source catalog and dated F5 diagnostic artifact"
+  ],
+  "start_conditions": [
+    "Task worktree clean at baseline before changes",
+    "DOCS-001 owns exact documentation paths before writing"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false
+  },
+  "permissions": [
+    "Write documentation and task handover in assigned control-repository worktree",
+    "Read legacy documents and selected runtime identity fields",
+    "Push task branch and create dependent Draft PR in existing private repository using existing authorization"
+  ],
+  "checks": [
+    "navigation_and_sources",
+    "scope_and_content"
+  ],
+  "evidence_location": "tasks/DOCS-001/evidence/",
+  "stop_conditions": [
+    "Conflicting file ownership or unexpected existing changes",
+    "Application/runtime write required beyond documentation task",
+    "Credential or customer data appears in proposed publication"
+  ],
+  "implementer": "root_docs_home",
+  "reviewer": "fresh-context docs_home_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/agents/runtime.json"
+  ],
+  "status": "specified"
+}
