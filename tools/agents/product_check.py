@@ -128,6 +128,19 @@ def remote_identity(value):
     return repository(value)
 
 
+def require_full_index(root):
+    """Status cannot attest files whose index flags suppress working-tree checks."""
+    # git-ls-files -v documents lowercase tags for assume-unchanged and S for
+    # skip-worktree. NUL boundaries prevent unusual filenames becoming tags.
+    for entry in git(root, 'ls-files', '-v', '-z').split('\0'):
+        if entry:
+            require(not entry[0].islower() and entry[0] != 'S',
+                    'Application index has assume-unchanged or skip-worktree files')
+    for key in ('core.sparseCheckout', 'index.sparse'):
+        require(git(root, 'config', '--type=bool', '--default=false', '--get', key) == 'false',
+                'Sparse application checkouts are unsupported')
+
+
 def verify(record, source_repo, root):
     validate_plan(record)
     require(source_repo is not None, 'verify requires --source-repo')
@@ -147,6 +160,7 @@ def verify(record, source_repo, root):
         require(git(source_repo, 'rev-parse', '--verify', commit + '^{commit}') == commit, 'Application commit mismatch')
     git(source_repo, 'merge-base', '--is-ancestor', source['base_commit'], subject)
     require(git(source_repo, 'rev-parse', 'HEAD') == subject, 'Application checkout HEAD differs from subject')
+    require_full_index(source_repo)
     require(not git(source_repo, 'status', '--porcelain', '--untracked-files=no'), 'Application tracked files are dirty')
     review = record.get('review')
     require(isinstance(review, dict), 'Missing application review')

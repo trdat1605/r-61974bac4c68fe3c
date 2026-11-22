@@ -149,6 +149,27 @@ class SourceFixture(unittest.TestCase):
         with self.assertRaises(product.ProductError):
             self.verify()
 
+    def test_assume_unchanged_cannot_hide_modified_application_bytes(self):
+        self.git(self.app, 'update-index', '--assume-unchanged', '--', 'code.txt')
+        (self.app / 'code.txt').write_text('hidden unreviewed change\n', encoding='utf-8')
+        self.assertEqual(self.git(self.app, 'status', '--porcelain', '--untracked-files=no'), '')
+        with self.assertRaisesRegex(product.ProductError, 'assume-unchanged or skip-worktree'):
+            self.verify()
+
+    def test_skip_worktree_cannot_hide_modified_application_bytes(self):
+        self.git(self.app, 'update-index', '--skip-worktree', '--', 'code.txt')
+        (self.app / 'code.txt').write_text('hidden unreviewed change\n', encoding='utf-8')
+        self.assertEqual(self.git(self.app, 'status', '--porcelain', '--untracked-files=no'), '')
+        with self.assertRaisesRegex(product.ProductError, 'assume-unchanged or skip-worktree'):
+            self.verify()
+
+    def test_sparse_configuration_is_explicitly_unsupported_even_with_clean_files(self):
+        for key in ('core.sparseCheckout', 'index.sparse'):
+            self.git(self.app, 'config', key, 'true')
+            with self.subTest(key=key), self.assertRaisesRegex(product.ProductError, 'Sparse application'):
+                self.verify()
+            self.git(self.app, 'config', key, 'false')
+
     def test_missing_criteria_check_evidence_and_modified_bytes_block(self):
         original = copy.deepcopy(self.record)
         self.record['checks'] = []

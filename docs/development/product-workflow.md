@@ -37,7 +37,7 @@ python -B tools/agents/product_check.py verify --record RECORD.json --repo CONTR
 python -B tools/agents/product_check.py pr --repo . --expected-repository trdat1605/chatwoot-vn
 ```
 
-`plan` chỉ trả `PLAN_VALID`; mẫu là ví dụ, chưa đủ nội dung nghiệp vụ để giao code. `verify` yêu cầu app origin/ref/HEAD/tracked bytes phù hợp, receipts đúng app repo/subject/criteria/hash/command, checks PASS và review khác implementer. Đây là kiểm current checkout và tính nhất quán, không attestation danh tính hoặc sự thật của mọi receipt. Không kiểm toàn bộ untracked/ignored files. Chưa có product task thật đạt verify thì ghi NOT_RUN; tests fixture không tính là pilot app.
+`plan` chỉ trả `PLAN_VALID`; mẫu là ví dụ, chưa đủ nội dung nghiệp vụ để giao code. `verify` yêu cầu app origin/ref/HEAD/tracked bytes phù hợp, không dùng assume-unchanged/skip-worktree hoặc sparse checkout để che kiểm tra; receipts đã commit đúng app repo/subject/criteria/hash/command, checks PASS và review khác implementer. Đây là kiểm current checkout và tính nhất quán, không attestation danh tính hoặc sự thật của mọi receipt. Không kiểm toàn bộ untracked/ignored files. Chưa có product task thật đạt verify thì ghi NOT_RUN; tests fixture không tính là pilot app.
 
 `pr` dùng API GET cố định `api.github.com` để kiểm issue thật, không nhầm `/pull/`, và task link trong checkout. Nó không kiểm đầy đủ nội dung yêu cầu/nghiệp vụ, không tự cấp quyền merge. Với app PR ở repo khác, phải thiết lập đường kiểm riêng phù hợp; job của control không tự kiểm app PR.
 
