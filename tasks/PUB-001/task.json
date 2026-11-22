@@ -27,7 +27,8 @@
     "docs/development/review-and-merge.md",
     "docs/development/source-reproduction.md",
     "docs/development/product-workflow.md",
-    "docs/development/product-record.example.json"
+    "docs/development/product-record.example.json",
+    "docs/project-map.md"
   ],
   "affected": [
     "GitHub repository identities and public exposure",
