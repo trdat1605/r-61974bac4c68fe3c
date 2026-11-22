@@ -1,0 +1,96 @@
+{
+  "id": "COMPLETE-001",
+  "goal": "Complete technical evidence for all seven foundation improvements without replacing unmet criteria with documentation-only claims",
+  "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+  "branch": "codex/complete-foundation",
+  "baseline_commit": "c714462d8c3cca103b52da4652a404b811151d82",
+  "task_kind": "operations",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Fixed-ref empirical comparison of available agentcoordination patterns with preregisteredcriteria, independentadjudication andhonest unavailableClaudeTeams boundary",
+    "Issue/task/appPR traceability actualpilot and governance consolidatedPR withtestedtemplateactivation upon ownerapprovedintegration",
+    "Freshclone portableapp bootstrap andisolatedservices/data, no lab/course mutation, realsetup/restart/smoke and documenteddependencies",
+    "Actualapp regression baselineFAIL tofixedPASS andfocusedRSpec/Vitest/buildchecks appropriate tobug; safeappCI workflowinventory/review beforeenabling",
+    "Preserve mainrules andindependentreview exactapp/controlcommits; no selfreview/humanapproval equivalence",
+    "Up-to-date sevenstatus/machinehandoff with hashes/commands/PASSFAILNOT_RUN; independentfreshreaderreproduces relevantsteps",
+    "Pilot realproductworkflow through acceptance-readyPR; finalmerge/release decisions remainexplicitowneraction, nofalsedone"
+  ],
+  "write_scope": [
+    "README.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/agent-selection.md",
+    "docs/development/source-reproduction.md",
+    "docs/development/pilot.md",
+    "docs/development/product-workflow.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/completion.md",
+    "docs/runbooks/isolated-development.md",
+    "config/agents/isolated-runtime.example.json",
+    ".github/workflows/agent-governance.yml"
+  ],
+  "affected": [
+    "Control integration andavailableagent eval",
+    "Separateapprepo bootstrap/test/CI via separately pinnedapprecord",
+    "Onlynew isolatedruntime resources, currentlab/course strictlyreadonly"
+  ],
+  "dependencies": [
+    "GOV/PUB/FLOWreviewedsubjects+CI",
+    "Read-onlysource/CI/evaldesignaudits",
+    "OfficialChatwootv4.19.1/GitHub/Docker/Gitdocs"
+  ],
+  "start_conditions": [
+    "Cleannewbranch fromc714462",
+    "Exactpathclaims",
+    "Independentplanreview beforeappCI/runtime mutations; separateappscope/ref"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false
+  },
+  "permissions": [
+    "Write scopedcontroldocs/config/workflow+taskevidence, createissues/reviewreadyPRs",
+    "Separateapplicationcheckout branch scopedfix/bootstrap/CI aftertaskplanandreview; no currentlab/source writes",
+    "Build/start/test/restart/backup/restore onlyNEWuniquelynamedisolatedproject afterreviewedplan; no lab/course volumes DB ports reused",
+    "Read-only inventory GitHubsettings/workflows andpublishsanitizedtaskevidence; enableonlyreviewedappCI afterindependentreview"
+  ],
+  "checks": [
+    "governance_and_scope",
+    "agent_evaluation",
+    "source_reproduction",
+    "real_app_pilot",
+    "live_traceability"
+  ],
+  "evidence_location": "tasks/COMPLETE-001/evidence/",
+  "stop_conditions": [
+    "Secrets/customerdata inpublicationcandidate",
+    "Needcurrentlab/course datawrites/deletion/restart",
+    "Insufficient disk/resources safely proceed; no automaticprune",
+    "Merge/release/paidexternalservice needsseparateownerdecision",
+    "NativeClaudeTeams unavailable: retainNOT_RUN, donotrelabelCodexexperiment asClaudeTeams"
+  ],
+  "implementer": "root_foundation_completion",
+  "reviewer": "fresh-context completion_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/agents/repositories.json",
+    "config/agents/runtime.json"
+  ],
+  "status": "specified",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
+  "related_issues": [
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/5",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/6",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/7",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/8",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/9",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/11"
+  ]
+}
