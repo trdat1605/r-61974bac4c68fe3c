@@ -1,6 +1,6 @@
 # Bắt đầu vận hành AI coding agent
 
-Ngày thiết lập: 18/11/2026. Trạng thái triển khai/kiểm chứng hiện tại xem [state.md](state.md), không suy từ việc có các file.
+Ngày thiết lập: 18/11/2026. [README dự án](../../README.md) là cửa vào chung; [trạng thái dự án](../status.md) là bản tóm tắt hiện hành. [state.md](state.md) giữ checkpoint agent ngày 18/11 và bằng chứng theo revision, không suy từ việc có các file.
 
 1. Đọc AGENTS.md của repo điều phối và [operating-model.md](operating-model.md).
 2. Định vị source/runtime bằng `config/agents/runtime.json` và phiếu việc. Repo app đang chạy khác repo này. Khi làm ở app đọc AGENTS/override tại app.
