@@ -2,7 +2,7 @@
 
 Policy ID: CHATWOOT_AGENT_POLICY_V1
 
-Đọc [docs/agents/README.md](docs/agents/README.md), sau đó chỉ mở tuyến cần cho nhiệm vụ. Đây là repo điều phối/cấu hình/bằng chứng; source ứng dụng là một repo khác được xác định trong `config/agents/runtime.json` và từng phiếu việc. Không coi cwd của repo này là source app.
+Đọc [README.md](README.md) để định vị trạng thái và bản chính tài liệu, rồi [docs/agents/README.md](docs/agents/README.md) và chỉ mở tuyến cần cho nhiệm vụ. Đây là repo điều phối/cấu hình/bằng chứng; source ứng dụng là một repo khác được xác định trong `config/agents/runtime.json` và từng phiếu việc. Không coi cwd của repo này là source app. Kho local lịch sử chỉ là tham khảo; chưa có bằng chứng mọi chat ở source app tự nạp chỉ dẫn repo này.
 
 - Nguồn trước đề xuất: đọc tài liệu/source chính thức đúng phiên bản; tách quan sát, suy luận, đề xuất và NOT_RUN. Ưu tiên đúng đắn, ổn định, bảo trì và bàn giao; không bỏ kiểm chứng để giảm token.
 - Giữ quy ước upstream khi làm ở source Chatwoot: đọc AGENTS/override thực tại checkout đó; kiểm app/enterprise khi liên quan. Không áp dụng cú pháp Claude vào Codex.

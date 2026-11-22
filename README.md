@@ -1,10 +1,16 @@
-# Chatwoot Việt Nam — hồ sơ và vận hành agent
+# Chatwoot Việt Nam — bắt đầu ở đây
 
-Kho riêng tư này lưu báo cáo, cấu hình không bí mật và công cụ điều phối; mã nguồn Chatwoot đang chạy nằm ở checkout Linux riêng được chỉ rõ trong profile.
+Kho GitHub **riêng tư** này là nơi dùng chung để quản lý tài liệu dự án, cấu hình không bí mật và công cụ điều phối agent. Source ứng dụng đang chạy vẫn ở Linux, được nhận diện trong [profile runtime](config/agents/runtime.json). Clone kho này **chưa đủ** để dựng lại Chatwoot trên máy mới.
 
-- [Bắt đầu làm việc với agent](docs/agents/README.md).
-- [Trạng thái hiện hành và việc còn mở](docs/agents/state.md).
-- [Báo cáo nền móng của PR #1](docs/reviews/project-foundation/README.md).
-- [Draft PR #2 — vận hành agent](https://github.com/trdat1605/chatwoot-vn/pull/2), phụ thuộc PR #1; xem checks hiện tại tại PR.
+| Anh muốn biết gì? | Mở tài liệu nào? |
+| --- | --- |
+| Đã làm tới đâu, còn việc gì? | [Trạng thái dự án](docs/status.md) |
+| Tài liệu, code và dữ liệu nằm đâu; bản nào là bản chính? | [Bản đồ dự án](docs/project-map.md) |
+| Chạy và kiểm tra Chatwoot trên máy hiện có | [Hướng dẫn local development](docs/runbooks/local-development.md) |
+| Tìm tài liệu gốc Chatwoot: kiến trúc, backend, frontend, host, mobile | [Danh mục nguồn có URL/ref/ngày thu thập](docs/knowledge/sources.json); cách chọn nguồn tại [bản đồ](docs/project-map.md) |
+| Giao việc, quản lý agent và review code | [Lối vào agent](docs/agents/README.md) và [nguồn khảo sát agent/review](docs/agents/sources.md) |
+| Đọc đánh giá nền móng và phép đo F5 | [Review ngày 18/11](docs/reviews/project-foundation/README.md), [chẩn đoán F5 ngày 23/11](docs/reviews/performance/2026-11-23-f5.md) |
 
-Nhánh agent-ops phụ thuộc PR #1; chưa merge hoặc nghiệm thu sản phẩm. Đọc AGENTS.md trước khi thực hiện. Không lưu thông tin đăng nhập, dữ liệu khách hàng hoặc bản sao database trong kho này.
+Đây là thay đổi `DOCS-001` trên nhánh `codex/docs-home`, phụ thuộc [Draft PR #2](https://github.com/trdat1605/chatwoot-vn/pull/2) và [Draft PR #1](https://github.com/trdat1605/chatwoot-vn/pull/1). Chưa merge; muốn đọc bộ mới hãy chọn đúng nhánh. Không coi nội dung trên nhánh này đã được chấp nhận trên `main`.
+
+AI đọc [AGENTS.md](AGENTS.md), trang này và tuyến liên quan đến phiếu việc; mở nguồn/bằng chứng chi tiết khi cần. Không nạp toàn bộ kho vào mọi nhiệm vụ. Chưa có phép đo chứng minh tiết kiệm token. Không lưu thông tin đăng nhập, dữ liệu khách hàng hoặc bản sao database trong Git.

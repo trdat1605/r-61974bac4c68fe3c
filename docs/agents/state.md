@@ -1,4 +1,6 @@
-# Trạng thái hiện hành
+# Checkpoint vận hành agent ngày 18/11/2026
+
+**Nhãn bổ sung 23/11:** đây là checkpoint lịch sử theo các revision nêu dưới. Trạng thái tổng thể mới xem [status.md](../status.md); nơi lưu bản chính xem [project-map.md](../project-map.md). Giữ nội dung cũ để truy vết, không suy toàn bộ vẫn là hiện trạng hôm nay.
 
 Ngày: 18/11/2026. Coordinator: phiên Codex hiện tại. Đây là repo quản lý agent và bằng chứng, chưa chứa source ứng dụng.
 

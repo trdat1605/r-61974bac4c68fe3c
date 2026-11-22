@@ -1,0 +1,23 @@
+{
+  "subject_commit": "3548ce0159e5c1a48f81d474165ff5bbd1ede035",
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_local_date": "2026-11-23",
+  "method": "Inline Python: validate Markdown relative file links; parse migrated JSON and compare every original entry after only documented key rename; verify legacy catalog SHA and copied F5 report body plus original-byte SHA. Exact subject bytes match working files.",
+  "results": {
+    "relative_file_links_checked": 57,
+    "broken_file_links": 0,
+    "catalog_entries_preserved": 36,
+    "legacy_catalog_sha256": "6054697c7294abb9d6577e3e464cf18950d2192d709c85590287b73045ce608e",
+    "original_f5_sha256": "88b14059f1cea69270aa23ed2e8649ca8cf9a7bd16f9ed064ada630780937b23"
+  },
+  "limits": [
+    "Does not check all remote URLs or Markdown heading anchors",
+    "Legacy source snapshot contents were not all rehashed or reread; their original catalog metadata was preserved",
+    "F5 measurements were not repeated and raw trace is not included"
+  ],
+  "commands": [
+    "PowerShell here-string Python script | C:/Users/MFLAT-ADS-010/AppData/Local/Programs/Python/Python313/python.exe -B -",
+    "Script operations: parse Markdown link destinations and resolve relative file paths; load old/new catalog JSON, reverse legacy_local_snapshot rename and remove snapshot_location_status, assert entry equality and survey_local_date; compute hashlib.sha256 on original catalog/F5; compare F5 report after provenance prefix with original text."
+  ]
+}
