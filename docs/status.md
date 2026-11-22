@@ -6,6 +6,10 @@ Cập nhật khảo sát **23/11/2026, Asia/Saigon**. [Điểm bắt đầu](../
 
 Hai kho đã được đổi tên và công khai theo yêu cầu riêng của chủ sản phẩm: [control](https://github.com/trdat1605/r-61974bac4c68fe3c) và [app](https://github.com/trdat1605/s-251521f7e9131fb0). Xem [quyết định/phạm vi/bằng chứng](development/repository-publication.md). Giữ nguyên ID, nhánh và source app; Actions app tiếp tục tắt. Task/evidence lịch sử giữ tên/visibility theo thời điểm ghi. FLOW-001 đã review PASS và CI tại bản bàn giao `f8e5822`; không đồng nghĩa bảy cải tiến hoàn tất. PR stack còn Draft/open; chưa merge hoặc bật server enforcement.
 
+## Bảo vệ nhánh — GOV-001
+
+[Issue15](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/15) đã áp main rules sau khi public: yêu cầu PR, chặn deletion/nonfastforward cả hai kho; control yêu cầu hai job từ GitHub Actions. Probe đã thấy invalid metadata → required job FAIL → blocked, rồi valid metadata → jobs PASS → clean. Không merge thật; probe là replay, không phải sản phẩm. [Kế hoạch và kết quả](development/branch-protection.md), [tracker cập nhật](development/improvement-tracker.md). Kho app chưa có product CI; dựng lại môi trường và pilot vẫn là việc tiếp theo. Tài liệu/control CI không chứng minh Chatwoot ổn định.
+
 ## Đã quan sát / đã có bằng chứng
 
 - Source ứng dụng đang chạy: Chatwoot v4.19.1, commit `caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82`, branch `codex/wsl-migration`. Kiểm lại ngày 23/11: HEAD/branch đúng profile và `git status --short` rỗng. Vị trí/môi trường: [profile](../config/agents/runtime.json), [runbook](runbooks/local-development.md).

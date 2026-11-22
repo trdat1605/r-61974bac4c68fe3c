@@ -14,7 +14,9 @@ Kho GitHub **công khai** này là nơi dùng chung để quản lý tài liệu
 | Source ứng dụng dùng chung và việc dựng lại môi trường | [Source/reproduction](docs/development/source-reproduction.md); kho ứng dụng riêng, chưa dựng app chỉ từ clone |
 | Đọc đánh giá nền móng và phép đo F5 | [Review ngày 18/11](docs/reviews/project-foundation/README.md), [chẩn đoán F5 ngày 23/11](docs/reviews/performance/2026-11-23-f5.md) |
 
-**Đổi tên/công khai:** xem [PUB-001](docs/development/repository-publication.md). Kho điều phối và app công khai; tên ngẫu nhiên không giữ bí mật. Bản mới đang ở `codex/repository-publication`, Draft PR dựa trên `codex/product-foundation`; chưa merge.
+**Bảo vệ nhánh:** [GOV-001](docs/development/branch-protection.md) tiếp nối PUB-001; bản mới ở `codex/branch-protection`, Draft PR dựa trên `codex/repository-publication`, chưa merge.
+
+**Đổi tên/công khai:** xem [PUB-001](docs/development/repository-publication.md). Kho điều phối và app công khai; tên ngẫu nhiên không giữ bí mật. Bản PUB-001 ở `codex/repository-publication`, Draft PR dựa trên `codex/product-foundation`; chưa merge.
 
 Nền trước đó là `FLOW-001` trên nhánh `codex/product-foundation`, liên kết [issue #5](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/5), nối tiếp [Draft PR #4 — DOCS-002](https://github.com/trdat1605/r-61974bac4c68fe3c/pull/4), rồi [PR #3](https://github.com/trdat1605/r-61974bac4c68fe3c/pull/3), [PR #2](https://github.com/trdat1605/r-61974bac4c68fe3c/pull/2), [PR #1](https://github.com/trdat1605/r-61974bac4c68fe3c/pull/1). Chưa merge; muốn đọc bộ mới hãy chọn đúng nhánh. Không coi nội dung trên nhánh này đã được chấp nhận trên `main`.
 
