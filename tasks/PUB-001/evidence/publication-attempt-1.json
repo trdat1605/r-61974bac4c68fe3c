@@ -1,0 +1,19 @@
+{
+  "task_id": "PUB-001",
+  "status": "FAIL",
+  "exit_code": 1,
+  "date": "2026-11-23",
+  "command": "chatwoot-publication-execute.py; guard after first private=false PATCH",
+  "observed": [
+    "Both repositories renamed while private; stable IDs/heads/Actions states verified",
+    "Control visibility changed to public, then protected metadata digest mismatch stopped execution",
+    "App remained private with Actions disabled; no further mutation executed"
+  ],
+  "failure": "AssertionError: Protected metadata changed",
+  "cause": "UNVERIFIED: protected hash included entire user API object and response array ordering; exact differing field cannot be recovered because raw prepublish responses and in-memory hashes were not persisted",
+  "next": "Fresh selected-pattern metadata audit and independent recovery-plan review; store stable sorted per-ID content fingerprints before continuing, preserve this failure",
+  "limits": [
+    "Do not infer content was unchanged or attribute discrepancy to GitHub from current-only responses",
+    "No identified secret finding; failure is drift detection, not evidence of credential exposure"
+  ]
+}

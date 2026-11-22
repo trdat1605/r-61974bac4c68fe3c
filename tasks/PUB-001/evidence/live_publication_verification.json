@@ -1,0 +1,18 @@
+{
+  "command": "Guarded documented GitHub PATCH name/private + anonymous repository/branch GET, fixed-ID/heads/Actions readbacks; read-only rulesets GET; actual legacyPR metadata checked with updated local checker",
+  "evidence_refs": [
+    "publication-executed.json",
+    "live-legacy-pr.json",
+    "publication-attempt-1.json"
+  ],
+  "limits": [
+    "No app/runtime/DB/container/merge/ruleset writes or billing; old PR HEAD not rewritten",
+    "Governance checks do not prove app product stability"
+  ],
+  "task_id": "PUB-001",
+  "name": "live_publication_verification",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "802091dff84462293cdde6eabc93b5b90e5e3105",
+  "date": "2026-11-23"
+}

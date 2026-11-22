@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-23",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "Read-only Git reachable-object pattern scan; GitHub paginated issues/comments/PR reviews/releases plus zipped Actions logs; app commit/tree compared to public upstream",
+  "control_remote_refs": [
+    "02bcd4d195418b4d478a1b0c04171f57d2ce1b02 refs/remotes/origin/HEAD",
+    "344f3a8a6315d1a5814479caa54434e571df3033 refs/remotes/origin/codex/agent-operating-system",
+    "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3 refs/remotes/origin/codex/docs-home",
+    "c7c884151d8baaa6d95312846b6ee4db3a6d5016 refs/remotes/origin/codex/knowledge-handoff",
+    "f8e5822ca885554dc57c8f56e927ae8ae99fe471 refs/remotes/origin/codex/product-foundation",
+    "02bcd4d195418b4d478a1b0c04171f57d2ce1b02 refs/remotes/origin/main",
+    "4f8ff1c24dedc926d3e24197728b5d92de8a61f3 refs/remotes/origin/review/project-foundation"
+  ],
+  "control_reachable_commits": 24,
+  "control_blobs_scanned": 152,
+  "surfaces": {
+    "trdat1605/chatwoot-vn": {
+      "issues_including_prs": 13,
+      "issue_comments": 0,
+      "pr_review_comments": 0,
+      "prs": 5,
+      "reviews": 0,
+      "releases": 0,
+      "runs": 7,
+      "artifacts": 0
+    },
+    "trdat1605/chatwoot-vn-app": {
+      "issues_including_prs": 0,
+      "issue_comments": 0,
+      "pr_review_comments": 0,
+      "prs": 0,
+      "reviews": 0,
+      "releases": 0,
+      "runs": 0,
+      "artifacts": 0
+    }
+  },
+  "actions_logs": [
+    {
+      "id": 45066768288,
+      "sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+      "conclusion": "success",
+      "log_files": 19,
+      "archive_sha256": "df933fad941f6411e1509723070b019c937248cdcfde6bc6eebecb054c48341a"
+    },
+    {
+      "id": 45058938525,
+      "sha": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+      "conclusion": "success",
+      "log_files": 2,
+      "archive_sha256": "fa0f37f41a700e79ab95548b0dbad9d01002b700cc05eb72fd50a391a4341a09"
+    },
+    {
+      "id": 45056629726,
+      "sha": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+      "conclusion": "success",
+      "log_files": 2,
+      "archive_sha256": "c3da31ba4e7a92dac36c71ab4de752c0b91b4ca90cb163bf68488eb16e14339f"
+    },
+    {
+      "id": 44166219041,
+      "sha": "344f3a8a6315d1a5814479caa54434e571df3033",
+      "conclusion": "success",
+      "log_files": 2,
+      "archive_sha256": "8224443e00e61945bd447e4735fe2cdc64fdccdec888ac179f0ef9695a81a142"
+    },
+    {
+      "id": 44166204670,
+      "sha": "344f3a8a6315d1a5814479caa54434e571df3033",
+      "conclusion": "success",
+      "log_files": 2,
+      "archive_sha256": "eb33a6a13f26423e5a30b932091c476a5513c55017e0dd03800acf459d8ca667"
+    },
+    {
+      "id": 44165473970,
+      "sha": "70a0df6c71deafb9b6fc14250292f9f681ad6f0e",
+      "conclusion": "success",
+      "log_files": 2,
+      "archive_sha256": "6f6a9ec9ba33a1e25c121676d42191f41068b28730064578e097ac8e22e10a25"
+    },
+    {
+      "id": 44165446555,
+      "sha": "70a0df6c71deafb9b6fc14250292f9f681ad6f0e",
+      "conclusion": "success",
+      "log_files": 2,
+      "archive_sha256": "f4cc04c475853407330f81a71e6ee725eeca9c155b46079424c2ebd16296da64"
+    }
+  ],
+  "repositories": [
+    {
+      "id": 1461752107,
+      "slug": "trdat1605/chatwoot-vn",
+      "private": true,
+      "default_branch": "main",
+      "wiki": false,
+      "discussions": false,
+      "actions": {
+        "enabled": true,
+        "allowed_actions": "all",
+        "sha_pinning_required": false
+      },
+      "branches": {
+        "codex/agent-operating-system": "344f3a8a6315d1a5814479caa54434e571df3033",
+        "codex/docs-home": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+        "codex/knowledge-handoff": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+        "codex/product-foundation": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+        "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+        "review/project-foundation": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3"
+      },
+      "tags": {}
+    },
+    {
+      "id": 1467945011,
+      "slug": "trdat1605/chatwoot-vn-app",
+      "private": true,
+      "default_branch": "main",
+      "wiki": false,
+      "discussions": false,
+      "actions": {
+        "enabled": false,
+        "sha_pinning_required": false
+      },
+      "branches": {
+        "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      },
+      "tags": {}
+    }
+  ],
+  "app_provenance": {
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "tree": "2979093d6c3f6c545fff930744e685ff3773f5d8",
+    "matches_public_upstream": true
+  },
+  "findings": [],
+  "limits": [
+    "Selected credential patterns are not exhaustive secret detection; no claim of full security audit",
+    "App history not rescanned blob by blob: sole branch pinned to exact already-public upstream commit/tree and no extra tags",
+    "GitHub commit author metadata and local machine paths/plans/user-provided transcript become public; no anonymity guaranteed",
+    "No customer database/runtime/env files included; runtime not read or modified"
+  ]
+}

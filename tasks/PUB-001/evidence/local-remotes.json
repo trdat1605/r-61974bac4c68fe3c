@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-23",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "git remote set-url origin canonical URL on control common repository and known independent clone; read back via git remote get-url origin",
+  "control_origin": "https://github.com/trdat1605/r-61974bac4c68fe3c.git",
+  "known_independent_clone": "C:\\Users\\MFLAT-ADS-010\\Documents\\ChatGPT\\handover-checks\\docs-002-20261123",
+  "clone_origin": "https://github.com/trdat1605/r-61974bac4c68fe3c.git",
+  "limits": [
+    "Common repository remote shared by managed control worktrees",
+    "Other unknown clones not inventoried; GitHub old-name redirects retained",
+    "Runtime source upstream remote not modified"
+  ]
+}
