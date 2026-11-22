@@ -1,10 +1,12 @@
 # Source và môi trường có thể lấy lại
 
-Khảo sát **23/11/2026**, [ENV-001 / issue #8](https://github.com/trdat1605/chatwoot-vn/issues/8). Phân biệt **đã chia sẻ source baseline** với **chưa tái lập runtime hoàn chỉnh**.
+Khảo sát **23/11/2026**, [ENV-001 / issue #8](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/8). Phân biệt **đã chia sẻ source baseline** với **chưa tái lập runtime hoàn chỉnh**.
 
 ## Source baseline đã lưu
 
-[Kho app riêng tư chatwoot-vn-app](https://github.com/trdat1605/chatwoot-vn-app) có `main` tại đúng Chatwoot v4.19.1 / `caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82`, tree `2979093d6c3f6c545fff930744e685ff3773f5d8`, ancestry upstream 7013 commits theo khảo sát. Giữ LICENSE và enterprise/LICENSE gốc, không trộn history repo tài liệu vào app.
+**PUB-001:** kho này hiện công khai sau đổi tên, ID `1467945011` giữ nguyên; Actions vẫn tắt. Các đoạn về seed private bên dưới là lịch sử đã thực hiện, không mô tả visibility hiện tại. [Bằng chứng chuyển đổi](repository-publication.md).
+
+[Kho source ứng dụng](https://github.com/trdat1605/s-251521f7e9131fb0) có `main` tại đúng Chatwoot v4.19.1 / `caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82`, tree `2979093d6c3f6c545fff930744e685ff3773f5d8`, ancestry upstream 7013 commits theo khảo sát. Giữ LICENSE và enterprise/LICENSE gốc, không trộn history repo tài liệu vào app.
 
 Trước push đầu tiên đã tạo repo rỗng/private, tắt Actions và đọc lại `enabled=false`. Push exact SHA tới main với `--no-follow-tags`, không mirror/all/tags/force, không đổi remote/config/branch của source lab. Readback private=true, remote SHA đúng và Actions vẫn disabled. Plan có reviewer độc lập trước thực hiện; hồ sơ [plan](../../tasks/FLOW-001/evidence/source-seed-plan.json), [review plan](../../tasks/FLOW-001/evidence/source-seed-plan-review.json), [readbacks](../../tasks/FLOW-001/evidence/source-seeded.json).
 

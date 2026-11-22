@@ -1,0 +1,71 @@
+{
+  "task_id": "PUB-001",
+  "implementer": "root_repository_publication",
+  "implementation_branch": "codex/repository-publication",
+  "implementation_base": "29a06a3568dae0d596c81000ee6ce54baf0cb7ca",
+  "subject_commit": "802091dff84462293cdde6eabc93b5b90e5e3105",
+  "changed_files": [
+    ".github/workflows/agent-governance.yml",
+    "README.md",
+    "config/agents/repositories.json",
+    "docs/agents/README.md",
+    "docs/development/product-record.example.json",
+    "docs/development/product-workflow.md",
+    "docs/development/repository-publication.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/project-map.md",
+    "docs/status.md",
+    "tests/test_product_check.py",
+    "tools/agents/product_check.py"
+  ],
+  "checks": [
+    {
+      "name": "publication_audit",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/PUB-001/evidence/publication_audit.json",
+      "sha256": "086919f811389494bcd11d7b047a704bd9ea262ee4f093bd090bc5a3cb4ad66d"
+    },
+    {
+      "name": "rename_contract_tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/PUB-001/evidence/rename_contract_tests.json",
+      "sha256": "6d051d36485942d872f2a0109aa92329fc5daa9f4506797e83a04b3347523605"
+    },
+    {
+      "name": "documentation_and_scope",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/PUB-001/evidence/documentation_and_scope.json",
+      "sha256": "42a3842d80e7673c3f8c15d1f79c56b5979076d399fba1cd52bc0444580316fa"
+    },
+    {
+      "name": "live_publication_verification",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/PUB-001/evidence/live_publication_verification.json",
+      "sha256": "4f5a69ea707412d0d00e95f7f7b8e0e8b5880610db0440ec43869ca424ffa635"
+    }
+  ],
+  "input_hashes": {
+    "config/agents/repositories.json": "3d917599e4d6aa0df9b79bbe90ee30ee8dba5a5c524717424ccbb101ddcf19ab"
+  },
+  "receiver": "product owner",
+  "status": "awaiting_product_owner",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/13",
+  "contributors": {
+    "compatibility_implementation": "/root/publication_compatibility",
+    "publication_plan_and_recovery_review": "/root/publication_plan_review",
+    "exact_commit_review": "/root/publication_implementation_review"
+  },
+  "open_issues": [
+    "Original metadata drift cause remains UNVERIFIED; failed attempt retained and fresh current audit independently reviewed",
+    "Selected credential patterns not exhaustive; no per-blob audit of already-public upstream app history",
+    "All PRs remain Draft/unmerged; current aliases/checker only on publication branch, old heads not rewritten",
+    "RulesetsGET now200[] but no enforcement settings or human reviewer configured",
+    "Application workflows still disabled; runtime reproduction/build/product tests/UI/Zalo/upgrade unchanged and pending"
+  ],
+  "next_step": "Run strict final hook with all sanitized evidence/review artifacts staged, push publication branch and create dependent Draft PR based on codex/product-foundation, verify hosted CI at handoff head. Then owner reviews; branch protection design/enforcement and remaining app reproduction/pilot require separate scoped work. No merge/release."
+}

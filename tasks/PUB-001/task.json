@@ -1,0 +1,78 @@
+{
+  "id": "PUB-001",
+  "goal": "Rename and publish both repositories after sanitized exposure audit and independent review; preserve identity, history and runtime",
+  "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+  "branch": "codex/repository-publication",
+  "baseline_commit": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+  "task_kind": "operations",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Audit reachable control history, public issue/PR/comments/reviews, Actions logs/artifacts and app upstream provenance; record limits and blockers",
+    "Rename both repositories and make public under explicit user authorization; IDs and source heads retained, app Actions disabled",
+    "Trusted alias handling preserves historical records and rejects unknown identity or credential redirects; unit and live CI checks",
+    "Current documentation names updated with explicit publication state; reviewed exact commit, clean staged evidence and Draft PR; no merges or runtime changes"
+  ],
+  "write_scope": [
+    "tools/agents/product_check.py",
+    "tests/test_product_check.py",
+    ".github/workflows/agent-governance.yml",
+    "config/agents/repositories.json",
+    "README.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/development/repository-publication.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/development/product-workflow.md",
+    "docs/development/product-record.example.json",
+    "docs/project-map.md"
+  ],
+  "affected": [
+    "GitHub repository identities and public exposure",
+    "Control PR checker and live documentation; application source/runtime unchanged"
+  ],
+  "dependencies": [
+    "FLOW-001 reviewed baseline",
+    "GitHub visibility/rename/REST official docs",
+    "User authorization for both public and opaque names"
+  ],
+  "start_conditions": [
+    "Clean new managed worktree",
+    "Exact path claims and independent publication-plan review"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false
+  },
+  "permissions": [
+    "Create issue and Draft PR, rename both specified repositories and set public after audit and independent plan review",
+    "Update scoped control tools/docs, local control remotes and PR attachments",
+    "No billing, merge, release, app source/runtime/DB/container changes"
+  ],
+  "checks": [
+    "publication_audit",
+    "rename_contract_tests",
+    "documentation_and_scope",
+    "live_publication_verification"
+  ],
+  "evidence_location": "tasks/PUB-001/evidence/",
+  "stop_conditions": [
+    "Credential/customer data found in publication candidate",
+    "Identity/head mismatch or unexpected changes",
+    "Required runtime or billing changes"
+  ],
+  "implementer": "root_repository_publication",
+  "reviewer": "fresh-context publication_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/agents/repositories.json"
+  ],
+  "status": "specified",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/13",
+  "related_issues": []
+}

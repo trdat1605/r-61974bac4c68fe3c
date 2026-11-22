@@ -1,0 +1,19 @@
+{
+  "command": "Selected-pattern remote history scan plus paginated metadata and all7 Actions log archives; independent original and recovery audits; receipts linked",
+  "evidence_refs": [
+    "publication-audit-prechange.json",
+    "publication-plan-review.json",
+    "publication-recovery-audit.json",
+    "publication-recovery-review.json"
+  ],
+  "limits": [
+    "Not exhaustive secrets/customer-data audit; app exact already-public upstream provenance rather than blob scan",
+    "Original metadata discrepancy cause unverified; failure preserved"
+  ],
+  "task_id": "PUB-001",
+  "name": "publication_audit",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "802091dff84462293cdde6eabc93b5b90e5e3105",
+  "date": "2026-11-23"
+}

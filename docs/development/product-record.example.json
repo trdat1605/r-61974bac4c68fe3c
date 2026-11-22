@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "task_id": "PRODUCT-EXAMPLE",
-  "issue": "https://github.com/trdat1605/chatwoot-vn/issues/9",
+  "issue": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/9",
   "source": {
-    "repository": "https://github.com/trdat1605/chatwoot-vn-app",
+    "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
     "base_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
   },
   "criteria": [

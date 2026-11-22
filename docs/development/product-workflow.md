@@ -1,6 +1,6 @@
 # Quy trình cho công việc sản phẩm Chatwoot
 
-Áp dụng đề xuất của dự án ngày **23/11/2026**, [issue đầu mối #5](https://github.com/trdat1605/chatwoot-vn/issues/5), task `FLOW-001`. Tài liệu và tooling trên nhánh đang review; chưa được chủ sản phẩm chấp nhận trên main. Đây là quy trình cho app ở repo riêng; CI kho điều phối không chứng minh app đã đạt.
+Áp dụng đề xuất của dự án ngày **23/11/2026**, [issue đầu mối #5](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/5), task `FLOW-001`. Tài liệu và tooling trên nhánh đang review; chưa được chủ sản phẩm chấp nhận trên main. Đây là quy trình cho app ở repo riêng; CI kho điều phối không chứng minh app đã đạt.
 
 ## Từ yêu cầu tới bàn giao
 
@@ -25,16 +25,18 @@ Thông điệp quan trọng phải nối về issue/task/commit hoặc quyết �
 
 ## Hai repo và ba loại kiểm
 
-- **Control repo:** `trdat1605/chatwoot-vn` lưu task/handoff/review và công cụ; `workflow.py` xác minh commit của repo này.
-- **App repo:** [chatwoot-vn-app](https://github.com/trdat1605/chatwoot-vn-app) giữ source ứng dụng; app base/subject phải được kiểm bằng Git của app. Không thay app SHA bằng control SHA.
+- **Control repo:** `trdat1605/r-61974bac4c68fe3c` lưu task/handoff/review và công cụ; `workflow.py` xác minh commit của repo này.
+- **App repo:** [source Chatwoot](https://github.com/trdat1605/s-251521f7e9131fb0) giữ source ứng dụng; app base/subject phải được kiểm bằng Git của app. Không thay app SHA bằng control SHA.
 - **Governance CI:** kiểm hợp đồng/hashes/tools của control. **Product evidence checker:** kiểm tính nhất quán app Git và hồ sơ. **Product CI/runtime tests:** chạy ứng dụng/tests thật. Ba loại không thay nhau.
+
+Tên kho hiện hành theo [PUB-001](repository-publication.md); công cụ dùng map ID/alias đã khai báo để đọc hồ sơ tên cũ. Tài liệu/task/evidence lịch sử không được viết lại.
 
 ## Công cụ và giới hạn
 
 ```text
 python -B tools/agents/product_check.py plan --record docs/development/product-record.example.json
 python -B tools/agents/product_check.py verify --record RECORD.json --repo CONTROL_ROOT --source-repo APP_ROOT
-python -B tools/agents/product_check.py pr --repo . --expected-repository trdat1605/chatwoot-vn
+python -B tools/agents/product_check.py pr --repo . --expected-repository trdat1605/r-61974bac4c68fe3c
 ```
 
 `plan` chỉ trả `PLAN_VALID`; mẫu là ví dụ, chưa đủ nội dung nghiệp vụ để giao code. `verify` yêu cầu app origin/ref/HEAD/tracked bytes phù hợp, không dùng assume-unchanged/skip-worktree hoặc sparse checkout để che kiểm tra; receipts đã commit đúng app repo/subject/criteria/hash/command, checks PASS và review khác implementer. Đây là kiểm current checkout và tính nhất quán, không attestation danh tính hoặc sự thật của mọi receipt. Không kiểm toàn bộ untracked/ignored files. Chưa có product task thật đạt verify thì ghi NOT_RUN; tests fixture không tính là pilot app.

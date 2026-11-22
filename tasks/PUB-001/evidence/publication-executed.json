@@ -1,0 +1,344 @@
+{
+  "task_id": "PUB-001",
+  "date": "2026-11-23",
+  "status": "PASS",
+  "command": "Reviewed recovery guards, app public PATCH, anonymous identity readback, description correction and read-only rulesets check",
+  "recovery_plan_sha256": "3f5f61aeafb84d2d6e1b9becb09abf0f114ce96dc27acc3d20405a10a192d305",
+  "steps": [
+    {
+      "step": "recovery_initial_guard",
+      "id": 1461752107,
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "private": false,
+      "status": "PASS",
+      "content_sha256": "6c5d76197bcf8087de6e2723565d4c2bbdb275e0de926f02360a539f188708cc",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "5b277e308123715ba87cc88a52ed43718e108189a689a54d9d9d857caaa01276",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "89110ec6c735f9ee4d40f19441495c74f4731669636429c19dfcbccee4c792d6",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/12": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/4": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/3": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/2": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/1": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {
+          "6450647001": "c54ab28c0ed75e608b5ee1a1ab2b2d77bc9d9f8154f7caa9bbd1a364c87438f6",
+          "6453061685": "9f5b189213c20db39f1d0f7f763d55f7ac425130a7ebe9d382c2fcf227ae42fc",
+          "6546224642": "8c88023a6e3d6eea166e017e13d27fe8a4fc391eb409f62d2b9ba9a321ac0564",
+          "6546490559": "23e780eff1612988ec396bdeb44dd1950d3dac666bb011c13825c28b3e1fdaa0",
+          "6547133118": "1e3348ce524bb688adf77c08bc3199c0bd18333de15ef3da302cfa3524285ff6",
+          "6547133326": "2faf0a5a8db4785c447857b310b6d398622c9382d2547bc92c805b1208ac999b",
+          "6547133550": "8ad82c812b55c8cfeb06697a8eed9373a53d618ba60d4c1e7731e982fd181b43",
+          "6547133866": "e6f7807a01bae289f03251431e00486aa5925139a81260932375cc4f0407ebe3",
+          "6547134126": "a3736e06dd414e354e208a52f24583dbbf61bb3c2f80e2be8a38db28d0b71dcb",
+          "6547134351": "5e558f4c86a12a7297e5f298869b33a77bb3b93caa6bf4e8c00266c0ce5b14ee",
+          "6547134591": "8fbd3da9af280af97ece1645c055cc17b2d85dd7fbec3332a1b7ec143065a66b",
+          "6547402882": "70e04cbabedb37922f67343e4920336294cfefc906bd0f78797b0bf09eee6097",
+          "6547754787": "05dc12bda6cb6d51f879a49b03c785848d42979a0847a5fdc8ffda494b69baca"
+        },
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {
+          "5362033155": "8c8480bc00db4634855f572a644df71eb7a33bef79a1b82758d3507343c26895",
+          "5364088214": "72505c9b0a7daa647d4d3992f63b0787ccbbaa3e43a794333d4c9a50e385f843",
+          "5442102676": "76ede044a8836afd209a2443cd7037f6563a83c03013ea940b581490c2bb969b",
+          "5442322542": "819bfb4ea7cee14c070e9e9fa528b4d45655ff1bad99586ddec0e259ba2534d5",
+          "5443072678": "4b59b16aef1b898ce0b4fd509bc0e6c4893b1afe52c024ba3bb0a1caf645bc71"
+        },
+        "releases?per_page=100": {},
+        "reviews/12": {},
+        "reviews/4": {},
+        "reviews/3": {},
+        "reviews/2": {},
+        "reviews/1": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "recovery_initial_guard",
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": true,
+      "status": "PASS",
+      "content_sha256": "abdf11ed7f0a654cc893b5c5bb8a9bc29ce7845c19d409d1f436242f6c2c2fd4",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {},
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {},
+        "releases?per_page=100": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "before_app_public",
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": true,
+      "status": "PASS",
+      "content_sha256": "abdf11ed7f0a654cc893b5c5bb8a9bc29ce7845c19d409d1f436242f6c2c2fd4",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {},
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {},
+        "releases?per_page=100": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "app_public_PATCH",
+      "id": 1467945011,
+      "private": false,
+      "status": "PASS"
+    },
+    {
+      "step": "after_app_public",
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": false,
+      "status": "PASS",
+      "content_sha256": "abdf11ed7f0a654cc893b5c5bb8a9bc29ce7845c19d409d1f436242f6c2c2fd4",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {},
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {},
+        "releases?per_page=100": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "before_description_update",
+      "id": 1461752107,
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "private": false,
+      "status": "PASS",
+      "content_sha256": "6c5d76197bcf8087de6e2723565d4c2bbdb275e0de926f02360a539f188708cc",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "5b277e308123715ba87cc88a52ed43718e108189a689a54d9d9d857caaa01276",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "89110ec6c735f9ee4d40f19441495c74f4731669636429c19dfcbccee4c792d6",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/12": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/4": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/3": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/2": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/1": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {
+          "6450647001": "c54ab28c0ed75e608b5ee1a1ab2b2d77bc9d9f8154f7caa9bbd1a364c87438f6",
+          "6453061685": "9f5b189213c20db39f1d0f7f763d55f7ac425130a7ebe9d382c2fcf227ae42fc",
+          "6546224642": "8c88023a6e3d6eea166e017e13d27fe8a4fc391eb409f62d2b9ba9a321ac0564",
+          "6546490559": "23e780eff1612988ec396bdeb44dd1950d3dac666bb011c13825c28b3e1fdaa0",
+          "6547133118": "1e3348ce524bb688adf77c08bc3199c0bd18333de15ef3da302cfa3524285ff6",
+          "6547133326": "2faf0a5a8db4785c447857b310b6d398622c9382d2547bc92c805b1208ac999b",
+          "6547133550": "8ad82c812b55c8cfeb06697a8eed9373a53d618ba60d4c1e7731e982fd181b43",
+          "6547133866": "e6f7807a01bae289f03251431e00486aa5925139a81260932375cc4f0407ebe3",
+          "6547134126": "a3736e06dd414e354e208a52f24583dbbf61bb3c2f80e2be8a38db28d0b71dcb",
+          "6547134351": "5e558f4c86a12a7297e5f298869b33a77bb3b93caa6bf4e8c00266c0ce5b14ee",
+          "6547134591": "8fbd3da9af280af97ece1645c055cc17b2d85dd7fbec3332a1b7ec143065a66b",
+          "6547402882": "70e04cbabedb37922f67343e4920336294cfefc906bd0f78797b0bf09eee6097",
+          "6547754787": "05dc12bda6cb6d51f879a49b03c785848d42979a0847a5fdc8ffda494b69baca"
+        },
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {
+          "5362033155": "8c8480bc00db4634855f572a644df71eb7a33bef79a1b82758d3507343c26895",
+          "5364088214": "72505c9b0a7daa647d4d3992f63b0787ccbbaa3e43a794333d4c9a50e385f843",
+          "5442102676": "76ede044a8836afd209a2443cd7037f6563a83c03013ea940b581490c2bb969b",
+          "5442322542": "819bfb4ea7cee14c070e9e9fa528b4d45655ff1bad99586ddec0e259ba2534d5",
+          "5443072678": "4b59b16aef1b898ce0b4fd509bc0e6c4893b1afe52c024ba3bb0a1caf645bc71"
+        },
+        "releases?per_page=100": {},
+        "reviews/12": {},
+        "reviews/4": {},
+        "reviews/3": {},
+        "reviews/2": {},
+        "reviews/1": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "description_PATCH",
+      "id": 1461752107,
+      "status": "PASS"
+    },
+    {
+      "step": "final_authenticated_guard",
+      "id": 1461752107,
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "private": false,
+      "status": "PASS",
+      "content_sha256": "6c5d76197bcf8087de6e2723565d4c2bbdb275e0de926f02360a539f188708cc",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "5b277e308123715ba87cc88a52ed43718e108189a689a54d9d9d857caaa01276",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "89110ec6c735f9ee4d40f19441495c74f4731669636429c19dfcbccee4c792d6",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/12": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/4": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/3": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/2": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/1": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {
+          "6450647001": "c54ab28c0ed75e608b5ee1a1ab2b2d77bc9d9f8154f7caa9bbd1a364c87438f6",
+          "6453061685": "9f5b189213c20db39f1d0f7f763d55f7ac425130a7ebe9d382c2fcf227ae42fc",
+          "6546224642": "8c88023a6e3d6eea166e017e13d27fe8a4fc391eb409f62d2b9ba9a321ac0564",
+          "6546490559": "23e780eff1612988ec396bdeb44dd1950d3dac666bb011c13825c28b3e1fdaa0",
+          "6547133118": "1e3348ce524bb688adf77c08bc3199c0bd18333de15ef3da302cfa3524285ff6",
+          "6547133326": "2faf0a5a8db4785c447857b310b6d398622c9382d2547bc92c805b1208ac999b",
+          "6547133550": "8ad82c812b55c8cfeb06697a8eed9373a53d618ba60d4c1e7731e982fd181b43",
+          "6547133866": "e6f7807a01bae289f03251431e00486aa5925139a81260932375cc4f0407ebe3",
+          "6547134126": "a3736e06dd414e354e208a52f24583dbbf61bb3c2f80e2be8a38db28d0b71dcb",
+          "6547134351": "5e558f4c86a12a7297e5f298869b33a77bb3b93caa6bf4e8c00266c0ce5b14ee",
+          "6547134591": "8fbd3da9af280af97ece1645c055cc17b2d85dd7fbec3332a1b7ec143065a66b",
+          "6547402882": "70e04cbabedb37922f67343e4920336294cfefc906bd0f78797b0bf09eee6097",
+          "6547754787": "05dc12bda6cb6d51f879a49b03c785848d42979a0847a5fdc8ffda494b69baca"
+        },
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {
+          "5362033155": "8c8480bc00db4634855f572a644df71eb7a33bef79a1b82758d3507343c26895",
+          "5364088214": "72505c9b0a7daa647d4d3992f63b0787ccbbaa3e43a794333d4c9a50e385f843",
+          "5442102676": "76ede044a8836afd209a2443cd7037f6563a83c03013ea940b581490c2bb969b",
+          "5442322542": "819bfb4ea7cee14c070e9e9fa528b4d45655ff1bad99586ddec0e259ba2534d5",
+          "5443072678": "4b59b16aef1b898ce0b4fd509bc0e6c4893b1afe52c024ba3bb0a1caf645bc71"
+        },
+        "releases?per_page=100": {},
+        "reviews/12": {},
+        "reviews/4": {},
+        "reviews/3": {},
+        "reviews/2": {},
+        "reviews/1": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "final_anonymous_readback",
+      "id": 1461752107,
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "private": false,
+      "status": "PASS",
+      "branches": {
+        "codex/agent-operating-system": "344f3a8a6315d1a5814479caa54434e571df3033",
+        "codex/docs-home": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+        "codex/knowledge-handoff": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+        "codex/product-foundation": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+        "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+        "review/project-foundation": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3"
+      },
+      "actions_enabled": true,
+      "rulesets_get_http": 200,
+      "rulesets_count": 0
+    },
+    {
+      "step": "before_description_update",
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": false,
+      "status": "PASS",
+      "content_sha256": "abdf11ed7f0a654cc893b5c5bb8a9bc29ce7845c19d409d1f436242f6c2c2fd4",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {},
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {},
+        "releases?per_page=100": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "description_PATCH",
+      "id": 1467945011,
+      "status": "PASS"
+    },
+    {
+      "step": "final_authenticated_guard",
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": false,
+      "status": "PASS",
+      "content_sha256": "abdf11ed7f0a654cc893b5c5bb8a9bc29ce7845c19d409d1f436242f6c2c2fd4",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "per_item_hashes": {
+        "issues?state=all&per_page=100": {},
+        "issues/comments?per_page=100": {},
+        "pulls/comments?per_page=100": {},
+        "pulls?state=all&per_page=100": {},
+        "releases?per_page=100": {},
+        "commit-comments": {}
+      }
+    },
+    {
+      "step": "final_anonymous_readback",
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": false,
+      "status": "PASS",
+      "branches": {
+        "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      },
+      "actions_enabled": false,
+      "rulesets_get_http": 200,
+      "rulesets_count": 0
+    }
+  ],
+  "exit_code": 0,
+  "limits": [
+    "Failure attempt preserved; exact original metadata drift cause not attributable",
+    "No ruleset changes, runtime changes, merge or billing",
+    "Selected-pattern audit not exhaustive"
+  ]
+}

@@ -24,6 +24,85 @@ def plan():
             'rollback': 'Revert the application commit'}
 
 
+def identity_map():
+    return {'schema_version': 1, 'repositories': [
+        {'id': 101, 'repository': 'https://github.com/example/control',
+         'aliases': ['https://github.com/example/control-legacy']},
+        {'id': 202, 'repository': 'https://github.com/example/app',
+         'aliases': ['https://github.com/example/app-legacy']}]}
+
+
+def save_identity_map(root, document=None):
+    path = root / 'config/agents/repositories.json'
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(identity_map() if document is None else document), encoding='utf-8')
+
+
+class RepositoryIdentities(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+
+    def test_missing_map_keeps_unknown_names_strict_and_known_aliases_are_explicit(self):
+        self.assertEqual(product.repository_identities(self.root), {})
+        save_identity_map(self.root)
+        identities = product.repository_identities(self.root)
+        self.assertEqual(product.canonical_repository('https://github.com/example/app-legacy', identities),
+                         'example/app')
+        self.assertEqual(identities['example/app-legacy']['id'], 202)
+        self.assertEqual(product.canonical_repository('https://github.com/example/unlisted', identities),
+                         'example/unlisted')
+
+    def test_malformed_schema_entries_ids_and_alias_lists_block(self):
+        documents = [[], {}, {'schema_version': True, 'repositories': []},
+                     {'schema_version': 2, 'repositories': []},
+                     {'schema_version': 1, 'repositories': []}]
+        for key, values in [('id', [None, True, 0, -1, '101', 101.0]),
+                            ('aliases', [None, 'https://github.com/example/old', {}])]:
+            for value in values:
+                document = identity_map()
+                document['repositories'][0][key] = value
+                documents.append(document)
+        for field in ('id', 'repository', 'aliases'):
+            document = identity_map()
+            del document['repositories'][0][field]
+            documents.append(document)
+        for document in documents:
+            with self.subTest(document=document):
+                save_identity_map(self.root, document)
+                with self.assertRaises(product.ProductError):
+                    product.repository_identities(self.root)
+
+    def test_duplicate_ids_names_and_cross_repository_aliases_block(self):
+        changes = [('id', 101), ('repository', 'https://github.com/example/control'),
+                   ('aliases', ['https://github.com/example/control-legacy']),
+                   ('aliases', ['https://github.com/example/control']),
+                   ('aliases', ['https://github.com/example/app']),
+                   ('aliases', ['https://github.com/example/old', 'https://github.com/example/old'])]
+        for key, value in changes:
+            document = identity_map()
+            document['repositories'][1][key] = value
+            save_identity_map(self.root, document)
+            with self.subTest(key=key, value=value), self.assertRaises(product.ProductError):
+                product.repository_identities(self.root)
+
+    def test_unsafe_or_noncanonical_map_urls_block(self):
+        for value in [None, 'example/control', 'http://github.com/example/control',
+                      'https://token@github.com/example/control', 'https://evil.example/example/control',
+                      'https://github.com/example/control?token=secret',
+                      'https://github.com/example/control#fragment',
+                      'https://github.com/example/control.git', 'https://github.com/example/control/',
+                      'https://github.com/example/../control', 'https://github.com/example/.',
+                      'https://github.com/Example/Control']:
+            for key in ('repository', 'aliases'):
+                document = identity_map()
+                document['repositories'][0][key] = [value] if key == 'aliases' else value
+                save_identity_map(self.root, document)
+                with self.subTest(key=key, value=value), self.assertRaises(product.ProductError):
+                    product.repository_identities(self.root)
+
+
 class Plans(unittest.TestCase):
     def test_plan_valid_is_not_product_verified(self):
         self.assertEqual(product.validate_plan(plan())['status'], 'PLAN_VALID')
@@ -115,6 +194,49 @@ class SourceFixture(unittest.TestCase):
         self.assertEqual(result['status'], 'PRODUCT_RECORD_VERIFIED')
         self.assertEqual(result['subject_commit'], self.subject)
         self.assertEqual(result['mode'], 'current-checkout')
+
+    def test_legacy_record_remote_and_committed_receipt_compare_as_known_identity(self):
+        save_identity_map(self.control)
+        for record_name, remote_name, receipt_name in [
+                ('app-legacy', 'app', 'app-legacy'), ('app', 'app-legacy', 'app'),
+                ('app-legacy', 'app', 'app'), ('app', 'app', 'app-legacy')]:
+            self.record['source']['repository'] = 'https://github.com/example/' + record_name
+            self.git(self.app, 'remote', 'set-url', 'origin', 'git@github.com:example/' + remote_name + '.git')
+            self.receipt['source_repository'] = 'https://github.com/example/' + receipt_name
+            self.save_receipt()
+            self.commit_receipt()
+            before = self.path.read_bytes()
+            with self.subTest(record=record_name, remote=remote_name, receipt=receipt_name):
+                self.assertEqual(self.verify()['status'], 'PRODUCT_RECORD_VERIFIED')
+                self.assertEqual(self.path.read_bytes(), before)
+
+    def test_no_map_does_not_accept_a_legacy_application_remote(self):
+        self.git(self.app, 'remote', 'set-url', 'origin', 'https://github.com/example/app-legacy')
+        with self.assertRaisesRegex(product.ProductError, 'identity mismatch'):
+            self.verify()
+
+    def test_map_does_not_accept_unlisted_source_remote_or_receipt(self):
+        save_identity_map(self.control)
+        self.git(self.app, 'remote', 'set-url', 'origin', 'https://github.com/example/unlisted')
+        with self.assertRaisesRegex(product.ProductError, 'identity mismatch'):
+            self.verify()
+        self.git(self.app, 'remote', 'set-url', 'origin', 'https://github.com/example/app')
+        self.record['source']['repository'] = 'https://github.com/example/unlisted'
+        with self.assertRaisesRegex(product.ProductError, 'identity mismatch'):
+            self.verify()
+        self.record['source']['repository'] = 'https://github.com/example/app'
+        self.receipt['source_repository'] = 'https://github.com/example/unlisted'
+        self.save_receipt()
+        self.commit_receipt()
+        with self.assertRaisesRegex(product.ProductError, 'Receipt application repository mismatch'):
+            self.verify()
+
+    def test_renamed_control_clone_still_cannot_masquerade_as_app(self):
+        save_identity_map(self.control)
+        self.record['source']['repository'] = 'https://github.com/example/control-legacy'
+        self.git(self.app, 'remote', 'set-url', 'origin', 'https://github.com/example/control-legacy')
+        with self.assertRaisesRegex(product.ProductError, 'cannot be the control'):
+            self.verify()
 
     def test_source_checkout_required_and_control_checkout_rejected(self):
         for source in (None, self.control):
@@ -281,6 +403,97 @@ class PullRequests(unittest.TestCase):
         request = self.opener.requests[0]
         self.assertEqual(request.full_url, 'https://api.github.com/repos/example/control/issues/7')
         self.assertEqual(request.get_method(), 'GET')
+
+    def legacy_task_with_map(self):
+        save_identity_map(self.root)
+        self.task['repository'] = 'https://github.com/example/control-legacy'
+        self.task['issue_url'] = 'https://github.com/example/control-legacy/issues/7'
+        path = self.root / 'tasks/FLOW-001/task.json'
+        path.write_text(json.dumps(self.task), encoding='utf-8')
+        self.event['repository']['id'] = 101
+        self.event['pull_request']['body'] = (
+            'Legacy: https://github.com/example/control-legacy/issues/7\n'
+            'Current: https://github.com/example/control/issues/7\n'
+            'Task: tasks/FLOW-001/task.json\n')
+        return path
+
+    def test_historical_urls_request_canonical_api_directly_without_redirect(self):
+        path = self.legacy_task_with_map()
+        before = path.read_bytes()
+        with patch.object(product, 'build_opener', return_value=self.opener) as build:
+            result = product.check_pr(self.event, 'example/control', self.root, 'test-token')
+        self.assertIsInstance(build.call_args.args[0], product.NoRedirect)
+        self.assertEqual(result['issues_checked'], 1)
+        self.assertEqual(len(self.opener.requests), 1)
+        request = self.opener.requests[0]
+        self.assertEqual(request.full_url, 'https://api.github.com/repos/example/control/issues/7')
+        self.assertEqual(request.get_method(), 'GET')
+        self.assertEqual(path.read_bytes(), before)
+
+    def test_known_event_and_expected_aliases_require_same_pinned_id(self):
+        self.legacy_task_with_map()
+        self.event['repository']['full_name'] = 'example/control-legacy'
+        result = product.check_pr(self.event, 'example/control-legacy', self.root, 'test-token', self.opener)
+        self.assertEqual(result['status'], 'PR_TRACEABILITY_VALID')
+        for value in [None, True, '101', 101.0, 202, 999]:
+            self.event['repository']['id'] = value
+            with self.subTest(value=value), self.assertRaisesRegex(product.ProductError, 'ID mismatch'):
+                self.check()
+        self.assertEqual(len(self.opener.requests), 1)
+
+    def test_canonical_event_also_requires_map_id_and_unknown_event_alias_blocks(self):
+        self.legacy_task_with_map()
+        del self.event['repository']['id']
+        with self.assertRaisesRegex(product.ProductError, 'ID mismatch'):
+            self.check()
+        self.event['repository'] = {'full_name': 'example/unlisted', 'id': 101}
+        with self.assertRaisesRegex(product.ProductError, 'repository mismatch'):
+            self.check()
+        self.assertEqual(self.opener.requests, [])
+
+    def test_event_full_name_remains_strict_even_when_map_exists(self):
+        self.legacy_task_with_map()
+        for name in ['example/control/', 'example/control.git',
+                     'example/control-legacy/', 'https://github.com/example/control']:
+            self.event['repository']['full_name'] = name
+            with self.subTest(name=name), self.assertRaisesRegex(product.ProductError, 'repository mismatch'):
+                self.check()
+        self.assertEqual(self.opener.requests, [])
+
+    def test_map_does_not_accept_unlisted_task_or_body_alias(self):
+        self.legacy_task_with_map()
+        path = self.root / 'tasks/FLOW-001/task.json'
+        for key, value in [('repository', 'https://github.com/example/unlisted'),
+                           ('issue_url', 'https://github.com/example/unlisted/issues/7')]:
+            task = dict(self.task)
+            task[key] = value
+            path.write_text(json.dumps(task), encoding='utf-8')
+            with self.subTest(key=key), self.assertRaises(product.ProductError):
+                self.check()
+        path.write_text(json.dumps(self.task), encoding='utf-8')
+        self.event['pull_request']['body'] += 'https://github.com/example/unlisted/issues/7\n'
+        with self.assertRaises(product.ProductError):
+            self.check()
+        self.assertEqual(self.opener.requests, [])
+
+    def test_missing_map_keeps_legacy_task_urls_strict(self):
+        self.legacy_task_with_map()
+        (self.root / 'config/agents/repositories.json').unlink()
+        with self.assertRaises(product.ProductError):
+            self.check()
+        self.assertEqual(self.opener.requests, [])
+
+    def test_canonical_api_redirect_or_alias_response_remains_blocked(self):
+        self.legacy_task_with_map()
+        for status in (301, 302, 307, 308):
+            with patch.object(self.opener, 'open', side_effect=HTTPError(
+                    'https://api.github.com', status, 'redirect',
+                    {'Location': 'https://evil.example'}, None)):
+                with self.subTest(status=status), self.assertRaisesRegex(product.ProductError, 'HTTP ' + str(status)):
+                    self.check()
+        self.opener.payload['html_url'] = 'https://github.com/example/control-legacy/issues/7'
+        with self.assertRaisesRegex(product.ProductError, 'GitHub issue repository mismatch'):
+            self.check()
 
     def test_missing_issue_pull_url_other_repo_or_missing_task_block(self):
         for body in ['Task: tasks/FLOW-001/task.json',

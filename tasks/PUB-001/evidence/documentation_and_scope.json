@@ -1,0 +1,28 @@
+{
+  "command": "git diff --check BASE SUBJECT; assert13 write_scope paths exactly; source bytes committed; historical tasks byte-identical; relative Markdown targets exist; selected pattern scan",
+  "implementation_base": "29a06a3568dae0d596c81000ee6ce54baf0cb7ca",
+  "changed_files": [
+    ".github/workflows/agent-governance.yml",
+    "README.md",
+    "config/agents/repositories.json",
+    "docs/agents/README.md",
+    "docs/development/product-record.example.json",
+    "docs/development/product-workflow.md",
+    "docs/development/repository-publication.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/project-map.md",
+    "docs/status.md",
+    "tests/test_product_check.py",
+    "tools/agents/product_check.py"
+  ],
+  "limits": [
+    "Link existence not target contents validation; secret patterns not exhaustive"
+  ],
+  "task_id": "PUB-001",
+  "name": "documentation_and_scope",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "802091dff84462293cdde6eabc93b5b90e5e3105",
+  "date": "2026-11-23"
+}
