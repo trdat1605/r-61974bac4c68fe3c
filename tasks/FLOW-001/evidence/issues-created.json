@@ -1,0 +1,36 @@
+{
+  "observed_local_date": "2026-11-23",
+  "repository": "https://github.com/trdat1605/chatwoot-vn",
+  "issues": [
+    {
+      "key": "product_workflow",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/5"
+    },
+    {
+      "key": "agent_selection",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/6"
+    },
+    {
+      "key": "traceability",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/7"
+    },
+    {
+      "key": "source_reproduction",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/8"
+    },
+    {
+      "key": "product_validation",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/9"
+    },
+    {
+      "key": "merge_controls",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/10"
+    },
+    {
+      "key": "status",
+      "url": "https://github.com/trdat1605/chatwoot-vn/issues/11"
+    }
+  ],
+  "status": "OBSERVED",
+  "limits": "Issue creation is tracking, not completion or product acceptance. Issues remain open."
+}

@@ -1,0 +1,74 @@
+{
+  "task_id": "FLOW-001",
+  "implementer": "root_flow_foundation",
+  "implementation_branch": "codex/product-foundation",
+  "implementation_base": "11051194ad7733c2df0eadfcd48d9b42a61cdee2",
+  "subject_commit": "48f8a14ffcad7c5c5051ab5041c85074c60a620f",
+  "changed_files": [
+    "AGENTS.md",
+    "README.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/agents/operating-model.md",
+    "docs/development/product-workflow.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/agent-selection.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/development/pilot.md",
+    "docs/development/product-record.example.json",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/workflows/agent-governance.yml",
+    "tools/agents/product_check.py",
+    "tests/test_product_check.py"
+  ],
+  "checks": [
+    {
+      "name": "product_contract_tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/FLOW-001/evidence/product_contract_tests.json",
+      "sha256": "d13b831fd9354c78e0a0e99f91a72f9656c314c2dd74fda41a9f281a263099a4"
+    },
+    {
+      "name": "documentation_and_scope",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/FLOW-001/evidence/documentation_and_scope.json",
+      "sha256": "560a2740fb3e592b28380e20892eb47e4584262a94d6f92044c371109d597deb"
+    },
+    {
+      "name": "live_issue_traceability",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/FLOW-001/evidence/live_issue_traceability.json",
+      "sha256": "ff634b25ef219d6e362563ad873ca59d5b976b1e407f09f78fb4ff8723869346"
+    }
+  ],
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "docs/knowledge/sources.json": "419934b4696e5d9d76d8089b9cb73198abfe171a7b0fd9b17b2df9a298f20b5b",
+    "agents/codex/roles.json": "2dcdafc3f2c285ce090013687087f13a063420fe7e8beb2c684d10c4782cf481"
+  },
+  "receiver": "product owner",
+  "status": "awaiting_product_owner",
+  "issue_url": "https://github.com/trdat1605/chatwoot-vn/issues/5",
+  "contributors": {
+    "two_code_paths": "/root/product_workflow_design",
+    "source_audit": "/root/source_repro_audit",
+    "source_seed_plan_review": "/root/source_seed_plan_review",
+    "final_review": "/root/product_foundation_review"
+  },
+  "open_issues": [
+    "All seven improvement issues remain open; foundation implementation does not complete every acceptance",
+    "App baseline shared private at pinned SHA, Actions disabled; adapter templates/fresh isolated setup/build/UI/appCI/pilot NOT_RUN",
+    "GitHub private rulesets API403 requiresPro; no public visibility/paid plan/server merge enforcement change",
+    "AgentTeams comparative eval NOT_RUN; coordinator+subagents not claimed optimal",
+    "Issue/PR templates not active via default branch until accepted merge; current PR job must pass hosted checks",
+    "No merge/release/production rollback or human second-reviewer setup performed",
+    "Record checker validates declared current app Git and evidence consistency only; untracked/ignored files and execution-truth/identity not attested"
+  ],
+  "next_step": "Run final repository hook/gate with all sanitized artifacts staged; push codex/product-foundation and create Draft PR based on codex/knowledge-handoff with issue5/task link. Owner reviews foundation; then source bootstrap/test environment and a real app pilot remain separate scoped work. Do not merge or release."
+}
