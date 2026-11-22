@@ -1,0 +1,42 @@
+{
+  "subject_commit": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_local_date": "2026-11-23",
+  "commands": [
+    "Inline Python via Python313/python.exe -B -: SHA256 all three stored artifacts; exact original transcript comparison; original attachment hash validation; difflib token comparison",
+    "wsl.exe -d Ubuntu-22.04 --exec git -C /root/code/chatwoot-worktrees/wsl-preflight show caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82:AGENTS.md",
+    "Same read-only command for LICENSE; compare raw stdout SHA256 with stored references",
+    "WSL git status --short and rev-parse HEAD"
+  ],
+  "results": {
+    "portable_artifacts": [
+      {
+        "id": "USER-REVIEW-01",
+        "path": "docs/knowledge/user-materials/ai-code-review-transcript.txt",
+        "sha256": "d1d45b66bd4d9cb0eb743ddd255578486eb3aff728c1073b5c128faa8971de25"
+      },
+      {
+        "id": "CW-01-CACHE",
+        "path": "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt",
+        "sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b"
+      },
+      {
+        "id": "CW-LICENSE-CACHE",
+        "path": "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt",
+        "sha256": "602d38a808315f221a5e72e2e90e40cb9300f09aa4b317a6a8f1a0c7a3d2175d"
+      }
+    ],
+    "selected_transcript_exact_original_bytes": true,
+    "first_attachment_extra_outro_tokens": 21,
+    "both_original_hashes_verified": true,
+    "upstream_pinned_AGENTS_and_LICENSE_bytes_match": true,
+    "application_head": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "application_git_status": ""
+  },
+  "limits": [
+    "No original audio/video; speaker identity and transcript accuracy against audio unverified",
+    "Only selected references cached; not every historical snapshot shared or reread",
+    "No evidence live docs match installed CLI or application behavior"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "subject_commit": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+  "observed_local_date": "2026-11-23",
+  "status": "OBSERVED",
+  "acquisition_command": "git -c credential.interactive=never clone --single-branch --branch codex/knowledge-handoff https://github.com/trdat1605/chatwoot-vn.git <new-target>",
+  "clone_root": "C:\\Users\\MFLAT-ADS-010\\Documents\\ChatGPT\\handover-checks\\docs-002-20261123",
+  "origin": "https://github.com/trdat1605/chatwoot-vn.git",
+  "branch": "codex/knowledge-handoff",
+  "head": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+  "git_common_dir": ".git",
+  "standalone_git_directory": true,
+  "working_status": "",
+  "limits": [
+    "Fresh clone on the same physical machine, not a second-device installation",
+    "Reviewer is instructed to use only clone and linked sources; not an OS permission boundary",
+    "Does not prove app runtime reconstruction or chat auto-loading"
+  ]
+}

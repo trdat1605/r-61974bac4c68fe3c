@@ -1,0 +1,58 @@
+{
+  "subject_commit": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_local_date": "2026-11-23",
+  "commands": [
+    "Inline Python: exact subject/current bytes, JSON parsing, relative Markdown files/anchors, all 36 catalog IDs/URLs in index, selected secret scan and manual diff read",
+    "git diff --name-only -z 5b78a26ab92fa621d189ab62a6590fc599ffcd95 a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+    "git diff --check 5b78a26ab92fa621d189ab62a6590fc599ffcd95 a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1 -- . :(exclude)docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt :(exclude)docs/knowledge/user-materials/ai-code-review-transcript.txt"
+  ],
+  "results": {
+    "scope_paths": [
+      ".gitattributes",
+      "README.md",
+      "docs/agents/README.md",
+      "docs/knowledge/README.md",
+      "docs/knowledge/context-packet.md",
+      "docs/knowledge/reading-routes.md",
+      "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt",
+      "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt",
+      "docs/knowledge/source-notes.md",
+      "docs/knowledge/supplemental-sources.json",
+      "docs/knowledge/user-materials/README.md",
+      "docs/knowledge/user-materials/ai-code-review-transcript.txt",
+      "docs/project-map.md",
+      "docs/status.md"
+    ],
+    "relative_links_checked": 120,
+    "local_anchors_checked": 25,
+    "historical_index_entries": 36,
+    "selected_secret_pattern_findings": 0,
+    "handwritten_docs_whitespace_exit_code": 0,
+    "bound_input_hashes": {
+      "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+      "docs/knowledge/sources.json": "419934b4696e5d9d76d8089b9cb73198abfe171a7b0fd9b17b2df9a298f20b5b",
+      "agents/codex/roles.json": "2dcdafc3f2c285ce090013687087f13a063420fe7e8beb2c684d10c4782cf481"
+    }
+  },
+  "non_passing_check": {
+    "command": "git diff --check 5b78a26ab92fa621d189ab62a6590fc599ffcd95 a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+    "status": "FAIL",
+    "exit_code": 2,
+    "locations": [
+      "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt:37: trailing whitespace.",
+      "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt:38: trailing whitespace.",
+      "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt:39: trailing whitespace.",
+      "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt:40: trailing whitespace.",
+      "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt:41: trailing whitespace.",
+      "docs/knowledge/user-materials/ai-code-review-transcript.txt:1: trailing whitespace."
+    ],
+    "disposition": "Six existing trailing-whitespace lines in two byte-identical reference artifacts. Preserve originals/hash deliberately; handwritten docs checked separately. Full check NOT claimed PASS. No application code excluded."
+  },
+  "limits": [
+    "Anchor validator approximates GitHub slugs; no rendered browser test",
+    "Selected secret patterns and manual review cannot guarantee all secrets absent",
+    "No runtime writes or UI/product acceptance"
+  ]
+}
