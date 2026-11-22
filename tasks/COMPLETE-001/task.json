@@ -1,6 +1,6 @@
 {
   "id": "COMPLETE-001",
-  "goal": "Complete technical evidence for all seven foundation improvements without replacing unmet criteria with documentation-only claims",
+  "goal": "Hoàn thiện bảy cải tiến bằng bằng chứng thực tế: phối hợp Codex, traceability, dựng lại môi trường, regression và CI ứng dụng, review, bàn giao và pilot.",
   "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
   "branch": "codex/complete-foundation",
   "baseline_commit": "c714462d8c3cca103b52da4652a404b811151d82",
@@ -31,7 +31,8 @@
     "docs/development/completion.md",
     "docs/runbooks/isolated-development.md",
     "config/agents/isolated-runtime.example.json",
-    ".github/workflows/agent-governance.yml"
+    ".github/workflows/agent-governance.yml",
+    "config/github/app-main.ruleset.json"
   ],
   "affected": [
     "Control integration andavailableagent eval",
@@ -54,10 +55,11 @@
     "parallel_runtime": false
   },
   "permissions": [
-    "Write scopedcontroldocs/config/workflow+taskevidence, createissues/reviewreadyPRs",
-    "Separateapplicationcheckout branch scopedfix/bootstrap/CI aftertaskplanandreview; no currentlab/source writes",
-    "Build/start/test/restart/backup/restore onlyNEWuniquelynamedisolatedproject afterreviewedplan; no lab/course volumes DB ports reused",
-    "Read-only inventory GitHubsettings/workflows andpublishsanitizedtaskevidence; enableonlyreviewedappCI afterindependentreview"
+    "Sửa tài liệu/cấu hình/công cụ đúng scope và lưu bằng chứng đã làm sạch; tạo issue và PR để review.",
+    "Sửa app trên checkout và nhánh riêng theo app-task.json; không sửa source hoặc dữ liệu của lab/course hiện có.",
+    "Sau review độc lập, build/chạy/test/restart/backup/restore project mới cwdev-complete001 hoặc project kế tiếp cwdev-complete002. Chỉ được xóa containers/volumes do chính COMPLETE-001 tạo với dữ liệu tổng hợp sau khi backup/hash/ID/label/mount được kiểm và script cleanup được reviewer khác xác nhận; không xóa bất kỳ dữ liệu/tài nguyên lab/course hoặc tài nguyên không xác định.",
+    "Tắt các workflow kế thừa khi Actions toàn kho còn tắt; chỉ bật CI đã được review sau khi kiểm trạng thái mọi workflow.",
+    "Chuẩn bị PR tích hợp có SHA và review cụ thể; quyết định merge/phát hành vẫn dành cho chủ sản phẩm."
   ],
   "checks": [
     "governance_and_scope",
@@ -68,11 +70,10 @@
   ],
   "evidence_location": "tasks/COMPLETE-001/evidence/",
   "stop_conditions": [
-    "Secrets/customerdata inpublicationcandidate",
-    "Needcurrentlab/course datawrites/deletion/restart",
-    "Insufficient disk/resources safely proceed; no automaticprune",
-    "Merge/release/paidexternalservice needsseparateownerdecision",
-    "NativeClaudeTeams unavailable: retainNOT_RUN, donotrelabelCodexexperiment asClaudeTeams"
+    "Phát hiện bí mật hoặc dữ liệu khách hàng trong nội dung chuẩn bị đưa lên GitHub.",
+    "Cần sửa, xóa, restart hoặc dùng chung dữ liệu/volume của lab/course đang có.",
+    "Không đủ dung lượng hoặc tài nguyên để kiểm tra an toàn; không tự prune.",
+    "Cần merge, phát hành hoặc dịch vụ trả phí mà chưa có quyết định cụ thể của chủ sản phẩm."
   ],
   "implementer": "root_foundation_completion",
   "reviewer": "fresh-context completion_review",
@@ -80,7 +81,10 @@
   "role_brief": "agents/codex/implementer.md",
   "bound_inputs": [
     "config/agents/repositories.json",
-    "config/agents/runtime.json"
+    "config/agents/runtime.json",
+    "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+    "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+    "config/github/app-main.ruleset.json"
   ],
   "status": "specified",
   "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
@@ -92,5 +96,16 @@
     "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/9",
     "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10",
     "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/11"
+  ],
+  "scope_decision": {
+    "agent_evaluation": "Người dùng xác nhận chưa có Claude Code; yêu cầu kiểm chứng các cách phối hợp Codex hiện có và ghi rõ giới hạn Claude.",
+    "native_claude_teams": "NOT_RUN; không dùng tên này cho các phép thử Codex."
+  },
+  "scope_decisions": [
+    {
+      "basis": "Người dùng yêu cầu hoàn thiện cả7mục; prepare/fullbuild/CI/runtimepilot vàdiễntậpphụchồisynthetictaskresources làcôngviệccầnthiếtđãđượcgiao.",
+      "runtime_successor": "cwdev-complete002 thay snapshot076 cóstartupbug; giữbằngchứngoldref, khônglà thayruntimehiệncó.",
+      "cleanup_boundary": "Chỉownednewsyntheticproject001 saubackup; không pruneglobal hoặc xóakhôngrõowner."
+    }
   ]
 }
