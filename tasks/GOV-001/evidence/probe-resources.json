@@ -1,0 +1,20 @@
+{
+  "control": {
+    "id": 1461752107,
+    "slug": "trdat1605/r-61974bac4c68fe3c",
+    "config": "config/github/control-main.ruleset.json",
+    "base": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+    "probe": "codex/gov001-target-a745aafb3c",
+    "head": "codex/gov001-head-63140c80d5",
+    "head_base": "3feef9bc3de94748bfda61d01c2093dee79056b4"
+  },
+  "app": {
+    "id": 1467945011,
+    "slug": "trdat1605/s-251521f7e9131fb0",
+    "config": "config/github/app-main.ruleset.json",
+    "base": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "probe": "codex/gov001-target-3ad4bf11b4",
+    "head": "codex/gov001-head-06da171fa0",
+    "head_base": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command": "Compare reviewedJSON schema/parameters to official GitHubREST; exact8scopepaths/diffcheck/relativeMarkdownlinks/selectedcredentialscan; historicaltaskbytesunchanged",
+  "changed_files": [
+    "README.md",
+    "config/github/app-main.ruleset.json",
+    "config/github/control-main.ruleset.json",
+    "docs/agents/README.md",
+    "docs/development/branch-protection.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/review-and-merge.md",
+    "docs/status.md"
+  ],
+  "limits": [
+    "Rule semantics independently reviewed and live readback separate; patternscan notexhaustive"
+  ],
+  "task_id": "GOV-001",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "a4e3dbd520d95fd27266ba539b6f6ab08900a31e",
+  "date": "2026-11-23"
+}

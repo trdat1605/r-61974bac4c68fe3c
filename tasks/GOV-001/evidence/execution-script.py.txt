@@ -1,0 +1,131 @@
+import os,json,sys,hashlib,urllib.request,urllib.error,subprocess,copy
+from pathlib import Path
+E=Path.cwd()/'tasks/GOV-001/evidence'
+P=json.loads((E/'ruleset-plan.json').read_text());R=json.loads((E/'probe-resources.json').read_text());B=json.loads((E/'preflight.json').read_text())
+credential=subprocess.run(['git','-c','credential.interactive=never','credential','fill'],input='protocol=https\nhost=github.com\n\n',capture_output=True,text=True,check=True)
+TOKEN=next(v[9:] for v in credential.stdout.splitlines() if v.startswith('password='))
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+ def redirect_request(self,*a,**k):return None
+OPENER=urllib.request.build_opener(NoRedirect())
+def api(path,method='GET',payload=None):
+ req=urllib.request.Request('https://api.github.com/'+path,data=None if payload is None else json.dumps(payload).encode(),headers={'Authorization':'Bearer '+TOKEN,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json','User-Agent':'GOV-001-enforcement'},method=method)
+ with OPENER.open(req,timeout=30) as res:
+  data=res.read();return json.loads(data) if data else None
+SFILE=E/'execution.json'
+S=json.loads(SFILE.read_text()) if SFILE.exists() else {'task_id':'GOV-001','status':'IN_PROGRESS','plan_sha256':hashlib.sha256((E/'ruleset-plan.json').read_bytes()).hexdigest(),'resources':{},'steps':[]}
+def save():SFILE.write_text(json.dumps(S,indent=2)+'\n',encoding='utf-8',newline='\n')
+def record(step,**data):S['steps'].append({'step':step,**data});save()
+def baseline(r):return next(x for x in B if x['id']==r['id'])
+def guard(r):
+ d=api('repos/'+r['slug']);assert d['id']==r['id'] and d['default_branch']=='main' and not d['private']
+ branches=api('repos/'+r['slug']+'/branches?per_page=100');assert len(branches)<100
+ heads={b['name']:b['commit']['sha'] for b in branches}
+ for name,sha in baseline(r)['branches'].items():assert heads.get(name)==sha,'Pre-existing branch drift'
+ if r['id']==1467945011:assert api('repos/'+r['slug']+'/actions/permissions')['enabled'] is False
+ return heads
+def config(r):
+ p=Path(r['config']);assert hashlib.sha256(p.read_bytes()).hexdigest()==P['config_hashes'][r['config']]
+ return json.loads(p.read_text())
+def owned_ref(r,name):
+ assert name in (r['probe'],r['head']) and name.startswith('codex/gov001-') and name!='main'
+ return 'repos/'+r['slug']+'/git/refs/heads/'+name
+def read_ref(r,name):return api('repos/'+r['slug']+'/git/ref/heads/'+name)['object']['sha']
+def match(expected,actual):
+ if isinstance(expected,dict):return isinstance(actual,dict) and all(k in actual and match(v,actual[k]) for k,v in expected.items())
+ if isinstance(expected,list):return expected==actual
+ return expected==actual
+
+def verify_rules(r,probe=True):
+ payload=config(r)
+ if probe:payload['conditions']['ref_name']['include'].append('refs/heads/'+r['probe'])
+ state=S['resources'][str(r['id'])];d=api('repos/'+r['slug']+'/rulesets/'+str(state['ruleset_id']))
+ for key in ['name','target','enforcement','bypass_actors','conditions']:assert match(payload[key],d[key]),'Ruleset drift '+key
+ expected={x['type']:x for x in payload['rules']};actual={x['type']:x for x in d['rules']};assert set(expected)==set(actual)
+ for key,v in expected.items():assert match(v,actual[key]),'Rule drift '+key
+ effective=api('repos/'+r['slug']+'/rules/branches/main');assert {x['type'] for x in effective}==set(expected)
+ if probe:assert {x['type'] for x in api('repos/'+r['slug']+'/rules/branches/'+r['probe'])}==set(expected)
+ record('rules_readback',id=r['id'],ruleset=d,effective_main=effective,probe_included=probe,status='PASS')
+
+def setup():
+ assert not S['resources'],'Not a resumable setup; inspect existing receipt before retry'
+ for role,r in R.items():
+  guard(r);assert api('repos/'+r['slug']+'/rulesets')==[]
+  for name in (r['probe'],r['head']):
+   try:read_ref(r,name)
+   except urllib.error.HTTPError as ex:assert ex.code==404
+   else:raise AssertionError('Probe name collision')
+ for role,r in R.items():
+  rid=str(r['id']);S['resources'][rid]={'role':role,'slug':r['slug'],'refs':{},'initial_main':baseline(r)['branches']['main']};save()
+  tree=api('repos/'+r['slug']+'/git/commits/'+r['head_base'])['tree']['sha']
+  head=api('repos/'+r['slug']+'/git/commits','POST',{'message':'GOV-001 synthetic enforcement probe, identical tree','tree':tree,'parents':[r['head_base']]})['sha']
+  S['resources'][rid]['head_sha']=head;S['resources'][rid]['head_tree']=tree;save()
+  for name,sha in [(r['probe'],r['base']),(r['head'],head)]:
+   api('repos/'+r['slug']+'/git/refs','POST',{'ref':'refs/heads/'+name,'sha':sha});S['resources'][rid]['refs'][name]=sha;record('create_owned_ref',id=r['id'],ref=name,sha=sha,status='PASS')
+  payload=config(r);payload['conditions']['ref_name']['include'].append('refs/heads/'+r['probe']);guard(r)
+  record('before_create_ruleset',id=r['id'],payload_sha256=hashlib.sha256(json.dumps(payload,sort_keys=True).encode()).hexdigest())
+  d=api('repos/'+r['slug']+'/rulesets','POST',payload);S['resources'][rid]['ruleset_id']=d['id'];record('create_ruleset',id=r['id'],ruleset_id=d['id'],status='PASS');verify_rules(r);guard(r)
+ print('Setup PASS; both actual rulesets active with exact probe targets',flush=True)
+
+def denial(r,kind,path,method,payload=None):
+ guard(r);assert path==owned_ref(r,r['probe']);assert read_ref(r,r['probe'])==r['base']
+ record('before_denial_probe',id=r['id'],kind=kind,ref=r['probe'],expected_sha=r['base'])
+ try:api(path,method,payload)
+ except urllib.error.HTTPError as error:
+  body=json.loads(error.read());assert error.code in (403,422)
+  assert any(x in json.dumps(body).lower() for x in ['rule','pull request','delete','force push']),'Not rule-related rejection'
+  record('denial_probe',id=r['id'],kind=kind,http=error.code,error=body,status='PASS')
+ else:raise AssertionError('Probe unexpectedly permitted: '+kind)
+ assert read_ref(r,r['probe'])==r['base'];guard(r)
+
+def negative_writes():
+ for role,r in R.items():
+  verify_rules(r);tree=api('repos/'+r['slug']+'/git/commits/'+r['base'])['tree']['sha']
+  ff=api('repos/'+r['slug']+'/git/commits','POST',{'message':'GOV-001 rejected direct update same-tree probe','tree':tree,'parents':[r['base']]})['sha']
+  root=api('repos/'+r['slug']+'/git/commits','POST',{'message':'GOV-001 rejected nonfastforward same-tree probe','tree':tree,'parents':[]})['sha']
+  path=owned_ref(r,r['probe'])
+  if role=='control':
+   missing=api('repos/'+r['slug']+'/commits/'+S['resources'][str(r['id'])]['head_sha']+'/check-runs?per_page=100')
+   assert missing['total_count']==0,'Fresh head unexpectedly already has checks'
+   record('missing_required_checks',id=r['id'],head=S['resources'][str(r['id'])]['head_sha'],check_count=0,status='OBSERVED')
+   denial(r,'missing_checks_and_no_pr',path,'PATCH',{'sha':S['resources'][str(r['id'])]['head_sha'],'force':False})
+  denial(r,'direct_fastforward',path,'PATCH',{'sha':ff,'force':False})
+  denial(r,'forced_nonfastforward',path,'PATCH',{'sha':root,'force':True})
+  denial(r,'deletion',path,'DELETE')
+  suites=api('repos/'+r['slug']+'/rulesets/rule-suites?per_page=100')
+  selected=[x for x in suites if x.get('ref')=='refs/heads/'+r['probe']]
+  details=[api('repos/'+r['slug']+'/rulesets/rule-suites/'+str(x['id'])) for x in selected]
+  record('probe_rule_suites',id=r['id'],suites=details,status='OBSERVED')
+ print('Six negative write probes PASS; no original branch changed',flush=True)
+
+def create_prs():
+ for role,r in R.items():
+  guard(r);state=S['resources'][str(r['id'])];assert 'pr_number' not in state
+  body='GOV-001 synthetic enforcement probe. Intentionally missing Task metadata to verify required CI failure; never merge. Issue: https://github.com/trdat1605/r-61974bac4c68fe3c/issues/15' if role=='control' else 'GOV-001 same-tree application probe, no source edits; never merge. App Actions remain disabled.'
+  try:d=api('repos/'+r['slug']+'/pulls','POST',{'title':'GOV-001 temporary enforcement probe; do not merge','head':r['head'],'base':r['probe'],'body':body,'draft':False})
+  except urllib.error.HTTPError as error:
+   body=json.loads(error.read());assert role=='app' and error.code==422
+   record('app_same_tree_pr',id=r['id'],status='NOT_RUN',http=error.code,error=body);continue
+  state['pr_number']=d['number'];record('create_probe_pr',id=r['id'],pr=d['html_url'],number=d['number'],head=d['head']['sha'],base=d['base']['ref'],status='PASS')
+  print(role+' probe PR '+d['html_url'],flush=True)
+
+def snapshot_prs():
+ for role,r in R.items():
+  state=S['resources'][str(r['id'])]
+  if 'pr_number' not in state:continue
+  d=api('repos/'+r['slug']+'/pulls/'+str(state['pr_number']));assert d['head']['sha']==state['head_sha'] and d['base']['ref']==r['probe'] and not d['merged']
+  checks=api('repos/'+r['slug']+'/commits/'+state['head_sha']+'/check-runs?per_page=100')
+  record('probe_pr_snapshot',id=r['id'],pr=d['html_url'],head=d['head']['sha'],mergeable=d['mergeable'],mergeable_state=d['mergeable_state'],draft=d['draft'],checks=[{'id':x['id'],'name':x['name'],'status':x['status'],'conclusion':x['conclusion'],'app_id':x['app']['id']} for x in checks['check_runs']],status='OBSERVED')
+  print(json.dumps(S['steps'][-1]),flush=True)
+
+def positive_body():
+ r=R['control'];state=S['resources'][str(r['id'])];guard(r)
+ body='GOV-001 SYNTHETIC enforcement probe replaying reviewed PUB-001 content. This is not a new PUB-001 handoff or product acceptance. Never merge.\n\nRefs https://github.com/trdat1605/r-61974bac4c68fe3c/issues/13\nRefs https://github.com/trdat1605/r-61974bac4c68fe3c/issues/15\nTask: tasks/PUB-001/task.json\n'
+ d=api('repos/'+r['slug']+'/pulls/'+str(state['pr_number']),'PATCH',{'body':body});assert not d['merged'];record('positive_probe_metadata',id=r['id'],pr=d['html_url'],head=d['head']['sha'],status='PASS')
+ print('Positive metadata set; same source tree/head; wait actual jobs',flush=True)
+
+if __name__=='__main__':
+ try:
+  mode=sys.argv[1];assert mode in ['setup','negative-writes','create-prs','snapshot','positive-body']
+  {'setup':setup,'negative-writes':negative_writes,'create-prs':create_prs,'snapshot':snapshot_prs,'positive-body':positive_body}[mode]()
+ except Exception as error:
+  record('failure',status='FAIL',error_type=type(error).__name__,phase=sys.argv[1] if len(sys.argv)>1 else 'unknown');raise

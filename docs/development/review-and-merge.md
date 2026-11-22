@@ -1,6 +1,6 @@
 # Review, CI và quyền merge thực tế
 
-Ngày **23/11/2026**, [GOV-003 / issue #10](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10). Owner quyết định quyền: chủ sản phẩm. Coordinator chuẩn bị, reviewer khác kiểm; không tự merge/phát hành.
+Cập nhật **23/11/2026**, [GOV-003 / issue #10](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10). Owner quyết định quyền: chủ sản phẩm. Coordinator chuẩn bị, reviewer khác kiểm; không tự merge/phát hành.
 
 ## Trạng thái quan sát
 
@@ -8,9 +8,13 @@ Ngày **23/11/2026**, [GOV-003 / issue #10](https://github.com/trdat1605/r-61974
 
 **PUB-001:** chủ sản phẩm sau đó yêu cầu công khai cả hai kho, chấp nhận discoverability. Kho đã đổi tên; [publication](repository-publication.md) giữ bằng chứng riêng. GET rulesets sau chuyển đổi trả HTTP200 ở cả hai kho và danh sách rỗng; có khả năng sử dụng không tự là đã cài/enforce. Không mua gói hoặc tự merge.
 
-Local hook chỉ chạy khi gọi/cài đúng và có thể bỏ qua. Governance CI kiểm hợp đồng/tools; job PR issue kiểm traceability; cả hai chưa là required checks phía server và chưa là CI sản phẩm. Review JSON khác implementer không tự là GitHub approval của người khác hoặc cách ly quyền máy.
+Local hook chỉ chạy khi gọi/cài đúng và có thể bỏ qua. Governance CI kiểm hợp đồng/tools; job PR issue kiểm traceability; trạng thái required phía server được kiểm riêng ở GOV-001; chúng chưa là CI sản phẩm. Review JSON khác implementer không tự là GitHub approval của người khác hoặc cách ly quyền máy.
 
-## Chính sách chuẩn bị để owner xem — chưa áp dụng server
+## GOV-001 — chính sách main đã áp dụng và kiểm probe
+
+Xem [payload, thử nghiệm và giới hạn bảo vệ main](branch-protection.md). Hai kho chỉ có owner; PR policy dùng 0 GitHub approval, nhưng review agent vẫn bắt buộc trong hồ sơ. Ruleset27859154 (control) và27859157 (app) active/no bypass; direct/force/delete probes bị chặn, required-job failure chặn readiness và success cho readiness. Trạng thái live dựa trên receipt GOV-001, không suy từ JSON. Chưa merge thực hoặc nghiệm thu sản phẩm.
+
+## Chính sách tham chiếu và giới hạn
 
 - Nhánh đích được chọn rõ, yêu cầu PR/checks theo risk, conversation resolution và xét lại approval khi head/base đổi.
 - Danh sách required checks dùng tên job duy nhất, xác định nguồn check và không dùng job tổng hợp xanh để che product checks FAIL/NOT_RUN/skipped. Ngoại lệ phải ghi lý do.

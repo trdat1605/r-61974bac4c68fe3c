@@ -1,0 +1,28 @@
+{
+  "task_id": "GOV-001",
+  "reviewer": "/root/branch_rules_plan_review",
+  "result": "PASS",
+  "blocking_findings": [],
+  "plan_sha256": "c55c60eee0ff13f6fa70a59b58896660e0d2b9c9971f2a10032b9647e44a3c96",
+  "script_sha256": "fb6f04e8f85d7db35f601a886fd965a58e047f117e8aa75d888f38541242e044",
+  "probe_resources_sha256": "c211aa6516c3ed83cff7acb538db96b496a764be19df4491979ff996a3d4f52a",
+  "config_hashes": {
+    "config/github/control-main.ruleset.json": "7c995bcd74295c73fa2b702eaf0790aa95b029a1a96fe8cba417ae7f402ad9e2",
+    "config/github/app-main.ruleset.json": "c34090d842245a9c97671e0a9cdd6da41ae88c4c202ce38bb0513edbee442a66"
+  },
+  "recorded_by": "Coordinator transcribed reviewer messages; no reviewer edits/mutations",
+  "independently_observed": [
+    "Public stableIDs/main/all branchheads and empty rulesets matched preflight",
+    "Actual GitHubActions15368 check sources/contexts success at3feef9b",
+    "Official GitHubRESTschema supports target/defaultmain/rules/parameters",
+    "Concrete script exactprobe-only writes/denials, no mainwrite/merge/Actionsenable path; persisted receipts and readbackguards",
+    "Missingchecks freshhead assertion distinct from invalidmetadata failure; readiness explicitly synthetic"
+  ],
+  "limits": [
+    "AppActions/collaborator private adminendpoint based on implementer preflight",
+    "Cleanup script not part of this review; needs separate review",
+    "Live enforcement and actual future job results NOT_RUN by planreviewer",
+    "One stale stdout count says Six despite7denials; receipt entries authoritative",
+    "Readiness is not actualmerge/productacceptance; workflow sourcebinding not correctness guarantee"
+  ]
+}

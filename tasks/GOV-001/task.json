@@ -1,0 +1,79 @@
+{
+  "id": "GOV-001",
+  "goal": "Update live improvement status and enforce reviewed main branch rules on both repositories with isolated enforcement probes",
+  "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+  "branch": "codex/branch-protection",
+  "baseline_commit": "3feef9bc3de94748bfda61d01c2093dee79056b4",
+  "task_kind": "operations",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Current tracker no longer claims private403; separate completed governance from pending app/bootstrap/pilot/evaluation and human approval",
+    "Reviewed JSON config binds two repoIDs and main rules: PR required, deletion/nonfastforward blocked, no bypass; actual control CI names and integration15368 required, no nonexistent app checks",
+    "Independent plan review before GitHub mutation; verify effective main rules and use exact temporary probe targets for rejected direct/force/deletion attempts, missing/failing checks and valid PR readiness without merging",
+    "Preserve every pre-existing branch head, historical task bytes, appActionsdisabled, no runtime/appcode writes; clean up only temporary probes and remove their rule targets",
+    "Exact-commit independent review, sanitized evidence, strict handoff hook, dependent DraftPR and actual hostedCI; no merge/release"
+  ],
+  "write_scope": [
+    "config/github/control-main.ruleset.json",
+    "config/github/app-main.ruleset.json",
+    "docs/development/improvement-tracker.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/branch-protection.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "README.md"
+  ],
+  "affected": [
+    "GitHub main protection/settings, test-only branches and PR metadata",
+    "Current governance status documentation; not application code/runtime"
+  ],
+  "dependencies": [
+    "PUB-001 exact reviewed migration and successfulCI",
+    "Official GitHub ruleset API/rules docs and actual integration source inventory"
+  ],
+  "start_conditions": [
+    "Clean newbranch from3feef9b",
+    "Exactpathclaims",
+    "Independent plan review before remote settings"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false
+  },
+  "permissions": [
+    "Write scoped current docs/config and task artifacts",
+    "After independent plan review create main rulesets plus explicit exact test targets, test-only branches/commits/PRs and check/status evidence; remove only those test resources/targets after verification",
+    "Create issue and dependent DraftPR; keep existing heads unchanged and allPRs unmerged",
+    "No billing/sourceapp/runtime/container/database/feature changes; no appActions enable"
+  ],
+  "checks": [
+    "ruleset_contract_and_scope",
+    "live_enforcement",
+    "governance_tests"
+  ],
+  "evidence_location": "tasks/GOV-001/evidence/",
+  "stop_conditions": [
+    "Unexpected repoID/head/ruleset drift",
+    "Live settings would require bypass, realmain writes, appActions enable, billing or merging",
+    "Secret/customerdata findings",
+    "Unknown existing resource would be modified"
+  ],
+  "implementer": "root_branch_protection",
+  "reviewer": "fresh-context branch_rules_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/github/control-main.ruleset.json",
+    "config/github/app-main.ruleset.json",
+    "config/agents/repositories.json"
+  ],
+  "status": "specified",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/15",
+  "related_issues": [
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10"
+  ]
+}
