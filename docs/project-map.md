@@ -1,16 +1,16 @@
 # Bản đồ nơi lưu và cách tìm tài liệu
 
-Quyết định dự án ngày **23/11/2026** trong nhiệm vụ [DOCS-001](../tasks/DOCS-001/task.json). Đây là bố trí áp dụng cho hiện trạng; chưa chứng minh là phương án tối ưu bằng benchmark.
+Quyết định dự án ngày **23/11/2026** trong nhiệm vụ [DOCS-001](../tasks/DOCS-001/task.json), bổ sung nguồn/tuyến đọc trong [DOCS-002](../tasks/DOCS-002/task.json). Đây là bố trí áp dụng cho hiện trạng; chưa chứng minh là phương án tối ưu bằng benchmark.
 
 ## Bản chính của từng loại thông tin
 
 | Loại thông tin | Nơi dùng làm bản chính | Cách sử dụng / giới hạn |
 | --- | --- | --- |
-| Điểm bắt đầu | [README gốc](../README.md) của kho riêng tư [trdat1605/chatwoot-vn](https://github.com/trdat1605/chatwoot-vn) | Người có quyền truy cập đọc trên web hoặc clone. Hiện xem nhánh `codex/docs-home`; chưa có trên main |
+| Điểm bắt đầu | [README gốc](../README.md) của kho riêng tư [trdat1605/chatwoot-vn](https://github.com/trdat1605/chatwoot-vn) | Người có quyền truy cập đọc trên web hoặc clone. Bộ mới ở nhánh `codex/knowledge-handoff`, nối tiếp `codex/docs-home`; chưa có trên main |
 | Trạng thái dự án | [status.md](status.md) | Người bàn giao cập nhật khi có kết quả mới, dẫn tới bằng chứng có ngày; không dùng báo cáo cũ như trạng thái hôm nay |
 | Danh tính source/runtime | [runtime.json](../config/agents/runtime.json) | Là profile máy hiện có, không là template triển khai. Source app ở Linux; kho tài liệu chưa chứa source app |
 | Cách chạy local | [local-development.md](runbooks/local-development.md) | Dùng trên máy hiện có; thiếu adapter local trong Git nên chưa là hướng dẫn cài máy mới |
-| Nguồn tham khảo Chatwoot đã thu thập | [sources.json](knowledge/sources.json) | Giữ URL gốc, ref, ngày lấy, phạm vi và giới hạn. Snapshot cũ chưa nằm trong kho này |
+| Nguồn tham khảo đã thu thập | [Thư viện](knowledge/README.md), [catalog gốc](knowledge/sources.json), [nguồn bổ sung](knowledge/supplemental-sources.json) | Thư viện là cửa tra cứu cho người; catalog giữ metadata. Đã có bản chép lời và AGENTS/license tham khảo, chưa chuyển toàn bộ snapshots |
 | Quy trình và nguồn agent | [agents/README.md](agents/README.md), [agents/sources.md](agents/sources.md) | Mở quy trình, brief, phiếu và evidence theo việc; không đồng nghĩa mọi cơ chế Claude đã chạy trên Codex |
 | Yêu cầu / phạm vi / kết quả từng việc | `tasks/<id>/task.json`, handoff, review và evidence cùng thư mục | Người thực hiện và reviewer khác nhau; subject commit của review khác commit chứa metadata bàn giao |
 | Báo cáo lịch sử | [project-foundation](reviews/project-foundation/README.md), [checkpoint agent ngày 18/11](agents/state.md) | Giữ để truy vết; kết quả mới ghi ở báo cáo có ngày và nối từ trạng thái dự án |
@@ -20,7 +20,7 @@ GitHub là nơi chia sẻ/lưu lịch sử. Worktree là bản làm việc trên
 
 ## Đọc đúng nguồn theo công việc
 
-Trong [sources.json](knowledge/sources.json), tìm ID dưới đây rồi mở `original_url` hoặc `retrieved_url`. Không cần tải/nạp tất cả. Mục có `source_ref` là commit đã khảo sát; tài liệu web live phải kiểm lại nội dung/phiên bản khi dùng cho thay đổi mới.
+Mở [thư viện nguồn](knowledge/README.md) để bấm URL theo ID dưới đây; [reading-routes.md](knowledge/reading-routes.md) ghi cụ thể tài liệu/mục nào cần đọc, lý do và điều kiện mở thêm. Metadata đầy đủ giữ ở [sources.json](knowledge/sources.json). Không cần tải/nạp tất cả. Mục có `source_ref` là commit đã khảo sát; tài liệu web live phải kiểm lại nội dung/phiên bản khi dùng cho thay đổi mới.
 
 | Việc cần làm | Nguồn / công năng |
 | --- | --- |
@@ -37,7 +37,7 @@ Ví dụ muốn đọc cách host: mở [hướng dẫn Docker development chín
 
 Kho cũ trên máy gốc: `C:/Users/MFLAT-ADS-010/Documents/ChatGPT/tôi/`, gồm `buoc-1/kien-thuc/BAT-DAU.md`, `NGUON.json`, snapshots và hồ sơ thử nghiệm. Đây là **kho lưu lịch sử/cache local**, chưa phải đầu vào portable bắt buộc của repo mới. Không xóa hoặc sửa kho cũ trong nhiệm vụ này.
 
-Đã chuyển danh mục nguồn vào Git, chưa chuyển toàn bộ snapshots. `legacy_local_snapshot` trong catalog là đường dẫn tương đối với kho local cũ, **không** phải liên kết tới tệp có trong repo. Người ở máy khác dùng URL nguồn; nếu cần tái kiểm chính xác snapshot cũ phải lấy bản được làm sạch và kiểm SHA256 trước. Bản ghi âm người dùng về review code chưa được đưa vào kho này; chưa thể tuyên bố truy cập lại được bản gốc từ GitHub. Nguồn agent ngày 18/11 nằm riêng ở `docs/agents/sources.md`, không giả đã có trong catalog ngày 11/11.
+Đã chuyển danh mục nguồn vào Git và chọn lưu [bản chép lời người dùng](knowledge/user-materials/README.md), [AGENTS upstream](knowledge/references/chatwoot-v4.19.1-AGENTS.txt) cùng license; provenance/hash ở [nguồn bổ sung](knowledge/supplemental-sources.json). Chưa chuyển toàn bộ snapshots. `legacy_local_snapshot` trong catalog là đường dẫn tương đối với kho local cũ, **không** phải liên kết tới tệp có trong repo. Người ở máy khác dùng URL nguồn; nếu cần đúng snapshot chưa được chia sẻ phải bổ sung bản đã làm sạch và kiểm SHA256. Chưa có audio/video gốc của bản chép lời. Nguồn agent ngày 18/11 giữ riêng ngày khảo sát ở `docs/agents/sources.md`, nguồn đọc lại ngày 23/11 ở `source-notes.md`; không gán lùi chúng vào catalog ngày 11/11.
 
 AGENTS ở checkout app cũ còn trỏ vào kho local. Lượt này chưa sửa các chỉ dẫn ấy hoặc kiểm auto-loading từ chat mở riêng tại source app. Điều phối phải truyền lối vào repo/nhánh và brief rõ. Chưa gọi việc hợp nhất tài liệu/đầu vào agent là hoàn tất.
 
