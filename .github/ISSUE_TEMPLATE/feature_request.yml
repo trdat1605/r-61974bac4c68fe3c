@@ -1,0 +1,33 @@
+name: Yêu cầu tính năng
+description: Nêu bài toán, phạm vi và hành vi có thể kiểm chứng.
+title: "feat: "
+body:
+  - type: markdown
+    attributes:
+      value: "Đọc quy trình sản phẩm trong docs/development/product-workflow.md. Không đưa thông tin nhạy cảm lên issue."
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Người dùng, vấn đề và kết quả mong muốn
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Phạm vi và ngoài phạm vi
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Tiêu chí kiểm chứng
+      description: AC-xx cùng hành vi mong muốn; không chỉ ghi đã thêm code.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Nguồn, rủi ro và điều chưa xác minh
+      description: Repo/ref, API/quyền ngoài, ảnh hưởng mobile/nâng cấp; không gửi khóa/token.
+    validations:
+      required: true

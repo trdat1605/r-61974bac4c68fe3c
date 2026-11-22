@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "PRODUCT-EXAMPLE",
+  "issue": "https://github.com/trdat1605/chatwoot-vn/issues/9",
+  "source": {
+    "repository": "https://github.com/trdat1605/chatwoot-vn-app",
+    "base_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "criteria": [
+    {
+      "id": "AC-01",
+      "description": "ILLUSTRATION ONLY: replace with reproduced user behaviour before assigning implementation",
+      "checks": [
+        "focused_regression"
+      ]
+    }
+  ],
+  "environment": "NOT_PREPARED: define isolated project, ports, DB, Redis and volumes before running app tests",
+  "risk": "NOT_ASSESSED: identify affected paths/account/API/data/mobile for the selected change",
+  "rollback": "NOT_DESIGNED: define code/config/data rollback appropriate to actual change; no runtime permission implied"
+}
