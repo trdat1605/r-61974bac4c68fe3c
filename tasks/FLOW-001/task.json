@@ -1,0 +1,90 @@
+{
+  "id": "FLOW-001",
+  "goal": "Triển khai nền móng cho bảy cải tiến: issue traceability, quy trình sản phẩm có cổng kiểm, công cụ kiểm hồ sơ, nguồn tái lập và trạng thái có bằng chứng",
+  "repository": "https://github.com/trdat1605/chatwoot-vn",
+  "branch": "codex/product-foundation",
+  "baseline_commit": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+  "task_kind": "operations",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Bảy cải tiến có issue thật, owner/tiêu chí/trạng thái và đường issue→task→PR; không đổi task lịch sử hoặc tự đóng việc chưa nghiệm thu",
+    "Quy trình sản phẩm ghi từng cổng đầu vào/đầu ra/nguồn/trách nhiệm, phân biệt app repo và control repo, planned/verified/merged/released",
+    "Công cụ plan không tự xác nhận sản phẩm; verify đối chiếu Git app riêng, acceptance/evidence đúng app ref và reject FAIL/NOT_RUN; có negative tests",
+    "PR metadata kiểm issue thật và task link bằng read-only API, không chạy shell từ nội dung issue/PR hoặc lộ token",
+    "Trạng thái cập nhật DOCS-002 đã review/CI; nhận diện rulesets GitHub403 và không gọi CI/localhook là server enforcement",
+    "Source/reproduction inventory có ref/hash và plan tách runtime; app source private snapshot nếu thực hiện phải review plan, Actions disabled trước push, không sửa source/runtime gốc",
+    "Nguồn lựa chọn agent có loại/phiên bản/giới hạn và kế hoạch eval; không tuyên bố mô hình nào tối ưu hoặc thay người phê duyệt",
+    "Đúng commit được reviewer khác kiểm; checks/receipts/handoff được làm sạch, push Draft PR phụ thuộc PR4, không merge/release"
+  ],
+  "write_scope": [
+    "AGENTS.md",
+    "README.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/agents/operating-model.md",
+    "docs/development/product-workflow.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/agent-selection.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/development/pilot.md",
+    "docs/development/product-record.example.json",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/workflows/agent-governance.yml",
+    "tools/agents/product_check.py",
+    "tests/test_product_check.py"
+  ],
+  "affected": [
+    "Product governance and future issue/task/PR traceability",
+    "Source/runtime reproducibility plan, not production acceptance",
+    "Read-only GitHub issue validation in CI; no ruleset/admin change"
+  ],
+  "dependencies": [
+    "Reviewed DOCS-002 at c7c8841",
+    "Read-only source_repro_audit and product_workflow_design",
+    "Official Chatwoot pinned source and PR practice, Claude review article, GitHub issue/rules docs"
+  ],
+  "start_conditions": [
+    "Clean managed worktree at baseline",
+    "Exact file claims before writing; two code paths delegated exclusively",
+    "No active source/runtime writers observed in delegated tasks"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false
+  },
+  "permissions": [
+    "Write scoped governance docs/tools/tests/templates/workflow and task artifacts",
+    "Create issues and dependent Draft PR in existing private control repo; no issue closure, merge, public visibility or paid plan change",
+    "Read selected app scripts/Git metadata and source audit without secrets",
+    "After independent plan review, seed private app source repository with exact upstream source SHA while Actions disabled; no runtime source/config mutation"
+  ],
+  "checks": [
+    "product_contract_tests",
+    "documentation_and_scope",
+    "live_issue_traceability"
+  ],
+  "evidence_location": "tasks/FLOW-001/evidence/",
+  "stop_conditions": [
+    "Secrets/customer data in publication candidate",
+    "Conflicting path ownership or unexpected existing changes",
+    "Shared app/runtime write or destructive Git/database operations required",
+    "GitHub restriction requiring paid plan or public visibility: record externally blocked, do not bypass"
+  ],
+  "implementer": "root_flow_foundation",
+  "reviewer": "fresh-context product_foundation_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/agents/runtime.json",
+    "docs/knowledge/sources.json",
+    "agents/codex/roles.json"
+  ],
+  "status": "specified"
+}
