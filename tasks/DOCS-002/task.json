@@ -14,7 +14,7 @@
     "Giữ catalog lịch sử và các báo cáo cũ; dùng human index và tuyến R-01 đến R-11 có điều kiện mở thêm, lý do cần đọc, đầu ra kiểm chứng và các cảnh báo mâu thuẫn đã biết",
     "Một reviewer ngữ cảnh mới chỉ nhận checkout GitHub độc lập và yêu cầu, bắt đầu README tìm mục tiêu/source/quyền/cách chạy/test/review/nguồn/việc còn mở; không dùng archive local hoặc runtime để lấp phần thiếu",
     "Phân biệt tiếp quản kiến thức từ clone với dựng app trên máy mới, auto-loading từ app chat và hiệu năng sản phẩm chưa thử",
-    "Chỉ docs/task artifacts thay đổi, relative links/JSON/hash/phạm vi/bí mật được kiểm, source/runtime ứng dụng không thay đổi",
+    "Chỉ docs/task artifacts và quy tắc LF cho .txt trong .gitattributes thay đổi; relative links/JSON/hash/phạm vi/bí mật được kiểm, source/runtime ứng dụng không thay đổi",
     "Đúng subject commit được review độc lập, receipts/hash/handoff được ghi; push và Draft PR phụ thuộc PR3, không merge"
   ],
   "write_scope": [
@@ -30,11 +30,13 @@
     "docs/knowledge/user-materials/README.md",
     "docs/knowledge/user-materials/ai-code-review-transcript.txt",
     "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt",
-    "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt"
+    "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt",
+    ".gitattributes"
   ],
   "affected": [
     "Knowledge entry points, portable original user material and task reading routes",
-    "Fresh-clone documentation handover evidence, no application changes"
+    "Fresh-clone documentation handover evidence, no application changes",
+    "LF checkout rule for archived .txt reference material, no Git global setting"
   ],
   "dependencies": [
     "DOCS-001 reviewed branch and existing agent workflow",
