@@ -8,10 +8,11 @@ Quyết định dự án ngày **23/11/2026** trong nhiệm vụ [DOCS-001](../t
 
 | Loại thông tin | Nơi dùng làm bản chính | Cách sử dụng / giới hạn |
 | --- | --- | --- |
-| Điểm bắt đầu | [README gốc](../README.md) của kho công khai [trdat1605/r-61974bac4c68fe3c](https://github.com/trdat1605/r-61974bac4c68fe3c) | Đọc trên web hoặc clone. Bộ mới ở nhánh `codex/repository-publication`, nối tiếp các Draft PR; chưa có trên main |
+| Điểm bắt đầu | [README gốc](../README.md) của kho công khai [trdat1605/r-61974bac4c68fe3c](https://github.com/trdat1605/r-61974bac4c68fe3c) | Đọc trên web hoặc clone. Bộ hiện hành ở nhánh `codex/complete-foundation`, nối tiếp các Draft PR; chưa có trên main. [COMPLETE-001](development/completion.md) giữ kết quả hiện hành |
 | Trạng thái dự án | [status.md](status.md) | Người bàn giao cập nhật khi có kết quả mới, dẫn tới bằng chứng có ngày; không dùng báo cáo cũ như trạng thái hôm nay |
 | Danh tính source/runtime | [runtime.json](../config/agents/runtime.json) | Là profile máy hiện có, không là template triển khai. Source app ở Linux; kho tài liệu chưa chứa source app |
 | Cách chạy local | [local-development.md](runbooks/local-development.md) | Dùng trên máy hiện có; thiếu adapter local trong Git nên chưa là hướng dẫn cài máy mới |
+| Dựng môi trường thử mới | [source/reproduction](development/source-reproduction.md), [isolated development](runbooks/isolated-development.md) | App source/commit riêng, bootstrap trên nhánh app đang review; lifecycle CI tổng hợp đã PASS. Local host còn thiếu dung lượng, không chạy vào lab có sẵn |
 | Nguồn tham khảo đã thu thập | [Thư viện](knowledge/README.md), [catalog gốc](knowledge/sources.json), [nguồn bổ sung](knowledge/supplemental-sources.json) | Thư viện là cửa tra cứu cho người; catalog giữ metadata. Đã có bản chép lời và AGENTS/license tham khảo, chưa chuyển toàn bộ snapshots |
 | Quy trình và nguồn agent | [agents/README.md](agents/README.md), [agents/sources.md](agents/sources.md) | Mở quy trình, brief, phiếu và evidence theo việc; không đồng nghĩa mọi cơ chế Claude đã chạy trên Codex |
 | Yêu cầu / phạm vi / kết quả từng việc | `tasks/<id>/task.json`, handoff, review và evidence cùng thư mục | Người thực hiện và reviewer khác nhau; subject commit của review khác commit chứa metadata bàn giao |
