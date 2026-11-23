@@ -2,7 +2,7 @@ Make the existing Chatwoot foundation reviewable from a shared repository, with 
 
 Issue: https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18
 Task: tasks/COMPLETE-001/task.json
-Application issue: https://github.com/trdat1605/s-251521f7e9131fb0/issues/2
+Application issue: linked from application Draft PR3 and the committed product record.
 Application Draft PR: https://github.com/trdat1605/s-251521f7e9131fb0/pull/3
 
 What changed
@@ -27,3 +27,5 @@ A final control review found stale branch/CI wording at an earlier subject; its 
 Corrected control implementation subject: 12186bce8b99bd4ec5f6879bf32939a7b80ea074. The PR head may additionally contain review/handoff metadata; those commits must preserve all bound implementation bytes.
 
 Independent final control review: PASS at implementation12186bce8b99bd4ec5f6879bf32939a7b80ea074. Fresh-reader affected navigation/state check: PASS; public availability is verified separately after push. Prior FAIL and unsupported-platform test results remain preserved in the task evidence.
+
+Current metadata handover head: d2bf0dc3b512ea4ec6cc3dcda782425301d642bd. Invocation-scoped precommit hook PASS: 80 tests;341files scanned;7tasks validated;50reviewboundpaths.

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "product_check.py pr against actualPR19+repository APIobjects and actualissueGET",
+  "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/19",
+  "head": "d2bf0dc3b512ea4ec6cc3dcda782425301d642bd",
+  "body_sha256": "a6fbe806d357c926e7421331d153e5cd7f744d03ccec1bc3ac05402437d5ae47",
+  "output": {
+    "status": "PR_TRACEABILITY_VALID",
+    "task_id": "COMPLETE-001",
+    "issues_checked": 1,
+    "limits": "Consistency only: no reviewer identity or execution-truth attestation, product acceptance, security certification or merge enforcement"
+  },
+  "correction": "Removed directforeignissueURL fromcontrolPRbody; appPR/productrecord retain applicationtraceability. Validator unchanged.",
+  "observer_attempt_failure": "First localevent omitted repositoryID and was rightlyblocked; correctedharness tofullrealrepository APIobject, no validatorchange.",
+  "limits": "RemotePRbodychange only; actualCI needed. Failure45089553611 preserved."
+}
