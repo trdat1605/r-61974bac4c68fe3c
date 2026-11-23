@@ -8,17 +8,17 @@
   "app_checkout": "/root/code/chatwoot-foundation-worktrees/complete-001",
   "app_branch": "codex/portable-foundation",
   "app_last_committed_subject": "27e166927b93677863e7e7fda22109cfa2ae98b9",
-  "app_moving_edits": "None; doc correction independently reviewed PASS and pushed27e1669. No further push while lifecycle CI is running.",
+  "app_moving_edits": "None; app27e1669 finalreviewPASS and CI45082996742completedPASS. No app source changes since final review.",
   "protected_runtime": "9container identities captured in protected-runtime-before.json; noexistingcontainerwrite/restart/dataaccess",
   "quarantine": "All17inheritedworkflowdisabled; globalActionsenabledselectedallowlistonlypinnedcheckout/setupnode; candidateCIonly; appPR3",
-  "new_runtime": "Ownproject0016containers+4nonPGvolumes removedunderreviewedscript, PGvolume cwdev-complete001_postgres retained+syntheticbackupDpathsha4547...; protected9containersunchanged. HostC14.93<15stop. Latestlifecycleverification onhostedCI afterreview, sourcec77.",
+  "new_runtime": "Localproject001 cleanup preserved PGvolume and backup; protected9unchanged. HostCbelow15GiB prevents local successor allocation. Hostedcwdev-ci-runtime lifecycle45082996742PASS at apphead27e1669, mergecheckout8d953fd treeidentical. No currentlocalhostruntimechanges.",
   "evaluation": "Complete12V3/36originals; T1addendum+T2/T3sourcegrading and materialsecondcheck preserve5PASS7failpartial. Facts87PASS13FAIL; common57PASS3FAIL. Provisionalpolicy retained, no topologywinner/nativeClaudeclaim. NewbriefCLIloaded, behavioralimprovementNOT_YET_EVALUATED.",
-  "reviews": "Final independentappreview PASS27e1669, actualCI all3PASS, productrecordrealreview. Requiredchecks plan/script PASS independently; applied/readback3contexts strict Actions15368, priorpolicy/main unchanged. Controlfinalreview pending.",
+  "reviews": "AppfinalPASS27e1669; all3CI/requiredchecksapplyPASS. Control658b96c reviewFAIL CCFR-01 stalebranch/progress; correction and affectedreview required. Originalfailedreview preserved.",
   "required_next": [
-    "Commit scopedcontrolimplementation+sanitizedevidence; verifyproductrecord against separate Dappclone and emit checkreceipts.",
-    "Independentfinalcontrolreview+freshsourcehandover, strictindex/handoff/hook, consolidatedDraftPRagainstmain and actualcontrolCI. Preservehistoryregularmerge.",
-    "Present exactPR/head/merge-method toowner onlyafterreviewready; defaulttemplatesactivationpostmerge remainsNOT_RUN. Noauto closeoldissues/PRs.",
-    "DockerD preparation/review complete; actualmigration notauthorized, remainBLOCKED until concretebackup/capacity/window/restore/postcheckgates."
+    "CorrectCCFR-01currentmap and requestaffectedcontrol/freshreader review atnewsubject; preserve all priorjudgments.",
+    "Rebind5checkreceipts/handoff to correctedsubject, strictstagedgate/hook, consolidatedDraftPR and actualcontrolCI.",
+    "Onlyafter reviewready exactPR/head present ownermerge decision; no defaulttemplatesactive claim untilmerge.",
+    "DockerD preparationreviewPASS executionBLOCKED, no currentruntimewrites."
   ],
   "storage": "Plan+UI/mount/capacity evidence reviewed twice. PreparationhandoverPASS; executionBLOCKED; all5maintenance gates remain. No Dockerdata move/restart."
 }

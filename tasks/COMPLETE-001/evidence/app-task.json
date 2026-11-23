@@ -48,7 +48,7 @@
     },
     "full_build_previous_subject": "PASS at0768677",
     "actualCI_previous_subject": "PASS at0768677,21boundary+14frontend",
-    "runtime_vite_previous_subject": "FAIL at0768677; startup fix independently reviewed at2db109b, hosted runtime atc77 still in_progress",
+    "runtime_vite_previous_subject": "Historical: FAIL at0768677; startup correction reviewed at2db109b. Run45081235551 atc77 was cancelled when reviewed docs were pushed; final27e1669 run45082996742 PASS. See runtime_current_subject and lifecycle receipt.",
     "latest_doc_review": "PASS at27e1669; no new execution claim",
     "actualCI_current_subject": "PASS27e1669 apphead; checkout8d953fd treeidentical; run45082996742 allmetadata/frontend/runtime jobs",
     "runtime_current_subject": "PASS isolatedhosted: fullbuild/start/focusedRSpecVitest/HTTP/restart/syntheticbackuprestore/idempotence/stop; nointeractiveUI/production"

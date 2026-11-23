@@ -36,7 +36,8 @@
     "docs/runbooks/docker-storage-migration.md",
     "agents/codex/coordinator.md",
     "agents/codex/reviewer.md",
-    ".gitattributes"
+    ".gitattributes",
+    "docs/project-map.md"
   ],
   "affected": [
     "Control integration andavailableagent eval",
@@ -106,7 +107,8 @@
     "docs/development/source-reproduction.md",
     "docs/runbooks/docker-storage-migration.md",
     "docs/runbooks/isolated-development.md",
-    "docs/status.md"
+    "docs/status.md",
+    "docs/project-map.md"
   ],
   "status": "specified",
   "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
@@ -141,6 +143,10 @@
     {
       "basis": "The integration subject follows a committed implementation/evidence checkpoint. Finalhand-off implementationbase is that metadata checkpoint; all previously changed control code/docs/config are boundinputs so no ownership gap is hidden. Independent finalreview must inspect fullbaselinec714..subject in addition to handoffdelta.",
       "change": "Bind every non-taskcontrolpath changed since COMPLETE-001baseline, preservehistoricalreceipts and review them at their exactsubjects."
+    },
+    {
+      "basis": "Independentcontrolreview CCFR-01 and freshreader found stale currentbranch/CIwording; preserve failedreview658b96c then correctcurrentnavigation/status only.",
+      "change": "Update project-map currentroute and app-task/checkpoint current progress; no appsource/runtime/testscope changes."
     }
   ]
 }
