@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "Frozen V3 12 actualfreshagent runs; immutableoriginal/hash/observertrace+3independentadjudications+materialsecondcheck; resultsmanifest",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "observed_utc": "2026-11-23T00:25:28.831483+00:00",
+  "details": {
+    "results": "agent-eval/results.json",
+    "aggregate": {
+      "case_pass": 5,
+      "case_fail_or_partial": 7,
+      "required_facts": {
+        "PASS": 87,
+        "FAIL": 13,
+        "NOT_RUN": 0
+      },
+      "common_criteria": {
+        "PASS": 57,
+        "FAIL": 3,
+        "NOT_RUN": 0
+      }
+    },
+    "decision": "Retain current coordinator+subagents policy provisionally; allow scoped peer dependency exchanges when useful, with explicit permission/acceptance coverage. This experiment does not establish either arm as optimal or replace implementation/runtime review.",
+    "observed_failures_preserved": true
+  },
+  "limits": "PASS means planned evaluation performed and interpreted honestly, not allrunsPASS; no statistical/Claude/implementation superiority",
+  "final_ref_validation": "Revalidated sourcepatternscan, exact0f2aadc..12186bc scope/diffcheck and separateapp productverify; allboundcontrolbytes hashed at12186bc. Onlynav/status corrections sincepreviousreview, no tool/runtime changes."
+}

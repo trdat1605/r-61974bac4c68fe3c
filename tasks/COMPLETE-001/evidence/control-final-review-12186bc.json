@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/complete_control_final_review",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "recorded_utc": "2026-11-23T00:28:33.135230+00:00",
+  "result": "PASS",
+  "blocking_findings": [],
+  "baseline_commit": "c714462d8c3cca103b52da4652a404b811151d82",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "previous_reviewed_commit": "658b96c32b36ba66edc83bd8f1c46f599f578792",
+  "handoff_implementation_base": "0f2aadc49898a995d4225451393297b97dbd4f54",
+  "review_scope": "Full integration conclusion combines previous independent fullbaseline..658b96c review and this affected review of all four changedpaths since658b96c. The handoffdelta0f2aadc..12186bc is onlyproject-map; task scope and all19 baseline-changed controlpaths are explicitly checked as23boundinputs. This is not a one-file-only implementation review.",
+  "previous_records": [
+    {
+      "path": "tasks/COMPLETE-001/evidence/control-review-658b96c-fail.json",
+      "sha256": "deb58372e8b3f9049469b12ba7c87358507cf4b31caa34eb3e7a2b0ba056f267",
+      "result": "FAIL",
+      "rawbytes_preserved": true
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/control-final-review-details.json",
+      "sha256": "f44501def139a9f48d0292e955fa2e6f68cb4485adce19eb837f1dd6d10829d8",
+      "rawbytes_preserved": true
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/control-handoff-658b96c-draft.json",
+      "sha256": "8443c0ccd44e267b31c68df1a352a69bc05387d6b574b910e3fe6eadc702f42d",
+      "rawbytes_preserved": true
+    }
+  ],
+  "finding_disposition": {
+    "id": "CCFR-01",
+    "status": "RESOLVED_AT_NEW_SUBJECT",
+    "previous_judgment": "PreservedFAIL at658b96c; no reinterpretation or rewriting of the original decision.",
+    "checks": [
+      {
+        "path": "docs/project-map.md",
+        "lines": [
+          11,
+          15
+        ],
+        "observed": "Current route now names codex/complete-foundation, links COMPLETE-001 and adds source-reproduction/isolated-development for the separate app runtime. It retains main-unmerged and local-capacity boundaries."
+      },
+      {
+        "path": "tasks/COMPLETE-001/evidence/app-task.json",
+        "lines": [
+          51,
+          53,
+          54
+        ],
+        "observed": "Prior c77 run45081235551 is explicitly historical/cancelled after doc push. Current run45082996742 is PASS27e1669 with mergecheckout8d953fd tree-equivalence. Matches unchanged runner-superseded-run.json and lifecycle receipt."
+      },
+      {
+        "path": "tasks/COMPLETE-001/evidence/checkpoint.json",
+        "lines": [
+          11,
+          14,
+          16
+        ],
+        "observed": "No app moving edits; current CI completedPASS. Latest hosted lifecycle is27e1669, mergecheckout8d953fd treeidentical. Control658FAIL and correction/future review are explicit. No active c77 lifecycle/in_progress claim remains."
+      },
+      {
+        "path": "tasks/COMPLETE-001/task.json",
+        "observed": "Adds exact docs/project-map.md to writescope/boundinputs and explains correction scope. Ownershipstatus explicitly lists file:docs/project-map.md for COMPLETE-001. No app/runtime/test expansion."
+      }
+    ],
+    "route_conclusion": "README -> project-map and agentREADME -> checkpoint -> app-task now agree on current branch/ref/run. Distinct current/history and main/runtime/owner boundaries are maintained."
+  },
+  "integration_checks": {
+    "baseline_changed_paths": 196,
+    "baseline_changed_control_paths": 19,
+    "bound_input_count": 23,
+    "all_control_paths_scoped_and_bound": true,
+    "handoff_changed_files": [
+      "docs/project-map.md"
+    ],
+    "actual_handoff_delta": [
+      "docs/project-map.md"
+    ],
+    "historical_task_paths_modified": [],
+    "bound_input_hash_mismatches": [],
+    "receipt_hash_subject_status_mismatches": [],
+    "unchanged_since_previous_review": [
+      "tools/",
+      "tests/",
+      ".github/",
+      ".gitattributes",
+      "agents/",
+      "config/",
+      "application/product/evaluation execution and independent judgment receipts"
+    ],
+    "prior_review_carry_forward": "Prior fullcontrol review found no other materialblockers. The separate pinnedapp CI verification workflow, exact2CRLF+1transcript attributes, brief limits,5PASS7failpartial result, exactapp review/CI/rules binding and DockerD preparation-only boundary remain unchanged and retain the prior documented evidence/limits."
+  },
+  "checks_executed_at_new_subject": [
+    {
+      "command": "python -B tools/agents/workflow.py validate --task tasks/COMPLETE-001/task.json",
+      "status": "PASS",
+      "exit_code": 0,
+      "output_status": "VALID"
+    },
+    {
+      "command": "python -B tools/agents/product_check.py verify --record tasks/COMPLETE-001/evidence/product-record.json --source-repo D:/Chatwoot-Foundation-Checks/app-c77",
+      "status": "PASS",
+      "exit_code": 0,
+      "output_status": "PRODUCT_RECORD_VERIFIED",
+      "app_subject": "27e166927b93677863e7e7fda22109cfa2ae98b9"
+    },
+    {
+      "command": "git diff --check 658b96c32b36ba66edc83bd8f1c46f599f578792 12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "command": "Reviewer targeted SHA256/Gitblob/scope/delta/preservation checks",
+      "status": "PASS",
+      "bound_inputs": 23,
+      "check_receipts": 5,
+      "mismatches": []
+    },
+    {
+      "command": "python -B tools/agents/ownership.py status --repo .",
+      "status": "PASS",
+      "observed": "COMPLETE-001 claim includes exactfile:docs/project-map.md; claims are coordination only, not OS enforcement."
+    },
+    {
+      "command": "Broad control unittest rerun",
+      "status": "NOT_RUN",
+      "reason": "Documentation/status/task correction only; tooling unchanged. Prior independent reviewer80PASS101.570s and root80PASS101.270s at658b96c preserved, not relabelled as new executions."
+    }
+  ],
+  "metadata_receipt_counters": {
+    "status": "PASS_AFTER_REFRESH",
+    "path": "tasks/COMPLETE-001/evidence/governance_and_scope.json",
+    "sha256": "ebb9ec2ad4401f3f24a41380d617b6328fddee90b77d344b9ab64a000af8689c",
+    "changed_paths": 196,
+    "relative_links": 133,
+    "note": "Initially inherited195/101 counters were identified as a minor stale metadata issue; coordinator refreshed untracked receipt to196actualbaselinepaths and133links across currenttaskwritescope and updated handoff hash. Reviewer rechecked newbytes/hash and subject; no reviewedcode/input changed."
+  },
+  "input_hashes": {
+    "config/agents/repositories.json": "3d917599e4d6aa0df9b79bbe90ee30ee8dba5a5c524717424ccbb101ddcf19ab",
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "tasks/COMPLETE-001/evidence/agent-eval/protocol.json": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+    "tasks/COMPLETE-001/evidence/agent-eval/oracle.json": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+    "config/github/app-main.ruleset.json": "c8c1fed6923c44136b65686d8baa2551695ef03b762213a325bbaddd3428d506",
+    "agents/codex/coordinator.md": "ac82c87599e805f88409284151b6a6763cc5131297f7340adbfc62e693d1442b",
+    "agents/codex/reviewer.md": "50313497c9d240f1f6c45c4f9e096c636a6b324a1739bd09eb9e4b6c6b925341",
+    ".gitattributes": "53361eb0eb6f761c110198beead079d754cae36002ef6d5ab269c0975ec53d5f",
+    ".github/workflows/agent-governance.yml": "744751eebb9c436a71be3689b5e266dcd70dfaee74cd02b949cbaf9d443e5e14",
+    "README.md": "f0c1ae5a81efa1f146f90bbff9866de423bc42119d44d738b512aed24ec028e0",
+    "config/agents/isolated-runtime.example.json": "9ebfe2cda239aa5bfe4700cef74cccf3936868c754ce0b9e0200ddd9b043daa1",
+    "docs/agents/README.md": "7fbea39061da1ebfdbc20e3cab4fdade53a48a9f2f1f971de696934441d6ea49",
+    "docs/development/agent-selection.md": "afc180bef0d55f8d399596cd067d0190f295248e28b54857dd18b850af683a63",
+    "docs/development/completion.md": "ae024c9b245702474015fc8c268d0ae84cfaf197d16156a511aaf1d437548cda",
+    "docs/development/improvement-tracker.md": "209e5883f9cd1c152fd5e82edcb3ea6dc911c84a0b77ad61c6bda71c1650df11",
+    "docs/development/pilot.md": "6758920209912faad5ae33aab65c0c97b1cb3d8f734818d2c05d53fa61698d57",
+    "docs/development/product-workflow.md": "4c3e51d1d597392fca9b0f486ac79bb290ed78b4badfcf65346db81f4426b1e7",
+    "docs/development/review-and-merge.md": "0432dc76666b31581bf7bdd42fb6beda763d487a7a18c3889726dd8f75853615",
+    "docs/development/source-reproduction.md": "a3592c1bde93fda333698438ca9c25135506ce5b6b13641baebbacf551b4a5d5",
+    "docs/runbooks/docker-storage-migration.md": "490c11f7bce8daf1b7809826958afb9bb2e01dec98bf2add813b979fcde9cc5c",
+    "docs/runbooks/isolated-development.md": "41b46ccbc9df7810a588bebaaad9032a095500f3fdd36eaa0d0ed90682c32c0b",
+    "docs/status.md": "3f1989234694f05190e4fbc6b9343c3467164d14f0290cc7d983193ec397d4c4",
+    "docs/project-map.md": "081cb3af4fba4722ab3e160f9803ea79d4488b96c7ce22f3e7de3bbe0491a15a"
+  },
+  "additional_input_sha256": {
+    "tasks/COMPLETE-001/task.json": "0f3423b52a43f442fe3af3b939561fa5f005dd0910ba13266046ad848ab9395d",
+    "tasks/COMPLETE-001/handoff.json": "cf079ff9f793db384b98a55c71ea622b88c074bd029f10becfd86965897ea8ff",
+    "tasks/COMPLETE-001/evidence/app-task.json": "83c23122d91f1c67d6a1e142a789b48e2e923bf6b3e8189a4f9ad56de8b6ddee",
+    "tasks/COMPLETE-001/evidence/checkpoint.json": "a9fcd848334c77d5e30ce9381132d9e11d9c7133b26e8f184f2e8d63bc410d30",
+    "tasks/COMPLETE-001/evidence/control-final-tests.json": "5af7cfb3a855b323a0bab269274e1087b9b9e87accb7792755c8290118a40c9f",
+    "tasks/COMPLETE-001/evidence/governance_and_scope.json": "ebb9ec2ad4401f3f24a41380d617b6328fddee90b77d344b9ab64a000af8689c",
+    "tasks/COMPLETE-001/evidence/agent_evaluation.json": "3f815547421c080d9b8fce35c172fae3147d6bbb10de0c260403d67ec0aa4770",
+    "tasks/COMPLETE-001/evidence/source_reproduction.json": "84508c1a911cbcca2cc71f098500e324dfa60c319a70ee8414163a6cf0437619",
+    "tasks/COMPLETE-001/evidence/real_app_pilot.json": "2df9f1efcce031afeb1c85fe0e396ba6ac5ce293ad7276085666bad89ff346c9",
+    "tasks/COMPLETE-001/evidence/live_traceability.json": "1d3d5dd4c0124c296fad4089f2a6de364e4304661add5febefdfc320586d03e9"
+  },
+  "sources": "Same official/pinned sources directly read in the previous review context and retained in the unchanged control-final-review-details.json. This affected review reread exact Git diffs and current route/receipt content; it does not claim new source browsing, hosted tests or authenticated settings readback.",
+  "limits": [
+    "Independent affected re-review at exact12186bce8b99bd4ec5f6879bf32939a7b80ea074, combining the fullbaselinec714..658b96c implementation review with the complete four-file658b96c..12186bc correction. No remaining concrete blockers; this is not owner acceptance, human GitHub approval, merge/release authorization or permission to mutate runtime.",
+    "No broad unit-suite rerun: tools/tests/workflows/briefs/config and app evidence are byte-unchanged since the prior review. The reviewer independently ran80testsPASS in101.570s at658b96c; coordinator receipt separately records80PASS101.270s at that same subject. Their tooling results apply to unchanged tooling, not an assertion that the new subject ran a new suite or that Chatwoot is certified.",
+    "Task validation, affected diff/byte/hash/scope checks and separate app product-record verification were run at the corrected subject. The first reviewer helper defaulted to Windowscp1252 and failed to decode Vietnamese; corrected to explicitUTF8 and reran successfully. No subject code change was needed.",
+    "Application/runtime/build/browser/security/load/production and hosted lifecycle were NOT_RUN by this reviewer. Prior exact app review, selected CI receipts and independent public run/job/tree/workflow readbacks retain their stated limits; no fresh external API fetch was needed for this documentation-only correction.",
+    "Handoff and final receipts remain untracked pending authorized metadata staging. Strict index/hook, hosted control CI and affected fresh-reader completion are separate pending gates; reviewPASS does not report those gates passed. Current checkpoint correctly records this correction and review as work pending at its capture.",
+    "Hash/contract checks do not attest hidden context, original identities, every receipt execution, every omitted log or absence of every secret. Shared agent permissions are not security isolation; admin Actions permissions and bypass settings retain prior receipt-based limits.",
+    "Only tasks/COMPLETE-001/review.json and evidence/control-final-review-12186bc.json were written in this re-review. OriginalFAIL, olddetails, oldhandoff and all historical execution/judgment receipts remain untouched. Code/input changes after this subject need affected checking/review."
+  ],
+  "next_step": "Coordinator completes affected fresh-reader check, stages exact metadata/receipts, runs strict repository/hook gate, prepares consolidatedDraftPR preserving reviewed ancestry and waits for actual hostedcontrolCI. Present concrete PR/SHA for owner decision only after applicable gates. No automatic merge/release/defaulttemplate activation."
+}

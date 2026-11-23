@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "ActualbaselineDockerregression, fixedPASS,3appCIjobs+finalindependentreview; product_check.py verify separateappcheckout",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "observed_utc": "2026-11-23T00:25:28.832948+00:00",
+  "details": {
+    "product_check": {
+      "status": "PRODUCT_RECORD_VERIFIED",
+      "task_id": "COMPLETE-001",
+      "subject_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+      "mode": "current-checkout",
+      "limits": "Consistency only: no reviewer identity or execution-truth attestation, product acceptance, security certification or merge enforcement"
+    },
+    "app_review": "app-final-review.json",
+    "ci_run": 45082996742,
+    "product_record": "product-record.json",
+    "failed_rounds_retained": true
+  },
+  "limits": "Selected applicationchecks/syntheticdata and acceptance-readyDraftPR; no fullsuite/productionrelease or owneracceptance",
+  "final_ref_validation": "Revalidated sourcepatternscan, exact0f2aadc..12186bc scope/diffcheck and separateapp productverify; allboundcontrolbytes hashed at12186bc. Onlynav/status corrections sincepreviousreview, no tool/runtime changes."
+}

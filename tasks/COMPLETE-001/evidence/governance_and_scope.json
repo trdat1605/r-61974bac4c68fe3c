@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "workflow.py validate; exactbaseline..subject scope/history check; tracked contentpattern scan; relativeMarkdownlinks; gitdiffcheck",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "observed_utc": "2026-11-23T00:25:28.830599+00:00",
+  "details": {
+    "changed_paths": 196,
+    "historical_tasks_unchanged": true,
+    "tracked_pattern_scan": "PASS",
+    "relative_links": 133,
+    "byte_preservation": "TwoCRLFreceipts+tooltrailinglog preserved under exactpathattributes",
+    "brief_loading": "brief-loading.json"
+  },
+  "limits": "Pattern/contract/link checks, not independent review or product acceptance",
+  "final_ref_validation": "Revalidated sourcepatternscan, exact0f2aadc..12186bc scope/diffcheck and separateapp productverify; allboundcontrolbytes hashed at12186bc. Onlynav/status corrections sincepreviousreview, no tool/runtime changes."
+}

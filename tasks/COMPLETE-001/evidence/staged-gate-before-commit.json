@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "command": "python -B tools/agents/repository_check.py --staged --require-handoffs",
+  "files_scanned": 340,
+  "tasks_validated": 7,
+  "current_review_bound_paths": 50,
+  "unit_tests": 80,
+  "test_seconds": 83.244,
+  "limits": "This readback precedes final checkpoint/PR-description metadata stage; invocation-scoped commit hook will recheck final exactindex. Not owneracceptance."
+}

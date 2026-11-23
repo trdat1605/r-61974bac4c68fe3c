@@ -1,0 +1,68 @@
+{
+  "repository_id": 1461752107,
+  "repository": "trdat1605/r-61974bac4c68fe3c",
+  "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+  "main_expected": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+  "open_prs": [
+    {
+      "number": 17,
+      "draft": true,
+      "head": "codex/branch-protection",
+      "base": "codex/repository-publication"
+    },
+    {
+      "number": 14,
+      "draft": true,
+      "head": "codex/repository-publication",
+      "base": "codex/product-foundation"
+    },
+    {
+      "number": 12,
+      "draft": true,
+      "head": "codex/product-foundation",
+      "base": "codex/knowledge-handoff"
+    },
+    {
+      "number": 4,
+      "draft": true,
+      "head": "codex/knowledge-handoff",
+      "base": "codex/docs-home"
+    },
+    {
+      "number": 3,
+      "draft": true,
+      "head": "codex/docs-home",
+      "base": "codex/agent-operating-system"
+    },
+    {
+      "number": 2,
+      "draft": true,
+      "head": "codex/agent-operating-system",
+      "base": "review/project-foundation"
+    },
+    {
+      "number": 1,
+      "draft": true,
+      "head": "review/project-foundation",
+      "base": "main"
+    }
+  ],
+  "control_required_checks": [
+    {
+      "strict_required_status_checks_policy": true,
+      "do_not_enforce_on_create": true,
+      "required_status_checks": [
+        {
+          "context": "contracts-and-tests",
+          "integration_id": 15368
+        },
+        {
+          "context": "issue-and-product-record",
+          "integration_id": 15368
+        }
+      ]
+    }
+  ],
+  "status": "READ_ONLY_PREFLIGHT",
+  "observed_utc": "2026-11-23T00:20:25.368882+00:00"
+}

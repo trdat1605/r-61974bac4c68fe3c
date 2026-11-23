@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "task_id": "COMPLETE-001",
+  "kind": "independent_fresh_reader_handover",
+  "reader": "/root/complete_fresh_reader",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "recorded_utc": "2026-11-23 00:24:06 UTC",
+  "subject": {
+    "control_repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+    "control_branch": "codex/complete-foundation",
+    "control_commit": "658b96c32b36ba66edc83bd8f1c46f599f578792",
+    "app_repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+    "app_branch": "codex/portable-foundation",
+    "app_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "app_checkout_used": "D:/Chatwoot-Foundation-Checks/app-c77",
+    "app_checkout_is": "Preexisting separate clone used read-only, not created by this reader. Clean status before allowed checks.",
+    "ci_checkout_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+    "app_and_ci_tree": "65705962f43b3c1a3b35920b66436d3c210c4db6"
+  },
+  "overall": {
+    "information_recovery": "PASS",
+    "public_exact_control_subject_availability": "PARTIAL",
+    "runtime_reproduction_by_reader": "NOT_RUN",
+    "conclusion": "A new AI/person can recover goal, repositories, exact refs, boundaries, operation/check instructions, evidence and next steps by following the documented routes without asking the coordinator or user for missing facts. This is a local exact-subject navigation/readback check. The reviewed control subject was not yet the public working-branch head at readback; final push/PR/CI/review remain separate gates. No claim of fresh-machine runtime reproduction or all-seven acceptance."
+  },
+  "independence": {
+    "initial_read": "Only repository AGENTS.md and README.md, then their routed files.",
+    "not_used": [
+      "Session/chat history or coordinator answers to fill information needs",
+      "Other agent claims as sole evidence of executed tests",
+      "Secrets, environment files, customer data, dumps or raw session/runtime logs"
+    ],
+    "authority": "Reader edits only this receipt; no implementation or independent technical acceptance of the full control diff."
+  },
+  "information_needs": [
+    {
+      "id": "goal_and_current_state",
+      "status": "PASS",
+      "route": [
+        "README.md",
+        "docs/status.md",
+        "docs/development/completion.md",
+        "docs/development/improvement-tracker.md",
+        "tasks/COMPLETE-001/evidence/checkpoint.json"
+      ],
+      "answer": "Complete seven foundation improvements; COMPLETE-001 remains in progress on complete-foundation. App Docker worktree metadata pilot and hosted lifecycle CI have evidence; 12 Codex V3 trials include 5 PASS and 7 fail/partial. Control final review/handoff/CI/integration and owner decision remain. Main has not received this work; no product-wide acceptance."
+    },
+    {
+      "id": "app_repository_and_exact_sha",
+      "status": "PASS",
+      "route": [
+        "config/agents/runtime.json",
+        "tasks/COMPLETE-001/evidence/app-task.json",
+        "docs/development/source-reproduction.md",
+        "docker/isolated/README.md at app subject"
+      ],
+      "answer": "Existing lab is Linux /root/code/chatwoot-worktrees/wsl-preflight at caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82, codex/wsl-migration, not control cwd. Trial app uses public s-251521f7e9131fb0/codex/portable-foundation at 27e166927b93677863e7e7fda22109cfa2ae98b9. Source-reproduction gives clone, detach, rev-parse and status commands; D clone and original Linux worktree are machine-specific paths, not portable requirements. CI actual merge checkout 8d953fd differs in metadata but has identical tree, independently confirmed by public GitHub commit objects."
+    },
+    {
+      "id": "permitted_edits_and_runtime_reads",
+      "status": "PASS",
+      "route": [
+        "AGENTS.md",
+        "tasks/COMPLETE-001/task.json",
+        "tasks/COMPLETE-001/evidence/app-task.json",
+        "docs/agents/operating-model.md",
+        "docs/runbooks/isolated-development.md"
+      ],
+      "answer": "One implementer per exact claimed scope and separate app/control refs; actual app AGENTS/overrides must be read. Existing Chatwoot lab and course runtime read-only. Project-specific prior runtime authorization does not authorize this reader to use Docker. Local C below 15 GiB stops new local allocation. No reset/prune/foreign-resource cleanup, migration, restart of shared runtime, permission expansion, merge or release. Future runtime work needs task, reviewed concrete plan, capacity and resource identity checks; worktree/project names alone do not isolate data or permissions."
+    },
+    {
+      "id": "how_to_run_and_check",
+      "status": "PASS",
+      "route": [
+        "docs/runbooks/local-development.md",
+        "docs/runbooks/isolated-development.md",
+        "docs/development/source-reproduction.md",
+        "actual app AGENTS.md",
+        "actual app docker/isolated/README.md",
+        "actual app bootstrap.py main parser"
+      ],
+      "answer": "Lab runbook identifies existing WSL source/adapter and conditional operations, explicitly unsuitable as fresh setup. Portable app README requires Linux, Git, Python data extraction filter, Docker/Compose v2/network and reviewed runtime plan. Boundary command is python3 -B -m unittest discover -s docker/isolated -v; metadata regression needs baseline object and documented exact fetch if shallow. Wrapper flow prepare/plan/config/build/prepare-db/up/smoke/test/restart/smoke matches CLI. Helper verify_runtime.py is only for a disposable runner with fixed project/ports, not shared host. Control tooling uses Python 3.10+ standard library and Git Windows; 80-tooling-test claim is historical evidence, not rerun by this reader.",
+      "execution_limit": "Native Windows CLI --help passed. Reader attempted boundary command using native Windows Python 3.13.5: 23 tests, 20 passed, 3 environment errors. Linux rerun and Docker commands NOT_RUN. See check records; do not label this attempted run PASS."
+    },
+    {
+      "id": "pending_limits",
+      "status": "PASS",
+      "route": [
+        "docs/status.md",
+        "docs/development/completion.md",
+        "docs/runbooks/docker-storage-migration.md",
+        "docs/runbooks/isolated-development.md"
+      ],
+      "answer": "Capacity block and Docker relocation preparation are explicit, not a handover defect: no relocation/restart allowed; backup/capacity/maintenance/rollback/postchecks remain. Browser interactive login/realtime/full app suite/production behavior/real-data restore/mobile compatibility/Zalo/upgrade acceptance are not proven. FULL_BUILD can use Docker cache and mutable dependencies preclude bit-identical promise. Claude Teams not run; new brief behavior and token savings not measured."
+    },
+    {
+      "id": "source_of_truth_and_evidence",
+      "status": "PASS",
+      "route": [
+        "docs/project-map.md",
+        "tasks/COMPLETE-001/evidence/README.md",
+        "tasks/COMPLETE-001/evidence/product-record.json",
+        "tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json",
+        "tasks/COMPLETE-001/evidence/app-final-review.json"
+      ],
+      "answer": "README/status select current checkpoint; runtime profile records lab identity; task controls scope; exact-subject app source is authoritative for implementation; evidence and reviews retain their original refs/bytes. Catalog provides source metadata, not proof of execution. Public run/job GET independently confirms CI completion; retained receipt supplies detailed lifecycle commands/log selection. Reader did not download/recompute raw CI logs. Main templates are not called active. Machine validator checks consistency, not truth/identity/business acceptance."
+    },
+    {
+      "id": "next_task_handoff",
+      "status": "PASS",
+      "route": [
+        "tasks/COMPLETE-001/evidence/checkpoint.json",
+        "docs/development/product-workflow.md",
+        "docs/development/review-and-merge.md",
+        "docs/agents/README.md",
+        "docs/knowledge/context-packet.md"
+      ],
+      "answer": "Finish exact control review/handoff/hash/index/hook checks, publish scoped evidence and consolidated Draft PR targeting main, run actual control CI with app-ref verification, then present exact PR/head and regular merge method to owner. Preserve review ancestry; no squash/rebase or historical receipt rewriting. New product work starts issue/task/context/ref/scope/checks/ownership, uses separate app checkout, reviewer fresh context exact commit and acceptance evidence, then PR and separate owner decision. Docker relocation requires separate concrete maintenance task. Old issues/PRs are not automatically closed."
+    },
+    {
+      "id": "knowledge_loading",
+      "status": "PASS",
+      "route": [
+        "docs/agents/README.md",
+        "docs/knowledge/README.md",
+        "docs/knowledge/reading-routes.md",
+        "docs/knowledge/context-packet.md",
+        "docs/knowledge/source-notes.md"
+      ],
+      "answer": "Choose R-08 environment, R-09 checks/review and R-11 handover routes for this request. Open source IDs/actual relevant code as needed, extend for API/data/enterprise/mobile dependencies. Sources/supplemental catalogs record refs/provenance; some legacy snapshots remain local and unavailable offline, with official URLs supplied. Actual checkout AGENTS outranks stored reference. Briefs/roles are explicitly passed project harness configuration; no assumed native Claude/Codex auto-loading or universal app-chat policy injection. No need to load the whole knowledge repository."
+    },
+    {
+      "id": "public_control_exact_subject",
+      "status": "PARTIAL",
+      "route": [
+        "README.md",
+        "docs/status.md",
+        "public GitHub branch GET"
+      ],
+      "answer": "Public working branch exists and main is clearly separate, but live complete-foundation head was d5b0eaef4b5f14fafd0502a18f54219d7f27e8be while local reviewed subject was 658b96c32b36ba66edc83bd8f1c46f599f578792. Public main was 02bcd4d195418b4d478a1b0c04171f57d2ce1b02. Thus this reader cannot certify remote availability of the final local handover yet. Push/PR and readback are the documented next integration work; no need for a new user decision merely to finish already authorized preparation."
+    }
+  ],
+  "actual_steps": [
+    {
+      "command": "Get-Content AGENTS.md; Get-Content README.md",
+      "status": "PASS",
+      "result": "Initial entrance only, then followed explicit routes."
+    },
+    {
+      "command": "Get-Content of the named routed control documents and task/evidence files; git rev-parse HEAD; git status --short; git branch --show-current",
+      "status": "PASS",
+      "result": "Exact control subject/branch. Preexisting untracked check receipts/handoff were visible; this reader did not read them as final authoritative records or modify them."
+    },
+    {
+      "command": "git -C D:/Chatwoot-Foundation-Checks/app-c77 rev-parse HEAD; git -C D:/Chatwoot-Foundation-Checks/app-c77 status --short; Get-Content actual AGENTS.md and docker/isolated/README.md",
+      "status": "PASS",
+      "result": "Exact app subject and clean status, Linux requirements and operation limits."
+    },
+    {
+      "command": "python -B docker/isolated/bootstrap.py --help",
+      "cwd": "D:/Chatwoot-Foundation-Checks/app-c77",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Documented prepare,metadata-regression,plan,config,build,up,prepare-db,test,restart,stop,status,smoke subcommands present."
+    },
+    {
+      "command": "python -B -m unittest discover -s docker/isolated -v",
+      "cwd": "D:/Chatwoot-Foundation-Checks/app-c77",
+      "environment": "Native Windows Python 3.13.5",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 23,
+      "passed": 20,
+      "errors": 3,
+      "seconds": 12.222,
+      "errors_selected": [
+        "test_frontend_entrypoint_missing_dependencies_fails_without_prompt: subprocess sh missing, FileNotFoundError [WinError 2].",
+        "test_frontend_entrypoint_uses_built_dependencies_without_installing: subprocess sh missing, FileNotFoundError [WinError 2].",
+        "test_prepare_private_secrets_idempotent_and_stale_ref_rejected: ValueError secret file must be private (chmod 600)."
+      ],
+      "interpretation": "Unsupported-platform attempt. README explicitly requires Linux and test source uses POSIX sh/mode bits; these errors do not establish a Linux application regression. No Docker calls were executed by mocked boundary fixtures. No claim of a passing rerun; prior hosted CI remains independent evidence."
+    },
+    {
+      "command": "rg -n 'def test_|subprocess|entrypoint|/bin/sh|chmod|filter=' docker/isolated/test_bootstrap.py; read bootstrap.py main parser",
+      "status": "PASS",
+      "result": "Confirmed test portability assumptions and help matches actual parser."
+    },
+    {
+      "command": "Python hashlib/SHA256 plus git show EXACT_SUBJECT:PATH; regex local Markdown link existence on named routed files",
+      "status": "PASS",
+      "result": "26 control inputs and 4 app inputs match exact subject after CRLF normalization. 195 local inline link targets exist; anchor and remote-link completeness not claimed."
+    },
+    {
+      "command": "Public unauthenticated urllib.request GitHub REST GET endpoints listed below",
+      "status": "PASS",
+      "result": "Separate repositories/defaults/current branch/PR3/CI jobs/commit trees independently read. No authenticated API writes."
+    },
+    {
+      "command": "Read user-specified local organization guide and its kien-thuc/BAT-DAU.md entrance",
+      "status": "PASS",
+      "result": "Local historical guide is explanatory context; current repository routes supply portable handover. Did not substitute historical local runtime claims for current state."
+    }
+  ],
+  "public_readbacks": [
+    {
+      "url": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c",
+      "response_sha256": "723db089c28c46770059e3e9bfbc943e62c930a924277ab51ab7368bdbf8b7d9",
+      "observed": "public, default main"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/branches/codex%2Fcomplete-foundation",
+      "response_sha256": "f2151b6c6b21268851363963acaf77214c267b1b7e8c7fe3081850fe83675dff",
+      "observed": "head d5b0eaef4b5f14fafd0502a18f54219d7f27e8be"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/branches/main",
+      "response_sha256": "e262e01135d903b09a33f077624258e1987b3f5d7d304520e173a3d6995bb818",
+      "observed": "head 02bcd4d195418b4d478a1b0c04171f57d2ce1b02"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0",
+      "response_sha256": "cc4c85f829427c1cb50a6bdbe30a1f7166cc9226b7d621b74fadc1076fb6d315",
+      "observed": "public, default main"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/pulls/3",
+      "response_sha256": "65b0facc9dda07dfe2391b1fb8db33aee2ea899951cafd5b0a702757d730b5a4",
+      "observed": "open Draft, unmerged; head27e1669, basemain caab07a; full app issue URL and Task marker present"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+      "response_sha256": "88313b3328394330b9451244fcdd9961ea11ac666cf4b92cd37435d937fe6001",
+      "observed": "completed success, head27e1669, pull_request, foundation-ci.yml"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742/jobs",
+      "response_sha256": "8c57cb53f258e49d0a767c9ce464c006c1b466e77dc619ec0d3c3eb986e22d9f",
+      "observed": "metadata137395198857/focused-frontend137395199109/isolated-runtime137395199200 all success"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/git/commits/27e166927b93677863e7e7fda22109cfa2ae98b9",
+      "response_sha256": "149ebd56a2bb507ad6b44548b25525917d526246e24cf795639b851cacad3ea8",
+      "observed": "tree65705962f43b3c1a3b35920b66436d3c210c4db6"
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/git/commits/8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+      "response_sha256": "dddc7d6821c19e391e19bce49ee265809d31f8a421ed137b6fc84d2fd38ce401",
+      "observed": "same tree as app subject"
+    }
+  ],
+  "official_sources_read": [
+    {
+      "url": "https://developers.chatwoot.com/contributing-guide/environment-setup/docker",
+      "source_says": "Base image before app images, db:chatwoot_prepare, then Compose startup.",
+      "applied_check": "Local wrapper/readme retain sequence but restrict it to reviewed new synthetic project.",
+      "limit": "Living docs read this turn, not a claim of a release-pinned development deployment recipe."
+    },
+    {
+      "url": "https://docs.docker.com/compose/how-tos/project-name/",
+      "source_says": "Compose project names namespace environments; -p has highest precedence.",
+      "applied_check": "Handover explicitly requires additional port/mount/data validation; project naming alone is not treated as full isolation."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request",
+      "source_says": "Default PR checkout is merge branch; head SHA is separately available.",
+      "applied_check": "Keep app head and actual CI checkout separate and verify tree equivalence using public commit API."
+    }
+  ],
+  "contradictions_or_stale_wording": [
+    {
+      "severity": "nonblocking",
+      "file": "docs/project-map.md",
+      "observed": "Source-of-truth README table still identifies the new shared set as branch codex/repository-publication.",
+      "other_evidence": "Root README/status/completion/task and actual local branch identify current complete-foundation.",
+      "impact": "Could send a reader to an older branch if entering via project-map alone; current README route resolved it without a question."
+    },
+    {
+      "severity": "nonblocking",
+      "file": "tasks/COMPLETE-001/evidence/app-task.json",
+      "observed": "checks_observed.runtime_vite_previous_subject says hosted runtime at c77 still in_progress.",
+      "other_evidence": "Same object's actualCI_current_subject/runtime_current_subject, lifecycle receipt and public run show completed PASS at27e1669.",
+      "impact": "Previous-subject historical line is stale/ambiguous; current field resolves it."
+    },
+    {
+      "severity": "nonblocking",
+      "file": "tasks/COMPLETE-001/evidence/checkpoint.json",
+      "observed": "app_moving_edits says no further push while lifecycle CI is running; new_runtime ends with sourcec77.",
+      "other_evidence": "Current app last committed subject and successful CI are27e1669; public API confirms completion.",
+      "impact": "Historical progress wording should not be mistaken for live CI state. Does not hide unresolved runtime failure."
+    }
+  ],
+  "broken_links": {
+    "checked": 195,
+    "broken": [],
+    "scope": "Markdown inline local links in named routed files; anchors and all remote links not exhaustively checked"
+  },
+  "questions_still_need_user": [],
+  "future_owner_decisions_not_missing_handover_facts": [
+    "Whether to accept/merge exact reviewed PR/SHA and release in separate authorized scope.",
+    "Separate Docker maintenance task: actual backup/restore/capacity/window/rollback/postchecks before considering relocation.",
+    "Business priority/scope for browser/performance, Zalo/mobile or real upgrade work."
+  ],
+  "explicit_not_run": [
+    "Fresh clone creation by this reader; only preexisting D clone inspected.",
+    "Linux boundary test rerun by this reader; native Windows attempted run failed as recorded.",
+    "Docker/Compose calls, metadata Docker regression, image build, prepare/start/stop/restart, DB operations, backups/restores or shared runtime inspection/mutation.",
+    "Control 80-test suite, strict-index/hook/full repository acceptance gate, product_check verify or final control review; separate assigned roles cover final gates.",
+    "Raw CI log download/hash recomputation; detailed logs/results remain retained receipt evidence, while run/jobs/trees were independently read.",
+    "Browser interaction, interactive login/realtime, full application suite, production behavior, real-data recovery or security certification.",
+    "Git mutation to source/control, install, push/merge/release, changing Actions/rulesets or moving Docker data.",
+    "Native Claude Teams, effectiveness of new briefs or token-savings measurement.",
+    "Default-branch template activation and final exact-control-subject public availability after push."
+  ],
+  "input_hashes": {
+    "AGENTS.md": {
+      "checkout_sha256": "673160552c729f2e991549a02919115b954df7a63742123ae0dc3ba962579a93",
+      "subject_blob_sha256": "673160552c729f2e991549a02919115b954df7a63742123ae0dc3ba962579a93",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "README.md": {
+      "checkout_sha256": "f0c1ae5a81efa1f146f90bbff9866de423bc42119d44d738b512aed24ec028e0",
+      "subject_blob_sha256": "f0c1ae5a81efa1f146f90bbff9866de423bc42119d44d738b512aed24ec028e0",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/agents/README.md": {
+      "checkout_sha256": "7fbea39061da1ebfdbc20e3cab4fdade53a48a9f2f1f971de696934441d6ea49",
+      "subject_blob_sha256": "7fbea39061da1ebfdbc20e3cab4fdade53a48a9f2f1f971de696934441d6ea49",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/status.md": {
+      "checkout_sha256": "3f1989234694f05190e4fbc6b9343c3467164d14f0290cc7d983193ec397d4c4",
+      "subject_blob_sha256": "3f1989234694f05190e4fbc6b9343c3467164d14f0290cc7d983193ec397d4c4",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/project-map.md": {
+      "checkout_sha256": "578aba9f0602b171eca51d5de82e4c8f61425cf0aab61c48b40f8b337f460d81",
+      "subject_blob_sha256": "578aba9f0602b171eca51d5de82e4c8f61425cf0aab61c48b40f8b337f460d81",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/development/completion.md": {
+      "checkout_sha256": "ae024c9b245702474015fc8c268d0ae84cfaf197d16156a511aaf1d437548cda",
+      "subject_blob_sha256": "ae024c9b245702474015fc8c268d0ae84cfaf197d16156a511aaf1d437548cda",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/task.json": {
+      "checkout_sha256": "bdacb1142c072934a20d3924acfd523bfa4e1712a539538419f0f0a01a48a4f9",
+      "subject_blob_sha256": "bdacb1142c072934a20d3924acfd523bfa4e1712a539538419f0f0a01a48a4f9",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/runbooks/local-development.md": {
+      "checkout_sha256": "2fd0391a2cb854afbbb96395791b0d068123d6a2243ed769e6580d8349f41dff",
+      "subject_blob_sha256": "2fd0391a2cb854afbbb96395791b0d068123d6a2243ed769e6580d8349f41dff",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/runbooks/isolated-development.md": {
+      "checkout_sha256": "41b46ccbc9df7810a588bebaaad9032a095500f3fdd36eaa0d0ed90682c32c0b",
+      "subject_blob_sha256": "41b46ccbc9df7810a588bebaaad9032a095500f3fdd36eaa0d0ed90682c32c0b",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/development/source-reproduction.md": {
+      "checkout_sha256": "a3592c1bde93fda333698438ca9c25135506ce5b6b13641baebbacf551b4a5d5",
+      "subject_blob_sha256": "a3592c1bde93fda333698438ca9c25135506ce5b6b13641baebbacf551b4a5d5",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/agents/operating-model.md": {
+      "checkout_sha256": "a9b97551547133c4d24a80a6b9422a48c2f42e4808e31e0d8dc4e7e87dea8edd",
+      "subject_blob_sha256": "a9b97551547133c4d24a80a6b9422a48c2f42e4808e31e0d8dc4e7e87dea8edd",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/knowledge/README.md": {
+      "checkout_sha256": "ed1619003fa3d646cee894963c0f6bccbe18440fe19d3d22f6266e540c56b834",
+      "subject_blob_sha256": "ed1619003fa3d646cee894963c0f6bccbe18440fe19d3d22f6266e540c56b834",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/knowledge/reading-routes.md": {
+      "checkout_sha256": "b11ab5fbd51159704d8e962353e862a18c8162a3f9dcf067f6c2e633354fc67d",
+      "subject_blob_sha256": "b11ab5fbd51159704d8e962353e862a18c8162a3f9dcf067f6c2e633354fc67d",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/knowledge/context-packet.md": {
+      "checkout_sha256": "f6a0c766bfe009818ada0dac9d7d32129997ab1e65c34b99d3514d0f20de1c9f",
+      "subject_blob_sha256": "f6a0c766bfe009818ada0dac9d7d32129997ab1e65c34b99d3514d0f20de1c9f",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "config/agents/runtime.json": {
+      "checkout_sha256": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+      "subject_blob_sha256": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/app-task.json": {
+      "checkout_sha256": "1ac864f407ddf7585e2d16f1b199c3dc511cd076a0b09f9553082ce086e02e5d",
+      "subject_blob_sha256": "1ac864f407ddf7585e2d16f1b199c3dc511cd076a0b09f9553082ce086e02e5d",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/checkpoint.json": {
+      "checkout_sha256": "72a46178af18a9f6f35368ec1b10f653efa2225b0e1f66ea73ff5053c37d2e0d",
+      "subject_blob_sha256": "72a46178af18a9f6f35368ec1b10f653efa2225b0e1f66ea73ff5053c37d2e0d",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/README.md": {
+      "checkout_sha256": "975cfed85c606b758319c2f65aa13f8edd500224823d6da870d12019ef28e6ef",
+      "subject_blob_sha256": "975cfed85c606b758319c2f65aa13f8edd500224823d6da870d12019ef28e6ef",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/development/review-and-merge.md": {
+      "checkout_sha256": "0432dc76666b31581bf7bdd42fb6beda763d487a7a18c3889726dd8f75853615",
+      "subject_blob_sha256": "0432dc76666b31581bf7bdd42fb6beda763d487a7a18c3889726dd8f75853615",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/development/product-workflow.md": {
+      "checkout_sha256": "4c3e51d1d597392fca9b0f486ac79bb290ed78b4badfcf65346db81f4426b1e7",
+      "subject_blob_sha256": "4c3e51d1d597392fca9b0f486ac79bb290ed78b4badfcf65346db81f4426b1e7",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/development/improvement-tracker.md": {
+      "checkout_sha256": "209e5883f9cd1c152fd5e82edcb3ea6dc911c84a0b77ad61c6bda71c1650df11",
+      "subject_blob_sha256": "209e5883f9cd1c152fd5e82edcb3ea6dc911c84a0b77ad61c6bda71c1650df11",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/product-record.json": {
+      "checkout_sha256": "85c900f0de6dfa1da8713247a54f73c649424b5d473e2ce2d1b4dfc7e9a45ce2",
+      "subject_blob_sha256": "85c900f0de6dfa1da8713247a54f73c649424b5d473e2ce2d1b4dfc7e9a45ce2",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json": {
+      "checkout_sha256": "2506b51f3315a94ea4266a72d1ca40524c5568787e83379a0b5896a880f5ba9c",
+      "subject_blob_sha256": "2506b51f3315a94ea4266a72d1ca40524c5568787e83379a0b5896a880f5ba9c",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/app-final-review.json": {
+      "checkout_sha256": "86dadeff6c15f7815501e59ced39735f0fdaf5509a8966f8677ddf89dcd065ed",
+      "subject_blob_sha256": "86dadeff6c15f7815501e59ced39735f0fdaf5509a8966f8677ddf89dcd065ed",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/knowledge/source-notes.md": {
+      "checkout_sha256": "a44e72239392ec21b40bcea0e4f04e51d80fe206ce89d2e20bcfacd6797c2823",
+      "subject_blob_sha256": "a44e72239392ec21b40bcea0e4f04e51d80fe206ce89d2e20bcfacd6797c2823",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/runbooks/docker-storage-migration.md": {
+      "checkout_sha256": "490c11f7bce8daf1b7809826958afb9bb2e01dec98bf2add813b979fcde9cc5c",
+      "subject_blob_sha256": "490c11f7bce8daf1b7809826958afb9bb2e01dec98bf2add813b979fcde9cc5c",
+      "matches_subject_after_crlf_normalization": true
+    }
+  },
+  "app_input_hashes": {
+    "AGENTS.md": {
+      "checkout_sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+      "subject_blob_sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docker/isolated/README.md": {
+      "checkout_sha256": "5d50a6037c9029665a97ccf957d21504572a58edba18d8a0dce5ff72b42d8c4f",
+      "subject_blob_sha256": "fcb25becc3b8737a0134d9c31b59b5a2a53ff309e81c1be58f4271458cdc92aa",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docker/isolated/bootstrap.py": {
+      "checkout_sha256": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+      "subject_blob_sha256": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docker/isolated/test_bootstrap.py": {
+      "checkout_sha256": "e166b3906e902783fe8b904d85aabd0a061b1fa93fb96c7481fd488fee61e149",
+      "subject_blob_sha256": "e166b3906e902783fe8b904d85aabd0a061b1fa93fb96c7481fd488fee61e149",
+      "matches_subject_after_crlf_normalization": true
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "task_id": "COMPLETE-001",
-  "status": "IN_PROGRESS_NOT_COMPLETE",
+  "status": "TECHNICAL_REVIEW_PASS_PENDING_CONTROL_PUBLICATION_CI_OWNER",
   "control_branch": "codex/complete-foundation",
   "control_spec_commit": "0a7f1f011c5bd84ff970020130b9323b2dfad77b",
   "control_issue": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
@@ -13,12 +13,12 @@
   "quarantine": "All17inheritedworkflowdisabled; globalActionsenabledselectedallowlistonlypinnedcheckout/setupnode; candidateCIonly; appPR3",
   "new_runtime": "Localproject001 cleanup preserved PGvolume and backup; protected9unchanged. HostCbelow15GiB prevents local successor allocation. Hostedcwdev-ci-runtime lifecycle45082996742PASS at apphead27e1669, mergecheckout8d953fd treeidentical. No currentlocalhostruntimechanges.",
   "evaluation": "Complete12V3/36originals; T1addendum+T2/T3sourcegrading and materialsecondcheck preserve5PASS7failpartial. Facts87PASS13FAIL; common57PASS3FAIL. Provisionalpolicy retained, no topologywinner/nativeClaudeclaim. NewbriefCLIloaded, behavioralimprovementNOT_YET_EVALUATED.",
-  "reviews": "AppfinalPASS27e1669; all3CI/requiredchecksapplyPASS. Control658b96c reviewFAIL CCFR-01 stalebranch/progress; correction and affectedreview required. Originalfailedreview preserved.",
+  "reviews": "AppfinalPASS27e1669; actualCIall3PASS/requiredchecksPASS. Control658FAILpreserved; affectedcontrolreviewPASS12186bc and freshreaderaddendumPASS. Strict stagedrepo gate running, no owneracceptance.",
   "required_next": [
-    "CorrectCCFR-01currentmap and requestaffectedcontrol/freshreader review atnewsubject; preserve all priorjudgments.",
-    "Rebind5checkreceipts/handoff to correctedsubject, strictstagedgate/hook, consolidatedDraftPR and actualcontrolCI.",
-    "Onlyafter reviewready exactPR/head present ownermerge decision; no defaulttemplatesactive claim untilmerge.",
-    "DockerD preparationreviewPASS executionBLOCKED, no currentruntimewrites."
+    "Finishstrictstagedgate/hook, pushcodex/complete-foundation andcreateconsolidatedDraftPRagainstmain; wait bothactualrequiredcontrolCIjobs.",
+    "Verifypublichead/readback afterpush; preserve sourceimplementation12186bc vs metadatahead distinction.",
+    "PresentexactPR/head/apphead toowner for regularmerge decision. Defaultmain templates activation onlyafterauthorizedmerge.",
+    "DockerD preparationreviewPASS executionBLOCKED; no migration/restart/backup of existingruntime inthis task."
   ],
   "storage": "Plan+UI/mount/capacity evidence reviewed twice. PreparationhandoverPASS; executionBLOCKED; all5maintenance gates remain. No Dockerdata move/restart."
 }
