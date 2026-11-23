@@ -92,7 +92,21 @@
     "config/github/app-main.ruleset.json",
     "agents/codex/coordinator.md",
     "agents/codex/reviewer.md",
-    ".gitattributes"
+    ".gitattributes",
+    ".github/workflows/agent-governance.yml",
+    "README.md",
+    "config/agents/isolated-runtime.example.json",
+    "docs/agents/README.md",
+    "docs/development/agent-selection.md",
+    "docs/development/completion.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/pilot.md",
+    "docs/development/product-workflow.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/runbooks/docker-storage-migration.md",
+    "docs/runbooks/isolated-development.md",
+    "docs/status.md"
   ],
   "status": "specified",
   "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
@@ -123,6 +137,10 @@
     {
       "basis": "Two newly received independent review originals use CRLF and their raw hashes are already bound by product/evaluation records. Preserve original judgment bytes through Git checkout, instead of rewriting originals/hashes.",
       "change": "Exact -text attributes for only app-final-review.json and grading/material-second-check.json; normal repository LF policy retained for other files. Finalcontrolreview mustcheck."
+    },
+    {
+      "basis": "The integration subject follows a committed implementation/evidence checkpoint. Finalhand-off implementationbase is that metadata checkpoint; all previously changed control code/docs/config are boundinputs so no ownership gap is hidden. Independent finalreview must inspect fullbaselinec714..subject in addition to handoffdelta.",
+      "change": "Bind every non-taskcontrolpath changed since COMPLETE-001baseline, preservehistoricalreceipts and review them at their exactsubjects."
     }
   ]
 }
