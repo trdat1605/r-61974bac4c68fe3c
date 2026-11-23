@@ -1,0 +1,36 @@
+{
+  "task_id": "FLOW-001",
+  "reviewer": "/root/product_foundation_review",
+  "reviewed_commit": "e3788847ffb4120fb64a8b5c614b5b1b907891a1",
+  "result": "BLOCK",
+  "blocking_findings": [
+    {
+      "priority": "P2",
+      "file": "tools/agents/product_check.py",
+      "line": 150,
+      "trigger": "git update-index --assume-unchanged -- code.txt; overwrite tracked code.txt; git status empty",
+      "observed_result": "PRODUCT_RECORD_VERIFIED despite working source differing from reviewed subject",
+      "impact": "Current-source consistency claim can accept unreviewed tracked bytes",
+      "required_fix": "Fail closed on hiding index flags including assume-unchanged/skip-worktree/sparse or independently validate tracked bytes; add regression and review new subject",
+      "source": "https://git-scm.com/docs/git-update-index#_using_assume_unchanged_bit"
+    }
+  ],
+  "independently_executed": [
+    "62 full tooling tests PASS in67.106s",
+    "Temporary Git fixture reproduces source hiding issue",
+    "Task VALID/example PLAN_VALID",
+    "Actualdiff/docs/workflow/evidence and primary sources read",
+    "Core and 3 legacy records unchanged; whitespace PASS"
+  ],
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "docs/knowledge/sources.json": "419934b4696e5d9d76d8089b9cb73198abfe171a7b0fd9b17b2df9a298f20b5b",
+    "agents/codex/roles.json": "2dcdafc3f2c285ce090013687087f13a063420fe7e8beb2c684d10c4782cf481"
+  },
+  "limits": [
+    "Reviewer no GitHub auth: private API readback independently NOT_RUN",
+    "No app build/runtime mutation/pilot/productCI/reproduction",
+    "Not a security certificate; checker consistency flaw reproduced in temp fixtures"
+  ],
+  "recorded_by": "Coordinator transcribed reviewer final message; no reviewed implementation files changed by reviewer"
+}

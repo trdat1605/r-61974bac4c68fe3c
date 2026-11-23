@@ -1,0 +1,22 @@
+{
+  "task_id": "COMPLETE-001",
+  "status": "FAIL",
+  "source_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "steps": [
+    {
+      "step": "preconditions",
+      "status": "PASS",
+      "repo_id": 1467945011,
+      "all17disabled": true,
+      "global_enabled": false,
+      "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "head": "07686773cb515aba4029823ffe585e80fca705a5",
+      "workflow_sha256": "5d99ffa2d51e39becea2a2a54581ff840efe685652c70a8f8bb5956b93f3da79"
+    },
+    {
+      "step": "failure",
+      "status": "FAIL"
+    }
+  ],
+  "error_type": "HTTPError"
+}

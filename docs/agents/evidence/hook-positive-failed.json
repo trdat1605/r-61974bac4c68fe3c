@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-17T19:55:18.235398+00:00",
+  "status": "FAIL",
+  "exit_code": 1,
+  "before_commit": "059aef12f188f3d535ace56e6f5d4573ba40d45b",
+  "committed_revision": "a5b884242c9e07dc665ab880c94ed38b4d3a9c92",
+  "command": "git -c core.hooksPath=.githooks commit -m docs(agents): record independent review and handover evidence",
+  "selected_output": [],
+  "tests_summary": [
+    "Ran 39 tests in 4.624s"
+  ],
+  "limits": "Actual local positive commit hook, not server-required branch protection; metadata commit only",
+  "interpretation": "Failed positive hook exposed Git-local env contamination; not a successful enforcement receipt"
+}

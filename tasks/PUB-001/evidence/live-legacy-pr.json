@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "Read actual renamed repo/pull12 via GitHub API, then check_pr(actual metadata) at current local implementation; old FLOW-001 issue/task URLs canonicalized without redirects",
+  "subject_commit": "802091dff84462293cdde6eabc93b5b90e5e3105",
+  "repository_id": 1461752107,
+  "pr_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/12",
+  "pr_head": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+  "result": {
+    "status": "PR_TRACEABILITY_VALID",
+    "task_id": "FLOW-001",
+    "issues_checked": 7,
+    "limits": "Consistency only: no reviewer identity or execution-truth attestation, product acceptance, security certification or merge enforcement"
+  },
+  "limits": [
+    "Uses updated local checker with existing PR metadata; old PR HEAD still lacks this patch",
+    "Not a hosted CI rerun of old PR or product acceptance"
+  ]
+}

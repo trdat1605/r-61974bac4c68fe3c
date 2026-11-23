@@ -1,0 +1,199 @@
+{
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/foundation_ci_audit",
+  "recorded_utc": "2026-11-22T23:09:00.514616+00:00",
+  "status": "PARTIAL_HANDOVER",
+  "scope": "Fresh public clone and static handover only; no application/runtime execution",
+  "checkout": "D:\\Chatwoot-Foundation-Checks\\app-c77",
+  "repository": "https://github.com/trdat1605/s-251521f7e9131fb0.git",
+  "branch": "codex/portable-foundation",
+  "subject_commit": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+  "baseline_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "commands": [
+    {
+      "command": "Test-Path -LiteralPath D:/Chatwoot-Foundation-Checks/app-c77",
+      "result": "Target absent before clone; no overwrite"
+    },
+    {
+      "command": "git -c core.autocrlf=false clone --depth 1 --no-tags --branch codex/portable-foundation https://github.com/trdat1605/s-251521f7e9131fb0.git D:/Chatwoot-Foundation-Checks/app-c77",
+      "status": "PASS",
+      "result": "New clone; expected HEAD and all checkout bytes independently verified"
+    },
+    {
+      "command": "git rev-parse HEAD; git remote get-url origin; git status --porcelain; git rev-parse --is-shallow-repository",
+      "status": "PASS",
+      "head": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+      "origin": "https://github.com/trdat1605/s-251521f7e9131fb0.git",
+      "tracked_and_untracked_status": "",
+      "shallow": true
+    },
+    {
+      "command": "git ls-remote origin refs/heads/codex/portable-foundation refs/heads/main",
+      "status": "PASS",
+      "branch_sha": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+      "main_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+    },
+    {
+      "command": "GET https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/compare/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82...c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+      "status": "PASS",
+      "result": "ahead; merge-base exactly baseline; exactly eight changed paths"
+    },
+    {
+      "command": "git cat-file -t caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "status": "FAIL",
+      "exit_code": 128,
+      "result": "Baseline object unavailable in depth-1 clone; regression command would need history fetched"
+    },
+    {
+      "command": "Read AGENTS.md, docker/isolated/README.md, bootstrap.py, verify_runtime.py, compose.yaml, entrypoint.sh, foundation-ci.yml and control app-task/checkpoint",
+      "status": "PASS",
+      "execution": "File reads only"
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/foundation-ci.yml",
+      "status": "PASS",
+      "present": true,
+      "sha256": "873b6261ffd1b20029ec477292d079fc9dd48002c4027300352b5cc5183c9ce0",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/Dockerfile",
+      "status": "PASS",
+      "present": true,
+      "sha256": "d53890a64e7818478bc274e6d1dc8d4500c691d0d89547f75ef732fb9670e07c",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/isolated/README.md",
+      "status": "PASS",
+      "present": true,
+      "sha256": "263bdf38410727f1dbdcb1ce6933d6134b6ee4be1c0996b1907fad6ef6762662",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/isolated/bootstrap.py",
+      "status": "PASS",
+      "present": true,
+      "sha256": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/isolated/compose.yaml",
+      "status": "PASS",
+      "present": true,
+      "sha256": "76a5c519aa96194f6fb7c3c3ee14b174524e3b746c1ea42dc5996ccebccbe076",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/isolated/entrypoint.sh",
+      "status": "PASS",
+      "present": true,
+      "sha256": "39cac94404d98e08caed91a10aeb673c7bbb2a8f89b5cb74d230fc8ebb662148",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/isolated/test_bootstrap.py",
+      "status": "PASS",
+      "present": true,
+      "sha256": "e166b3906e902783fe8b904d85aabd0a061b1fa93fb96c7481fd488fee61e149",
+      "checkout_matches_git_object": true
+    },
+    {
+      "path": "docker/isolated/verify_runtime.py",
+      "status": "PASS",
+      "present": true,
+      "sha256": "b41d797f02827fffdd826ed815d491b40ce2fb4c3e5e8841c49d2175cb101cfd",
+      "checkout_matches_git_object": true
+    }
+  ],
+  "documentation_findings": [
+    {
+      "id": "H1",
+      "status": "PASS",
+      "claim": "Purpose, Git-derived source identity, Linux prerequisites, unique project, generated private state/secrets, three localhost ports, separate DB/Redis/storage test boundaries, startup/focused tests and stop-without-volume-deletion are discoverable.",
+      "sources": [
+        "docker/isolated/README.md:1",
+        "docker/isolated/README.md:29",
+        "docker/isolated/README.md:50",
+        "docker/isolated/README.md:78",
+        "docker/isolated/compose.yaml"
+      ]
+    },
+    {
+      "id": "H2",
+      "status": "FAIL",
+      "claim": "README earlier entrypoint paragraph says frozen-lockfile installation; final paragraph and entrypoint code say service startup never installs dependencies. Remove stale installation wording.",
+      "sources": [
+        "docker/isolated/README.md:68",
+        "docker/isolated/README.md:161",
+        "docker/isolated/entrypoint.sh:6"
+      ]
+    },
+    {
+      "id": "H3",
+      "status": "FAIL",
+      "claim": "README gives no invocation or execution restriction for verify_runtime.py, despite lifecycle workflow invoking it. Fresh reader cannot learn from README that helper uses fixed cwdev-ci-runtime, performs synthetic backup/restore and stops own services, or that current host capacity requires hosted-only execution.",
+      "sources": [
+        "docker/isolated/README.md",
+        "docker/isolated/verify_runtime.py:20",
+        ".github/workflows/foundation-ci.yml:72"
+      ]
+    },
+    {
+      "id": "H4",
+      "status": "FAIL",
+      "claim": "Depth-1 clone has no pinned upstream baseline object required by metadata-regression. README should state full history or explicit baseline-fetch prerequisite. No fetch or regression was performed in this handover.",
+      "sources": [
+        "docker/isolated/bootstrap.py:313",
+        "docker/isolated/README.md:123"
+      ]
+    },
+    {
+      "id": "H5",
+      "status": "FAIL",
+      "claim": "App README names a relative task path in a separate repository without a full repository/task/checkpoint URL. Current pending CI/review and exact accepted subject cannot be established from app documentation alone. Supplied control checkpoint identifies c77 and still-pending hosted lifecycle; supplied app-task implementation_subject remains older 2db109ba.",
+      "sources": [
+        "docker/isolated/README.md:156",
+        "tasks/COMPLETE-001/evidence/app-task.json",
+        "tasks/COMPLETE-001/evidence/checkpoint.json"
+      ]
+    }
+  ],
+  "questions_for_next_owner": [
+    "Which full control repository/task/checkpoint is authoritative for latest subject, review and pending CI? A clickable full link should be provided.",
+    "For a shallow source clone, should the reader fetch the pinned baseline or use full history before metadata-regression?",
+    "Is verify_runtime.py restricted to disposable hosted runners, and what exact invocation/project/data lifecycle is authorized?",
+    "What is the concrete rollback beyond stop/preserve volumes and the current release/merge decision? README correctly leaves these separate but supplies no current decision link."
+  ],
+  "not_run": [
+    {
+      "item": "Docker/build/Compose/config/bootstrap prepare or verify_runtime",
+      "status": "NOT_RUN",
+      "reason": "Explicit read-only handover scope; no runtime commands permitted"
+    },
+    {
+      "item": "RSpec/Vitest/Python tests/npm/bundle/install/services/browser",
+      "status": "NOT_RUN",
+      "reason": "Explicitly prohibited for this fresh-reader check"
+    },
+    {
+      "item": "Fresh application runtime reproduction, backup/restore, restart or rollback",
+      "status": "NOT_RUN",
+      "reason": "Clone/static digest checks do not establish runtime behavior"
+    },
+    {
+      "item": "Hosted lifecycle CI outcome",
+      "status": "NOT_RUN",
+      "reason": "Reported running by coordinator; this review did not query or accept its result"
+    }
+  ],
+  "limits": [
+    "Reviewer already had task context; this is an independently executed fresh-clone/readability audit, not a blinded usability study or fresh-context attestation.",
+    "No current lab/course/runtime/data reads or mutations; new checkout only on D.",
+    "Clone used command-local core.autocrlf=false; effective persistent Git config still inherits system true. All eight delivered checkout files nevertheless matched raw Git blobs. Linux runtime is required by README; Windows clone was not presented as runnable setup.",
+    "Protected runtime preservation is not re-proven here because Docker inspection was outside this subtask.",
+    "Only this evidence file was written in the control repository; app source was read only."
+  ]
+}

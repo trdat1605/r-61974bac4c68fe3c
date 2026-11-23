@@ -1,0 +1,21 @@
+{
+  "task_id": "PUB-001",
+  "date": "2026-11-23",
+  "status": "PROPOSED_RECOVERY",
+  "prior_failure": "publication-attempt-1.json",
+  "audited_baseline": "publication-recovery-audit.json",
+  "sequence": [
+    "Independently review refreshed metadata audit and this recovery plan/script",
+    "Before mutation verify both IDs/canonical names/current expected visibility, exact original branch/tag heads, runID sets, artifact0 and Actions states",
+    "Compare sorted per-ID protected title/body/userID/login digest to refreshed audited baseline; persist surface and per-ID hashes and precondition receipts BEFORE each mutation",
+    "Change only app private=false with documented slug PATCH and NoRedirect; persist operation result immediately, then read anonymous ID/private and guarded source/actions/content unchanged",
+    "Update both descriptions from private wording to accurate descriptions after same guards; leave code/history/PR bodies/runtime untouched",
+    "Persist final verification including anonymous source branch SHA, control heads and read-only rulesets availability; no rule enforcement write"
+  ],
+  "attribution": "Exact metadata mismatch cause UNVERIFIED; do not claim old content unchanged. Current surfaces independently re-audited before resuming, failure retained.",
+  "limits": [
+    "Visibility change cannot revoke prior copies/forks",
+    "Selected-pattern audit only",
+    "No runtime/code/merge/billing/appActions changes"
+  ]
+}

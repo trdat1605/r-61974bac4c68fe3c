@@ -1,0 +1,120 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_utc": "2026-11-23T00:37:11.432394+00:00",
+  "control_pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/19",
+  "control_metadata_head": "d2bf0dc3b512ea4ec6cc3dcda782425301d642bd",
+  "reviewed_control_implementation": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "run_id": 45089722143,
+  "url": "https://github.com/trdat1605/r-61974bac4c68fe3c/actions/runs/45089722143",
+  "jobs": [
+    {
+      "name": "contracts-and-tests",
+      "id": 137416299152,
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate contracts, review binding, content and unit tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "issue-and-product-record",
+      "id": 137416299405,
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate illustrative product plan structure only",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate live issue and task link for this control PR",
+          "conclusion": "success"
+        },
+        {
+          "name": "Read the recorded COMPLETE-001 application pin",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check out the actual pilot application source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify the committed pilot record against the separate app checkout",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Check out the actual pilot application source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "draft": true,
+  "merged": false,
+  "main_unchanged": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+  "app_pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/3",
+  "app_subject": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "failed_run_retained": 45089553611,
+  "public_independent_check": {
+    "reviewer": "/root/complete_fresh_reader",
+    "returned_result": "PASS publicref+PR19 agree atd2bf0dc;23/23boundinputblobs equal reviewed121; rawREADME/map/task/handoff/review accessible; defaultmain unchanged; no filewrite byreader",
+    "limits": "Coordinator transcribed actualindependenttoolresponse; source/CI behavior notrerun byreader"
+  },
+  "limits": [
+    "Owneracceptance/merge notperformed; no production/Zalo/mobile certification",
+    "Defaultbranch templates activation afterauthorizedmerge only",
+    "DockerD preparation reviewed, executionBLOCKED; no data move/restart"
+  ]
+}

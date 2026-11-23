@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "task_id": "COMPLETE-001",
+  "kind": "affected_fresh_reader_addendum",
+  "reader": "/root/complete_fresh_reader",
+  "recorded_utc": "2026-11-23 00:27:23 UTC",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "previous_subject_commit": "658b96c32b36ba66edc83bd8f1c46f599f578792",
+  "original_receipt": {
+    "path": "tasks/COMPLETE-001/evidence/fresh-reader-final.json",
+    "sha256": "b85a34316eb69457ae88fd4494c058d85f77e11b431723a1ad9b727484d22fc7",
+    "byte_preservation": "PASS; independently rehashed unchanged; original unsupported-Windows FAIL and original findings retained."
+  },
+  "scope": "Rechecked only affected navigation/state corrections, exact app pin, unchanged permissions, linked portable setup entrance and remaining publication gate. This addendum does not replace original judgment or constitute a new full control technical review.",
+  "result": {
+    "affected_navigation_and_state": "PASS",
+    "permission_and_identity_preservation": "PASS",
+    "public_exact_control_subject": "PARTIAL",
+    "user_fact_questions_needed": false
+  },
+  "resolved_items": [
+    {
+      "id": "map_current_branch",
+      "status": "PASS",
+      "path": "docs/project-map.md",
+      "observed": "Current source-of-truth table now says codex/complete-foundation and links COMPLETE-001; it no longer identifies current work as codex/repository-publication. Current branch and not-on-main boundary match README/status."
+    },
+    {
+      "id": "map_portable_environment_route",
+      "status": "PASS",
+      "path": "docs/project-map.md",
+      "observed": "New separate row links development/source-reproduction.md and runbooks/isolated-development.md; distinguishes current lab local runbook, separate app source/commit, hosted synthetic lifecycle PASS, local capacity stop and no use of existing lab.",
+      "navigation_result": "Every local inline Markdown file target in current project-map exists. Linked source-reproduction explicitly provides public app clone, full immutable detach pin and actual app AGENTS/README route."
+    },
+    {
+      "id": "app_task_previous_run_state",
+      "status": "PASS",
+      "path": "tasks/COMPLETE-001/evidence/app-task.json",
+      "observed": "Previous runtime line is marked Historical and distinguishes initial FAIL, startup correction, cancelled c77 run45081235551 and final27e1669 run45082996742 PASS; current fields remain explicit.",
+      "independent_readback": "Public GitHub REST confirms run45081235551 completed/cancelled at c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72; final run completed/success at27e166927b93677863e7e7fda22109cfa2ae98b9. Reason for cancellation is the documented retained history, not independently reconstructed from events in this addendum."
+    },
+    {
+      "id": "checkpoint_current_state",
+      "status": "PASS",
+      "path": "tasks/COMPLETE-001/evidence/checkpoint.json",
+      "observed": "No active-CI wording remains in app_moving_edits; new_runtime now identifies final27e1669 with actual mergecheckout8d953fd/tree equivalence and retains host capacity block. Old failed control review658b96c and affected-review requirement are preserved. Task remains IN_PROGRESS_NOT_COMPLETE; owner merge/default-template and Docker execution gates remain."
+    },
+    {
+      "id": "full_app_pin",
+      "status": "PASS",
+      "paths": [
+        "tasks/COMPLETE-001/evidence/app-task.json",
+        "tasks/COMPLETE-001/evidence/checkpoint.json",
+        "docs/development/source-reproduction.md"
+      ],
+      "observed": "Full app subject27e166927b93677863e7e7fda22109cfa2ae98b9 agrees across records and clone/detach instructions. App repo remains trdat1605/s-251521f7e9131fb0, codex/portable-foundation; local Linux/D checkout paths are machine-specific, not a requirement to reproduce those absolute locations. Control subject12186bce is not substituted for app SHA. CI merge SHA still separate."
+    },
+    {
+      "id": "scope_and_permissions",
+      "status": "PASS",
+      "path": "tasks/COMPLETE-001/task.json",
+      "observed": "Only project-map added to write_scope/bound_inputs with a correction rationale; runtime permissions/environment/stop conditions match previous subject. App permissions/write_scope/repository/branch/baseline/implementation_subject are unchanged. Shared lab/course remain read-only, C below15GiB stops local allocation, Docker relocation remains preparation-only and merge/release requires owner decision.",
+      "machine_comparison": {
+        "tasks/COMPLETE-001/task.json": {
+          "permissions": true,
+          "environment": true,
+          "stop_conditions": true
+        },
+        "tasks/COMPLETE-001/evidence/app-task.json": {
+          "permissions": true,
+          "write_scope": true,
+          "implementation_subject": true,
+          "repository": true,
+          "branch": true,
+          "baseline_commit": true
+        }
+      }
+    }
+  ],
+  "remaining_publication_gate": {
+    "status": "PARTIAL",
+    "local_subject": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+    "public_working_branch_head": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+    "observed": "Exact corrected control subject is still not the public complete-foundation branch head at readback. Pending scoped push/PR and exact-ref public recheck are required before calling this exact handover publicly available. Owner acceptance/merge is a later separate decision; publication of prepared reviewed work is not itself acceptance.",
+    "next_steps": "Preserve originals; finish affected control review, bind/check final receipts/handoff/index, publish consolidated Draft PR with full refs, run actual control CI, then read back exact public branch/PR head. No merge or active-default-template claim."
+  },
+  "actual_commands": [
+    {
+      "command": "git rev-parse HEAD",
+      "result": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --name-only 658b96c32b36ba66edc83bd8f1c46f599f578792 12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+      "result": "Exactly docs/project-map.md, tasks/COMPLETE-001/evidence/app-task.json, tasks/COMPLETE-001/evidence/checkpoint.json and tasks/COMPLETE-001/task.json.",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff OLD NEW -- docs/project-map.md tasks/COMPLETE-001/evidence/app-task.json tasks/COMPLETE-001/evidence/checkpoint.json; git diff OLD NEW -- tasks/COMPLETE-001/task.json",
+      "result": "Inspected complete affected diff; no app source or runtime policy change.",
+      "status": "PASS"
+    },
+    {
+      "command": "Get-Content project-map first30, app-task, checkpoint and source-reproduction first38 lines",
+      "result": "Reproduced changed navigation and recovered full pin/limits without questions.",
+      "status": "PASS"
+    },
+    {
+      "command": "Get-FileHash fresh-reader-final.json SHA256; Python hashlib exact-input hashes/git show NEW:PATH and previous/new JSON-field comparison",
+      "result": "Original byte hash preserved, nine selected inputs match current subject after CRLF normalization and permission/identity fields unchanged.",
+      "status": "PASS"
+    },
+    {
+      "command": "Python local Markdown link existence for docs/project-map.md",
+      "result": "All local file targets exist; no exhaustive anchor or remote-link audit.",
+      "status": "PASS"
+    },
+    {
+      "command": "Public unauthenticated urllib.request GET branch and both run endpoints listed in public_readbacks",
+      "result": "Old runtime cancelled, final runtime success and control exact subject not yet public independently confirmed.",
+      "status": "PASS"
+    }
+  ],
+  "input_hashes": {
+    "docs/project-map.md": {
+      "checkout_sha256": "081cb3af4fba4722ab3e160f9803ea79d4488b96c7ce22f3e7de3bbe0491a15a",
+      "subject_blob_sha256": "081cb3af4fba4722ab3e160f9803ea79d4488b96c7ce22f3e7de3bbe0491a15a",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/app-task.json": {
+      "checkout_sha256": "83c23122d91f1c67d6a1e142a789b48e2e923bf6b3e8189a4f9ad56de8b6ddee",
+      "subject_blob_sha256": "83c23122d91f1c67d6a1e142a789b48e2e923bf6b3e8189a4f9ad56de8b6ddee",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/evidence/checkpoint.json": {
+      "checkout_sha256": "a9fcd848334c77d5e30ce9381132d9e11d9c7133b26e8f184f2e8d63bc410d30",
+      "subject_blob_sha256": "a9fcd848334c77d5e30ce9381132d9e11d9c7133b26e8f184f2e8d63bc410d30",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "tasks/COMPLETE-001/task.json": {
+      "checkout_sha256": "0f3423b52a43f442fe3af3b939561fa5f005dd0910ba13266046ad848ab9395d",
+      "subject_blob_sha256": "0f3423b52a43f442fe3af3b939561fa5f005dd0910ba13266046ad848ab9395d",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/development/source-reproduction.md": {
+      "checkout_sha256": "a3592c1bde93fda333698438ca9c25135506ce5b6b13641baebbacf551b4a5d5",
+      "subject_blob_sha256": "a3592c1bde93fda333698438ca9c25135506ce5b6b13641baebbacf551b4a5d5",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/runbooks/isolated-development.md": {
+      "checkout_sha256": "41b46ccbc9df7810a588bebaaad9032a095500f3fdd36eaa0d0ed90682c32c0b",
+      "subject_blob_sha256": "41b46ccbc9df7810a588bebaaad9032a095500f3fdd36eaa0d0ed90682c32c0b",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "config/agents/runtime.json": {
+      "checkout_sha256": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+      "subject_blob_sha256": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "README.md": {
+      "checkout_sha256": "f0c1ae5a81efa1f146f90bbff9866de423bc42119d44d738b512aed24ec028e0",
+      "subject_blob_sha256": "f0c1ae5a81efa1f146f90bbff9866de423bc42119d44d738b512aed24ec028e0",
+      "matches_subject_after_crlf_normalization": true
+    },
+    "docs/status.md": {
+      "checkout_sha256": "3f1989234694f05190e4fbc6b9343c3467164d14f0290cc7d983193ec397d4c4",
+      "subject_blob_sha256": "3f1989234694f05190e4fbc6b9343c3467164d14f0290cc7d983193ec397d4c4",
+      "matches_subject_after_crlf_normalization": true
+    }
+  },
+  "map_link_check": {
+    "checked": 27,
+    "missing": [],
+    "limit": "File existence only; no new exhaustive site or anchor crawl."
+  },
+  "public_readbacks": [
+    {
+      "url": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/branches/codex%2Fcomplete-foundation",
+      "response_sha256": "f2151b6c6b21268851363963acaf77214c267b1b7e8c7fe3081850fe83675dff",
+      "observed": {
+        "branch": "codex/complete-foundation",
+        "sha": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be"
+      }
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/runs/45081235551",
+      "response_sha256": "3e5391f20dd23830b9e9630abd6807f622114c8c9d8b218bcfc4522c0b80cf43",
+      "observed": {
+        "status": "completed",
+        "conclusion": "cancelled",
+        "head_sha": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+        "event": "pull_request"
+      }
+    },
+    {
+      "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+      "response_sha256": "88313b3328394330b9451244fcdd9961ea11ac666cf4b92cd37435d937fe6001",
+      "observed": {
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+        "event": "pull_request"
+      }
+    }
+  ],
+  "questions_still_need_user": [],
+  "not_run": [
+    "No repeated native Windows boundary test; original23tests20pass3POSIXenvironmenterrors/exit1 receipt retained without relabeling.",
+    "No Linux test rerun, app test/build, Docker/Compose/runtime command, shared lab/course inspection or mutation, install or secret/environment/customer-data reads.",
+    "No source/control Git mutation, push/PR creation/merge/release, server config changes or Docker data move.",
+    "No repeat full original knowledge/source-route review; affected navigation/identity/permission delta only.",
+    "No final control technical approval, strict staged/handoff gate, actual control CI or public exact-subject readback after publication; these remain separate assigned gates."
+  ]
+}

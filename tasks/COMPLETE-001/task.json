@@ -1,0 +1,152 @@
+{
+  "id": "COMPLETE-001",
+  "goal": "Hoàn thiện bảy cải tiến bằng bằng chứng thực tế: phối hợp Codex, traceability, dựng lại môi trường, regression và CI ứng dụng, review, bàn giao và pilot.",
+  "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+  "branch": "codex/complete-foundation",
+  "baseline_commit": "c714462d8c3cca103b52da4652a404b811151d82",
+  "task_kind": "operations",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Fixed-ref empirical comparison of available agentcoordination patterns with preregisteredcriteria, independentadjudication andhonest unavailableClaudeTeams boundary",
+    "Issue/task/appPR traceability actualpilot and governance consolidatedPR withtestedtemplateactivation upon ownerapprovedintegration",
+    "Freshclone portableapp bootstrap andisolatedservices/data, no lab/course mutation, realsetup/restart/smoke and documenteddependencies",
+    "Actualapp regression baselineFAIL tofixedPASS andfocusedRSpec/Vitest/buildchecks appropriate tobug; safeappCI workflowinventory/review beforeenabling",
+    "Preserve mainrules andindependentreview exactapp/controlcommits; no selfreview/humanapproval equivalence",
+    "Up-to-date sevenstatus/machinehandoff with hashes/commands/PASSFAILNOT_RUN; independentfreshreaderreproduces relevantsteps",
+    "Pilot realproductworkflow through acceptance-readyPR; finalmerge/release decisions remainexplicitowneraction, nofalsedone"
+  ],
+  "write_scope": [
+    "README.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/agent-selection.md",
+    "docs/development/source-reproduction.md",
+    "docs/development/pilot.md",
+    "docs/development/product-workflow.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/completion.md",
+    "docs/runbooks/isolated-development.md",
+    "config/agents/isolated-runtime.example.json",
+    ".github/workflows/agent-governance.yml",
+    "config/github/app-main.ruleset.json",
+    "docs/runbooks/docker-storage-migration.md",
+    "agents/codex/coordinator.md",
+    "agents/codex/reviewer.md",
+    ".gitattributes",
+    "docs/project-map.md"
+  ],
+  "affected": [
+    "Control integration andavailableagent eval",
+    "Separateapprepo bootstrap/test/CI via separately pinnedapprecord",
+    "Onlynew isolatedruntime resources, currentlab/course strictlyreadonly"
+  ],
+  "dependencies": [
+    "GOV/PUB/FLOWreviewedsubjects+CI",
+    "Read-onlysource/CI/evaldesignaudits",
+    "OfficialChatwootv4.19.1/GitHub/Docker/Gitdocs"
+  ],
+  "start_conditions": [
+    "Cleannewbranch fromc714462",
+    "Exactpathclaims",
+    "Independentplanreview beforeappCI/runtime mutations; separateappscope/ref"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false
+  },
+  "permissions": [
+    "Sửa tài liệu/cấu hình/công cụ đúng scope và lưu bằng chứng đã làm sạch; tạo issue và PR để review.",
+    "Sửa app trên checkout và nhánh riêng theo app-task.json; không sửa source hoặc dữ liệu của lab/course hiện có.",
+    "Sau review độc lập, build/chạy/test/restart/backup/restore project mới cwdev-complete001 hoặc project kế tiếp cwdev-complete002. Chỉ được xóa containers/volumes do chính COMPLETE-001 tạo với dữ liệu tổng hợp sau khi backup/hash/ID/label/mount được kiểm và script cleanup được reviewer khác xác nhận; không xóa bất kỳ dữ liệu/tài nguyên lab/course hoặc tài nguyên không xác định.",
+    "Tắt các workflow kế thừa khi Actions toàn kho còn tắt; chỉ bật CI đã được review sau khi kiểm trạng thái mọi workflow.",
+    "Chuẩn bị PR tích hợp có SHA và review cụ thể; quyết định merge/phát hành vẫn dành cho chủ sản phẩm.",
+    "Sau review độc lập của kế hoạch/script cụ thể và CI đã PASS, chỉ thêm ba required app checks vào ruleset hiện có; giữ nguyên main, bypass và các trường policy khác. Không merge hoặc phát hành."
+  ],
+  "checks": [
+    "governance_and_scope",
+    "agent_evaluation",
+    "source_reproduction",
+    "real_app_pilot",
+    "live_traceability"
+  ],
+  "evidence_location": "tasks/COMPLETE-001/evidence/",
+  "stop_conditions": [
+    "Phát hiện bí mật hoặc dữ liệu khách hàng trong nội dung chuẩn bị đưa lên GitHub.",
+    "Cần sửa, xóa, restart hoặc dùng chung dữ liệu/volume của lab/course đang có.",
+    "Không đủ dung lượng hoặc tài nguyên để kiểm tra an toàn; không tự prune.",
+    "Cần merge, phát hành hoặc dịch vụ trả phí mà chưa có quyết định cụ thể của chủ sản phẩm."
+  ],
+  "implementer": "root_foundation_completion",
+  "reviewer": "fresh-context completion_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/agents/repositories.json",
+    "config/agents/runtime.json",
+    "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+    "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+    "config/github/app-main.ruleset.json",
+    "agents/codex/coordinator.md",
+    "agents/codex/reviewer.md",
+    ".gitattributes",
+    ".github/workflows/agent-governance.yml",
+    "README.md",
+    "config/agents/isolated-runtime.example.json",
+    "docs/agents/README.md",
+    "docs/development/agent-selection.md",
+    "docs/development/completion.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/pilot.md",
+    "docs/development/product-workflow.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/runbooks/docker-storage-migration.md",
+    "docs/runbooks/isolated-development.md",
+    "docs/status.md",
+    "docs/project-map.md"
+  ],
+  "status": "specified",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
+  "related_issues": [
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/5",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/6",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/7",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/8",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/9",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/10",
+    "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/11"
+  ],
+  "scope_decision": {
+    "agent_evaluation": "Người dùng xác nhận chưa có Claude Code; yêu cầu kiểm chứng các cách phối hợp Codex hiện có và ghi rõ giới hạn Claude.",
+    "native_claude_teams": "NOT_RUN; không dùng tên này cho các phép thử Codex.",
+    "docker_storage": "User requests preparation and independent review of Docker-data relocation to D only; do not apply migration/restart existing runtime."
+  },
+  "scope_decisions": [
+    {
+      "basis": "Người dùng yêu cầu hoàn thiện cả7mục; prepare/fullbuild/CI/runtimepilot vàdiễntậpphụchồisynthetictaskresources làcôngviệccầnthiếtđãđượcgiao.",
+      "runtime_successor": "cwdev-complete002 thay snapshot076 cóstartupbug; giữbằngchứngoldref, khônglà thayruntimehiệncó.",
+      "cleanup_boundary": "Chỉownednewsyntheticproject001 saubackup; không pruneglobal hoặc xóakhôngrõowner."
+    },
+    {
+      "basis": "Empirical V3 source-only judgments identify lost required details/citation omissions in coordinator finalhandoff; preserve originals and firstjudgments; improve future briefs without retroactively changing frozen experiment.",
+      "change": "Add acceptance-to-evidence and unresolved-detail checks to existing coordinator/reviewer briefs, independent finalcontrolreview required."
+    },
+    {
+      "basis": "Two newly received independent review originals use CRLF and their raw hashes are already bound by product/evaluation records. Preserve original judgment bytes through Git checkout, instead of rewriting originals/hashes.",
+      "change": "Exact -text attributes for only app-final-review.json and grading/material-second-check.json; normal repository LF policy retained for other files. Finalcontrolreview mustcheck."
+    },
+    {
+      "basis": "The integration subject follows a committed implementation/evidence checkpoint. Finalhand-off implementationbase is that metadata checkpoint; all previously changed control code/docs/config are boundinputs so no ownership gap is hidden. Independent finalreview must inspect fullbaselinec714..subject in addition to handoffdelta.",
+      "change": "Bind every non-taskcontrolpath changed since COMPLETE-001baseline, preservehistoricalreceipts and review them at their exactsubjects."
+    },
+    {
+      "basis": "Independentcontrolreview CCFR-01 and freshreader found stale currentbranch/CIwording; preserve failedreview658b96c then correctcurrentnavigation/status only.",
+      "change": "Update project-map currentroute and app-task/checkpoint current progress; no appsource/runtime/testscope changes."
+    }
+  ]
+}

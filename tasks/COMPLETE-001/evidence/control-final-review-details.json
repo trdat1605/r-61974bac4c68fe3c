@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/complete_control_final_review",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "recorded_utc": "2026-11-23T00:24:22.818563+00:00",
+  "result": "FAIL",
+  "baseline_commit": "c714462d8c3cca103b52da4652a404b811151d82",
+  "subject_commit": "658b96c32b36ba66edc83bd8f1c46f599f578792",
+  "handoff_implementation_base": "7187f8fb1705487a2dbd5f11b4f721b5ff561a4e",
+  "scope": "Independent final control implementation and integration review of the complete baseline..subject, not just the one-file handoff delta. Reviewer did not implement or edit the subject and did not contact executors/reviewers for answers. Shared permissions are not a security sandbox.",
+  "blocking_findings": [
+    {
+      "id": "CCFR-01",
+      "priority": 2,
+      "title": "Synchronize the current branch and completed CI in the handover route",
+      "path": "docs/project-map.md",
+      "line": 11,
+      "related_locations": [
+        {
+          "path": "tasks/COMPLETE-001/evidence/checkpoint.json",
+          "lines": [
+            11,
+            14
+          ]
+        },
+        {
+          "path": "tasks/COMPLETE-001/evidence/app-task.json",
+          "lines": [
+            51
+          ]
+        }
+      ],
+      "condition": "A new reader follows README to the project map or the agent entrance to the current machine checkpoint. The map says the new document set is on codex/repository-publication; the current checkpoint says lifecycle CI is running and latest lifecycle uses sourcec77. app-task also retains hosted runtime atc77 still in_progress without identifying the cancelled/superseded run there. The actual COMPLETE branch is codex/complete-foundation and run45082996742 has completed successfully for apphead27e1669.",
+      "impact": "The designated current handover sources disagree about which control branch to read and which app execution is final. A receiver can open an obsolete branch without the completion work or resume/wait for a superseded run. This fails the task requirement for an up-to-date, actionable status and machine handover; it does not invalidate the successful app CI.",
+      "evidence": "README.md current-work paragraph and completion.md identify the COMPLETE branch and completed run. Independently read public API run45082996742: completed/success, head27e166927b93677863e7e7fda22109cfa2ae98b9; all three jobs success. Public app PR3 is draft/open/unmerged at this head. The cited stale strings exist in exact controlsubject658b96c.",
+      "check": "After a scoped correction, read the README -> project-map and agents/README -> checkpoint -> app-task routes at the new exact subject. Confirm they select codex/complete-foundation and identify the final completed run/head/mergecheckout distinctly; retain superseded/cancelled and failed receipts as history. Refresh affected task scope/input hashes/check receipts/handoff and request review of the new subject."
+    }
+  ],
+  "criteria_and_observations": [
+    {
+      "criterion": "Scope, ownership and historical receipts",
+      "status": "PASS",
+      "observed": "195 changedpaths; all18 non-task control paths are in22 boundinputs. No task paths outside tasks/COMPLETE-001 changed from baseline. All57 experiment-original and independent-review-original files checked are byte-identical to their first Git capture. No workflow/tool gate code was weakened; the implementationbase metadata checkpoint is disclosed and does not hide the earlier controlpaths."
+    },
+    {
+      "criterion": "Hash and exact-subject bindings",
+      "status": "PASS",
+      "observed": "22 handoff inputs match raw subject blobs and currentbytes;5 handoff receipts match;5 product bindings match;8 result inputs,72 dataset bindings,12 frozen-packet bindings,11 second-check inputs and3 whitespace-preservation hashes match. Handoffdelta is exactly docs/development/completion.md. Source manifest25/25 raw pinned app blobs matched."
+    },
+    {
+      "criterion": "Governance workflow",
+      "status": "PASS",
+      "observed": "Existing contracts-and-tests and issue/plan checks remain. New workflow first validates fixed expected apprepo and40hexpin, uses immutable checkout action11d5960 with credentials persistence disabled and separate .local/app-source-check, fetches full app history, then runs product_check verify against that checkout. Top-level permissions remain contents:read; job also has issues:read. Local independent product verify succeeds. Actual hosted control workflow at this subject remains NOT_RUN/pending."
+    },
+    {
+      "criterion": "Whitespace preservation",
+      "status": "PASS",
+      "observed": "Exactly two -text receiptpaths with whitespace=cr-at-eol and one full-build transcript whitespace=-blank-at-eol; repository LF policy is retained. All3 raw SHA256 bindings match and git diff --check baseline..subject exits0. This preserves independently supplied CRLF originals and producer transcript whitespace without a blanket exemption."
+    },
+    {
+      "criterion": "Measured agent result and brief change",
+      "status": "PASS",
+      "observed": "12 runs/36 original outputs with hashes preserved. Recomputed aggregate5casePASS/7fail-or-partial, facts87PASS13FAIL, common57PASS3FAIL. Result bindings include original T1 judgment and separate trace addendum plus material-second-check. Second check keeps current outcomes and discloses partial blinding/selected trace limits. Coordinator/reviewer additions target missing acceptance details/artifact permissions; current text explicitly says behavioral improvement NOT_YET_EVALUATED, no topology winner, nativeClaudeTeams NOT_RUN. Frozen criteria are unchanged."
+    },
+    {
+      "criterion": "App source, CI, independent review and main rule binding",
+      "status": "PASS_WITH_LIMITS",
+      "observed": "Independent product_check returns PRODUCT_RECORD_VERIFIED against readonly D:/Chatwoot-Foundation-Checks/app-c77 at apphead27e1669. Public API confirms run45082996742 completed/success and metadata/focused-frontend/isolated-runtime allsuccess at that head. Public commit objects confirm head27e1669 and actual checkout8d953fd have tree65705962f43b3c1a3b35920b66436d3c210c4db6; checkout Git metadata is distinct. Exact app-final-review rawhash matches productrecord. App PR3 is draft/open/unmerged; base/main remainscaab07a8. Public workflows show17 disabled_manually and foundation active. Local rulepayload equals applied.after; applied.before is identical except the newly required_status_checks rule, with three Actions15368 contexts/strict. Public rulesreadback confirms contexts/strict and existing deletion/non_fast_forward/PR policy. Authenticated bypass/Actions permissions rely on existing receipts."
+    },
+    {
+      "criterion": "Docker D preparation boundary",
+      "status": "PASS",
+      "observed": "Runbook and independently hashbound addendum distinguish preparationPASS from executionBLOCKED_FOR_EXECUTION and actualmigrationNOT_RUN. Allfive backup/capacity/window/rollback/postcheck gates remain open for a separately scoped/reviewed maintenance task. Synthetic task restore does not replace protected application backups. No migration/restart is authorized or claimed."
+    },
+    {
+      "criterion": "Current handover route and status consistency",
+      "status": "FAIL",
+      "observed": "CCFR-01: designated project map points to the old branch and checkpoint/app-task retain obsolete running/c77 descriptions alongside final27e1669 success. Correct and rebind at a new subject before a PASS review."
+    }
+  ],
+  "control_paths_reviewed": [
+    ".gitattributes",
+    ".github/workflows/agent-governance.yml",
+    "README.md",
+    "agents/codex/coordinator.md",
+    "agents/codex/reviewer.md",
+    "config/agents/isolated-runtime.example.json",
+    "config/github/app-main.ruleset.json",
+    "docs/agents/README.md",
+    "docs/development/agent-selection.md",
+    "docs/development/completion.md",
+    "docs/development/improvement-tracker.md",
+    "docs/development/pilot.md",
+    "docs/development/product-workflow.md",
+    "docs/development/review-and-merge.md",
+    "docs/development/source-reproduction.md",
+    "docs/runbooks/docker-storage-migration.md",
+    "docs/runbooks/isolated-development.md",
+    "docs/status.md"
+  ],
+  "executed_checks": [
+    {
+      "command": "python -B -m unittest discover -s tests -v",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 80,
+      "seconds": 101.57,
+      "evidence": "Reviewer direct command output: Ran80tests ... OK; no application/runtime calls."
+    },
+    {
+      "command": "python -B tools/agents/workflow.py validate --task tasks/COMPLETE-001/task.json",
+      "status": "PASS",
+      "exit_code": 0,
+      "output_status": "VALID"
+    },
+    {
+      "command": "python -B tools/agents/product_check.py verify --record tasks/COMPLETE-001/evidence/product-record.json --source-repo D:/Chatwoot-Foundation-Checks/app-c77",
+      "status": "PASS",
+      "exit_code": 0,
+      "output_status": "PRODUCT_RECORD_VERIFIED",
+      "app_subject": "27e166927b93677863e7e7fda22109cfa2ae98b9"
+    },
+    {
+      "command": "git diff --check c714462d8c3cca103b52da4652a404b811151d82 658b96c32b36ba66edc83bd8f1c46f599f578792",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "command": "Reviewer Python SHA256/Git blob/manifests/history/aggregate checks",
+      "status": "PASS",
+      "counts": {
+        "handoff_inputs": 22,
+        "handoff_receipts": 5,
+        "product_bindings": 5,
+        "result_bindings": 8,
+        "dataset_bindings": 72,
+        "packet_bindings": 12,
+        "second_check_bindings": 11,
+        "whitespace_preservation": 3,
+        "immutable_originals": 57,
+        "source_manifest": 25
+      },
+      "mismatches": []
+    },
+    {
+      "command": "gh api read-only probes",
+      "status": "NOT_RUN",
+      "reason": "gh not authenticated; used unauthenticated public REST GET fallback, no login/config mutation."
+    },
+    {
+      "command": "git rev-parse CImerge^{tree} in existing appclone",
+      "status": "NOT_RUN",
+      "reason": "Merge object absent in reused readonly clone; public GitHub commit object GET independently confirmed its tree without fetching/mutating clone."
+    },
+    {
+      "command": "Strict index/hook and actual hosted control CI",
+      "status": "NOT_RUN",
+      "reason": "Pending metadata staging and repair/review of CCFR-01; no false completion claim."
+    }
+  ],
+  "binding_sha256": {
+    "tasks/COMPLETE-001/task.json": "bdacb1142c072934a20d3924acfd523bfa4e1712a539538419f0f0a01a48a4f9",
+    "tasks/COMPLETE-001/handoff.json": "8443c0ccd44e267b31c68df1a352a69bc05387d6b574b910e3fe6eadc702f42d",
+    "tasks/COMPLETE-001/evidence/product-record.json": "85c900f0de6dfa1da8713247a54f73c649424b5d473e2ce2d1b4dfc7e9a45ce2",
+    "tasks/COMPLETE-001/evidence/app-final-review.json": "86dadeff6c15f7815501e59ced39735f0fdaf5509a8966f8677ddf89dcd065ed",
+    "tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json": "2506b51f3315a94ea4266a72d1ca40524c5568787e83379a0b5896a880f5ba9c",
+    "tasks/COMPLETE-001/evidence/app-required-checks-applied.json": "7b1d5d377f5d4d17a1c3686e16ff552ff747e9429f1c9d9421eb01a00f4a4963",
+    "tasks/COMPLETE-001/evidence/agent-eval/results.json": "d12c72c4bff23f344fa7f57c49d963070269ceed31de19eb16e42c0160ee7282",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/material-second-check.json": "c8597de91b879d7709d7dd1aaa184c61f750d1aa42595683d100a2f258100b7c"
+  },
+  "public_readbacks": {
+    "run_url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+    "run": {
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+      "event": "pull_request"
+    },
+    "jobs": {
+      "metadata": 137395198857,
+      "focused-frontend": 137395199109,
+      "isolated-runtime": 137395199200
+    },
+    "pr_url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/pulls/3",
+    "pr_state": "draft/open/unmerged",
+    "rules_url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157",
+    "commit_tree_urls": [
+      "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/commits/27e166927b93677863e7e7fda22109cfa2ae98b9",
+      "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/commits/8d953fd35000ffc06a9696ad0a6ba91c211f6466"
+    ],
+    "workflow_url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/workflows",
+    "workflow_states": "17disabled_manually; foundation-ci.yml active",
+    "admin_permissions_url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/permissions",
+    "admin_permissions_result": "401Unauthorized; NOT_VERIFIED independently"
+  },
+  "sources_read": [
+    {
+      "url": "https://git-scm.com/docs/gitattributes#_text",
+      "says": "Unset text prevents EOL conversion on checkin/checkout.",
+      "application": "Exact two receipt exceptions preserve raw independent hashes; a project-specific evidence decision."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request",
+      "says": "pull_request GITHUB_SHA is the PR merge commit; default checkout uses merge ref.",
+      "application": "Keep apphead and CIcheckout separately bound, verify tree equality rather than call their metadata identical."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-status-checks-to-pass-before-merging",
+      "says": "Required checks can require specific source app; strict requires topic branch up to date.",
+      "application": "Three explicit Actions15368 checks and strict readback are bounded server configuration evidence, not merge/product acceptance."
+    },
+    {
+      "url": "https://developers.chatwoot.com/contributing-guide/environment-setup/docker",
+      "says": "Development setup includes source/env, build, database prepare and run.",
+      "application": "Isolated helper/hostdisk/project boundaries are project adaptations; did not run upstream reset commands on existing lab."
+    },
+    {
+      "url": "https://docs.docker.com/desktop/features/wsl/",
+      "says": "WSL engine data location can be changed through Desktop settings.",
+      "application": "Current installed UI receipt supports preparation direction; no release-specific migration success inferred."
+    },
+    {
+      "url": "https://docs.docker.com/desktop/settings-and-maintenance/backup-and-restore/",
+      "says": "Desktop must be fully stopped for VM disk backup.",
+      "application": "Runbook keeps offline backup, protected app consistency and restore as future execution gates."
+    },
+    {
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md",
+      "method": "Read raw pinned source via existing app Git objects and hash-verify all25 protocol source objects; current app AGENTS read separately."
+    }
+  ],
+  "limits": [
+    "Independent control implementation/integration review at the exact subject, not owner acceptance, human GitHub approval, permission to merge/release or permission to mutate runtime.",
+    "Read the full taskbaseline..subject diff including all18 non-task control paths and task evidence; handoff implementationbase7187f8fb1705487a2dbd5f11b4f721b5ff561a4e covers only the final completion.md delta. All previous changed control paths are bound inputs.",
+    "80 control unit tests and product-record verification were executed independently. Docker/build/application suites/browser/security/load/production/local or hosted lifecycle were not rerun; selected CI receipts and independent public run/job/tree readbacks support the bounded application conclusions.",
+    "Public API independently exposed run/jobs/PR/commit trees/rules/workflow states. gh had no authentication in this reviewer environment; admin Actions permissions GET returned401 and the public ruleset response did not expose bypass_actors. Those exact admin settings remain receipt-based, not independently authenticated readbacks.",
+    "Hash/contract/pattern checks do not attest original agent identity, hidden context, complete scope compliance, raw omitted logs, truthful execution of every receipt or absence of every secret.",
+    "Handoff and five final check receipts were untracked pending authorized metadata staging as expected. Strict index/hook/hosted control CI and fresh-reader completion are still pending; this review does not represent their PASS.",
+    "No subject/application/history files, runtime, external settings or PR state were changed. Only the two assigned review artifacts are written. Future changes require checking affected inputs at the new subject."
+  ],
+  "next_step": "Preserve this FAIL judgment and subject evidence; correct CCFR-01 under scoped ownership, refresh exact affected bindings/checks/handoff, then request review at the new subject. Owner merge/release decision remains separate."
+}

@@ -1,0 +1,13 @@
+{
+  "observed_utc": "2026-11-22T23:21:35.900329+00:00",
+  "host_free_bytes": {
+    "C": 15996805120,
+    "D": 77744775168
+  },
+  "vhd_file_length_bytes": 28879880192,
+  "target": "D:/DockerDesktopData",
+  "target_exists": false,
+  "rough_two_vhd_file_lengths_bytes": 57759760384,
+  "additional_required_bytes": "UNKNOWN: logical backups, scratch, Ubuntu backup if in scope and growth reserve must be measured before execution",
+  "status": "INVENTORY_ONLY_NOT_CAPACITY_APPROVAL"
+}

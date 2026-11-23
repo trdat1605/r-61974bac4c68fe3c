@@ -1,0 +1,117 @@
+{
+  "run_id": "T2-P-2",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "integrated_answer": [
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Account-nested routes expose index/create/update/destroy. Index returns a bare array; create/update return a record; destroy returns empty OK. Create, list/search, and update/destroy lookup traverse Current.account.canned_responses; permitted mutation fields are short_code/content. Model requires content/short_code/account and short_code uniqueness within account.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Search deletes NUL bytes, binds case-insensitive substring matching across short_code/content, then orders descending by sanitized CASE values: short-code prefix 1, short-code substring .5, content substring .2. SQL-value sanitization does not escape LIKE wildcards.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30"
+      ]
+    },
+    {
+      "classification": "INFERRED_FROM_SOURCE",
+      "claim": "The server/client shapes reconcile: cannedResponse overrides inherited payload extraction with response.data and marshalling with {data:rows}. Both cache-hit marshalling and refetch extraction dispatch these hooks; generic defaults establish no shape defect. Account-scoped URLs derive from the current route; dataManager reselects when its account differs. Network reads bypass cache; cached reads validate keys, refetch empty/stale data, and fall back after initialization failure.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Existing request specs assert CRUD/authentication, direct array shape, search ranking and NUL removal. Cache specs assert account switching, cold/warm/stale reads, bare-array parity and unavailable-IndexedDB fallback using test doubles. These are source assertions, not passing executions.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L138",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L221"
+      ]
+    }
+  ],
+  "retained_worker_finding_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "B1",
+    "B2",
+    "B3"
+  ],
+  "unresolved_dependencies": [
+    "Authorization-helper, DataManager/cache-invalidation internals and concurrent route changes remain outside inspected content; defined cross-role questions resolved."
+  ],
+  "findings_or_risks": [
+    "No demonstrated contract defect. Existing request specs do not establish cross-account rejection; cache specs use doubles rather than importing the canned-response singleton.",
+    "Runtime behavior and test results NOT_RUN; model/token telemetry NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    "bundle exec rspec spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+    "pnpm test app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN",
+  "next_step": "In a separately authorized environment, run proposed focused checks and verify actual-singleton parity/account switching; extend source scope before analyzing excluded helpers.",
+  "worker_receipts": [
+    {
+      "role": "worker_A",
+      "sha256": "2d6ed678f5a3ea278e1744d9a8d4df39c71a9220834dd13d4671104935c55ebd",
+      "transport": "Full exact saved JSON received through actual send_message; no worker-file read."
+    },
+    {
+      "role": "worker_B",
+      "sha256": "64c98038187ae1f642f79148a3af3ed7d2924466a89d74123d0cdc03636eb18a",
+      "transport": "Full exact saved JSON received through actual send_message; no worker-file read."
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T2-P-2-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "confirmed_in": [
+        "worker_A",
+        "worker_B"
+      ],
+      "content": "message_id=T2-P-2-A-Q1; A->B predefined dependency: How does the subclass adapt the inherited cache extraction/marshalling contract? Please give exact source lines and response shape. I will verify against immutable frontend source. source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82."
+    },
+    {
+      "id": "T2-P-2-BQ1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "confirmed_in": [
+        "worker_A",
+        "worker_B"
+      ],
+      "content": "message_id=T2-P-2-BQ1; from=worker_B; to=worker_A. At source_ref caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82: Is the index response a bare array or payload wrapper, and is server lookup scoped to Current.account? Please cite exact permitted source paths/lines and explicit search behavior. I will independently verify."
+    },
+    {
+      "id": "T2-P-2-A-ANS1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "confirmed_in": [
+        "worker_A",
+        "worker_B"
+      ],
+      "content": "message_id=T2-P-2-A-ANS1; response_to=T2-P-2-BQ1; from=worker_A; to=worker_B. At caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82, canned_responses_controller.rb:4-6 renders canned_responses directly (bare array); spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb:22-29 compares parsed_body directly to account.canned_responses.as_json. Controller :8-11 creates through Current.account; :26-28 fetches update/destroy using Current.account.canned_responses.find; :34-43 index/search use Current.account.canned_responses. Search :35-39 removes NUL, binds %search% into short_code/content ILIKE, calls order_by_search; model :23-30 sanitizes ORDER CASE arguments and ranks short-code prefix 1, short-code substring .5, content .2. References: https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29 . SOURCE_OBSERVED; request specs only read, NOT_RUN."
+    },
+    {
+      "id": "T2-P-2-B-ANS1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "confirmed_in": [
+        "worker_A",
+        "worker_B"
+      ],
+      "content": "message_id=T2-P-2-B-ANS1; response_to=T2-P-2-A-Q1; from=worker_B; to=worker_A; source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82. cannedResponse.js:3-21 enables accountScoped, selects canned_response, overrides extractDataFromResponse to response.data and marshallData to {data: rows}. Base defaults CacheEnabledApiClient.js:43-51 use response.data.payload / {data:{payload:rows}}, but polymorphic calls at :78 and :87-90 use subclass hooks. Therefore inherited generic defaults do not imply canned-response shape mismatch. Cache specs :193-207 assert identical response.data arrays on network/cache using BareArrayClient test double (:27-46), not actual singleton; source read only NOT_RUN. https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L207. Independently verified your server response/account/search answer against controller :4-43 and model :23-30."
+    }
+  ]
+}

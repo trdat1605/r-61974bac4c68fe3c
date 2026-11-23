@@ -1,0 +1,19 @@
+{
+  "application_head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "clone": "D:/Chatwoot-Foundation-Checks/app-c77",
+  "origin": "https://github.com/trdat1605/s-251521f7e9131fb0.git",
+  "clean": true,
+  "baseline_ancestor": true,
+  "changed_file_hashes": {
+    ".github/workflows/foundation-ci.yml": "873b6261ffd1b20029ec477292d079fc9dd48002c4027300352b5cc5183c9ce0",
+    "docker/Dockerfile": "d53890a64e7818478bc274e6d1dc8d4500c691d0d89547f75ef732fb9670e07c",
+    "docker/isolated/README.md": "5d50a6037c9029665a97ccf957d21504572a58edba18d8a0dce5ff72b42d8c4f",
+    "docker/isolated/bootstrap.py": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+    "docker/isolated/compose.yaml": "76a5c519aa96194f6fb7c3c3ee14b174524e3b746c1ea42dc5996ccebccbe076",
+    "docker/isolated/entrypoint.sh": "39cac94404d98e08caed91a10aeb673c7bbb2a8f89b5cb74d230fc8ebb662148",
+    "docker/isolated/test_bootstrap.py": "e166b3906e902783fe8b904d85aabd0a061b1fa93fb96c7481fd488fee61e149",
+    "docker/isolated/verify_runtime.py": "b41d797f02827fffdd826ed815d491b40ce2fb4c3e5e8841c49d2175cb101cfd"
+  },
+  "method": "Refreshed earlier freshclone by fetchdepth30, detached exactreviewedhead; no runtime/packageinstall",
+  "limits": "Rootpreflight, not independent freshreader proof; repo originally clonedatc77 nowupdated27"
+}

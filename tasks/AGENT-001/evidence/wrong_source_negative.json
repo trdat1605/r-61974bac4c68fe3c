@@ -1,0 +1,33 @@
+{
+  "subject_commit": "c10c00ad9a299d92d1a48eb43d5f8d37640d8bdd",
+  "status": "PASS",
+  "exit_code": 0,
+  "actual_command_exit_code": 2,
+  "expected_command_exit_code": 2,
+  "at": "2026-11-17T19:23:06.231972+00:00",
+  "command": [
+    "python",
+    "-B",
+    "tools/agents/workspace_doctor.py",
+    "--profile",
+    "config/agents/runtime.json",
+    "--source-root",
+    "C:\\Users\\MFLAT-ADS-010\\.codex\\worktrees\\chatwoot-dev-setup\\chatwoot"
+  ],
+  "summary": "Expected rejection; receipt exit_code0 means assertion passed, actual command intentionally exit2",
+  "stdout_sha256": "0a41bf4558b2496ee6ff02dfd3d03a65942ecf7b2ad984e3f28955194856c66a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "selected_result": {
+    "checks": [
+      {
+        "check": "profile",
+        "status": "PASS"
+      },
+      {
+        "check": "source_path",
+        "status": "FAIL"
+      }
+    ],
+    "status": "BLOCKED"
+  }
+}

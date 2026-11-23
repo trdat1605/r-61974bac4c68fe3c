@@ -1,0 +1,67 @@
+{
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/complete_control_final_review",
+  "reviewed_commit": "658b96c32b36ba66edc83bd8f1c46f599f578792",
+  "result": "FAIL",
+  "blocking_findings": [
+    {
+      "id": "CCFR-01",
+      "priority": 2,
+      "title": "Synchronize the current branch and completed CI in the handover route",
+      "path": "docs/project-map.md",
+      "line": 11,
+      "related_locations": [
+        {
+          "path": "tasks/COMPLETE-001/evidence/checkpoint.json",
+          "lines": [
+            11,
+            14
+          ]
+        },
+        {
+          "path": "tasks/COMPLETE-001/evidence/app-task.json",
+          "lines": [
+            51
+          ]
+        }
+      ],
+      "condition": "A new reader follows README to the project map or the agent entrance to the current machine checkpoint. The map says the new document set is on codex/repository-publication; the current checkpoint says lifecycle CI is running and latest lifecycle uses sourcec77. app-task also retains hosted runtime atc77 still in_progress without identifying the cancelled/superseded run there. The actual COMPLETE branch is codex/complete-foundation and run45082996742 has completed successfully for apphead27e1669.",
+      "impact": "The designated current handover sources disagree about which control branch to read and which app execution is final. A receiver can open an obsolete branch without the completion work or resume/wait for a superseded run. This fails the task requirement for an up-to-date, actionable status and machine handover; it does not invalidate the successful app CI.",
+      "evidence": "README.md current-work paragraph and completion.md identify the COMPLETE branch and completed run. Independently read public API run45082996742: completed/success, head27e166927b93677863e7e7fda22109cfa2ae98b9; all three jobs success. Public app PR3 is draft/open/unmerged at this head. The cited stale strings exist in exact controlsubject658b96c.",
+      "check": "After a scoped correction, read the README -> project-map and agents/README -> checkpoint -> app-task routes at the new exact subject. Confirm they select codex/complete-foundation and identify the final completed run/head/mergecheckout distinctly; retain superseded/cancelled and failed receipts as history. Refresh affected task scope/input hashes/check receipts/handoff and request review of the new subject."
+    }
+  ],
+  "input_hashes": {
+    "config/agents/repositories.json": "3d917599e4d6aa0df9b79bbe90ee30ee8dba5a5c524717424ccbb101ddcf19ab",
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "tasks/COMPLETE-001/evidence/agent-eval/protocol.json": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+    "tasks/COMPLETE-001/evidence/agent-eval/oracle.json": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+    "config/github/app-main.ruleset.json": "c8c1fed6923c44136b65686d8baa2551695ef03b762213a325bbaddd3428d506",
+    "agents/codex/coordinator.md": "ac82c87599e805f88409284151b6a6763cc5131297f7340adbfc62e693d1442b",
+    "agents/codex/reviewer.md": "50313497c9d240f1f6c45c4f9e096c636a6b324a1739bd09eb9e4b6c6b925341",
+    ".gitattributes": "53361eb0eb6f761c110198beead079d754cae36002ef6d5ab269c0975ec53d5f",
+    ".github/workflows/agent-governance.yml": "744751eebb9c436a71be3689b5e266dcd70dfaee74cd02b949cbaf9d443e5e14",
+    "README.md": "f0c1ae5a81efa1f146f90bbff9866de423bc42119d44d738b512aed24ec028e0",
+    "config/agents/isolated-runtime.example.json": "9ebfe2cda239aa5bfe4700cef74cccf3936868c754ce0b9e0200ddd9b043daa1",
+    "docs/agents/README.md": "7fbea39061da1ebfdbc20e3cab4fdade53a48a9f2f1f971de696934441d6ea49",
+    "docs/development/agent-selection.md": "afc180bef0d55f8d399596cd067d0190f295248e28b54857dd18b850af683a63",
+    "docs/development/completion.md": "ae024c9b245702474015fc8c268d0ae84cfaf197d16156a511aaf1d437548cda",
+    "docs/development/improvement-tracker.md": "209e5883f9cd1c152fd5e82edcb3ea6dc911c84a0b77ad61c6bda71c1650df11",
+    "docs/development/pilot.md": "6758920209912faad5ae33aab65c0c97b1cb3d8f734818d2c05d53fa61698d57",
+    "docs/development/product-workflow.md": "4c3e51d1d597392fca9b0f486ac79bb290ed78b4badfcf65346db81f4426b1e7",
+    "docs/development/review-and-merge.md": "0432dc76666b31581bf7bdd42fb6beda763d487a7a18c3889726dd8f75853615",
+    "docs/development/source-reproduction.md": "a3592c1bde93fda333698438ca9c25135506ce5b6b13641baebbacf551b4a5d5",
+    "docs/runbooks/docker-storage-migration.md": "490c11f7bce8daf1b7809826958afb9bb2e01dec98bf2add813b979fcde9cc5c",
+    "docs/runbooks/isolated-development.md": "41b46ccbc9df7810a588bebaaad9032a095500f3fdd36eaa0d0ed90682c32c0b",
+    "docs/status.md": "3f1989234694f05190e4fbc6b9343c3467164d14f0290cc7d983193ec397d4c4"
+  },
+  "limits": [
+    "Independent control implementation/integration review at the exact subject, not owner acceptance, human GitHub approval, permission to merge/release or permission to mutate runtime.",
+    "Read the full taskbaseline..subject diff including all18 non-task control paths and task evidence; handoff implementationbase7187f8fb1705487a2dbd5f11b4f721b5ff561a4e covers only the final completion.md delta. All previous changed control paths are bound inputs.",
+    "80 control unit tests and product-record verification were executed independently. Docker/build/application suites/browser/security/load/production/local or hosted lifecycle were not rerun; selected CI receipts and independent public run/job/tree readbacks support the bounded application conclusions.",
+    "Public API independently exposed run/jobs/PR/commit trees/rules/workflow states. gh had no authentication in this reviewer environment; admin Actions permissions GET returned401 and the public ruleset response did not expose bypass_actors. Those exact admin settings remain receipt-based, not independently authenticated readbacks.",
+    "Hash/contract/pattern checks do not attest original agent identity, hidden context, complete scope compliance, raw omitted logs, truthful execution of every receipt or absence of every secret.",
+    "Handoff and five final check receipts were untracked pending authorized metadata staging as expected. Strict index/hook/hosted control CI and fresh-reader completion are still pending; this review does not represent their PASS.",
+    "No subject/application/history files, runtime, external settings or PR state were changed. Only the two assigned review artifacts are written. Future changes require checking affected inputs at the new subject."
+  ]
+}

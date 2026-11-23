@@ -1,0 +1,172 @@
+{
+  "task_id": "COMPLETE-001",
+  "review_type": "PLAN_REVIEW",
+  "reviewer": "/root/docker_storage_plan_review",
+  "implementer": "root_foundation_completion",
+  "independence": "Separate reviewer context and read-only subject review; shared machine permissions are not a security boundary.",
+  "reviewed_at_utc": "2026-11-22T23:20:33Z",
+  "reviewed_commit": null,
+  "observed_control_head": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+  "subject": {
+    "path": "docs/runbooks/docker-storage-migration.md",
+    "sha256": "048ef61645bcdbe92096c93ef217709ad170442695cb09c6edd08f30833fbe7c",
+    "git_state": "UNTRACKED_WORKING_TREE_FILE",
+    "binding": "Review applies to these exact bytes, not to an unverified future commit. Recheck affected findings if the plan changes."
+  },
+  "decision": "BLOCKED_FOR_EXECUTION",
+  "summary": "The preparation correctly prefers Docker Desktop's supported UI, separates Ubuntu from Docker data, and prohibits applying migration now. It is a planning skeleton, not an executable maintenance procedure. Independent review completed; the blockers below must be resolved and reviewed before requesting a concrete maintenance decision.",
+  "migration_status": "NOT_RUN",
+  "authorization": {
+    "current": "Preparation and independent review only; existing lab/course runtime is read-only.",
+    "required_before_execution": "Separate maintenance task naming the runtime owner, protected services and permitted backup/stop/start/restore actions, plus the product owner's explicit decision on the concrete outage and rollback plan.",
+    "review_is_permission": false
+  },
+  "sources": [
+    {
+      "id": "D1",
+      "url": "https://docs.docker.com/desktop/features/wsl/",
+      "title": "Docker Desktop WSL 2 backend on Windows",
+      "read_on_utc": "2026-11-22",
+      "sections": ["Turn on Docker Desktop WSL 2", "Enable Docker in a WSL 2 distribution"],
+      "source_says": "The WSL data location can be changed through Settings > Resources > Advanced. Docker's managed storage and an integrated user distribution are separate concerns.",
+      "applicability": "WSL 2 backend, matching the submitted UI evidence. Current online documentation is not a release-pinned guarantee for Desktop 4.99.0."
+    },
+    {
+      "id": "D2",
+      "url": "https://docs.docker.com/desktop/settings-and-maintenance/settings/",
+      "title": "Change your Docker Desktop settings",
+      "read_on_utc": "2026-11-22",
+      "sections": ["VM resources > Advanced"],
+      "source_says": "Disk image location moves the image. A destination already containing an image triggers a choice between using it and replacing it. Its platform table omits WSL 2.",
+      "applicability": "The omission warrants checking the installed UI; it does not negate the explicit WSL guidance. Submitted UI evidence shows the control, without testing relocation."
+    },
+    {
+      "id": "D3",
+      "url": "https://docs.docker.com/desktop/settings-and-maintenance/backup-and-restore/",
+      "title": "How to back up and restore your Docker Desktop data",
+      "read_on_utc": "2026-11-22",
+      "sections": ["If Docker Desktop is functioning normally", "If Docker Desktop fails to start or you want to back up the whole Docker Desktop VM > Windows"],
+      "source_says": "Container image backups exclude mounted volume data. Whole-VM file backup requires Desktop fully stopped; WSL 2 uses docker_data.vhdx at the configured location. Other Linux distributions need separate backups. Documented disaster recovery restores the backend VHD after reinstalling Desktop.",
+      "applicability": "This supports an offline VHD backup and separate data coverage. It does not establish that a UI move leaves the original file intact or provide an in-place rollback recipe for this machine."
+    },
+    {
+      "id": "M1",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/basic-commands",
+      "title": "Basic commands for WSL",
+      "read_on_utc": "2026-11-22",
+      "page_last_updated": "2025-12-01",
+      "sections": ["Shutdown", "Export a distribution", "Import a distribution"],
+      "source_says": "WSL shutdown terminates all running distributions. Export/import operates on a named distribution, independently of Docker's disk image setting.",
+      "applicability": "Use to define Ubuntu backup scope and the impact of any future shutdown; no WSL shutdown/export/import was executed. Docker's linked export-import page returned 404, so this current Microsoft reference was read instead."
+    }
+  ],
+  "reviewed_evidence": [
+    {
+      "path": "tasks/COMPLETE-001/task.json",
+      "sha256": "946aeea89f03030bc6e59145724f743235af6de102e91126cce6cb1e965f527b"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/docker-storage-inventory.json",
+      "sha256": "d546bb4505387ccc820aaeeccf4829577fe50cad171fc9b58ebf60d4fb9cb352"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/docker-storage-ui.json",
+      "sha256": "0c5b2da92243900a1862966d41885659aecdd0b7137a884d13b37db5560b536e"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/protected-runtime-before.json",
+      "sha256": "897fdca7a71fed0f05ba743d2dc460160a24004ed3c943fe3e123b00949c2688"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/protected-runtime-after-cleanup.json",
+      "sha256": "bf0ab9d3d3c2b0ffd0448ff2298235cbf20d336f9f83e276cc4ba1711e3a1637"
+    }
+  ],
+  "observations": [
+    "The submitted UI receipt records WSL 2, Desktop 4.99.0, a Disk image location control, no unsaved changes and disabled Apply. The reviewer did not reproduce the UI observation.",
+    "The storage inventory records one 28879880192-byte data VHD, one 100663296-byte main VHD, D free 72.41 GiB and Ubuntu-22.04 integration. It contains no container/volume/bind-mount inventory despite the plan's line 10 link.",
+    "The separate protected-runtime receipts list nine container identities: six cwlab-9200023e services and three course-platform-local services. They do not enumerate all persistent data or demonstrate application backup recoverability.",
+    "The plan's Desktop build and engine version are not fully substantiated by the two storage receipts: the UI gives 4.99.0, not build 245822 or engine 29.9.3. Reconfirm versions before execution."
+  ],
+  "capacity_analysis": {
+    "basis": "Arithmetic on supplied historical measurements only; not a live free-space or allocation check.",
+    "data_vhd_gib": 26.896484375,
+    "D_free_gib": 72.41,
+    "D_remaining_after_one_data_vhd_gib": 45.513515625,
+    "D_remaining_after_target_plus_one_equal_size_vhd_backup_gib": 18.61703125,
+    "D_remaining_after_three_equal_size_vhd_copies_gib": -8.279453125,
+    "conclusion": "One target image fits numerically. Target plus one equal-sized VHD backup leaves about 18.62 GiB before application backups, separate Ubuntu backup, temporary allocation and growth. Three equal-sized copies exceed D free space. This does not prove adequate capacity or justify an arbitrary fixed safety margin.",
+    "C_free_gib_from_other_receipt": 14.93,
+    "C_limit": "C cannot hold another full 26.90 GiB VHD under the observed measurement. Rollback must identify where each copy exists at every stage; do not assume extra C capacity or reclaim before validation."
+  },
+  "findings": [
+    {
+      "id": "DSR-01",
+      "severity": "HIGH",
+      "blocking": true,
+      "location": "docs/runbooks/docker-storage-migration.md:20-21,31",
+      "condition": "Migration is attempted with only the current VHD/settings and container-identity receipts.",
+      "impact": "External bind data, uploads, database state, queue state or required private configuration may be omitted; neither of the two protected applications has a demonstrated recoverable backup.",
+      "basis": "D3 plus the actual contents of reviewed receipts; the gap is acknowledged but not resolved in the plan.",
+      "required_resolution": "In the separate maintenance plan map all nine protected services to exact container/image IDs, volume IDs and bind paths; identify DB versions, uploads and any data in container writable layers. Name backup owners, consistent write-fencing and backup methods per datastore, private backup locations, checksums and retention. Determine which source/config/uploads reside in Ubuntu and whether a separate distro backup is required. Provide isolated restore evidence with meaningful DB/uploads/queue checks; synthetic COMPLETE-001 backups cannot substitute. Keep credentials and data outside Git.",
+      "verification": "Reviewer can account for each persistent path and match pre-change checks to a validated, privately stored backup and isolated restore receipt."
+    },
+    {
+      "id": "DSR-02",
+      "severity": "HIGH",
+      "blocking": true,
+      "location": "docs/runbooks/docker-storage-migration.md:9,16,22",
+      "condition": "72.41 GiB free is accepted as sufficient without measuring all retained and temporary copies.",
+      "impact": "The move or recovery could fail mid-operation because of insufficient capacity; backup on the same destination disk also lacks independent disk-failure protection.",
+      "basis": "Capacity arithmetic above; allocation/copy behavior for this installed release was not tested.",
+      "required_resolution": "Recheck C/D free space and source allocation just before execution. Verify D filesystem supports the required VHD size, resolved destination, permissions, storage health/availability and empty destination with no existing image. Budget target, protected VHD backup, application/distro backups, transient copies, rollback workspace and expected growth; define a justified reserve and abort threshold. Name a protected backup location outside the moving source and destination directory, preferably on independent storage, or document and obtain an explicit decision on the same-disk recovery limitation.",
+      "verification": "A stage-by-stage byte budget fits the measured free space with the chosen reserve, including the rollback path; a conflicting destination causes an abort rather than overwrite."
+    },
+    {
+      "id": "DSR-03",
+      "severity": "HIGH",
+      "blocking": true,
+      "location": "docs/runbooks/docker-storage-migration.md:21-23,33",
+      "condition": "A future executor proceeds without a concrete stop/start sequence and authorized maintenance task.",
+      "impact": "All protected services share Docker Desktop and will be interrupted, including the course website; active writes or automatic restarts can invalidate backup consistency or recovery decisions.",
+      "basis": "Current task has read-only existing-runtime access; D3 requires a stopped Desktop for VHD backup; M1 shows that global WSL shutdown affects every distribution.",
+      "required_resolution": "Name a single runtime owner and reviewer, affected service owners, maintenance start/deadline, expected outage components, abort deadline and recovery time allowance. Specify ingress/job write fencing, app/worker/datastore stop order, restart-policy handling, proof Desktop is fully stopped for VHD backup, the supported UI interaction sequence after that backup, and controlled restart order. Scope any WSL termination explicitly. Prevent simultaneous writers during rollback and define who decides when traffic can resume.",
+      "verification": "The owner can approve an exact outage and rollback window, and a reviewer can trace every runtime-changing step to its authorized owner. No such actions are authorized by this review."
+    },
+    {
+      "id": "DSR-04",
+      "severity": "HIGH",
+      "blocking": true,
+      "location": "docs/runbooks/docker-storage-migration.md:25,29",
+      "condition": "The UI move fails or postchecks fail and the executor assumes the original C VHD remains a usable rollback copy.",
+      "impact": "The UI may have moved the source; rollback could select stale/partial data, overwrite the only good copy or introduce conflicting database histories.",
+      "basis": "D2 documents moving the disk, not preserving its old path. D3's disaster-recovery instructions are not a verified in-place rollback procedure for Desktop 4.99.0.",
+      "required_resolution": "Identify a hashed offline known-good backup independent of UI move semantics. Specify supported restore paths for failure before the move, during it and after successful relocation; cover current configured location, partial target handling without deletion, required space and expected downtime. Define stop criteria, rollback trigger, writes after cutover and recovery-point loss policy. Verify recovery in a separately approved isolated rehearsal or establish a documented support-backed procedure; never infer rollback from this plan review.",
+      "verification": "For each failure stage, exactly one authoritative dataset and a reachable tested recovery path exist without overwriting the last good backup."
+    },
+    {
+      "id": "DSR-05",
+      "severity": "MEDIUM",
+      "blocking": true,
+      "location": "docs/runbooks/docker-storage-migration.md:20,24-25",
+      "condition": "Post-move acceptance uses only service startup or the historical unchanged-start-time comparison.",
+      "impact": "Services can start against wrong or incomplete data; planned restart changes start times, so the old preservation test cannot serve as the future acceptance oracle.",
+      "basis": "Submitted protected-runtime receipts prove an earlier identity/start-time comparison only; no migration baseline or application checks are supplied.",
+      "required_resolution": "Capture a sanitized pre-maintenance baseline and exact commands/expected results for all nine protected services, effective Docker data location/backend, images, container IDs, volume IDs and bind paths. Define allowed identity changes and expected start-time changes. Add private DB integrity/aggregate checks, representative existing uploads, login and application flows for both apps, worker/queue behavior and Ubuntu source/config checks. Name the product owner acceptance and backup retention/deletion decision; retain backups until recovery and service checks pass.",
+      "verification": "Before/after evidence distinguishes planned restarts from replacement/data loss and demonstrates both applications work with the intended persistent data."
+    }
+  ],
+  "checks": [
+    {"name": "Official source and supported mechanism review", "status": "PASS", "evidence": "D1-D3 read directly; UI receipt examined; release-specific move/restore semantics remain untested."},
+    {"name": "Current preparation preserves protected runtime", "status": "PASS", "evidence": "Reviewer issued no Docker, WSL, settings, backup or data-mutation commands."},
+    {"name": "Executable migration readiness", "status": "FAIL", "evidence": "DSR-01 through DSR-05."},
+    {"name": "Actual relocation, backup, restore and post-move application checks", "status": "NOT_RUN", "evidence": "Outside preparation/review authorization."}
+  ],
+  "limits": [
+    "Evidence receipts were inspected, not independently rerun against the live daemon or desktop. No full settings, container environments, customer data, secret configuration or logs were read.",
+    "No destination filesystem/ACL/storage-health inspection or live allocation measurement was performed; these are future preflight gates.",
+    "No claim of improved D performance, sufficient production capacity, verified backup recoverability or migration success is made.",
+    "The review file is the only authored repository artifact. The subject plan and supplied evidence were not edited.",
+    "This PLAN_REVIEW cannot be reused as an exact-commit implementation or migration acceptance review."
+  ]
+}

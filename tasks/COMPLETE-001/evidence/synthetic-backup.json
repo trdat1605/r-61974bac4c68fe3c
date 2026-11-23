@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "docker exec exactownedprojectPG pg_dump -U postgres -d cwdev_complete001_dev --format=custom --no-owner; streamtoDprivatebackup",
+  "backup_path": "D:\\Chatwoot-Foundation-Backups\\complete001\\synthetic-dev.pgcustom",
+  "backup_sha256": "4547aac9626749a476ab2f8e48fdcd16ca96174b51c82d610e0c4c322ddd25a6",
+  "backup_bytes": 424655,
+  "source_subject": "07686773cb515aba4029823ffe585e80fca705a5",
+  "project": "cwdev-complete001",
+  "limits": [
+    "Syntheticdataonlycreatedinthistask; nodataoflab/course",
+    "BackupbinaryoutsideGit; noDBdumpcontentsinreceipt",
+    "Restoreandcountscomparisonpending"
+  ]
+}

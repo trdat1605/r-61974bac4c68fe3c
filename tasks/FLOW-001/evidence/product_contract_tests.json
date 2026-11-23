@@ -1,0 +1,30 @@
+{
+  "subject_commit": "48f8a14ffcad7c5c5051ab5041c85074c60a620f",
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_local_date": "2026-11-23",
+  "command": "python -B -m unittest discover -s tests -p test_product_check.py -v",
+  "results": {
+    "tests_run": 25,
+    "elapsed_seconds": 48.078,
+    "failures": 0,
+    "errors": 0,
+    "coverage_examples": [
+      "Wrong/missing issue/task/repo and API pull object",
+      "Fixed-host GET, redirect/token/error handling",
+      "Separate app Git identity, stale HEAD/dirty tracked files, ancestry",
+      "Required criterion/check/receipt coverage, hashes, repo/ref/command/status",
+      "Untracked or working-modified receipts rejected",
+      "Reviewer different and exact ref",
+      "Git-hook environment isolation with native environment preserved",
+      "assume-unchanged and skip-worktree hide edited bytes from status but verifier rejects; sparse configs rejected"
+    ]
+  },
+  "related_failure": "full-suite-incident.json retains initial integration failure and repair; final full suite is checked again by independent review and hook",
+  "limits": [
+    "API unit tests mocked; separate live read-only issue check recorded",
+    "Git fixtures are not Chatwoot product tests or pilot acceptance",
+    "No execution-truth/reviewer identity attestation or server merge enforcement"
+  ],
+  "related_review": "review-round-1.json retains original BLOCK; new subject includes source-index regression guards"
+}

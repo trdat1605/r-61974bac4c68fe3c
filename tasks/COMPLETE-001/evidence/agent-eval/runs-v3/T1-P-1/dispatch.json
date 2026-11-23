@@ -1,0 +1,21 @@
+{
+  "run_id": "T1-P-1",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "packet_sha256": "a356575b2bf92d8bbc08106f72ab730ce08d2de2212a3d1b0abe0bac557f81de",
+  "roster": {
+    "coordinator": "/root/v3_t1p1_c",
+    "worker_A": "/root/v3_t1p1_a",
+    "worker_B": "/root/v3_t1p1_b"
+  },
+  "dispatch_utc": "2026-11-22T22:44:30.562299+00:00",
+  "model_identity": "NOT_EXPOSED",
+  "scope": "Exact perrole result_files once; fulloriginalbodyactualmessageC beforeexit, nootherrolefileread",
+  "status": "COMPLETED_PENDING_ADJUDICATION",
+  "observer_interventions": [],
+  "end_utc": "2026-11-22T22:50:15.958241+00:00",
+  "output_hashes": {
+    "worker_A": "3f2a31939df6dee7e1f4419f6dc2b038de533138d07ebc8396bb1f69aa5e604c",
+    "worker_B": "b8fc48f771654cc471bc8439f7c7e381637d5e1118ae822478a8f4af0f51de75",
+    "coordinator": "ca0fe2582899d9d4e7941bca75bd784c25f099d8dc754367ebaab45c8f73a637"
+  }
+}

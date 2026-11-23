@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-23 Asia/Saigon",
+  "method": "Opened primary online sources, read applicable sections; no secondary summary used for these confirmations",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/2512.08296v3",
+      "version_url": "https://arxiv.org/abs/2512.08296v3",
+      "verified": "v3 revised2026-04-08;260configurations/sixbenchmarks; SWE-bench/Terminal-Bench20-instance subsets in Data Availability",
+      "limit": "Preprint, not a direct benchmark of this project or native Claude Teams"
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.00583",
+      "verified": "Submitted2026-09-30; multi-user agents with different goals and shared resources",
+      "limit": "Different from one-owner Chatwoot task"
+    },
+    {
+      "url": "https://www.anthropic.com/research/multi-agent-research-system",
+      "verified": "Published2025-06-13; lead/subagents, explicit task/source/output boundaries, early small-sample eval, source/citation correctness and human testing",
+      "limit": "Research system article, not a Chatwoot implementation guarantee"
+    },
+    {
+      "url": "https://developers.chatwoot.com/contributing-guide/environment-setup/docker",
+      "verified": "Current official guide covers Docker Desktop on Windows with WSL2 recommended, base-first build, DB prepare, composeup and focusedRSpec commands",
+      "limit": "Current onlineguide is not itself pinnedv4.19.1source; isolated bootstrap/ports/guards are project-specific reviewed adaptations. Do notapply DB/reset/stop commands toexistinglab."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+git version 2.47.3
+BASE_IMAGE_VERIFIED sha256:26bc36dfdd6c06aa8093c55142e141758cc9eb713904091ca161b2eb88376897 cwdev-base-154da744f13141549312ddb8ed3de5f7:selected
+{
+  "baseline": "EXPECTED_FAIL",
+  "explicit_sha": "PASS",
+  "invalid_sha": "REJECTED",
+  "normal_git_fallback": "PASS",
+  "source_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "baseline_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "base_image": "sha256:26bc36dfdd6c06aa8093c55142e141758cc9eb713904091ca161b2eb88376897",
+  "build_base_reference": "cwdev-base-154da744f13141549312ddb8ed3de5f7:selected"
+}
+BASE_IMAGE_RECHECKED sha256:26bc36dfdd6c06aa8093c55142e141758cc9eb713904091ca161b2eb88376897 cwdev-base-154da744f13141549312ddb8ed3de5f7:selected

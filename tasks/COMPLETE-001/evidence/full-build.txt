@@ -1,0 +1,1506 @@
+ Image cwdev-complete001:app-07686773cb51 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 916B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 4.80kB done
+#2 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ruby:3.4.4-alpine3.21
+#3 ...
+
+#4 [internal] load metadata for docker.io/library/node:24.22.1-alpine
+#4 DONE 2.7s
+
+#3 [internal] load metadata for docker.io/library/ruby:3.4.4-alpine3.21
+#3 DONE 2.7s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 222B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [pre-builder  1/19] FROM docker.io/library/ruby:3.4.4-alpine3.21@sha256:5bdfa2312f3f0bc9bd077e954c943652155a093db228af978873ff92389300d3
+#7 resolve docker.io/library/ruby:3.4.4-alpine3.21@sha256:5bdfa2312f3f0bc9bd077e954c943652155a093db228af978873ff92389300d3 0.0s done
+#7 DONE 0.2s
+
+#8 [node 1/1] FROM docker.io/library/node:24.22.1-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53
+#8 resolve docker.io/library/node:24.22.1-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53 0.0s done
+#8 sha256:f0a5c9e3ce7dcc7fca3a816f70b3d42bc5324066b627223af466eff9030e171f 0B / 1.26MB 0.2s
+#8 sha256:109c2f814f468711ac666fb9494ce76528e972ee8636468ad822267a0af959e5 0B / 443B 0.2s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 0B / 57.37MB 0.2s
+#8 sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788 0B / 3.85MB 0.2s
+#8 sha256:f0a5c9e3ce7dcc7fca3a816f70b3d42bc5324066b627223af466eff9030e171f 1.26MB / 1.26MB 0.4s done
+#8 sha256:109c2f814f468711ac666fb9494ce76528e972ee8636468ad822267a0af959e5 443B / 443B 0.5s done
+#8 sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788 1.05MB / 3.85MB 0.9s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 4.19MB / 57.37MB 1.1s
+#8 sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788 2.10MB / 3.85MB 1.1s
+#8 sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788 3.85MB / 3.85MB 1.2s done
+#8 extracting sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 7.34MB / 57.37MB 1.4s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 11.53MB / 57.37MB 1.7s
+#8 extracting sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788 0.3s done
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 16.78MB / 57.37MB 2.0s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 19.92MB / 57.37MB 2.1s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 24.12MB / 57.37MB 2.4s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 27.26MB / 57.37MB 2.6s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 30.41MB / 57.37MB 2.7s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 35.65MB / 57.37MB 3.0s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 38.80MB / 57.37MB 3.3s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 44.04MB / 57.37MB 3.6s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 49.28MB / 57.37MB 3.9s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 52.43MB / 57.37MB 4.1s
+#8 ...
+
+#6 [internal] load build context
+#6 transferring context: 210.52MB 4.5s done
+#6 DONE 4.6s
+
+#8 [node 1/1] FROM docker.io/library/node:24.22.1-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 56.62MB / 57.37MB 4.4s
+#8 sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 57.37MB / 57.37MB 4.4s done
+#8 extracting sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b
+#8 extracting sha256:15577f11e05afbda845cbd2903e55f0a3da41dc2a576435999474e7a2654651b 2.6s done
+#8 extracting sha256:f0a5c9e3ce7dcc7fca3a816f70b3d42bc5324066b627223af466eff9030e171f
+#8 extracting sha256:f0a5c9e3ce7dcc7fca3a816f70b3d42bc5324066b627223af466eff9030e171f 0.1s done
+#8 DONE 7.4s
+
+#9 [stage-2 2/9] RUN apk update && apk add --no-cache   build-base   openssl   tzdata   postgresql-client   imagemagick   git   vips   && gem install bundler -v "2.5.16"
+#9 0.746 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#9 1.331 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#9 2.677 v3.21.10-48-g913f2351f39 [https://dl-cdn.alpinelinux.org/alpine/v3.21/main]
+#9 2.677 v3.21.10-36-g9cbcb21ca43 [https://dl-cdn.alpinelinux.org/alpine/v3.21/community]
+#9 2.677 OK: 25410 distinct packages available
+#9 2.884 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#9 3.229 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#9 4.174 (1/106) Upgrading musl (1.2.5-r9 -> 1.2.5-r12)
+#9 4.261 (2/106) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.7-r2)
+#9 4.454 (3/106) Upgrading libssl3 (3.3.3-r0 -> 3.3.7-r2)
+#9 4.525 (4/106) Installing jansson (2.14-r4)
+#9 4.563 (5/106) Installing libstdc++ (14.2.0-r4)
+#9 4.660 (6/106) Installing zstd-libs (1.5.6-r2)
+#9 4.725 (7/106) Installing binutils (2.43.1-r3)
+#9 5.040 (8/106) Installing libmagic (5.46-r2)
+#9 5.154 (9/106) Installing file (5.46-r2)
+#9 5.191 (10/106) Installing libgomp (14.2.0-r4)
+#9 5.239 (11/106) Installing libatomic (14.2.0-r4)
+#9 5.278 (12/106) Installing isl26 (0.26-r1)
+#9 5.375 (13/106) Installing mpfr4 (4.2.1-r0)
+#9 5.437 (14/106) Installing mpc1 (1.3.1-r1)
+#9 5.482 (15/106) Installing gcc (14.2.0-r4)
+#9 ...
+
+#8 [node 1/1] FROM docker.io/library/node:24.22.1-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53
+#8 extracting sha256:109c2f814f468711ac666fb9494ce76528e972ee8636468ad822267a0af959e5 0.0s done
+#8 DONE 7.4s
+
+#10 [pre-builder  2/19] RUN apk update && apk add --no-cache   openssl   tar   build-base   tzdata   postgresql-dev   postgresql-client   git   curl   xz   && mkdir -p /var/app   && gem install bundler -v "2.5.16"
+#10 0.736 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#10 1.308 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#10 2.638 v3.21.10-48-g913f2351f39 [https://dl-cdn.alpinelinux.org/alpine/v3.21/main]
+#10 2.638 v3.21.10-36-g9cbcb21ca43 [https://dl-cdn.alpinelinux.org/alpine/v3.21/community]
+#10 2.638 OK: 25410 distinct packages available
+#10 2.853 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#10 3.223 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#10 4.182 (1/67) Upgrading musl (1.2.5-r9 -> 1.2.5-r12)
+#10 4.289 (2/67) Upgrading libcrypto3 (3.3.3-r0 -> 3.3.7-r2)
+#10 4.549 (3/67) Upgrading libssl3 (3.3.3-r0 -> 3.3.7-r2)
+#10 4.606 (4/67) Installing jansson (2.14-r4)
+#10 4.653 (5/67) Installing libstdc++ (14.2.0-r4)
+#10 4.749 (6/67) Installing zstd-libs (1.5.6-r2)
+#10 4.837 (7/67) Installing binutils (2.43.1-r3)
+#10 5.159 (8/67) Installing libmagic (5.46-r2)
+#10 5.257 (9/67) Installing file (5.46-r2)
+#10 5.293 (10/67) Installing libgomp (14.2.0-r4)
+#10 5.347 (11/67) Installing libatomic (14.2.0-r4)
+#10 5.386 (12/67) Installing isl26 (0.26-r1)
+#10 5.490 (13/67) Installing mpfr4 (4.2.1-r0)
+#10 5.566 (14/67) Installing mpc1 (1.3.1-r1)
+#10 5.617 (15/67) Installing gcc (14.2.0-r4)
+#10 ...
+
+#9 [stage-2 2/9] RUN apk update && apk add --no-cache   build-base   openssl   tzdata   postgresql-client   imagemagick   git   vips   && gem install bundler -v "2.5.16"
+#9 9.501 (16/106) Installing libstdc++-dev (14.2.0-r4)
+#9 9.860 (17/106) Installing musl-dev (1.2.5-r12)
+#9 10.10 (18/106) Installing g++ (14.2.0-r4)
+#9 11.21 (19/106) Installing make (4.4.1-r2)
+#9 11.26 (20/106) Installing fortify-headers (1.1-r5)
+#9 11.30 (21/106) Installing patch (2.7.6-r10)
+#9 11.34 (22/106) Installing build-base (0.5-r3)
+#9 11.34 (23/106) Installing brotli-libs (1.1.1-r0)
+#9 11.41 (24/106) Installing c-ares (1.34.9-r0)
+#9 11.45 (25/106) Installing libunistring (1.2-r0)
+#9 11.53 (26/106) Installing libidn2 (2.3.7-r0)
+#9 11.57 (27/106) Installing nghttp2-libs (1.69.0-r0)
+#9 11.61 (28/106) Installing libpsl (0.21.5-r3)
+#9 11.65 (29/106) Installing libcurl (8.14.1-r3)
+#9 11.70 (30/106) Installing libexpat (2.10.0-r0)
+#9 11.75 (31/106) Installing pcre2 (10.43-r1)
+#9 11.80 (32/106) Installing git (2.47.3-r0)
+#9 12.01 (33/106) Installing git-init-template (2.47.3-r0)
+#9 12.05 (34/106) Installing libxau (1.0.11-r4)
+#9 12.09 (35/106) Installing libmd (1.1.0-r0)
+#9 12.14 (36/106) Installing libbsd (0.12.2-r0)
+#9 12.18 (37/106) Installing libxdmcp (1.1.5-r1)
+#9 12.22 (38/106) Installing libxcb (1.16.1-r0)
+#9 12.28 (39/106) Installing libx11 (1.8.10-r0)
+#9 12.38 (40/106) Installing libxext (1.3.6-r2)
+#9 12.42 (41/106) Installing libbz2 (1.0.8-r6)
+#9 12.46 (42/106) Installing fftw-double-libs (3.3.10-r6)
+#9 12.55 (43/106) Installing libpng (1.6.59-r0)
+#9 12.59 (44/106) Installing freetype (2.13.3-r0)
+#9 12.65 (45/106) Installing fontconfig (2.15.0-r1)
+#9 12.72 (46/106) Installing lcms2 (2.19-r0)
+#9 12.76 (47/106) Installing libltdl (2.4.7-r3)
+#9 12.80 (48/106) Installing xz-libs (5.8.4-r0)
+#9 12.85 (49/106) Installing libxml2 (2.13.9-r1)
+#9 12.92 (50/106) Installing imagemagick-libs (7.1.1.41-r0)
+#9 13.06 (51/106) Installing imagemagick (7.1.1.41-r0)
+#9 13.18 (52/106) Installing openssl (3.3.7-r2)
+#9 13.24 (53/106) Installing postgresql-common (1.2-r1)
+#9 13.28 Executing postgresql-common-1.2-r1.pre-install
+#9 13.32 (54/106) Installing lz4-libs (1.10.0-r0)
+#9 13.37 (55/106) Installing libpq (17.12-r0)
+#9 13.43 (56/106) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+#9 13.49 (57/106) Installing libncursesw (6.5_p20241006-r3)
+#9 13.55 (58/106) Installing readline (8.2.13-r0)
+#9 13.61 (59/106) Installing postgresql17-client (17.12-r0)
+#9 13.74 (60/106) Installing tzdata (2026f-r0)
+#9 13.87 (61/106) Installing openexr-libiex (3.3.2-r0)
+#9 13.91 (62/106) Installing openexr-libilmthread (3.3.2-r0)
+#9 13.95 (63/106) Installing imath (3.1.12-r0)
+#9 14.01 (64/106) Installing libdeflate (1.22-r0)
+#9 14.06 (65/106) Installing openexr-libopenexrcore (3.3.2-r0)
+#9 14.14 (66/106) Installing openexr-libopenexr (3.3.2-r0)
+#9 14.22 (67/106) Installing acl-libs (2.3.2-r1)
+#9 14.27 (68/106) Installing libarchive (3.8.11-r0)
+#9 14.34 (69/106) Installing libxrender (0.9.11-r5)
+#9 14.38 (70/106) Installing pixman (0.43.4-r1)
+#9 14.44 (71/106) Installing cairo (1.18.4-r0)
+#9 14.53 (72/106) Installing cfitsio (4.5.0-r0)
+#9 14.61 (73/106) Installing cgif (0.4.1-r0)
+#9 14.66 (74/106) Installing libexif (0.6.24-r2)
+#9 14.71 (75/106) Installing libintl (0.22.5-r0)
+#9 14.75 (76/106) Installing libeconf (0.6.3-r0)
+#9 14.79 (77/106) Installing libblkid (2.40.4-r1)
+#9 14.84 (78/106) Installing libmount (2.40.4-r1)
+#9 14.90 (79/106) Installing glib (2.82.5-r0)
+#9 15.10 (80/106) Installing libhwy (1.0.7-r0)
+#9 15.14 (81/106) Installing libimagequant (4.2.2-r0)
+#9 15.20 (82/106) Installing libjpeg-turbo (3.0.4-r0)
+#9 15.25 (83/106) Installing imagemagick-jpeg (7.1.1.41-r0)
+#9 15.29 (84/106) Installing openjpeg (2.5.4-r1)
+#9 15.37 (85/106) Installing libxft (2.3.8-r3)
+#9 15.42 (86/106) Installing fribidi (1.0.16-r0)
+#9 15.47 (87/106) Installing graphite2 (1.3.14-r6)
+#9 15.51 (88/106) Installing harfbuzz (9.0.0-r1)
+#9 15.64 (89/106) Installing pango (1.54.0-r1)
+#9 15.71 (90/106) Installing imagemagick-pango (7.1.1.41-r0)
+#9 15.90 (91/106) Installing libdav1d (1.5.0-r0)
+#9 15.99 (92/106) Installing pkgconf (2.3.0-r0)
+#9 16.03 (93/106) Installing shared-mime-info (2.4-r2)
+#9 16.10 (94/106) Installing libsharpyuv (1.4.0-r0)
+#9 16.15 (95/106) Installing libwebp (1.4.0-r0)
+#9 16.21 (96/106) Installing libwebpdemux (1.4.0-r0)
+#9 16.25 (97/106) Installing libwebpmux (1.4.0-r0)
+#9 16.29 (98/106) Installing imagemagick-webp (7.1.1.41-r0)
+#9 16.33 (99/106) Installing tiff (4.7.2-r0)
+#9 16.39 (100/106) Installing imagemagick-tiff (7.1.1.41-r0)
+#9 16.43 (101/106) Installing gdk-pixbuf (2.42.12-r1)
+#9 16.49 (102/106) Installing librsvg (2.59.2-r0)
+#9 16.65 (103/106) Installing imagemagick-svg (7.1.1.41-r0)
+#9 16.70 (104/106) Installing libspng (0.7.4-r0)
+#9 16.74 (105/106) Installing vips (8.15.3-r5)
+#9 16.86 (106/106) Installing vips-magick (8.15.3-r5)
+#9 17.05 Executing busybox-1.37.0-r12.trigger
+#9 17.06 Executing postgresql-common-1.2-r1.trigger
+#9 17.07 * Setting postgresql17 as the default version
+#9 17.93 Executing glib-2.82.5-r0.trigger
+#9 17.94 Executing shared-mime-info-2.4-r2.trigger
+#9 18.94 Executing gdk-pixbuf-2.42.12-r1.trigger
+#9 18.95 OK: 307 MiB in 123 packages
+#9 ...
+
+#10 [pre-builder  2/19] RUN apk update && apk add --no-cache   openssl   tar   build-base   tzdata   postgresql-dev   postgresql-client   git   curl   xz   && mkdir -p /var/app   && gem install bundler -v "2.5.16"
+#10 9.554 (16/67) Installing libstdc++-dev (14.2.0-r4)
+#10 9.937 (17/67) Installing musl-dev (1.2.5-r12)
+#10 10.18 (18/67) Installing g++ (14.2.0-r4)
+#10 11.31 (19/67) Installing make (4.4.1-r2)
+#10 11.36 (20/67) Installing fortify-headers (1.1-r5)
+#10 11.40 (21/67) Installing patch (2.7.6-r10)
+#10 11.45 (22/67) Installing build-base (0.5-r3)
+#10 11.45 (23/67) Installing brotli-libs (1.1.1-r0)
+#10 11.51 (24/67) Installing c-ares (1.34.9-r0)
+#10 11.56 (25/67) Installing libunistring (1.2-r0)
+#10 11.63 (26/67) Installing libidn2 (2.3.7-r0)
+#10 11.67 (27/67) Installing nghttp2-libs (1.69.0-r0)
+#10 11.71 (28/67) Installing libpsl (0.21.5-r3)
+#10 11.75 (29/67) Installing libcurl (8.14.1-r3)
+#10 11.81 (30/67) Installing curl (8.14.1-r3)
+#10 11.86 (31/67) Installing libexpat (2.10.0-r0)
+#10 11.91 (32/67) Installing pcre2 (10.43-r1)
+#10 11.97 (33/67) Installing git (2.47.3-r0)
+#10 12.18 (34/67) Installing git-init-template (2.47.3-r0)
+#10 12.22 (35/67) Installing openssl (3.3.7-r2)
+#10 12.28 (36/67) Installing postgresql-common (1.2-r1)
+#10 12.32 Executing postgresql-common-1.2-r1.pre-install
+#10 12.37 (37/67) Installing lz4-libs (1.10.0-r0)
+#10 12.41 (38/67) Installing libpq (17.12-r0)
+#10 12.46 (39/67) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+#10 12.50 (40/67) Installing libncursesw (6.5_p20241006-r3)
+#10 12.55 (41/67) Installing readline (8.2.13-r0)
+#10 12.60 (42/67) Installing postgresql17-client (17.12-r0)
+#10 12.71 (43/67) Installing pkgconf (2.3.0-r0)
+#10 12.75 (44/67) Installing openssl-dev (3.3.7-r2)
+#10 12.82 (45/67) Installing libpq-dev (17.12-r0)
+#10 12.90 (46/67) Installing libecpg (17.12-r0)
+#10 12.94 (47/67) Installing libecpg-dev (17.12-r0)
+#10 13.01 (48/67) Installing clang18-headers (18.1.8-r2)
+#10 13.15 (49/67) Installing xz-libs (5.8.4-r0)
+#10 13.19 (50/67) Installing libxml2 (2.13.9-r1)
+#10 13.26 (51/67) Installing llvm18-libs (18.1.8-r2)
+#10 16.44 (52/67) Installing clang18-libs (18.1.8-r2)
+#10 18.48 (53/67) Installing llvm18-linker-tools (18.1.8-r2)
+#10 18.53 (54/67) Installing clang18 (18.1.8-r2)
+#10 18.59 (55/67) Installing icu-data-en (74.2-r1)
+#10 18.76 Executing icu-data-en-74.2-r1.post-install
+#10 18.77 *
+#10 18.77 * If you need ICU with non-English locales and legacy charset support, install
+#10 18.77 * package icu-data-full.
+#10 18.77 *
+#10 18.77 (56/67) Installing icu-libs (74.2-r1)
+#10 18.91 (57/67) Installing icu (74.2-r1)
+#10 18.97 (58/67) Installing icu-dev (74.2-r1)
+#10 19.09 (59/67) Installing llvm18 (18.1.8-r2)
+#10 ...
+
+#9 [stage-2 2/9] RUN apk update && apk add --no-cache   build-base   openssl   tzdata   postgresql-client   imagemagick   git   vips   && gem install bundler -v "2.5.16"
+#9 20.29 Successfully installed bundler-2.5.16
+#9 20.29 1 gem installed
+#9 DONE 20.7s
+
+#10 [pre-builder  2/19] RUN apk update && apk add --no-cache   openssl   tar   build-base   tzdata   postgresql-dev   postgresql-client   git   curl   xz   && mkdir -p /var/app   && gem install bundler -v "2.5.16"
+#10 ...
+
+#11 [stage-2 3/9] COPY --from=node /usr/local/bin/node /usr/local/bin/
+#11 DONE 0.4s
+
+#10 [pre-builder  2/19] RUN apk update && apk add --no-cache   openssl   tar   build-base   tzdata   postgresql-dev   postgresql-client   git   curl   xz   && mkdir -p /var/app   && gem install bundler -v "2.5.16"
+#10 ...
+
+#12 [stage-2 4/9] COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+#12 DONE 0.6s
+
+#10 [pre-builder  2/19] RUN apk update && apk add --no-cache   openssl   tar   build-base   tzdata   postgresql-dev   postgresql-client   git   curl   xz   && mkdir -p /var/app   && gem install bundler -v "2.5.16"
+#10 ...
+
+#13 [stage-2 5/9] RUN if [ "development" != "production" ]; then   apk add --no-cache curl   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx   && npm install -g pnpm@10.2.0   && pnpm --version;   fi
+#13 0.289 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#13 0.907 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#13 1.856 (1/1) Installing curl (8.14.1-r3)
+#13 1.920 Executing busybox-1.37.0-r12.trigger
+#13 1.931 OK: 307 MiB in 124 packages
+#13 ...
+
+#10 [pre-builder  2/19] RUN apk update && apk add --no-cache   openssl   tar   build-base   tzdata   postgresql-dev   postgresql-client   git   curl   xz   && mkdir -p /var/app   && gem install bundler -v "2.5.16"
+#10 22.19 (60/67) Installing lz4-dev (1.10.0-r0)
+#10 22.23 (61/67) Installing zstd (1.5.6-r2)
+#10 22.28 (62/67) Installing zstd-dev (1.5.6-r2)
+#10 22.32 (63/67) Installing postgresql17-dev (17.12-r0)
+#10 22.52 (64/67) Installing acl-libs (2.3.2-r1)
+#10 22.55 (65/67) Installing tar (1.35-r2)
+#10 22.60 (66/67) Installing tzdata (2026f-r0)
+#10 22.69 (67/67) Installing xz (5.8.4-r0)
+#10 22.73 Executing busybox-1.37.0-r12.trigger
+#10 22.74 Executing postgresql-common-1.2-r1.trigger
+#10 22.74 * Setting postgresql17 as the default version
+#10 23.50 OK: 673 MiB in 84 packages
+#10 24.41 Successfully installed bundler-2.5.16
+#10 24.41 1 gem installed
+#10 DONE 24.5s
+
+#14 [pre-builder  3/19] COPY --from=node /usr/local/bin/node /usr/local/bin/
+#14 DONE 0.3s
+
+#13 [stage-2 5/9] RUN if [ "development" != "production" ]; then   apk add --no-cache curl   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx   && npm install -g pnpm@10.2.0   && pnpm --version;   fi
+#13 ...
+
+#15 [pre-builder  4/19] COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+#15 DONE 0.5s
+
+#16 [pre-builder  5/19] RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
+#16 DONE 0.3s
+
+#13 [stage-2 5/9] RUN if [ "development" != "production" ]; then   apk add --no-cache curl   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx   && npm install -g pnpm@10.2.0   && pnpm --version;   fi
+#13 ...
+
+#17 [pre-builder  6/19] RUN npm install -g pnpm@10.2.0
+#17 ...
+
+#13 [stage-2 5/9] RUN if [ "development" != "production" ]; then   apk add --no-cache curl   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm   && ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx   && npm install -g pnpm@10.2.0   && pnpm --version;   fi
+#13 5.274 
+#13 5.274 added 1 package in 3s
+#13 5.274 
+#13 5.274 1 package is looking for funding
+#13 5.274   run `npm fund` for details
+#13 5.277 npm notice
+#13 5.277 npm notice New major version of npm available! 11.19.1 -> 12.2.3
+#13 5.277 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+#13 5.277 npm notice To update run: npm install -g npm@12.2.3
+#13 5.277 npm notice
+#13 6.179 10.2.0
+#13 DONE 6.3s
+
+#17 [pre-builder  6/19] RUN npm install -g pnpm@10.2.0
+#17 3.609 
+#17 3.609 added 1 package in 3s
+#17 3.609 
+#17 3.610 1 package is looking for funding
+#17 3.610   run `npm fund` for details
+#17 3.612 npm notice
+#17 3.612 npm notice New major version of npm available! 11.19.1 -> 12.2.3
+#17 3.612 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+#17 3.612 npm notice To update run: npm install -g npm@12.2.3
+#17 3.612 npm notice
+#17 DONE 3.7s
+
+#18 [pre-builder  7/19] RUN echo 'export PNPM_HOME="/root/.local/share/pnpm"' >> /root/.shrc   && echo 'export PATH="$PNPM_HOME:$PATH"' >> /root/.shrc   && export PNPM_HOME="/root/.local/share/pnpm"   && export PATH="$PNPM_HOME:/usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"   && pnpm --version
+#18 0.837 10.2.0
+#18 DONE 0.9s
+
+#19 [pre-builder  8/19] WORKDIR /app
+#19 DONE 0.1s
+
+#20 [pre-builder  9/19] COPY Gemfile Gemfile.lock ./
+#20 DONE 0.1s
+
+#21 [pre-builder 10/19] RUN apk update && apk add --no-cache build-base musl ruby-full ruby-dev gcc make musl-dev openssl openssl-dev g++ linux-headers xz vips
+#21 0.227 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#21 0.539 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#21 0.983 v3.21.10-48-g913f2351f39 [https://dl-cdn.alpinelinux.org/alpine/v3.21/main]
+#21 0.983 v3.21.10-36-g9cbcb21ca43 [https://dl-cdn.alpinelinux.org/alpine/v3.21/community]
+#21 0.983 OK: 25407 distinct packages available
+#21 1.054 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#21 1.319 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+#21 1.687 (1/79) Installing linux-headers (6.6-r1)
+#21 1.859 (2/79) Installing ca-certificates (20261020-r0)
+#21 1.914 (3/79) Installing ruby-libs (3.3.14-r0)
+#21 2.939 (4/79) Installing libucontext (1.3.2-r0)
+#21 2.975 (5/79) Installing ruby (3.3.14-r0)
+#21 3.167 (6/79) Installing ruby-rdoc (3.3.14-r0)
+#21 3.248 (7/79) Installing libgmpxx (6.3.0-r2)
+#21 3.284 (8/79) Installing gmp-dev (6.3.0-r2)
+#21 3.428 (9/79) Installing libucontext-dev (1.3.2-r0)
+#21 3.465 (10/79) Installing ruby-dev (3.3.14-r0)
+#21 3.691 (11/79) Installing ruby-bundler (2.5.23-r0)
+#21 3.779 (12/79) Installing ruby-minitest (5.20.0-r0)
+#21 3.822 (13/79) Installing ruby-power_assert (2.0.4-r0)
+#21 4.016 (14/79) Installing ruby-rake (13.2.1-r0)
+#21 4.220 (15/79) Installing ruby-test-unit (3.6.2-r0)
+#21 4.267 (16/79) Installing ruby-rexml (3.4.4-r0)
+#21 4.316 (17/79) Installing ruby-rss (0.3.1-r0)
+#21 4.517 (18/79) Installing ruby-net-ftp (0.3.9-r0)
+#21 4.556 (19/79) Installing ruby-net-imap (0.4.25-r0)
+#21 4.764 (20/79) Installing ruby-net-pop (0.1.2-r1)
+#21 4.801 (21/79) Installing ruby-net-smtp (0.5.1-r0)
+#21 4.995 (22/79) Installing ruby-matrix (0.4.2-r2)
+#21 5.036 (23/79) Installing ruby-prime (0.1.2-r2)
+#21 5.073 (24/79) Installing ruby-rbs (3.4.4-r0)
+#21 5.224 (25/79) Installing ruby-typeprof (0.21.11-r0)
+#21 5.270 (26/79) Installing ruby-debug (1.9.2-r0)
+#21 5.315 (27/79) Installing ruby-racc (1.7.3-r0)
+#21 5.359 (28/79) Installing ruby-full (3.3.14-r0)
+#21 5.359 (29/79) Installing openexr-libiex (3.3.2-r0)
+#21 5.404 (30/79) Installing openexr-libilmthread (3.3.2-r0)
+#21 5.440 (31/79) Installing imath (3.1.12-r0)
+#21 5.482 (32/79) Installing libdeflate (1.22-r0)
+#21 5.525 (33/79) Installing openexr-libopenexrcore (3.3.2-r0)
+#21 5.592 (34/79) Installing openexr-libopenexr (3.3.2-r0)
+#21 5.658 (35/79) Installing libbz2 (1.0.8-r6)
+#21 5.695 (36/79) Installing libarchive (3.8.11-r0)
+#21 5.754 (37/79) Installing libxau (1.0.11-r4)
+#21 5.791 (38/79) Installing libmd (1.1.0-r0)
+#21 5.829 (39/79) Installing libbsd (0.12.2-r0)
+#21 5.867 (40/79) Installing libxdmcp (1.1.5-r1)
+#21 5.904 (41/79) Installing libxcb (1.16.1-r0)
+#21 5.966 (42/79) Installing libx11 (1.8.10-r0)
+#21 6.065 (43/79) Installing libxext (1.3.6-r2)
+#21 6.104 (44/79) Installing libxrender (0.9.11-r5)
+#21 6.143 (45/79) Installing libpng (1.6.59-r0)
+#21 6.187 (46/79) Installing freetype (2.13.3-r0)
+#21 6.242 (47/79) Installing fontconfig (2.15.0-r1)
+#21 6.293 (48/79) Installing pixman (0.43.4-r1)
+#21 6.342 (49/79) Installing cairo (1.18.4-r0)
+#21 6.407 (50/79) Installing cfitsio (4.5.0-r0)
+#21 6.472 (51/79) Installing cgif (0.4.1-r0)
+#21 6.508 (52/79) Installing libexif (0.6.24-r2)
+#21 6.551 (53/79) Installing fftw-double-libs (3.3.10-r6)
+#21 6.635 (54/79) Installing libintl (0.22.5-r0)
+#21 6.674 (55/79) Installing libeconf (0.6.3-r0)
+#21 6.711 (56/79) Installing libblkid (2.40.4-r1)
+#21 6.753 (57/79) Installing libmount (2.40.4-r1)
+#21 6.795 (58/79) Installing glib (2.82.5-r0)
+#21 6.934 (59/79) Installing libhwy (1.0.7-r0)
+#21 6.971 (60/79) Installing libimagequant (4.2.2-r0)
+#21 7.016 (61/79) Installing libjpeg-turbo (3.0.4-r0)
+#21 7.067 (62/79) Installing lcms2 (2.19-r0)
+#21 7.110 (63/79) Installing openjpeg (2.5.4-r1)
+#21 7.153 (64/79) Installing libxft (2.3.8-r3)
+#21 7.191 (65/79) Installing fribidi (1.0.16-r0)
+#21 7.230 (66/79) Installing graphite2 (1.3.14-r6)
+#21 7.279 (67/79) Installing harfbuzz (9.0.0-r1)
+#21 7.348 (68/79) Installing pango (1.54.0-r1)
+#21 7.397 (69/79) Installing libdav1d (1.5.0-r0)
+#21 7.469 (70/79) Installing shared-mime-info (2.4-r2)
+#21 7.528 (71/79) Installing libsharpyuv (1.4.0-r0)
+#21 7.572 (72/79) Installing libwebp (1.4.0-r0)
+#21 7.626 (73/79) Installing tiff (4.7.2-r0)
+#21 7.675 (74/79) Installing gdk-pixbuf (2.42.12-r1)
+#21 7.725 (75/79) Installing librsvg (2.59.2-r0)
+#21 7.869 (76/79) Installing libspng (0.7.4-r0)
+#21 7.912 (77/79) Installing libwebpdemux (1.4.0-r0)
+#21 7.950 (78/79) Installing libwebpmux (1.4.0-r0)
+#21 7.989 (79/79) Installing vips (8.15.3-r5)
+#21 8.110 Executing busybox-1.37.0-r12.trigger
+#21 8.128 Executing ca-certificates-20261020-r0.trigger
+#21 8.202 Executing glib-2.82.5-r0.trigger
+#21 8.207 Executing shared-mime-info-2.4-r2.trigger
+#21 8.744 Executing gdk-pixbuf-2.42.12-r1.trigger
+#21 8.767 OK: 748 MiB in 163 packages
+#21 DONE 9.0s
+
+#22 [pre-builder 11/19] RUN bundle config set --local force_ruby_platform true
+#22 DONE 0.7s
+
+#23 [pre-builder 12/19] RUN if [ "development" = "production" ]; then   bundle config set without 'development test'; bundle install -j 4 -r 3;   else bundle install -j 4 -r 3;   fi
+#23 2.664 Fetching gem metadata from https://rubygems.org/........
+#23 14.90 Fetching rake 13.2.1
+#23 15.10 Installing rake 13.2.1
+#23 15.32 Fetching base64 0.3.0
+#23 15.32 Fetching benchmark 0.5.0
+#23 15.32 Fetching bigdecimal 4.1.2
+#23 15.32 Fetching concurrent-ruby 1.3.8
+#23 15.36 Installing base64 0.3.0
+#23 15.37 Fetching connection_pool 2.5.5
+#23 15.40 Installing benchmark 0.5.0
+#23 15.40 Fetching drb 2.2.3
+#23 15.44 Installing bigdecimal 4.1.2 with native extensions
+#23 15.53 Installing concurrent-ruby 1.3.8
+#23 15.56 Installing connection_pool 2.5.5
+#23 15.58 Fetching logger 1.7.0
+#23 15.60 Installing drb 2.2.3
+#23 15.63 Fetching minitest 5.27.0
+#23 15.64 Installing logger 1.7.0
+#23 15.66 Fetching securerandom 0.4.1
+#23 15.97 Installing minitest 5.27.0
+#23 15.99 Installing securerandom 0.4.1
+#23 16.01 Fetching builder 3.3.0
+#23 16.01 Fetching cgi 0.5.2
+#23 16.02 Fetching erubi 1.13.1
+#23 16.04 Installing builder 3.3.0
+#23 16.05 Fetching mini_portile2 2.8.9
+#23 16.08 Installing cgi 0.5.2 with native extensions
+#23 16.11 Installing erubi 1.13.1
+#23 16.11 Fetching racc 1.8.1
+#23 16.14 Installing mini_portile2 2.8.9
+#23 16.16 Fetching crass 1.0.8
+#23 16.18 Installing racc 1.8.1 with native extensions
+#23 16.22 Installing crass 1.0.8
+#23 16.28 Fetching rack 3.2.6
+#23 16.33 Installing rack 3.2.6
+#23 16.37 Fetching useragent 0.16.11
+#23 16.42 Installing useragent 0.16.11
+#23 16.45 Fetching nio4r 2.7.5
+#23 16.50 Installing nio4r 2.7.5 with native extensions
+#23 17.07 Fetching websocket-extensions 0.1.5
+#23 17.10 Installing websocket-extensions 0.1.5
+#23 17.11 Fetching zeitwerk 2.8.3
+#23 17.14 Installing zeitwerk 2.8.3
+#23 17.16 Fetching timeout 0.6.1
+#23 17.19 Installing timeout 0.6.1
+#23 17.20 Fetching marcel 1.2.1
+#23 17.24 Installing marcel 1.2.1
+#23 17.25 Fetching mini_mime 1.1.5
+#23 17.31 Installing mini_mime 1.1.5
+#23 17.32 Fetching date 3.5.1
+#23 17.33 Fetching active_record_query_trace 1.8
+#23 17.37 Installing date 3.5.1 with native extensions
+#23 17.40 Installing active_record_query_trace 1.8
+#23 17.40 Fetching public_suffix 7.0.5
+#23 17.45 Installing public_suffix 7.0.5
+#23 17.46 Fetching prettyprint 0.2.0
+#23 17.49 Installing prettyprint 0.2.0
+#23 17.51 Fetching prism 1.9.0
+#23 17.82 Installing prism 1.9.0 with native extensions
+#23 22.83 Fetching erb 6.0.6
+#23 22.95 Installing erb 6.0.6 with native extensions
+#23 23.96 Fetching tsort 0.2.0
+#23 24.00 Installing tsort 0.2.0
+#23 24.01 Fetching io-console 0.8.2
+#23 24.05 Installing io-console 0.8.2 with native extensions
+#23 29.07 Fetching thor 1.4.0
+#23 29.24 Installing thor 1.4.0
+#23 29.26 Fetching kaminari-core 1.2.2
+#23 29.30 Installing kaminari-core 1.2.2
+#23 29.32 Fetching ffi 1.17.2
+#23 29.53 Installing ffi 1.17.2 with native extensions
+#23 31.53 Fetching tilt 2.3.0
+#23 31.64 Installing tilt 2.3.0
+#23 31.66 Fetching selectize-rails 0.12.6
+#23 31.75 Installing selectize-rails 0.12.6
+#23 31.78 Fetching event_stream_parser 1.0.0
+#23 31.82 Installing event_stream_parser 1.0.0
+#23 31.83 Fetching uri 1.1.1
+#23 31.87 Installing uri 1.1.1
+#23 31.88 Fetching json 2.21.2
+#23 31.96 Installing json 2.21.2 with native extensions
+#23 33.83 Fetching multipart-post 2.4.1
+#23 33.86 Installing multipart-post 2.4.1
+#23 33.88 Fetching schematist 1.1.0
+#23 33.91 Installing schematist 1.1.0
+#23 33.92 Fetching http-2 1.2.3
+#23 33.97 Installing http-2 1.2.3
+#23 33.98 Fetching ast 2.4.3
+#23 34.02 Installing ast 2.4.3
+#23 34.03 Fetching attr_extras 7.1.0
+#23 34.07 Installing attr_extras 7.1.0
+#23 34.08 Fetching version_gem 1.1.11
+#23 34.12 Installing version_gem 1.1.11
+#23 34.14 Fetching aws-eventstream 1.4.0
+#23 34.17 Installing aws-eventstream 1.4.0
+#23 34.18 Fetching aws-partitions 1.1198.0
+#23 34.23 Installing aws-partitions 1.1198.0
+#23 34.24 Fetching jmespath 1.6.2
+#23 34.28 Installing jmespath 1.6.2
+#23 34.29 Fetching rexml 3.4.4
+#23 34.33 Installing rexml 3.4.4
+#23 34.36 Fetching multi_json 1.15.0
+#23 34.40 Installing multi_json 1.15.0
+#23 34.41 Fetching statsd-ruby 1.5.0
+#23 34.45 Installing statsd-ruby 1.5.0
+#23 34.46 Fetching bcrypt 3.1.22
+#23 34.50 Installing bcrypt 3.1.22 with native extensions
+#23 36.45 Fetching bindex 0.8.1
+#23 36.48 Installing bindex 0.8.1 with native extensions
+#23 37.06 Fetching msgpack 1.8.3
+#23 37.10 Installing msgpack 1.8.3 with native extensions
+#23 46.86 Fetching browser 5.3.1
+#23 47.04 Installing browser 5.3.1
+#23 47.09 Fetching uniform_notifier 1.17.0
+#23 47.13 Installing uniform_notifier 1.17.0
+#23 47.15 Fetching byebug 11.1.3
+#23 47.22 Installing byebug 11.1.3 with native extensions
+#23 49.42 Fetching cld3 3.7.0
+#23 49.68 Installing cld3 3.7.0 with native extensions
+#23 50.54 Fetching climate_control 1.2.0
+#23 50.58 Installing climate_control 1.2.0
+#23 50.61 Fetching coderay 1.1.3
+#23 50.65 Installing coderay 1.1.3
+#23 50.68 Fetching commonmarker 0.23.12
+#23 50.73 Installing commonmarker 0.23.12 with native extensions
+#23 66.74 Fetching unicode 0.4.4.5
+#23 66.97 Installing unicode 0.4.4.5 with native extensions
+#23 67.02 Fetching csv 3.3.0
+#23 67.07 Installing csv 3.3.0
+#23 67.09 Fetching database_cleaner-core 2.0.1
+#23 67.14 Installing database_cleaner-core 2.0.1
+#23 67.15 Fetching datadog-ruby_core_source 3.5.3
+#23 68.06 Installing datadog-ruby_core_source 3.5.3
+#23 68.29 Fetching libdatadog 36.0.0.1.0
+#23 70.27 Installing libdatadog 36.0.0.1.0
+#23 71.50 Fetching declarative 0.0.20
+#23 71.55 Fetching orm_adapter 0.5.0
+#23 71.61 Installing declarative 0.0.20
+#23 71.61 Fetching rotp 6.3.0
+#23 71.65 Installing orm_adapter 0.5.0
+#23 71.65 Fetching diff-lcs 1.5.1
+#23 71.68 Installing rotp 6.3.0
+#23 71.70 Fetching digest-crc 0.6.5
+#23 71.75 Installing diff-lcs 1.5.1
+#23 71.77 Fetching docile 1.4.1
+#23 71.79 Installing digest-crc 0.6.5 with native extensions
+#23 71.83 Installing docile 1.4.1
+#23 71.85 Fetching unf_ext 0.0.8.2
+#23 71.97 Installing unf_ext 0.0.8.2 with native extensions
+#23 73.02 Fetching dotenv 3.1.2
+#23 73.05 Installing dotenv 3.1.2
+#23 73.06 Fetching dry-cli 1.1.0
+#23 73.10 Installing dry-cli 1.1.0
+#23 73.11 Fetching dry-inflector 1.2.0
+#23 73.15 Installing dry-inflector 1.2.0
+#23 73.15 Fetching dry-initializer 3.2.0
+#23 73.19 Installing dry-initializer 3.2.0
+#23 73.21 Fetching regexp_parser 2.10.0
+#23 73.25 Installing regexp_parser 2.10.0
+#23 73.29 Fetching http-form_data 2.3.0
+#23 73.34 Installing http-form_data 2.3.0
+#23 73.35 Fetching ruby2_keywords 0.0.5
+#23 73.39 Installing ruby2_keywords 0.0.5
+#23 73.39 Fetching email-provider-info 0.0.1
+#23 73.50 Installing email-provider-info 0.0.1
+#23 73.51 Fetching email_reply_trimmer 0.1.13
+#23 73.55 Installing email_reply_trimmer 0.1.13
+#23 73.61 Fetching execjs 2.8.1
+#23 73.64 Installing execjs 2.8.1
+#23 73.65 Fetching mime-types-data 3.2023.0218.1
+#23 73.71 Installing mime-types-data 3.2023.0218.1
+#23 73.74 Fetching os 1.1.4
+#23 73.77 Installing os 1.1.4
+#23 73.78 Fetching firecrawl-sdk 1.4.1
+#23 73.82 Installing firecrawl-sdk 1.4.1
+#23 73.83 Fetching flag_shih_tzu 0.3.23
+#23 73.87 Installing flag_shih_tzu 0.3.23
+#23 73.89 Fetching foreman 0.87.2
+#23 73.93 Installing foreman 0.87.2
+#23 74.00 Fetching raabro 1.4.0
+#23 74.03 Fetching google-protobuf 3.25.7
+#23 74.06 Installing raabro 1.4.0
+#23 74.06 Fetching gemoji 4.1.0
+#23 74.09 Fetching geocoder 1.8.1
+#23 74.11 Installing google-protobuf 3.25.7 with native extensions
+#23 74.14 Installing gemoji 4.1.0
+#23 74.18 Fetching ostruct 0.6.3
+#23 74.19 Installing geocoder 1.8.1
+#23 74.23 Installing ostruct 0.6.3
+#23 74.26 Fetching httpclient 2.8.3
+#23 74.28 Fetching mutex_m 0.3.0
+#23 74.35 Installing httpclient 2.8.3
+#23 74.38 Installing mutex_m 0.3.0
+#23 74.40 Fetching trailblazer-option 0.1.2
+#23 74.40 Fetching uber 0.1.0
+#23 74.44 Installing trailblazer-option 0.1.2
+#23 74.45 Fetching retriable 3.1.2
+#23 74.47 Installing uber 0.1.0
+#23 74.48 Fetching google-cloud-errors 1.3.1
+#23 74.51 Installing retriable 3.1.2
+#23 74.52 Fetching gserver 0.0.1
+#23 74.54 Installing google-cloud-errors 1.3.1
+#23 74.55 Fetching haikunator 1.1.1
+#23 74.58 Installing gserver 0.0.1
+#23 74.58 Fetching sexp_processor 4.17.0
+#23 74.61 Installing haikunator 1.1.1
+#23 74.62 Fetching hana 1.3.7
+#23 74.65 Installing sexp_processor 4.17.0
+#23 74.66 Fetching hash_diff 1.1.1
+#23 74.68 Installing hana 1.3.7
+#23 74.69 Fetching hashdiff 1.1.0
+#23 74.72 Installing hash_diff 1.1.1
+#23 74.73 Fetching http-accept 1.7.0
+#23 74.76 Installing hashdiff 1.1.0
+#23 74.82 Installing http-accept 1.7.0
+#23 74.85 Fetching mini_magick 4.12.0
+#23 74.85 Fetching uri_template 0.7.0
+#23 74.89 Installing mini_magick 4.12.0
+#23 74.90 Fetching uri-idna 0.3.1
+#23 74.92 Installing uri_template 0.7.0
+#23 74.93 Fetching judoscale-ruby 1.8.2
+#23 74.96 Installing uri-idna 0.3.1
+#23 74.97 Fetching language_server-protocol 3.17.0.5
+#23 74.99 Installing judoscale-ruby 1.8.2
+#23 75.00 Fetching line-bot-api 1.28.0
+#23 75.03 Installing language_server-protocol 3.17.0.5
+#23 75.07 Installing line-bot-api 1.28.0
+#23 75.11 Fetching lint_roller 1.1.0
+#23 75.15 Installing lint_roller 1.1.0
+#23 75.18 Fetching liquid 5.4.0
+#23 75.19 Fetching rb-fsevent 0.11.2
+#23 75.22 Installing liquid 5.4.0
+#23 75.23 Fetching maxminddb 0.1.22
+#23 75.26 Installing rb-fsevent 0.11.2
+#23 75.27 Fetching method_source 1.1.0
+#23 75.29 Installing maxminddb 0.1.22
+#23 75.31 Fetching netrc 0.11.0
+#23 75.32 Installing method_source 1.1.0
+#23 75.33 Fetching openssl 3.2.0
+#23 75.35 Installing netrc 0.11.0
+#23 75.36 Fetching opentelemetry-api 1.7.0
+#23 75.40 Installing openssl 3.2.0 with native extensions
+#23 75.44 Installing opentelemetry-api 1.7.0
+#23 75.49 Fetching parallel 1.27.0
+#23 75.53 Installing parallel 1.27.0
+#23 75.53 Fetching pg 1.5.3
+#23 75.59 Installing pg 1.5.3 with native extensions
+#23 95.92 Fetching pgvector 0.1.1
+#23 96.03 Installing pgvector 0.1.1
+#23 96.04 Fetching rack-timeout 0.6.3
+#23 96.08 Installing rack-timeout 0.6.3
+#23 96.10 Fetching rainbow 3.1.1
+#23 96.14 Installing rainbow 3.1.1
+#23 96.15 Fetching rspec-support 3.13.1
+#23 96.20 Installing rspec-support 3.13.1
+#23 96.21 Fetching ruby-progressbar 1.13.0
+#23 96.25 Installing ruby-progressbar 1.13.0
+#23 96.27 Fetching unicode-emoji 4.0.4
+#23 96.36 Installing unicode-emoji 4.0.4
+#23 96.39 Fetching sorbet-runtime 0.5.11934
+#23 96.44 Installing sorbet-runtime 0.5.11934
+#23 96.48 Fetching simplecov-html 0.13.2
+#23 96.53 Installing simplecov-html 0.13.2
+#23 96.54 Fetching simplecov_json_formatter 0.1.4
+#23 96.58 Installing simplecov_json_formatter 0.1.4
+#23 96.59 Fetching squasher 0.7.2
+#23 96.62 Installing squasher 0.7.2
+#23 96.64 Fetching ssrf_filter 1.5.0
+#23 96.68 Installing ssrf_filter 1.5.0
+#23 96.69 Fetching stackprof 0.2.25
+#23 96.73 Installing stackprof 0.2.25 with native extensions
+#23 98.07 Fetching stripe 18.0.1
+#23 98.36 Installing stripe 18.0.1
+#23 98.85 Fetching telephone_number 1.4.20
+#23 99.66 Fetching wisper 2.0.0
+#23 99.71 Installing wisper 2.0.0
+#23 99.78 Fetching jwt 2.10.3
+#23 99.82 Fetching newrelic_rpm 9.6.0
+#23 99.92 Installing jwt 2.10.3
+#23 100.1 Installing newrelic_rpm 9.6.0
+#23 100.1 Fetching redis-client 0.26.4
+#23 100.2 Installing redis-client 0.26.4
+#23 100.2 Installing telephone_number 1.4.20
+#23 100.3 Fetching childprocess 5.1.0
+#23 100.3 Installing childprocess 5.1.0
+#23 100.4 Fetching hashie 5.1.0
+#23 100.4 Installing hashie 5.1.0
+#23 100.6 Fetching test-prof 1.6.3
+#23 100.7 Installing test-prof 1.6.3
+#23 101.0 Fetching i18n 1.15.2
+#23 101.0 Fetching tzinfo 2.0.6
+#23 101.0 Installing i18n 1.15.2
+#23 101.1 Installing tzinfo 2.0.6
+#23 101.1 Fetching rack-session 2.1.2
+#23 101.1 Fetching rack-test 2.1.0
+#23 101.2 Installing rack-session 2.1.2
+#23 101.2 Fetching rackup 2.2.1
+#23 101.2 Installing rack-test 2.1.0
+#23 101.2 Fetching sprockets 4.2.1
+#23 101.3 Installing rackup 2.2.1
+#23 101.3 Fetching warden 1.2.9
+#23 101.3 Installing sprockets 4.2.1
+#23 101.4 Installing warden 1.2.9
+#23 101.4 Fetching request_store 1.5.1
+#23 101.4 Fetching rack-contrib 2.5.0
+#23 101.4 Installing request_store 1.5.1
+#23 101.5 Fetching rack-protection 4.2.1
+#23 101.5 Installing rack-contrib 2.5.0
+#23 101.5 Installing rack-protection 4.2.1
+#23 101.5 Fetching rack-attack 6.7.0
+#23 101.6 Fetching rack-cors 2.0.0
+#23 101.6 Installing rack-attack 6.7.0
+#23 101.6 Installing rack-cors 2.0.0
+#23 101.7 Fetching rack-mini-profiler 4.0.1
+#23 101.7 Fetching rack-proxy 1.0.3
+#23 101.7 Fetching websocket-driver 0.8.2
+#23 101.8 Installing rack-mini-profiler 4.0.1
+#23 101.8 Installing rack-proxy 1.0.3
+#23 101.8 Fetching dry-core 1.1.0
+#23 101.8 Installing websocket-driver 0.8.2 with native extensions
+#23 101.8 Fetching net-protocol 0.2.2
+#23 101.9 Installing dry-core 1.1.0
+#23 101.9 Fetching nokogiri 1.19.4
+#23 101.9 Installing net-protocol 0.2.2
+#23 101.9 Fetching brakeman 8.0.5
+#23 102.5 Installing nokogiri 1.19.4 with native extensions
+#23 102.5 Fetching addressable 2.9.0
+#23 102.6 Installing addressable 2.9.0
+#23 102.6 Fetching pp 0.6.4
+#23 102.7 Installing brakeman 8.0.5
+#23 102.7 Installing pp 0.6.4
+#23 102.7 Fetching puma 7.2.1
+#23 102.8 Installing puma 7.2.1 with native extensions
+#23 103.3 Fetching reline 0.6.3
+#23 103.4 Installing reline 0.6.3
+#23 103.4 Fetching multi_xml 0.9.1
+#23 103.4 Installing multi_xml 0.9.1
+#23 103.4 Fetching sentry-ruby 5.19.0
+#23 103.5 Installing sentry-ruby 5.19.0
+#23 103.5 Fetching bundler-audit 0.9.1
+#23 103.6 Installing bundler-audit 0.9.1
+#23 103.6 Fetching net-http 0.9.1
+#23 103.6 Installing net-http 0.9.1
+#23 103.7 Fetching faraday-multipart 1.2.0
+#23 103.7 Installing faraday-multipart 1.2.0
+#23 103.7 Fetching net-http2 0.19.0
+#23 103.7 Installing net-http2 0.19.0
+#23 103.8 Fetching parser 3.3.8.0
+#23 103.9 Installing parser 3.3.8.0
+#23 104.1 Fetching auth-sanitizer 0.2.1
+#23 104.1 Installing auth-sanitizer 0.2.1
+#23 104.2 Fetching aws-sigv4 1.12.1
+#23 104.2 Installing aws-sigv4 1.12.1
+#23 104.2 Fetching azure-blob 0.8.0
+#23 104.3 Installing azure-blob 0.8.0
+#23 104.3 Fetching crack 1.0.0
+#23 104.3 Installing crack 1.0.0
+#23 104.3 Fetching barnes 0.0.9
+#23 104.4 Installing barnes 0.0.9
+#23 104.4 Fetching bootsnap 1.16.0
+#23 104.4 Installing bootsnap 1.16.0 with native extensions
+#23 105.4 Fetching sassc 2.4.0
+#23 105.5 Installing sassc 2.4.0 with native extensions
+#23 110.7 Fetching libddwaf 1.30.0.0.2
+#23 111.9 Installing libddwaf 1.30.0.0.2
+#23 112.0 Fetching ffi-compiler 1.0.1
+#23 112.0 Installing ffi-compiler 1.0.1
+#23 112.0 Fetching ruby-vips 2.1.4
+#23 112.1 Installing ruby-vips 2.1.4
+#23 112.1 Fetching rb-inotify 0.10.1
+#23 112.1 Installing rb-inotify 0.10.1
+#23 112.1 Fetching rbs 4.0.3
+#23 112.3 Installing rbs 4.0.3 with native extensions
+#23 126.7 Fetching csv-safe 3.3.1
+#23 126.8 Installing csv-safe 3.3.1
+#23 126.8 Fetching iso-639 0.3.8
+#23 126.8 Installing iso-639 0.3.8
+#23 126.8 Fetching ecma-re-validator 0.4.0
+#23 126.9 Installing ecma-re-validator 0.4.0
+#23 126.9 Fetching mock_redis 0.36.0
+#23 127.0 Installing mock_redis 0.36.0
+#23 127.0 Fetching uglifier 4.2.0
+#23 127.1 Installing uglifier 4.2.0
+#23 127.1 Fetching mime-types 3.4.1
+#23 127.2 Installing mime-types 3.4.1
+#23 127.2 Fetching unf 0.1.4
+#23 127.2 Installing unf 0.1.4
+#23 127.2 Fetching gli 2.22.2
+#23 127.3 Installing gli 2.22.2
+#23 127.3 Fetching oj 3.17.3
+#23 127.4 Installing oj 3.17.3 with native extensions
+#23 141.2 Fetching representable 3.2.0
+#23 141.3 Installing representable 3.2.0
+#23 141.4 Fetching ruby_parser 3.22.0
+#23 141.6 Installing ruby_parser 3.22.0
+#23 141.7 Fetching json_refs 0.1.8
+#23 141.7 Installing json_refs 0.1.8
+#23 141.7 Fetching json_skooma 0.2.5
+#23 141.8 Installing json_skooma 0.2.5
+#23 141.8 Fetching pry 0.14.2
+#23 141.9 Installing pry 0.14.2
+#23 141.9 Fetching opentelemetry-common 0.23.0
+#23 142.0 Installing opentelemetry-common 0.23.0
+#23 142.0 Fetching opentelemetry-registry 0.4.0
+#23 142.0 Installing opentelemetry-registry 0.4.0
+#23 142.0 Fetching opentelemetry-semantic_conventions 1.36.0
+#23 142.1 Installing opentelemetry-semantic_conventions 1.36.0
+#23 142.2 Fetching rspec-core 3.13.0
+#23 142.2 Installing rspec-core 3.13.0
+#23 142.3 Fetching rspec-expectations 3.13.2
+#23 142.3 Installing rspec-expectations 3.13.2
+#23 142.3 Fetching rspec-mocks 3.13.1
+#23 142.4 Installing rspec-mocks 3.13.1
+#23 142.4 Fetching unicode-display_width 3.1.4
+#23 142.4 Installing unicode-display_width 3.1.4
+#23 142.4 Fetching simplecov 0.22.0
+#23 142.5 Installing simplecov 0.22.0
+#23 142.5 Fetching googleapis-common-protos-types 1.20.0
+#23 142.5 Installing googleapis-common-protos-types 1.20.0
+#23 142.6 Fetching sidekiq 7.3.10
+#23 142.6 Installing sidekiq 7.3.10
+#23 142.7 Fetching redis 5.0.6
+#23 142.7 Installing redis 5.0.6
+#23 142.7 Fetching snaky_hash 2.0.5
+#23 142.8 Installing snaky_hash 2.0.5
+#23 142.8 Fetching faker 3.2.0
+#23 143.0 Installing faker 3.2.0
+#23 143.2 Fetching activesupport 7.2.3.1
+#23 143.3 Installing activesupport 7.2.3.1
+#23 143.4 Fetching cronex 0.15.0
+#23 143.4 Installing cronex 0.15.0
+#23 143.4 Fetching et-orbi 1.2.11
+#23 143.5 Installing et-orbi 1.2.11
+#23 143.5 Fetching tzinfo-data 1.2026.4
+#23 143.6 Installing tzinfo-data 1.2026.4
+#23 143.7 Fetching omniauth 2.1.4
+#23 143.7 Installing omniauth 2.1.4
+#23 143.8 Fetching vite_ruby 3.10.6
+#23 143.8 Installing vite_ruby 3.10.6
+#23 143.8 Fetching dry-configurable 1.3.0
+#23 143.8 Installing dry-configurable 1.3.0
+#23 143.9 Fetching dry-logic 1.6.0
+#23 143.9 Installing dry-logic 1.6.0
+#23 143.9 Fetching net-imap 0.6.4.1
+#23 144.0 Installing net-imap 0.6.4.1
+#23 144.0 Fetching net-pop 0.1.2
+#23 144.0 Installing net-pop 0.1.2
+#23 144.0 Fetching net-smtp 0.3.4
+#23 144.1 Installing net-smtp 0.3.4
+#23 144.1 Fetching down 5.4.0
+#23 144.1 Installing down 5.4.0
+#23 144.1 Fetching launchy 3.1.1
+#23 144.2 Installing launchy 3.1.1
+#23 144.2 Fetching httparty 0.24.0
+#23 144.2 Installing httparty 0.24.0
+#23 144.2 Fetching bundle-audit 0.1.0
+#23 144.3 Installing bundle-audit 0.1.0
+#23 144.3 Fetching faraday-net_http 3.4.4
+#23 144.3 Installing faraday-net_http 3.4.4
+#23 144.3 Fetching apnotic 1.8.0
+#23 144.4 Installing apnotic 1.8.0
+#23 144.4 Fetching rubocop-ast 1.44.1
+#23 144.4 Installing rubocop-ast 1.44.1
+#23 144.5 Fetching scout_apm 5.3.3
+#23 144.5 Installing scout_apm 5.3.3 with native extensions
+#23 146.1 Fetching oauth-tty 1.0.8
+#23 146.2 Installing oauth-tty 1.0.8
+#23 146.2 Fetching aws-sdk-core 3.240.0
+#23 146.3 Installing aws-sdk-core 3.240.0
+#23 146.4 Fetching webmock 3.23.1
+#23 146.5 Installing webmock 3.23.1
+#23 146.5 Fetching datadog 2.38.0
+#23 146.6 Installing datadog 2.38.0 with native extensions
+#23 167.5 Fetching llhttp-ffi 0.4.0
+#23 167.6 Installing llhttp-ffi 0.4.0 with native extensions
+#23 167.7 Fetching image_processing 1.12.2
+#23 167.8 Installing image_processing 1.12.2
+#23 167.8 Fetching listen 3.8.0
+#23 167.8 Installing listen 3.8.0
+#23 167.8 Fetching sass-listen 4.0.0
+#23 167.9 Installing sass-listen 4.0.0
+#23 167.9 Fetching rdoc 8.0.0
+#23 168.1 Installing rdoc 8.0.0
+#23 168.2 Fetching json_schemer 0.2.24
+#23 168.3 Installing json_schemer 0.2.24
+#23 168.3 Fetching domain_name 0.5.20190701
+#23 168.3 Installing domain_name 0.5.20190701
+#23 168.3 Fetching web-push 3.0.1
+#23 168.4 Installing web-push 3.0.1
+#23 168.4 Fetching ruby2ruby 2.5.0
+#23 168.4 Installing ruby2ruby 2.5.0
+#23 168.4 Fetching skooma 0.3.7
+#23 168.5 Installing skooma 0.3.7
+#23 168.5 Fetching pry-rails 0.3.9
+#23 168.6 Installing pry-rails 0.3.9
+#23 168.6 Fetching opentelemetry-sdk 1.10.0
+#23 168.6 Installing opentelemetry-sdk 1.10.0
+#23 168.6 Fetching rspec_junit_formatter 0.6.0
+#23 168.7 Installing rspec_junit_formatter 0.6.0
+#23 168.7 Fetching grpc 1.72.0
+#23 169.0 Fetching judoscale-sidekiq 1.8.2
+#23 169.1 Installing judoscale-sidekiq 1.8.2
+#23 169.2 Fetching newrelic-sidekiq-metrics 1.6.2
+#23 169.2 Installing newrelic-sidekiq-metrics 1.6.2
+#23 169.2 Fetching sentry-sidekiq 5.19.0
+#23 169.3 Installing sentry-sidekiq 5.19.0
+#23 169.4 Fetching sidekiq_alive 2.5.0
+#23 169.4 Installing sidekiq_alive 2.5.0
+#23 169.4 Fetching redis-namespace 1.10.0
+#23 169.5 Installing redis-namespace 1.10.0
+#23 169.5 Fetching globalid 1.2.1
+#23 169.5 Installing globalid 1.2.1
+#23 169.6 Fetching activemodel 7.2.3.1
+#23 169.6 Installing grpc 1.72.0 with native extensions
+#23 169.7 Installing activemodel 7.2.3.1
+#23 169.7 Fetching bullet 8.0.7
+#23 169.8 Installing bullet 8.0.7
+#23 169.8 Fetching factory_bot 6.4.5
+#23 169.9 Installing factory_bot 6.4.5
+#23 170.0 Fetching groupdate 6.2.1
+#23 170.0 Installing groupdate 6.2.1
+#23 170.0 Fetching pundit 2.3.0
+#23 170.1 Installing pundit 2.3.0
+#23 170.1 Fetching shoulda-matchers 5.3.0
+#23 170.2 Installing shoulda-matchers 5.3.0
+#23 170.3 Fetching working_hours 1.4.1
+#23 170.4 Installing working_hours 1.4.1
+#23 170.4 Fetching fugit 1.11.1
+#23 170.5 Installing fugit 1.11.1
+#23 170.5 Fetching dry-types 1.9.1
+#23 170.6 Installing dry-types 1.9.1
+#23 170.6 Fetching mail 2.9.1
+#23 170.7 Installing mail 2.9.1
+#23 170.9 Fetching letter_opener 1.10.0
+#23 171.0 Installing letter_opener 1.10.0
+#23 171.0 Fetching facebook-messenger 2.0.1
+#23 171.0 Installing facebook-messenger 2.0.1
+#23 171.1 Fetching faraday 2.14.4
+#23 171.2 Installing faraday 2.14.4
+#23 171.3 Fetching rubocop 1.75.6
+#23 171.4 Installing rubocop 1.75.6
+#23 172.6 Fetching oauth 1.1.6
+#23 172.9 Installing oauth 1.1.6
+#23 173.0 Fetching aws-sdk-kms 1.118.0
+#23 173.0 Installing aws-sdk-kms 1.118.0
+#23 173.1 Fetching aws-sdk-sns 1.70.0
+#23 173.1 Installing aws-sdk-sns 1.70.0
+#23 173.2 Fetching aws-sdk-cloudwatch 1.126.0
+#23 173.2 Installing aws-sdk-cloudwatch 1.126.0
+#23 173.3 Fetching aws-sdk-sesv2 1.92.0
+#23 173.4 Installing aws-sdk-sesv2 1.92.0
+#23 173.4 Fetching shopify_api 14.8.0
+#23 173.6 Installing shopify_api 14.8.0
+#23 173.9 Fetching sass 3.7.4
+#23 173.9 Installing sass 3.7.4
+#23 174.0 Fetching irb 1.18.0
+#23 174.1 Installing irb 1.18.0
+#23 174.1 Fetching http-cookie 1.0.5
+#23 174.2 Installing http-cookie 1.0.5
+#23 174.2 Fetching opentelemetry-exporter-otlp 0.31.1
+#23 174.3 Installing opentelemetry-exporter-otlp 0.31.1
+#23 174.3 Fetching activejob 7.2.3.1
+#23 174.3 Installing activejob 7.2.3.1
+#23 174.4 Fetching activerecord 7.2.3.1
+#23 174.5 Installing activerecord 7.2.3.1
+#23 174.6 Fetching searchkick 5.5.2
+#23 174.7 Installing searchkick 5.5.2
+#23 174.7 Fetching sidekiq-cron 2.4.0
+#23 174.7 Installing sidekiq-cron 2.4.0
+#23 174.8 Fetching dry-schema 1.14.1
+#23 174.8 Installing dry-schema 1.14.1
+#23 174.8 Fetching valid_email2 5.2.6
+#23 175.0 Installing valid_email2 5.2.6
+#23 175.0 Fetching faraday-retry 2.4.0
+#23 175.0 Installing faraday-retry 2.4.0
+#23 175.1 Fetching faraday-mashify 1.0.0
+#23 175.1 Installing faraday-mashify 1.0.0
+#23 175.1 Fetching faraday_middleware-aws-sigv4 1.0.1
+#23 175.1 Installing faraday_middleware-aws-sigv4 1.0.1
+#23 175.2 Fetching google-cloud-env 2.2.1
+#23 175.2 Installing google-cloud-env 2.2.1
+#23 175.2 Fetching signet 0.17.0
+#23 175.2 Installing signet 0.17.0
+#23 175.3 Fetching koala 3.4.0
+#23 175.7 Installing koala 3.4.0
+#23 175.9 Fetching oauth2 2.0.22
+#23 175.9 Installing oauth2 2.0.22
+#23 175.9 Fetching opensearch-ruby 3.4.0
+#23 176.0 Installing opensearch-ruby 3.4.0
+#23 176.1 Fetching ruby-openai 7.3.1
+#23 176.1 Installing ruby-openai 7.3.1
+#23 176.2 Fetching rubocop-factory_bot 2.27.1
+#23 176.2 Installing rubocop-factory_bot 2.27.1
+#23 176.2 Fetching rubocop-performance 1.25.0
+#23 176.2 Installing rubocop-performance 1.25.0
+#23 176.3 Fetching rubocop-rails 2.32.0
+#23 176.3 Installing rubocop-rails 2.32.0
+#23 176.3 Fetching rubocop-rspec 3.6.0
+#23 176.4 Installing rubocop-rspec 3.6.0
+#23 176.4 Fetching gmail_xoauth 0.4.3
+#23 176.5 Installing gmail_xoauth 0.4.3
+#23 176.5 Fetching twitty 0.1.5
+#23 176.5 Installing twitty 0.1.5
+#23 176.5 Fetching aws-sdk-s3 1.208.0
+#23 176.6 Installing aws-sdk-s3 1.208.0
+#23 176.7 Fetching speedshop-cloudwatch 0.2.1
+#23 176.7 Installing speedshop-cloudwatch 0.2.1
+#23 176.7 Fetching scss_lint 0.60.0
+#23 176.8 Installing scss_lint 0.60.0
+#23 176.8 Fetching debug 1.11.1
+#23 176.9 Installing debug 1.11.1 with native extensions
+#23 177.8 Fetching http 5.1.1
+#23 177.8 Installing http 5.1.1
+#23 177.8 Fetching rest-client 2.1.0
+#23 177.9 Installing rest-client 2.1.0
+#23 177.9 Fetching activerecord-import 2.1.0
+#23 178.0 Installing activerecord-import 2.1.0
+#23 178.0 Fetching acts-as-taggable-on 12.0.0
+#23 178.1 Installing acts-as-taggable-on 12.0.0
+#23 178.1 Fetching kaminari-activerecord 1.2.2
+#23 178.1 Installing kaminari-activerecord 1.2.2
+#23 178.1 Fetching annotaterb 4.20.0
+#23 178.2 Installing annotaterb 4.20.0
+#23 178.2 Fetching audited 5.4.1
+#23 178.3 Installing audited 5.4.1
+#23 178.3 Fetching database_cleaner-active_record 2.1.0
+#23 178.3 Installing database_cleaner-active_record 2.1.0
+#23 178.3 Fetching hairtrigger 1.3.1
+#23 178.4 Installing hairtrigger 1.3.1
+#23 178.4 Fetching neighbor 0.2.3
+#23 178.4 Installing neighbor 0.2.3
+#23 178.4 Fetching pg_search 2.3.6
+#23 178.5 Installing pg_search 2.3.6
+#23 178.5 Fetching procore-sift 1.0.0
+#23 178.6 Installing procore-sift 1.0.0
+#23 178.6 Fetching seed_dump 3.3.1
+#23 178.7 Installing seed_dump 3.3.1
+#23 178.7 Fetching fast-mcp 1.5.0
+#23 178.7 Installing fast-mcp 1.5.0
+#23 178.7 Fetching ruby_llm 2.0.0
+#23 178.9 Installing ruby_llm 2.0.0
+#23 179.2 Fetching slack-ruby-client 2.7.0
+#23 179.3 Installing slack-ruby-client 2.7.0
+#23 179.5 Fetching google-cloud-core 1.7.1
+#23 179.5 Installing google-cloud-core 1.7.1
+#23 179.6 Fetching googleauth 1.11.2
+#23 179.6 Installing googleauth 1.11.2
+#23 179.7 Fetching omniauth-oauth2 1.8.0
+#23 179.7 Installing omniauth-oauth2 1.8.0
+#23 179.7 Fetching elastic-apm 4.6.2
+#23 179.8 Installing elastic-apm 4.6.2
+#23 180.0 Fetching database_cleaner 2.0.2
+#23 180.0 Installing database_cleaner 2.0.2
+#23 180.1 Fetching ai-agents 0.13.0
+#23 180.2 Installing ai-agents 0.13.0
+#23 180.3 Fetching fcm 1.0.8
+#23 180.3 Installing fcm 1.0.8
+#23 180.3 Fetching google-apis-core 0.15.1
+#23 180.4 Installing google-apis-core 0.15.1
+#23 180.4 Fetching omniauth-google-oauth2 1.1.3
+#23 180.4 Installing omniauth-google-oauth2 1.1.3
+#23 180.6 Fetching google-apis-iamcredentials_v1 0.22.0
+#23 180.6 Installing google-apis-iamcredentials_v1 0.22.0
+#23 180.7 Fetching google-apis-storage_v1 0.47.0
+#23 180.7 Installing google-apis-storage_v1 0.47.0
+#23 180.8 Fetching google-cloud-storage 1.52.0
+#23 180.9 Installing google-cloud-storage 1.52.0
+#23 338.2 Fetching loofah 2.25.2
+#23 338.2 Fetching html2text 0.4.0
+#23 338.2 Fetching rails-dom-testing 2.3.0
+#23 338.4 Installing loofah 2.25.2
+#23 338.4 Installing html2text 0.4.0
+#23 338.5 Fetching ruby-saml 1.18.1
+#23 338.5 Installing rails-dom-testing 2.3.0
+#23 338.5 Fetching reverse_markdown 2.1.1
+#23 338.6 Fetching twilio-ruby 7.6.0
+#23 338.6 Installing ruby-saml 1.18.1
+#23 338.6 Installing reverse_markdown 2.1.1
+#23 338.9 Fetching rails-html-sanitizer 1.7.1
+#23 338.9 Installing rails-html-sanitizer 1.7.1
+#23 339.0 Fetching omniauth-saml 2.2.4
+#23 339.0 Fetching actionview 7.2.3.1
+#23 339.1 Installing omniauth-saml 2.2.4
+#23 339.2 Installing twilio-ruby 7.6.0
+#23 339.3 Installing actionview 7.2.3.1
+#23 339.6 Fetching actionpack 7.2.3.1
+#23 339.6 Fetching kaminari-actionview 1.2.2
+#23 339.7 Installing kaminari-actionview 1.2.2
+#23 339.7 Installing actionpack 7.2.3.1
+#23 339.8 Fetching jbuilder 2.15.1
+#23 339.9 Installing jbuilder 2.15.1
+#23 340.0 Fetching kaminari 1.2.2
+#23 340.1 Installing kaminari 1.2.2
+#23 340.3 Fetching actioncable 7.2.3.1
+#23 340.3 Fetching activestorage 7.2.3.1
+#23 340.4 Installing actioncable 7.2.3.1
+#23 340.5 Installing activestorage 7.2.3.1
+#23 340.7 Fetching actionmailer 7.2.3.1
+#23 340.8 Installing actionmailer 7.2.3.1
+#23 340.9 Fetching railties 7.2.3.1
+#23 340.9 Fetching sprockets-rails 3.4.2
+#23 341.0 Installing railties 7.2.3.1
+#23 341.0 Installing sprockets-rails 3.4.2
+#23 341.1 Fetching omniauth-rails_csrf_protection 1.0.2
+#23 341.1 Installing omniauth-rails_csrf_protection 1.0.2
+#23 341.2 Fetching actionmailbox 7.2.3.1
+#23 341.3 Installing actionmailbox 7.2.3.1
+#23 341.6 Fetching actiontext 7.2.3.1
+#23 341.8 Installing actiontext 7.2.3.1
+#23 341.8 Fetching aws-actionmailbox-ses 0.1.0
+#23 341.9 Installing aws-actionmailbox-ses 0.1.0
+#23 342.1 Fetching rails 7.2.3.1
+#23 342.1 Fetching jquery-rails 4.6.0
+#23 342.1 Fetching sassc-rails 2.1.2
+#23 342.2 Installing sassc-rails 2.1.2
+#23 342.3 Installing rails 7.2.3.1
+#23 342.4 Fetching responders 3.1.1
+#23 342.5 Installing jquery-rails 4.6.0
+#23 342.5 Installing responders 3.1.1
+#23 342.6 Fetching dotenv-rails 3.1.2
+#23 342.6 Installing dotenv-rails 3.1.2
+#23 342.7 Fetching factory_bot_rails 6.4.3
+#23 342.7 Fetching judoscale-rails 1.8.2
+#23 342.8 Installing factory_bot_rails 6.4.3
+#23 343.0 Fetching lograge 0.14.0
+#23 343.0 Installing judoscale-rails 1.8.2
+#23 343.1 Fetching meta_request 0.8.5
+#23 343.1 Fetching rails-i18n 7.0.10
+#23 343.1 Installing lograge 0.14.0
+#23 343.1 Installing meta_request 0.8.5
+#23 343.2 Fetching rspec-rails 7.0.1
+#23 343.2 Fetching sentry-rails 5.19.0
+#23 343.2 Installing rails-i18n 7.0.10
+#23 343.3 Installing rspec-rails 7.0.1
+#23 343.3 Installing sentry-rails 5.19.0
+#23 343.4 Fetching vite_rails 3.10.0
+#23 343.5 Installing vite_rails 3.10.0
+#23 343.5 Fetching web-console 4.2.1
+#23 343.6 Fetching tidewave 0.2.0
+#23 343.6 Installing web-console 4.2.1
+#23 343.7 Installing tidewave 0.2.0
+#23 343.7 Fetching devise 4.9.4
+#23 343.7 Fetching administrate 0.20.1
+#23 343.8 Installing devise 4.9.4
+#23 343.8 Installing administrate 0.20.1
+#23 344.0 Fetching devise-secure_password 2.2.1
+#23 344.0 Fetching devise-two-factor 6.1.0
+#23 344.2 Installing devise-secure_password 2.2.1
+#23 344.2 Installing devise-two-factor 6.1.0
+#23 344.2 Fetching devise_token_auth 1.2.5
+#23 344.3 Fetching administrate-field-active_storage 1.0.3
+#23 344.3 Installing devise_token_auth 1.2.5
+#23 344.3 Fetching administrate-field-belongs_to_search 0.10.0
+#23 344.4 Installing administrate-field-active_storage 1.0.3
+#23 344.4 Installing administrate-field-belongs_to_search 0.10.0
+#23 839.0 Fetching googleapis-common-protos 1.6.0
+#23 839.2 Installing googleapis-common-protos 1.6.0
+#23 839.2 Fetching gapic-common 0.20.0
+#23 839.2 Installing gapic-common 0.20.0
+#23 839.3 Fetching google-cloud-location 0.6.0
+#23 839.3 Fetching google-cloud-translate-v3 0.10.0
+#23 839.3 Installing google-cloud-location 0.6.0
+#23 839.3 Fetching google-cloud-dialogflow-v2 0.31.0
+#23 839.4 Installing google-cloud-translate-v3 0.10.0
+#23 839.7 Installing google-cloud-dialogflow-v2 0.31.0
+#23 839.8 Bundle complete! 150 Gemfile dependencies, 383 gems now installed.
+#23 839.8 Bundled gems are installed into `/gems`
+#23 839.8 Post-install message from minitest:
+#23 839.8 NOTE: minitest 5 will be the last in the minitest family to support
+#23 839.8       ruby 1.8 to 2.7. If you need to keep using these versions,
+#23 839.8       you need to pin your dependency to minitest with something
+#23 839.8       like "~> 5.0". See History.rdoc to locate compatible
+#23 839.8       versions.
+#23 839.8 
+#23 839.8       Further, minitest 6 will be dropping the following:
+#23 839.8 
+#23 839.8       + MiniTest (it's been Minitest for >10 years)
+#23 839.8       + MiniTest::Unit
+#23 839.8       + MiniTest::Unit::TestCase
+#23 839.8       + assert_send (unless you argue for it well)
+#23 839.8       + assert_equal nil, obj
+#23 839.8       + mocks and stubs: moving minitest/mock.rb to its own gem
+#23 839.8 Post-install message from ruby_llm:
+#23 839.8 RubyLLM 2.0.0
+#23 839.8 
+#23 839.8   2.0 renames several APIs and changes what message content returns. Coming
+#23 839.8   from 1.x? Read the upgrade guide before you boot:
+#23 839.8 
+#23 839.8     https://rubyllm.com/upgrading/
+#23 839.8 
+#23 839.8   The Rails upgrade uses forward-only preparation, backfill, and finish
+#23 839.8   phases, with cleanup later. Rename mode is the default; optional copy
+#23 839.8   mode supports a controlled return to 1.16. Read its requirements in the
+#23 839.8   upgrade guide and rehearse on a recent production snapshot.
+#23 839.8 
+#23 839.8   Agent skill: https://rubyllm.com/ai-coding-assistants/
+#23 839.8 Post-install message from datadog:
+#23 839.8 JRuby support in the datadog gem is deprecated. Details: https://dtdg.co/jruby-deprecation
+#23 839.8 Post-install message from devise:
+#23 839.8 
+#23 839.8 [DEVISE] Please review the [changelog] and [upgrade guide] for more info on Hotwire / Turbo integration.
+#23 839.8 
+#23 839.8   [changelog] https://github.com/heartcombo/devise/blob/main/CHANGELOG.md
+#23 839.8   [upgrade guide] https://github.com/heartcombo/devise/wiki/How-To:-Upgrade-to-Devise-4.9.0-%5BHotwire-Turbo-integration%5D
+#23 839.8   Post-install message from httparty:
+#23 839.8 When you HTTParty, you must party hard!
+#23 839.8 Post-install message from sass:
+#23 839.8 
+#23 839.8 Ruby Sass has reached end-of-life and should no longer be used.
+#23 839.8 
+#23 839.8 * If you use Sass as a command-line tool, we recommend using Dart Sass, the new
+#23 839.8   primary implementation: https://sass-lang.com/install
+#23 839.8 
+#23 839.8 * If you use Sass as a plug-in for a Ruby web framework, we recommend using the
+#23 839.8   sassc gem: https://github.com/sass/sassc-ruby#readme
+#23 839.8 
+#23 839.8 * For more details, please refer to the Sass blog:
+#23 839.8   https://sass-lang.com/blog/posts/7828841
+#23 839.8 
+#23 839.8 Post-install message from vite_ruby:
+#23 839.8 Thanks for installing Vite Ruby!
+#23 839.8 
+#23 839.8 If you upgraded the gem manually, please run:
+#23 839.8 	bundle exec vite upgrade
+#23 839.8 3 installed gems you directly depend on are looking for funding.
+#23 839.8   Run `bundle fund` for details
+#23 DONE 840.2s
+
+#24 [pre-builder 13/19] COPY package.json pnpm-lock.yaml ./
+#24 DONE 0.9s
+
+#25 [pre-builder 14/19] RUN pnpm i
+#25 1.135 Lockfile is up to date, resolution step is skipped
+#25 1.262 Progress: resolved 1, reused 0, downloaded 0, added 0
+#25 1.682 Packages: +1073
+#25 1.682 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#25 2.271 Progress: resolved 1073, reused 0, downloaded 0, added 0
+#25 3.215 
+#25 3.215    ╭───────────────────────────────────────────────────────────────────╮
+#25 3.215    │                                                                   │
+#25 3.215    │                Update available! 10.2.0 → 12.21.0.                │
+#25 3.215    │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v12.21.0   │
+#25 3.215    │                 Run "pnpm self-update" to update.                 │
+#25 3.215    │                                                                   │
+#25 3.215    ╰───────────────────────────────────────────────────────────────────╯
+#25 3.215 
+#25 3.278 Progress: resolved 1073, reused 0, downloaded 65, added 62
+#25 4.282 Progress: resolved 1073, reused 0, downloaded 107, added 105
+#25 5.280 Progress: resolved 1073, reused 0, downloaded 245, added 244
+#25 6.282 Progress: resolved 1073, reused 0, downloaded 366, added 364
+#25 7.281 Progress: resolved 1073, reused 0, downloaded 450, added 449
+#25 8.282 Progress: resolved 1073, reused 0, downloaded 625, added 622
+#25 9.281 Progress: resolved 1073, reused 0, downloaded 848, added 847
+#25 10.28 Progress: resolved 1073, reused 0, downloaded 1035, added 1033
+#25 10.74 Progress: resolved 1073, reused 0, downloaded 1072, added 1073, done
+#25 11.57 
+#25 11.57 dependencies:
+#25 11.57 + @amplitude/analytics-browser 2.33.1
+#25 11.57 + @breezystack/lamejs 1.2.7
+#25 11.57 + @chatwoot/ninja-keys 1.2.3
+#25 11.57 + @chatwoot/pico-search 0.6.2
+#25 11.57 + @chatwoot/prosemirror-schema 1.4.6
+#25 11.57 + @chatwoot/utils 0.0.57
+#25 11.57 + @chatwoot/viz 0.1.6
+#25 11.57 + @formkit/core 1.7.2
+#25 11.57 + @formkit/vue 1.7.2
+#25 11.57 + @hcaptcha/vue3-hcaptcha 1.3.0
+#25 11.57 + @highlightjs/vue-plugin 2.1.0
+#25 11.57 + @hotwired/turbo-rails 8.0.13
+#25 11.57 + @iconify-json/fluent 1.2.36
+#25 11.57 + @iconify-json/material-symbols 1.2.10
+#25 11.57 + @lk77/vue3-color 3.0.6
+#25 11.57 + @radix-ui/colors 3.0.0
+#25 11.57 + @rails/actioncable 6.1.3
+#25 11.57 + @rails/ujs 7.1.400
+#25 11.57 + @sentry/vue 8.55.0
+#25 11.57 + @sindresorhus/slugify 2.2.1
+#25 11.57 + @tailwindcss/typography 0.5.19
+#25 11.57 + @tanstack/vue-table 8.20.5
+#25 11.57 + @twilio/voice-sdk 2.17.0
+#25 11.57 + @vitejs/plugin-vue 5.2.4
+#25 11.57 + @vue/compiler-sfc 3.5.8
+#25 11.57 + @vuelidate/core 2.0.3
+#25 11.57 + @vuelidate/validators 2.0.4
+#25 11.57 + @vueuse/components 12.0.0
+#25 11.57 + @vueuse/core 12.0.0
+#25 11.57 + activestorage 5.2.8
+#25 11.57 + axios 1.20.0
+#25 11.57 + camelcase-keys 9.1.3
+#25 11.57 + color2k 2.0.3
+#25 11.57 + company-email-validator 1.1.0
+#25 11.57 + core-js 3.38.1
+#25 11.57 + countries-and-timezones 3.6.0
+#25 11.57 + date-fns 2.21.1
+#25 11.57 + date-fns-tz 1.3.8
+#25 11.57 + dompurify 3.4.16
+#25 11.57 + flag-icons 7.2.3
+#25 11.57 + floating-vue 5.2.2
+#25 11.57 + highlight.js 11.10.0
+#25 11.57 + html-to-image 1.11.13
+#25 11.57 + html2canvas 1.4.1
+#25 11.57 + idb 8.0.0
+#25 11.57 + js-cookie 3.0.5
+#25 11.57 + json-logic-js 2.0.5
+#25 11.57 + lettersanitizer 1.0.8
+#25 11.57 + libphonenumber-js 1.11.9
+#25 11.57 + markdown-it 14.3.2
+#25 11.57 + markdown-it-link-attributes 4.0.1
+#25 11.57 + mitt 3.0.1
+#25 11.57 + opus-recorder 8.0.5
+#25 11.57 + pinia 3.0.4
+#25 11.57 + qrcode 1.5.4
+#25 11.57 + semver 7.6.3
+#25 11.57 + snakecase-keys 8.0.1
+#25 11.57 + timezone-phone-codes 0.0.2
+#25 11.57 + tinykeys 3.0.0
+#25 11.57 + urlpattern-polyfill 10.0.0
+#25 11.57 + video.js 7.21.1
+#25 11.57 + videojs-record 4.5.0
+#25 11.57 + videojs-wavesurfer 3.8.0
+#25 11.57 + virtua 0.48.6
+#25 11.57 + vue 3.5.12
+#25 11.57 + vue-datepicker-next 1.0.3
+#25 11.57 + vue-dompurify-html 5.3.0
+#25 11.57 + vue-i18n 9.14.5
+#25 11.57 + vue-letter 0.2.2
+#25 11.57 + vue-router 4.4.5
+#25 11.57 + vue-upload-component 3.1.17
+#25 11.57 + vue3-click-away 1.2.4
+#25 11.57 + vuedraggable 4.1.0
+#25 11.57 + vuex 4.1.0
+#25 11.57 + vuex-router-sync 6.0.0-rc.1
+#25 11.57 + wavesurfer.js 7.8.6
+#25 11.57 
+#25 11.57 devDependencies:
+#25 11.57 + @egoist/tailwindcss-icons 1.9.2
+#25 11.57 + @histoire/plugin-vue 0.17.15
+#25 11.57 + @iconify-json/logos 1.2.10
+#25 11.57 + @iconify-json/lucide 1.2.82
+#25 11.57 + @iconify-json/ph 1.2.2
+#25 11.57 + @iconify-json/ri 1.2.6
+#25 11.57 + @iconify-json/teenyicons 1.2.2
+#25 11.57 + @intlify/eslint-plugin-vue-i18n 3.2.0
+#25 11.57 + @rollup/plugin-yaml 4.1.2
+#25 11.57 + @size-limit/file 8.2.6
+#25 11.57 + @vitest/coverage-v8 3.0.5
+#25 11.57 + @vue/test-utils 2.4.6
+#25 11.57 + autoprefixer 10.4.20
+#25 11.57 + eslint 8.57.0
+#25 11.57 + eslint-config-airbnb-base 15.0.0
+#25 11.57 + eslint-config-prettier 9.1.0
+#25 11.57 + eslint-interactive 11.1.0
+#25 11.57 + eslint-plugin-html 7.1.0
+#25 11.57 + eslint-plugin-import 2.30.0
+#25 11.57 + eslint-plugin-prettier 5.2.1
+#25 11.57 + eslint-plugin-vitest-globals 1.5.0
+#25 11.57 + eslint-plugin-vue 9.28.0
+#25 11.57 + fake-indexeddb 6.0.0
+#25 11.57 + histoire 0.17.15
+#25 11.57 + husky 7.0.4
+#25 11.57 + jsdom 27.2.0
+#25 11.57 + lint-staged 16.2.7
+#25 11.57 + postcss 8.5.23
+#25 11.57 + postcss-preset-env 8.5.1
+#25 11.57 + prettier 3.3.3
+#25 11.57 + prosemirror-model 1.22.3
+#25 11.57 + rollup-plugin-visualizer 7.0.1
+#25 11.57 + size-limit 8.2.6
+#25 11.57 + tailwindcss 3.4.19
+#25 11.57 + vite 6.4.2
+#25 11.57 + vite-plugin-ruby 5.2.1
+#25 11.57 + vitest 3.0.5
+#25 11.57 
+#25 11.57 Ignored build scripts: core-js, esbuild, vue-demi. Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
+#25 11.57 
+#25 11.63 
+#25 11.63 > @chatwoot/chatwoot@4.19.1 prepare /app
+#25 11.63 > husky install
+#25 11.63 
+#25 11.68 fatal: not a git repository (or any of the parent directories): .git
+#25 11.69 Done in 11.3s
+#25 DONE 12.4s
+
+#26 [pre-builder 15/19] COPY . /app
+#26 DONE 5.7s
+
+#27 [pre-builder 16/19] RUN mkdir -p /app/log
+#27 DONE 0.3s
+
+#28 [pre-builder 17/19] RUN if [ "development" = "production" ]; then   SECRET_KEY_BASE=precompile_placeholder RAILS_LOG_TO_STDOUT=enabled bundle exec rake assets:precompile   && rm -rf spec node_modules tmp/cache;   fi
+#28 DONE 0.3s
+
+#29 [pre-builder 18/19] RUN source_commit="${CHATWOOT_SOURCE_COMMIT:-$(git rev-parse HEAD)}"   && test "${#source_commit}" -eq 40   && case "$source_commit" in *[!0-9a-f]*) exit 1;; esac   && printf '%s\n' "$source_commit" > /app/.git_sha
+#29 DONE 0.3s
+
+#30 [pre-builder 19/19] RUN rm -rf /gems/ruby/3.4.0/cache/*.gem   && find /gems/ruby/3.4.0/gems/ \( -name "*.c" -o -name "*.o" \) -delete   && rm -rf .git   && rm .gitignore
+#30 DONE 1.5s
+
+#31 [stage-2 6/9] COPY --from=pre-builder /gems/ /gems/
+#31 DONE 5.3s
+
+#32 [stage-2 7/9] COPY --from=pre-builder /app /app
+#32 DONE 15.5s
+
+#33 [stage-2 8/9] COPY --from=pre-builder /app/.git_sha /app/.git_sha
+#33 DONE 0.5s
+
+#34 [stage-2 9/9] WORKDIR /app
+#34 DONE 0.1s
+
+#35 exporting to image
+#35 exporting layers
+#35 exporting layers 49.6s done
+#35 exporting manifest sha256:907e4438a61e721e9255c3f584cfe1f4264cd08b770c725df3697d8f808d870a 0.0s done
+#35 exporting config sha256:098217eaff09d8c6f4149026303fd34738f7585d507152f5e57488901c8856c0 0.0s done
+#35 exporting attestation manifest sha256:e18c27b66b8fd2e45ea2d7dec5d5ad5b6eb5824089261c269ddf9ad01a2b8db8 0.0s done
+#35 exporting manifest list sha256:02305e4328fe6b298bfec767f6fe8548d472e34fc029315fce54ec49eed82f3e
+#35 exporting manifest list sha256:02305e4328fe6b298bfec767f6fe8548d472e34fc029315fce54ec49eed82f3e 0.0s done
+#35 naming to docker.io/library/cwdev-complete001:app-07686773cb51 done
+#35 unpacking to docker.io/library/cwdev-complete001:app-07686773cb51
+#35 unpacking to docker.io/library/cwdev-complete001:app-07686773cb51 36.2s done
+#35 DONE 86.0s
+
+#36 resolving provenance for metadata file
+#36 DONE 0.0s
+ Image cwdev-complete001:app-07686773cb51 Built 
+IMAGE_METADATA_PASS 07686773cb515aba4029823ffe585e80fca705a5

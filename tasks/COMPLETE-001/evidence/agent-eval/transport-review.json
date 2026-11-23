@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/foundation_ci_audit",
+  "result": "PASS",
+  "protocol_sha256": "35caa806f45be64041af21de766a941a016e1e0b4face2cd6a489c3618feaa2b",
+  "oracle_sha256": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+  "packet_hashes_sha256": "2ddf85dbb92eb994dc3b550bc96cf9e955fd814bce34e94c52e1cdb0fadc79f9",
+  "policy_sha256": "f26356c8d2fd04538eaa11e6808785c610de00c2e0bf17d6e4dd2724c786670a",
+  "resolved_finding": "Initial packets lacked full projectpolicy despite contract; all12 regenerated beforedispatch, each nowincludes verifiedidenticalpolicybytes",
+  "verification": [
+    "V1toV2 onlypackettransportchanges, originalV1preserved",
+    "All12packetshashesmatch/listconsistent; cases/arms/roles/source/instructions stable",
+    "Nooracleanswers/prioroutputs included"
+  ],
+  "limits": [
+    "Noactualevalrunbyreviewer; source-onlyCodexscope, notnativeClaude/implementation/runtimeoptimality"
+  ]
+}

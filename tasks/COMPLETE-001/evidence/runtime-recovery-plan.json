@@ -1,0 +1,23 @@
+{
+  "status": "PLAN_NOT_EXECUTED",
+  "task_id": "COMPLETE-001",
+  "reason": "RuntimeVite startup prompt fix requires newsourceprovenance; nooverwriteoldpreparedstate",
+  "old_project": "cwdev-complete001",
+  "old_subject": "07686773cb515aba4029823ffe585e80fca705a5",
+  "new_subject": "2db109ba24e50dc82ecac043b962eb578cda1afc",
+  "sequence": [
+    "Independentreview exactstartupfix23tests; preserveoriginalfullbuild/CI evidence at076 subject",
+    "Beforecleanup recordnewsynthDBcounts+pgdump intoD:/Chatwoot-Foundation-Backups/complete001 privatefolder (nodatafromexistinglab/course); sourceSHA/configmanifest accompany, keysstayoldignoredstate",
+    "Afterreviewedconcretescript, stop/remove ONLYcontainers exactownedproject001; deleteonlyrecordednonPGcachevolumes. PRESERVEoriginalsyntheticPostgresvolumeuntilactualbackuprestoretonew002andknowncountsverified. No newallocationsbelow15GiB.",
+    "Prepare NEWcwdev-complete002 ports44440..42 afteroldowncontainerstop; useexactoldFULLBUILDimageID ascachebase withmatchingGemfile.lock+pnpmlockhash, labelCACHE_REUSE; newsource snapshot metadata2db",
+    "Buildnewcacheimage/upownnewDB/restoreoldsyntheticdumpintoNEWprojectDB, runVite/HTTP/RSpec/frontend/restart; preservingdata proveslocalrollback/restore only",
+    "IfCfreebelow15GiB stopnewallocations; askstoragechoice onlyifcannotprogresssafely; cleanupdoesnotguaranteehostVHDshrinks",
+    "Do notlowerthreshold, changeexistingDockerVHD/lab/course ordeleteforeignbuildcache"
+  ],
+  "limits": [
+    "OriginalfullDockerfile proof at076; startupfixchangesentrypoint/tests/docs only, dependencylockbytesunchanged. Cachebuildnewsubjectnotcoldfullbuild",
+    "Oldproject containsONLYsyntheticnewtaskdata; backupoutsideGit, nosecretsinpublicevidence",
+    "Needreviewconcretescript beforedestructiveownedcleanup, no cleanup yet"
+  ],
+  "scope_reconciliation": "Taskpermissionsandapp-task nowexplicitlyname successor002+ownedsyntheticcleanupunderusercomplete7request; neverforeignruntime."
+}

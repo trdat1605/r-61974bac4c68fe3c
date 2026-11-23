@@ -1,0 +1,97 @@
+{
+  "run_id": "T1-P-2",
+  "role": "worker_A",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "A1",
+      "claim": "GET/POST /api/v1/accounts/:account_id/conversations/:conversation_id/labels route to index/create. Controller selects @conversation and permits :conversation_id plus labels:[].",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L59",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L187-L208",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb#L1-L12"
+      ],
+      "critical_dependency": "T1-P-2-BA1"
+    },
+    {
+      "id": "A2",
+      "claim": "create calls update_labels then reads label_list; update_labels assigns update!(label_list:labels), unlike separate add_labels. index reads label_list. Both templates render json.payload @labels.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L9-L18",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder#L1"
+      ],
+      "critical_dependency": null
+    },
+    {
+      "id": "A3",
+      "claim": "Normal successful JSON is {payload:[labels]}; POST replaces the assigned list rather than appending. Exact normalization/validation depends on uninspected persistence/tagging internals.",
+      "classification": "INFERRED_FROM_SOURCE",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L5-L10",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1"
+      ],
+      "critical_dependency": null
+    },
+    {
+      "id": "A4",
+      "claim": "Independently verified B's account/display_id lookup, show? authorization and anonymous/member-agent test descriptions. Existing POST example checks new labels' presence, not replacement or exact payload: one justified unverified contract gap.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L2-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L15",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L13-L73"
+      ],
+      "critical_dependency": "T1-P-2-BA1"
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T1-P-2-AQ1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "question_or_answer": "message_id=T1-P-2-AQ1; from=worker_A; to=worker_B; question: Is the conversation lookup account scoped and based on display_id, and what access evidence exists? source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82. Please cite allowlisted source paths/lines and distinguish observed source from unrun tests.",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ]
+    },
+    {
+      "id": "T1-P-2-BQ1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "question_or_answer": "message_id=T1-P-2-BQ1; from=worker_B; to=worker_A; question: Does this POST call append or assign labels, and does the response use a payload wrapper? source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82. Please cite allowed fixed-ref paths/lines; I will independently read evidence before accepting.",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ]
+    },
+    {
+      "id": "T1-P-2-AA1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "question_or_answer": "message_id=T1-P-2-AA1; reply_to=T1-P-2-BQ1; from=worker_A; to=worker_B; answer: SOURCE_OBSERVED: POST create calls model.update_labels(permitted_params[:labels]) then reads model.label_list (app/controllers/concerns/label_concern.rb:2-4); update_labels calls update!(label_list: labels), so assigns rather than calling the separate add_labels append helper (app/models/concerns/labelable.rb:9-18). Both response templates contain json.payload @labels (app/views/api/v1/accounts/conversations/labels/create.json.jbuilder:1; index.json.jbuilder:1), implying {\"payload\":[...]} in normal JSON rendering. labels_controller.rb:10-12 permits :conversation_id and labels: []. Source ref caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82; fixed URLs https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L9-L18 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder#L1 . Runtime/tests NOT_RUN; normalization/persistence behavior beyond allowlist unverified.",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ]
+    },
+    {
+      "id": "T1-P-2-BA1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "question_or_answer": "message_id=T1-P-2-BA1; reply_to=T1-P-2-AQ1; from=worker_B; to=worker_A; answer: SOURCE_OBSERVED: app/controllers/api/v1/accounts/conversations/base_controller.rb:2,6-8 runs conversation before action, finds Current.account.conversations.find_by!(display_id: params[:conversation_id]), then authorize @conversation, :show?. app/controllers/api/v1/accounts/base_controller.rb:3-7 includes EnsureCurrentAccountHelper and MFA guard; before_action :current_account plus conditional access-token API and MFA checks; :12-15 renders forbidden when account API/webhooks disabled. Existing request-test SOURCE (not execution) covers unauthenticated GET/POST expecting unauthorized (:13-17,:46-53) and successful GET/POST for same-account agent with inbox membership (:20-35,:56-73) in spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb. No cross-account or authenticated-denied case in that file. Helpers/policy implementations are outside manifest, so detailed account-membership/policy rules remain unverified. source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82; fixed URLs https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L2-L8 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L15 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L13-L73 . Runtime/tests NOT_RUN.",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Policy/helper details and Labelable::Persistence are outside manifest; catalogue-title enforcement/normalization unverified; scope-extension request sent to C, sub-question stopped. Tests/runtime NOT_RUN. Telemetry NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    "bundle exec rspec spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

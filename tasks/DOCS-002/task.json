@@ -1,0 +1,84 @@
+{
+  "id": "DOCS-002",
+  "goal": "Bổ sung nguồn tài liệu còn thiếu, tuyến đọc theo nhiệm vụ và kiểm chứng bàn giao từ checkout GitHub mới chỉ dùng repo cùng URL nguồn",
+  "repository": "https://github.com/trdat1605/chatwoot-vn",
+  "branch": "codex/knowledge-handoff",
+  "baseline_commit": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+  "application": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Một bản ghi âm dạng text người dùng đã cung cấp được lưu làm tham khảo, có hash/phân biệt hai attachment; không biến lời chia sẻ thành policy tự động",
+    "Nguồn Chatwoot/Anthropic chọn lọc có URL, ref hoặc ngày đọc, công năng và giới hạn; bản tham khảo upstream được lưu dạng inert text, có license và provenance",
+    "Giữ catalog lịch sử và các báo cáo cũ; dùng human index và tuyến R-01 đến R-11 có điều kiện mở thêm, lý do cần đọc, đầu ra kiểm chứng và các cảnh báo mâu thuẫn đã biết",
+    "Một reviewer ngữ cảnh mới chỉ nhận checkout GitHub độc lập và yêu cầu, bắt đầu README tìm mục tiêu/source/quyền/cách chạy/test/review/nguồn/việc còn mở; không dùng archive local hoặc runtime để lấp phần thiếu",
+    "Phân biệt tiếp quản kiến thức từ clone với dựng app trên máy mới, auto-loading từ app chat và hiệu năng sản phẩm chưa thử",
+    "Chỉ docs/task artifacts và quy tắc LF cho .txt trong .gitattributes thay đổi; relative links/JSON/hash/phạm vi/bí mật được kiểm, source/runtime ứng dụng không thay đổi",
+    "Đúng subject commit được review độc lập, receipts/hash/handoff được ghi; push và Draft PR phụ thuộc PR3, không merge"
+  ],
+  "write_scope": [
+    "README.md",
+    "docs/project-map.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/knowledge/README.md",
+    "docs/knowledge/reading-routes.md",
+    "docs/knowledge/context-packet.md",
+    "docs/knowledge/source-notes.md",
+    "docs/knowledge/supplemental-sources.json",
+    "docs/knowledge/user-materials/README.md",
+    "docs/knowledge/user-materials/ai-code-review-transcript.txt",
+    "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt",
+    "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt",
+    ".gitattributes"
+  ],
+  "affected": [
+    "Knowledge entry points, portable original user material and task reading routes",
+    "Fresh-clone documentation handover evidence, no application changes",
+    "LF checkout rule for archived .txt reference material, no Git global setting"
+  ],
+  "dependencies": [
+    "DOCS-001 reviewed branch and existing agent workflow",
+    "Historical source catalog and task-reading table",
+    "User-provided transcript attachments and upstream pinned AGENTS/license",
+    "GitHub private repository access using existing authentication"
+  ],
+  "start_conditions": [
+    "Clean task worktree at pinned baseline",
+    "Claim exact documentation paths before edits",
+    "Check source files and official references before migrating material"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "read-only",
+    "parallel_runtime": false,
+    "handover": "independent HTTPS clone of private GitHub branch; reviewer limited by brief to clone and linked official URLs, not an OS sandbox"
+  },
+  "permissions": [
+    "Read selected historical references and the two transcript attachments, publish sanitized reference material to existing private repo",
+    "Write assigned docs and task metadata, publish task branch and dependent Draft PR",
+    "Create a separate checkout for fresh-context independent documentation review; no app or runtime changes"
+  ],
+  "checks": [
+    "source_integrity",
+    "navigation_scope_content"
+  ],
+  "evidence_location": "tasks/DOCS-002/evidence/",
+  "stop_conditions": [
+    "Unexpected dirty files or ownership conflicts",
+    "Sensitive information in publication candidate",
+    "Required app/runtime write outside task",
+    "Reviewer needs archive to find essential declared project knowledge: record gap rather than inventing it"
+  ],
+  "implementer": "root_knowledge_handoff",
+  "reviewer": "fresh-context knowledge_handoff_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "bound_inputs": [
+    "config/agents/runtime.json",
+    "docs/knowledge/sources.json",
+    "agents/codex/roles.json"
+  ],
+  "status": "specified"
+}

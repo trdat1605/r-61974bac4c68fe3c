@@ -1,0 +1,40 @@
+{
+  "subject_commit": "3548ce0159e5c1a48f81d474165ff5bbd1ede035",
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_local_date": "2026-11-23",
+  "method": "git diff --name-only base subject equals exact task scope; compare subject blobs with working bytes; git diff --check; existing repository_check.scan_file selected secret patterns; manual read of the proposed documentation and migrated catalog; explicit read-only WSL Git status/ref checks.",
+  "implementation_base": "2ae65f52de5f18b35a15d7202f20b619fd1ee507",
+  "changed_files": [
+    "AGENTS.md",
+    "README.md",
+    "docs/agents/README.md",
+    "docs/agents/state.md",
+    "docs/knowledge/sources.json",
+    "docs/project-map.md",
+    "docs/reviews/performance/2026-11-23-f5.md",
+    "docs/runbooks/local-development.md",
+    "docs/status.md"
+  ],
+  "results": {
+    "selected_secret_pattern_findings": 0,
+    "application_git_status": "",
+    "application_head": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "application_branch": "codex/wsl-migration",
+    "runtime_profile_sha256": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "application_or_runtime_mutations": false
+  },
+  "limits": [
+    "Pattern scan/manual review cannot prove absence of all secrets",
+    "No application tests, service changes, UI reload or performance repair in this documentation task",
+    "Current application Git cleanliness does not audit all ignored local files"
+  ],
+  "commands": [
+    "git diff --name-only -z 2ae65f52de5f18b35a15d7202f20b619fd1ee507 3548ce0159e5c1a48f81d474165ff5bbd1ede035",
+    "git diff --check 2ae65f52de5f18b35a15d7202f20b619fd1ee507 3548ce0159e5c1a48f81d474165ff5bbd1ede035",
+    "git show <subject>:<each write_scope path> (compare bytes with working file; repository_check.scan_file)",
+    "wsl.exe -d Ubuntu-22.04 --exec git -C /root/code/chatwoot-worktrees/wsl-preflight status --short",
+    "wsl.exe -d Ubuntu-22.04 --exec git -C /root/code/chatwoot-worktrees/wsl-preflight rev-parse HEAD",
+    "wsl.exe -d Ubuntu-22.04 --exec git -C /root/code/chatwoot-worktrees/wsl-preflight branch --show-current"
+  ]
+}

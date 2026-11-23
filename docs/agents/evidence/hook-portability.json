@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-17T19:48:41.053407+00:00",
+  "tested_commit": "c2fdd6423c74e0a00a2718d5d080eb5748673788",
+  "status": "PASS",
+  "exit_code": 0,
+  "method": "fresh native Windows clone inheriting autocrlf; clean staged checker then invocation-scoped pre-commit with missing acceptance fixture",
+  "clean_clone_check": {
+    "exit_code": 0,
+    "selected_output": [
+      {
+        "status": "PASS",
+        "files_scanned": 37,
+        "tasks_validated": 1,
+        "current_review_bound_paths": 3,
+        "limits": "Pattern scan and contract checks do not attest all secrets, execution truth, reviewer identity or product acceptance"
+      }
+    ]
+  },
+  "attempted_commit_exit_code": 1,
+  "fixture_head_unchanged": true,
+  "hook_selected_output": [
+    {
+      "status": "BLOCKED",
+      "error": "Missing task list: acceptance"
+    }
+  ],
+  "real_repository_or_app_mutated": false,
+  "prior_probe_issue": "9bf clone was blocked for CRLF in .gitattributes/.gitignore before reaching acceptance. This was not a valid acceptance-negative result; explicit LF attributes fixed the two paths.",
+  "limits": "Local cooperative hook may be bypassed; no global/shared config changed; no branch protection"
+}

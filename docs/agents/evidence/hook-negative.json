@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-17T19:34:57.177379+00:00",
+  "tested_commit": "050c6ac7820ce7727e9a050888d5d5a893048b0b",
+  "status": "PASS",
+  "exit_code": 0,
+  "method": "temporary local clone; invocation-scoped Git pre-commit hook; task acceptance removed in disposable fixture",
+  "attempted_commit_exit_code": 1,
+  "fixture_head_unchanged": true,
+  "hook_selected_output": [
+    {
+      "status": "BLOCKED",
+      "error": "Missing task list: acceptance"
+    }
+  ],
+  "real_repository_or_app_mutated": false,
+  "initial_probe_issue": "First probe only parsed stdout; Git routed hook output to stderr; assertion corrected without changing hook",
+  "limits": "Negative hook enforcement test only; no global/shared hook configuration or branch protection"
+}

@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "GitHubpull_request actualfoundation-ci.yml metadataDockerregression+focusedfrontendtest jobs on hostedrunner",
+  "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "subject_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "workflow_path": ".github/workflows/foundation-ci.yml",
+  "event": "pull_request",
+  "run_url": "https://github.com/trdat1605/s-251521f7e9131fb0/actions/runs/45079328287",
+  "jobs": [
+    {
+      "name": "focused-frontend",
+      "conclusion": "success",
+      "runner": "GitHub Actions 1000000016",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install pinned package manager and locked dependencies",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run focused existing frontend tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "metadata",
+      "conclusion": "success",
+      "runner": "GitHub Actions 1000000017",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Python boundary tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Create disposable Git-equipped regression image",
+          "conclusion": "success"
+        },
+        {
+          "name": "Real upstream baseline and fixed metadata Docker regression",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "selected_log_lines": [
+    "focused-frontend\tRun actions/checkout@11d5960a326750d5838078e36cf38b85af677262\t2026-11-22T22:43:56.4193269Z HEAD is now at f301bf2 Merge 07686773cb515aba4029823ffe585e80fca705a5 into caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "focused-frontend\tRun focused existing frontend tests\t2026-11-22T22:44:12.6436342Z ^[[2m Test Files ^[[22m ^[[1m^[[32m2 passed^[[39m^[[22m^[[90m (2)^[[39m",
+    "focused-frontend\tRun focused existing frontend tests\t2026-11-22T22:44:12.6441482Z ^[[2m      Tests ^[[22m ^[[1m^[[32m14 passed^[[39m^[[22m^[[90m (14)^[[39m",
+    "metadata\tRun actions/checkout@11d5960a326750d5838078e36cf38b85af677262\t2026-11-22T22:44:03.3350734Z HEAD is now at f301bf243 Merge 07686773cb515aba4029823ffe585e80fca705a5 into caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "metadata\tPython boundary tests\t2026-11-22T22:44:03.9254850Z Ran 21 tests in 0.355s",
+    "metadata\tReal upstream baseline and fixed metadata Docker regression\t2026-11-22T22:44:15.9857282Z   \"baseline\": \"EXPECTED_FAIL\",",
+    "metadata\tReal upstream baseline and fixed metadata Docker regression\t2026-11-22T22:44:15.9857508Z   \"explicit_sha\": \"PASS\",",
+    "metadata\tReal upstream baseline and fixed metadata Docker regression\t2026-11-22T22:44:15.9857914Z   \"normal_git_fallback\": \"PASS\",",
+    "metadata\tReal upstream baseline and fixed metadata Docker regression\t2026-11-22T22:44:15.9858182Z   \"source_commit\": \"f301bf24355d3b22d9527b6be7fcb8a78df4860a\","
+  ],
+  "limits": [
+    "Checkoutdefault tests pullrequestmergeSHA; selectedlogrecords actualcheckout. Sourceappsubject remainsdistinct fromcontrolSHA",
+    "Focusedtests only, nofullRSpec/Enterprise/securitycertification"
+  ]
+}

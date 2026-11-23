@@ -1,0 +1,81 @@
+{
+  "run_id": "T3-R-1",
+  "role": "worker_A",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "A1",
+      "claim": "Controller: explicit status saves; blank/omitted toggles. Human opening clears AI and agent self-assigns; AgentBot pending+explicit open invokes handoff without assigning @status. Template emits success, conversation_id, current_status, snoozed_until. EE controller adds no toggle override.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L192",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L1-L9",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L1-L30"
+      ],
+      "critical_dependency": "T3-R-1-B-A1; independently checked model/spec source."
+    },
+    {
+      "id": "A2",
+      "claim": "Proposed matrix: blank/omitted across all states; explicit pending/open/resolved/snoozed; epoch/absent snooze deadline, ignored deadline on blank status and exit reset; agent/admin AI+assignee effects; bot handoff versus blank toggle, waiting_since blank/present, event and response fields. Characterize handoff payload.success; no reproduced defect.",
+      "classification": "INFERRED_FROM_SOURCE",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L197",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L290-L292",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+      ],
+      "critical_dependency": "T3-R-1-B-A1"
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T3-R-1-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B via coordinator",
+      "question_or_answer": "What are model toggle/reset semantics and which snooze/toggle cases already exist in specs? Please cite fixed-ref path/line evidence, including model/date parsing/enterprise model interactions.",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ],
+      "receipt_format": "content_summary; original envelopes exchanged through coordinator"
+    },
+    {
+      "id": "T3-R-1-B-A1",
+      "from": "worker_B via coordinator",
+      "to": "worker_A",
+      "question_or_answer": "Received: open->resolved, others->open; before_save resets snooze unless snoozed. Explicit deadline parsed as epoch. Existing examples: empty open->resolved; explicit pending->open; omitted pending->open agent self-assignment; omitted admin AI clearing; explicit pending/snoozed; bot snoozing/handoff; unauthenticated. EE creation Captain selection and SLA postcommit affect fixtures/side effects. Independently verified.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L136-L197",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L281-L295",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+      ],
+      "receipt_format": "content_summary; original envelopes exchanged through coordinator"
+    },
+    {
+      "id": "T3-R-1-A-A1",
+      "from": "worker_A",
+      "to": "worker_B via coordinator",
+      "question_or_answer": "Answered T3-R-1-B-Q1: human clears AI; agents self-assign; admin does not. AgentBot pending+explicit open clears AI, initializes blank waiting_since, opens and dispatches handoff. Controller leaves @status unset; template uses it. EE controller has no toggle override. Existing handoff spec omits these response/assignment assertions.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L181-L187",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L184-L197",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L1-L9",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L1-L30"
+      ],
+      "receipt_format": "content_summary; original envelopes exchanged through coordinator"
+    }
+  ],
+  "uncertainties": [
+    "Runtime serialization, callbacks beyond manifest and actual passing behavior NOT_RUN. No test added. Model identity/usage telemetry NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    {
+      "command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations_controller_spec.rb:604",
+      "prerequisites": "Separate authorized task; pinned checkout, rbenv initialized, matching Ruby/Bundler/dependencies, isolated test DB/Redis and EE configuration; verify test setup before execution.",
+      "status": "NOT_RUN"
+    }
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

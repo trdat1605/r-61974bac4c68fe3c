@@ -1,0 +1,22 @@
+{
+  "status": "HASH_INVENTORY",
+  "paths": {
+    "tasks/COMPLETE-001/evidence/app-final-review.json": {
+      "sha256": "86dadeff6c15f7815501e59ced39735f0fdaf5509a8966f8677ddf89dcd065ed",
+      "crlf": true
+    },
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/material-second-check.json": {
+      "sha256": "c8597de91b879d7709d7dd1aaa184c61f750d1aa42595683d100a2f258100b7c",
+      "crlf": true
+    },
+    "tasks/COMPLETE-001/evidence/fresh-reader-final.json": {
+      "sha256": "b85a34316eb69457ae88fd4494c058d85f77e11b431723a1ad9b727484d22fc7",
+      "crlf": false
+    },
+    "tasks/COMPLETE-001/evidence/control-review-658b96c-fail.json": {
+      "sha256": "deb58372e8b3f9049469b12ba7c87358507cf4b31caa34eb3e7a2b0ba056f267",
+      "crlf": false
+    }
+  },
+  "limits": "Inventory only; originaljudgments preserved; exactstagebytes checked after finalreview."
+}

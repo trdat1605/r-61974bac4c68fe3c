@@ -1,0 +1,2119 @@
+{
+  "task_id": "GOV-001",
+  "status": "PASS",
+  "plan_sha256": "c55c60eee0ff13f6fa70a59b58896660e0d2b9c9971f2a10032b9647e44a3c96",
+  "resources": {
+    "1461752107": {
+      "role": "control",
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "refs": {
+        "codex/gov001-target-a745aafb3c": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+        "codex/gov001-head-63140c80d5": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f"
+      },
+      "initial_main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+      "head_sha": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "head_tree": "3753f0cbca1f8b5f81cf3fd95892c3d63880a773",
+      "ruleset_id": 27859154,
+      "pr_number": 16,
+      "cleanup": "PASS"
+    },
+    "1467945011": {
+      "role": "app",
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "refs": {
+        "codex/gov001-target-3ad4bf11b4": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+        "codex/gov001-head-06da171fa0": "199b07d2714a33e97b7fd6c55024731c88dd5efa"
+      },
+      "initial_main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "head_sha": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "head_tree": "2979093d6c3f6c545fff930744e685ff3773f5d8",
+      "ruleset_id": 27859157,
+      "pr_number": 1,
+      "cleanup": "PASS"
+    }
+  },
+  "steps": [
+    {
+      "step": "create_owned_ref",
+      "id": 1461752107,
+      "ref": "codex/gov001-target-a745aafb3c",
+      "sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+      "status": "PASS"
+    },
+    {
+      "step": "create_owned_ref",
+      "id": 1461752107,
+      "ref": "codex/gov001-head-63140c80d5",
+      "sha": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "status": "PASS"
+    },
+    {
+      "step": "before_create_ruleset",
+      "id": 1461752107,
+      "payload_sha256": "a96a70b3a5b2ca687db74e50078dcea4781f1d4d3b23f6af1ce981c9414e9dcd"
+    },
+    {
+      "step": "create_ruleset",
+      "id": 1461752107,
+      "ruleset_id": 27859154,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1461752107,
+      "ruleset": {
+        "id": 27859154,
+        "name": "GOV-001 control main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/r-61974bac4c68fe3c",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/codex/gov001-target-a745aafb3c"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": true,
+              "required_status_checks": [
+                {
+                  "context": "contracts-and-tests",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "issue-and-product-record",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XIJErzgGpGNI",
+        "created_at": "2026-11-23T04:37:20.715+07:00",
+        "updated_at": "2026-11-23T04:37:20.891+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/rulesets/27859154"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/r-61974bac4c68fe3c/rules/27859154"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": true,
+            "required_status_checks": [
+              {
+                "context": "contracts-and-tests",
+                "integration_id": 15368
+              },
+              {
+                "context": "issue-and-product-record",
+                "integration_id": 15368
+              }
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        }
+      ],
+      "probe_included": true,
+      "status": "PASS"
+    },
+    {
+      "step": "create_owned_ref",
+      "id": 1467945011,
+      "ref": "codex/gov001-target-3ad4bf11b4",
+      "sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "status": "PASS"
+    },
+    {
+      "step": "create_owned_ref",
+      "id": 1467945011,
+      "ref": "codex/gov001-head-06da171fa0",
+      "sha": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "status": "PASS"
+    },
+    {
+      "step": "before_create_ruleset",
+      "id": 1467945011,
+      "payload_sha256": "08b8725807014eae314aab5c75a5ab3297765189124196bdd68a9b4de8f9023b"
+    },
+    {
+      "step": "create_ruleset",
+      "id": 1467945011,
+      "ruleset_id": 27859157,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1467945011,
+      "ruleset": {
+        "id": 27859157,
+        "name": "GOV-001 app main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/s-251521f7e9131fb0",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/codex/gov001-target-3ad4bf11b4"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XfxAzzgGpGNU",
+        "created_at": "2026-11-23T04:37:28.789+07:00",
+        "updated_at": "2026-11-23T04:37:28.815+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/s-251521f7e9131fb0/rules/27859157"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        }
+      ],
+      "probe_included": true,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1461752107,
+      "ruleset": {
+        "id": 27859154,
+        "name": "GOV-001 control main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/r-61974bac4c68fe3c",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/codex/gov001-target-a745aafb3c"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": true,
+              "required_status_checks": [
+                {
+                  "context": "contracts-and-tests",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "issue-and-product-record",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XIJErzgGpGNI",
+        "created_at": "2026-11-23T04:37:20.715+07:00",
+        "updated_at": "2026-11-23T04:37:20.891+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/rulesets/27859154"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/r-61974bac4c68fe3c/rules/27859154"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": true,
+            "required_status_checks": [
+              {
+                "context": "contracts-and-tests",
+                "integration_id": 15368
+              },
+              {
+                "context": "issue-and-product-record",
+                "integration_id": 15368
+              }
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        }
+      ],
+      "probe_included": true,
+      "status": "PASS"
+    },
+    {
+      "step": "missing_required_checks",
+      "id": 1461752107,
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "check_count": 0,
+      "status": "OBSERVED"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1461752107,
+      "kind": "missing_checks_and_no_pr",
+      "ref": "codex/gov001-target-a745aafb3c",
+      "expected_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1461752107,
+      "kind": "missing_checks_and_no_pr",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nChanges must be made through a pull request.\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#update-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1461752107,
+      "kind": "direct_fastforward",
+      "ref": "codex/gov001-target-a745aafb3c",
+      "expected_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1461752107,
+      "kind": "direct_fastforward",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nChanges must be made through a pull request.\n\n2 of 2 required status checks are expected.\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#update-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1461752107,
+      "kind": "forced_nonfastforward",
+      "ref": "codex/gov001-target-a745aafb3c",
+      "expected_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1461752107,
+      "kind": "forced_nonfastforward",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nCannot force-push to this branch\n\nChanges must be made through a pull request.\n\n2 of 2 required status checks are expected.\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#update-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1461752107,
+      "kind": "deletion",
+      "ref": "codex/gov001-target-a745aafb3c",
+      "expected_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1461752107,
+      "kind": "deletion",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nCannot delete this branch\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#delete-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "probe_rule_suites",
+      "id": 1461752107,
+      "suites": [
+        {
+          "id": 5294562847,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+          "after_sha": "0000000000000000000000000000000000000000",
+          "ref": "refs/heads/codex/gov001-target-a745aafb3c",
+          "repository_id": 1461752107,
+          "repository_name": "r-61974bac4c68fe3c",
+          "pushed_at": "2026-11-23T04:38:02+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "deletion",
+              "details": "Cannot delete this branch"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "required_status_checks"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "pull_request"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "non_fast_forward"
+            }
+          ]
+        },
+        {
+          "id": 5294562312,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+          "after_sha": "c7e0f812a27b3db3143ac1e06253e0f212f93e4d",
+          "ref": "refs/heads/codex/gov001-target-a745aafb3c",
+          "repository_id": 1461752107,
+          "repository_name": "r-61974bac4c68fe3c",
+          "pushed_at": "2026-11-23T04:37:58+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "non_fast_forward",
+              "details": "Cannot force-push to this branch"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "pull_request",
+              "details": "Changes must be made through a pull request."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "required_status_checks",
+              "details": "2 of 2 required status checks are expected."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "deletion"
+            }
+          ]
+        },
+        {
+          "id": 5294561671,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+          "after_sha": "c9b68915112292ea77262c6e18fc41e7c30b0996",
+          "ref": "refs/heads/codex/gov001-target-a745aafb3c",
+          "repository_id": 1461752107,
+          "repository_name": "r-61974bac4c68fe3c",
+          "pushed_at": "2026-11-23T04:37:53+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "pull_request",
+              "details": "Changes must be made through a pull request."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "required_status_checks",
+              "details": "2 of 2 required status checks are expected."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "non_fast_forward"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "deletion"
+            }
+          ]
+        },
+        {
+          "id": 5294561172,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+          "after_sha": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+          "ref": "refs/heads/codex/gov001-target-a745aafb3c",
+          "repository_id": 1461752107,
+          "repository_name": "r-61974bac4c68fe3c",
+          "pushed_at": "2026-11-23T04:37:49+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "pull_request",
+              "details": "Changes must be made through a pull request."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "required_status_checks"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "non_fast_forward"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859154,
+                "name": "GOV-001 control main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "deletion"
+            }
+          ]
+        }
+      ],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1467945011,
+      "ruleset": {
+        "id": 27859157,
+        "name": "GOV-001 app main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/s-251521f7e9131fb0",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/codex/gov001-target-3ad4bf11b4"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XfxAzzgGpGNU",
+        "created_at": "2026-11-23T04:37:28.789+07:00",
+        "updated_at": "2026-11-23T04:37:28.815+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/s-251521f7e9131fb0/rules/27859157"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        }
+      ],
+      "probe_included": true,
+      "status": "PASS"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1467945011,
+      "kind": "direct_fastforward",
+      "ref": "codex/gov001-target-3ad4bf11b4",
+      "expected_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1467945011,
+      "kind": "direct_fastforward",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nChanges must be made through a pull request.\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#update-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1467945011,
+      "kind": "forced_nonfastforward",
+      "ref": "codex/gov001-target-3ad4bf11b4",
+      "expected_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1467945011,
+      "kind": "forced_nonfastforward",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nCannot force-push to this branch\n\nChanges must be made through a pull request.\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#update-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "before_denial_probe",
+      "id": 1467945011,
+      "kind": "deletion",
+      "ref": "codex/gov001-target-3ad4bf11b4",
+      "expected_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+    },
+    {
+      "step": "denial_probe",
+      "id": 1467945011,
+      "kind": "deletion",
+      "http": 422,
+      "error": {
+        "message": "Repository rule violations found\n\nCannot delete this branch\n\n",
+        "documentation_url": "https://docs.github.com/rest/git/refs#delete-a-reference",
+        "status": "422"
+      },
+      "status": "PASS"
+    },
+    {
+      "step": "probe_rule_suites",
+      "id": 1467945011,
+      "suites": [
+        {
+          "id": 5294565555,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+          "after_sha": "0000000000000000000000000000000000000000",
+          "ref": "refs/heads/codex/gov001-target-3ad4bf11b4",
+          "repository_id": 1467945011,
+          "repository_name": "s-251521f7e9131fb0",
+          "pushed_at": "2026-11-23T04:38:22+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "deletion",
+              "details": "Cannot delete this branch"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "pull_request"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "non_fast_forward"
+            }
+          ]
+        },
+        {
+          "id": 5294564902,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+          "after_sha": "f4a79e65932475d00d1217320ae61f8dda1fd4f1",
+          "ref": "refs/heads/codex/gov001-target-3ad4bf11b4",
+          "repository_id": 1467945011,
+          "repository_name": "s-251521f7e9131fb0",
+          "pushed_at": "2026-11-23T04:38:16+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "non_fast_forward",
+              "details": "Cannot force-push to this branch"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "pull_request",
+              "details": "Changes must be made through a pull request."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "deletion"
+            }
+          ]
+        },
+        {
+          "id": 5294564257,
+          "actor_id": 354973103,
+          "actor_name": "trdat1605",
+          "before_sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+          "after_sha": "23b1d9381c64c390f30ffc979edab1de42745842",
+          "ref": "refs/heads/codex/gov001-target-3ad4bf11b4",
+          "repository_id": 1467945011,
+          "repository_name": "s-251521f7e9131fb0",
+          "pushed_at": "2026-11-23T04:38:12+07:00",
+          "result": "fail",
+          "rule_evaluations": [
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "fail",
+              "rule_type": "pull_request",
+              "details": "Changes must be made through a pull request."
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "non_fast_forward"
+            },
+            {
+              "rule_source": {
+                "type": "ruleset",
+                "id": 27859157,
+                "name": "GOV-001 app main"
+              },
+              "enforcement": "active",
+              "result": "pass",
+              "rule_type": "deletion"
+            }
+          ]
+        }
+      ],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "create_probe_pr",
+      "id": 1461752107,
+      "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+      "number": 16,
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "base": "codex/gov001-target-a745aafb3c",
+      "status": "PASS"
+    },
+    {
+      "step": "create_probe_pr",
+      "id": 1467945011,
+      "pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/1",
+      "number": 1,
+      "head": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "base": "codex/gov001-target-3ad4bf11b4",
+      "status": "PASS"
+    },
+    {
+      "step": "probe_pr_snapshot",
+      "id": 1461752107,
+      "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "draft": false,
+      "checks": [
+        {
+          "id": 137364757577,
+          "name": "contracts-and-tests",
+          "status": "queued",
+          "conclusion": null,
+          "app_id": 15368
+        },
+        {
+          "id": 137364757370,
+          "name": "issue-and-product-record",
+          "status": "in_progress",
+          "conclusion": null,
+          "app_id": 15368
+        }
+      ],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "probe_pr_snapshot",
+      "id": 1467945011,
+      "pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/1",
+      "head": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "draft": false,
+      "checks": [],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "probe_pr_snapshot",
+      "id": 1461752107,
+      "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "draft": false,
+      "checks": [
+        {
+          "id": 137364757577,
+          "name": "contracts-and-tests",
+          "status": "completed",
+          "conclusion": "success",
+          "app_id": 15368
+        },
+        {
+          "id": 137364757370,
+          "name": "issue-and-product-record",
+          "status": "completed",
+          "conclusion": "failure",
+          "app_id": 15368
+        }
+      ],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "probe_pr_snapshot",
+      "id": 1467945011,
+      "pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/1",
+      "head": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "draft": false,
+      "checks": [],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "invalid_metadata_required_check",
+      "id": 1461752107,
+      "status": "PASS",
+      "expected_behavior": "actual failure blocks PR readiness",
+      "mergeable_state": "blocked",
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "run_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/actions/runs/45073259804",
+      "limits": [
+        "No merge attempt; blocked readiness only"
+      ]
+    },
+    {
+      "step": "positive_probe_metadata",
+      "id": 1461752107,
+      "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "status": "PASS"
+    },
+    {
+      "step": "probe_pr_snapshot",
+      "id": 1461752107,
+      "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "draft": false,
+      "checks": [
+        {
+          "id": 137364987160,
+          "name": "contracts-and-tests",
+          "status": "completed",
+          "conclusion": "success",
+          "app_id": 15368
+        },
+        {
+          "id": 137364986923,
+          "name": "issue-and-product-record",
+          "status": "completed",
+          "conclusion": "success",
+          "app_id": 15368
+        },
+        {
+          "id": 137364757577,
+          "name": "contracts-and-tests",
+          "status": "completed",
+          "conclusion": "success",
+          "app_id": 15368
+        },
+        {
+          "id": 137364757370,
+          "name": "issue-and-product-record",
+          "status": "completed",
+          "conclusion": "failure",
+          "app_id": 15368
+        }
+      ],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "probe_pr_snapshot",
+      "id": 1467945011,
+      "pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/1",
+      "head": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "draft": false,
+      "checks": [],
+      "status": "OBSERVED"
+    },
+    {
+      "step": "positive_pr_readiness",
+      "id": 1461752107,
+      "status": "PASS",
+      "head": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "checks": [
+        {
+          "name": "issue-and-product-record",
+          "id": 137364986923,
+          "conclusion": "success",
+          "app_id": 15368
+        },
+        {
+          "name": "contracts-and-tests",
+          "id": 137364987160,
+          "conclusion": "success",
+          "app_id": 15368
+        }
+      ],
+      "limits": [
+        "Synthetic metadata/content replay, not productacceptance",
+        "Actualmerge NOT_RUN; PR remainsunmerged",
+        "App hasno productCI; clean onlymeans statedrules currentlymet"
+      ]
+    },
+    {
+      "step": "positive_pr_readiness",
+      "id": 1467945011,
+      "status": "PASS",
+      "head": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/1",
+      "mergeable": true,
+      "mergeable_state": "clean",
+      "checks": [],
+      "limits": [
+        "Synthetic metadata/content replay, not productacceptance",
+        "Actualmerge NOT_RUN; PR remainsunmerged",
+        "App hasno productCI; clean onlymeans statedrules currentlymet"
+      ]
+    },
+    {
+      "step": "rules_readback",
+      "id": 1461752107,
+      "ruleset": {
+        "id": 27859154,
+        "name": "GOV-001 control main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/r-61974bac4c68fe3c",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/codex/gov001-target-a745aafb3c"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": true,
+              "required_status_checks": [
+                {
+                  "context": "contracts-and-tests",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "issue-and-product-record",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XIJErzgGpGNI",
+        "created_at": "2026-11-23T04:37:20.715+07:00",
+        "updated_at": "2026-11-23T04:37:20.891+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/rulesets/27859154"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/r-61974bac4c68fe3c/rules/27859154"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": true,
+            "required_status_checks": [
+              {
+                "context": "contracts-and-tests",
+                "integration_id": 15368
+              },
+              {
+                "context": "issue-and-product-record",
+                "integration_id": 15368
+              }
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        }
+      ],
+      "probe_included": true,
+      "status": "PASS"
+    },
+    {
+      "step": "before_close_probe_pr",
+      "id": 1461752107,
+      "number": 16,
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "close_probe_pr",
+      "id": 1461752107,
+      "number": 16,
+      "merged": false,
+      "status": "PASS"
+    },
+    {
+      "step": "before_remove_probe_target",
+      "id": 1461752107,
+      "ruleset_id": 27859154,
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "remove_probe_target",
+      "id": 1461752107,
+      "ruleset_id": 27859154,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1461752107,
+      "ruleset": {
+        "id": 27859154,
+        "name": "GOV-001 control main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/r-61974bac4c68fe3c",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": true,
+              "required_status_checks": [
+                {
+                  "context": "contracts-and-tests",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "issue-and-product-record",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XIJErzgGpGNI",
+        "created_at": "2026-11-23T04:37:20.715+07:00",
+        "updated_at": "2026-11-23T04:40:29.670+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/rulesets/27859154"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/r-61974bac4c68fe3c/rules/27859154"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": true,
+            "required_status_checks": [
+              {
+                "context": "contracts-and-tests",
+                "integration_id": 15368
+              },
+              {
+                "context": "issue-and-product-record",
+                "integration_id": 15368
+              }
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        }
+      ],
+      "probe_included": false,
+      "status": "PASS"
+    },
+    {
+      "step": "before_delete_owned_ref",
+      "id": 1461752107,
+      "ref": "codex/gov001-target-a745aafb3c",
+      "sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "delete_owned_ref",
+      "id": 1461752107,
+      "ref": "codex/gov001-target-a745aafb3c",
+      "sha": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+      "status": "PASS"
+    },
+    {
+      "step": "before_delete_owned_ref",
+      "id": 1461752107,
+      "ref": "codex/gov001-head-63140c80d5",
+      "sha": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "delete_owned_ref",
+      "id": 1461752107,
+      "ref": "codex/gov001-head-63140c80d5",
+      "sha": "8fbda54c62bb4e660fcc0e71835472f5b20a3b2f",
+      "status": "PASS"
+    },
+    {
+      "step": "cleanup_final",
+      "id": 1461752107,
+      "heads": {
+        "codex/agent-operating-system": "344f3a8a6315d1a5814479caa54434e571df3033",
+        "codex/docs-home": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+        "codex/knowledge-handoff": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+        "codex/product-foundation": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+        "codex/repository-publication": "3feef9bc3de94748bfda61d01c2093dee79056b4",
+        "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+        "review/project-foundation": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3"
+      },
+      "actions_enabled": true,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1467945011,
+      "ruleset": {
+        "id": 27859157,
+        "name": "GOV-001 app main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/s-251521f7e9131fb0",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/codex/gov001-target-3ad4bf11b4"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XfxAzzgGpGNU",
+        "created_at": "2026-11-23T04:37:28.789+07:00",
+        "updated_at": "2026-11-23T04:37:28.815+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/s-251521f7e9131fb0/rules/27859157"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        }
+      ],
+      "probe_included": true,
+      "status": "PASS"
+    },
+    {
+      "step": "before_close_probe_pr",
+      "id": 1467945011,
+      "number": 1,
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "close_probe_pr",
+      "id": 1467945011,
+      "number": 1,
+      "merged": false,
+      "status": "PASS"
+    },
+    {
+      "step": "before_remove_probe_target",
+      "id": 1467945011,
+      "ruleset_id": 27859157,
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "remove_probe_target",
+      "id": 1467945011,
+      "ruleset_id": 27859157,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1467945011,
+      "ruleset": {
+        "id": 27859157,
+        "name": "GOV-001 app main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/s-251521f7e9131fb0",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XfxAzzgGpGNU",
+        "created_at": "2026-11-23T04:37:28.789+07:00",
+        "updated_at": "2026-11-23T04:40:44.122+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/s-251521f7e9131fb0/rules/27859157"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        }
+      ],
+      "probe_included": false,
+      "status": "PASS"
+    },
+    {
+      "step": "before_delete_owned_ref",
+      "id": 1467945011,
+      "ref": "codex/gov001-target-3ad4bf11b4",
+      "sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "delete_owned_ref",
+      "id": 1467945011,
+      "ref": "codex/gov001-target-3ad4bf11b4",
+      "sha": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "status": "PASS"
+    },
+    {
+      "step": "before_delete_owned_ref",
+      "id": 1467945011,
+      "ref": "codex/gov001-head-06da171fa0",
+      "sha": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "status": "PRECONDITION_PASS"
+    },
+    {
+      "step": "delete_owned_ref",
+      "id": 1467945011,
+      "ref": "codex/gov001-head-06da171fa0",
+      "sha": "199b07d2714a33e97b7fd6c55024731c88dd5efa",
+      "status": "PASS"
+    },
+    {
+      "step": "cleanup_final",
+      "id": 1467945011,
+      "heads": {
+        "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      },
+      "actions_enabled": false,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1461752107,
+      "ruleset": {
+        "id": 27859154,
+        "name": "GOV-001 control main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/r-61974bac4c68fe3c",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": true,
+              "required_status_checks": [
+                {
+                  "context": "contracts-and-tests",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "issue-and-product-record",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XIJErzgGpGNI",
+        "created_at": "2026-11-23T04:37:20.715+07:00",
+        "updated_at": "2026-11-23T04:40:29.670+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/r-61974bac4c68fe3c/rulesets/27859154"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/r-61974bac4c68fe3c/rules/27859154"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": true,
+            "required_status_checks": [
+              {
+                "context": "contracts-and-tests",
+                "integration_id": 15368
+              },
+              {
+                "context": "issue-and-product-record",
+                "integration_id": 15368
+              }
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/r-61974bac4c68fe3c",
+          "ruleset_id": 27859154
+        }
+      ],
+      "probe_included": false,
+      "status": "PASS"
+    },
+    {
+      "step": "rules_readback",
+      "id": 1467945011,
+      "ruleset": {
+        "id": 27859157,
+        "name": "GOV-001 app main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "trdat1605/s-251521f7e9131fb0",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5XfxAzzgGpGNU",
+        "created_at": "2026-11-23T04:37:28.789+07:00",
+        "updated_at": "2026-11-23T04:40:44.122+07:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157"
+          },
+          "html": {
+            "href": "https://github.com/trdat1605/s-251521f7e9131fb0/rules/27859157"
+          }
+        }
+      },
+      "effective_main": [
+        {
+          "type": "deletion",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "non_fast_forward",
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          },
+          "ruleset_source_type": "Repository",
+          "ruleset_source": "trdat1605/s-251521f7e9131fb0",
+          "ruleset_id": 27859157
+        }
+      ],
+      "probe_included": false,
+      "status": "PASS"
+    },
+    {
+      "step": "post_cleanup_final_verification",
+      "status": "PASS",
+      "repositories": [
+        {
+          "id": 1461752107,
+          "role": "control",
+          "ruleset_id": 27859154,
+          "heads": {
+            "codex/agent-operating-system": "344f3a8a6315d1a5814479caa54434e571df3033",
+            "codex/docs-home": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+            "codex/knowledge-handoff": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+            "codex/product-foundation": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+            "codex/repository-publication": "3feef9bc3de94748bfda61d01c2093dee79056b4",
+            "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+            "review/project-foundation": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3"
+          },
+          "probe_pr": "https://github.com/trdat1605/r-61974bac4c68fe3c/pull/16",
+          "probe_closed_unmerged": true,
+          "actions_enabled": true
+        },
+        {
+          "id": 1467945011,
+          "role": "app",
+          "ruleset_id": 27859157,
+          "heads": {
+            "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+          },
+          "probe_pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/1",
+          "probe_closed_unmerged": true,
+          "actions_enabled": false
+        }
+      ]
+    },
+    {
+      "step": "invalid_metadata_failure_cause",
+      "status": "PASS",
+      "run_id": 45073259804,
+      "error": "PR requires one Task: tasks/ID/task.json line",
+      "limits": [
+        "Selected sanitized error retained; full logs stay on GitHub"
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "command": "Reviewed guarded GitHubREST ruleset POST/PUT plus exact temporary ref update/delete denial probes, actual PR CI failure/success and readiness snapshots, close/delete owned probes, effective main/source head and Actions guards",
+  "limits": [
+    "No actualmerge, runtime/appsource/billing changes",
+    "Synthetic PUB-001 content replay, notGOV-001productdelivery or businessacceptance",
+    "Freshheadmissingcheck probe deniedbyPRrule; separate directFFsuite proves statuscheckFAIL",
+    "Onlydefaultmain protected; feature/stack branches not protected",
+    "ZeroGitHubapprovals soleowner; agentreview nothumanGitHubapproval",
+    "Admincanmodifysettings; workflows require review, apphasno productCI"
+  ]
+}

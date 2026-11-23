@@ -1,0 +1,56 @@
+[
+  {
+    "id": "67c501e5b6400996bd14c24361c9632dbad51692f6674d7356ce7556f37130d4",
+    "name": "/course-platform-local-sheets-1",
+    "started_at": "2026-11-19T23:39:46.284242456Z",
+    "image": "sha256:1dd83537da068a5f3230c08d411035aa85e238862382db7176a8e9ac808274a9"
+  },
+  {
+    "id": "0fe7a3f6b2bec330c0c31eb541dee816ecfcb6db87a99555ad3e72b1f7ad638e",
+    "name": "/course-platform-local-web-1",
+    "started_at": "2026-11-19T23:39:34.420705457Z",
+    "image": "sha256:1dd83537da068a5f3230c08d411035aa85e238862382db7176a8e9ac808274a9"
+  },
+  {
+    "id": "c7cddfacb326685e315aeceaf8904335c0dee8ce3017e385249e862c9f8a31df",
+    "name": "/course-platform-local-db-1",
+    "started_at": "2026-11-18T21:03:46.457044007Z",
+    "image": "sha256:0dd3149a06e4579a0d70d8fef9945636cd514005e7237deb27f9b67886f8dc4f"
+  },
+  {
+    "id": "67a68a259ea55fee8073f86faf3c0284f856d2b0c7273dce1f95d7dcc080563a",
+    "name": "/cwlab-9200023e-rails-1",
+    "started_at": "2026-11-17T15:26:57.420138825Z",
+    "image": "sha256:66d3ff2ac71dfe104454be166f22118676df59c8dea5d39ad77b4ad23b70ce87"
+  },
+  {
+    "id": "5dc4761f5dbb01c2cd8054fe3e72e796d99a179edec173924a102b3db311bb26",
+    "name": "/cwlab-9200023e-sidekiq-1",
+    "started_at": "2026-11-17T15:26:57.143375484Z",
+    "image": "sha256:66d3ff2ac71dfe104454be166f22118676df59c8dea5d39ad77b4ad23b70ce87"
+  },
+  {
+    "id": "d771381b0076c4b65b01131a0390e00f12c1552c4df315bfeb9a33d4bf78b77f",
+    "name": "/cwlab-9200023e-vite-1",
+    "started_at": "2026-11-17T15:26:56.862010514Z",
+    "image": "sha256:bc1d3fa91959c4fe21fba1eaf767048ccc94f884e8feacf3c595ca15a53b9889"
+  },
+  {
+    "id": "579f1fa800176f2fbaa99d9f9daa684317051b1d67ac9551778b2639401b0398",
+    "name": "/cwlab-9200023e-mailhog-1",
+    "started_at": "2026-11-17T15:26:56.540276645Z",
+    "image": "sha256:8d76a3d4ffa32a3661311944007a415332c4bb855657f4f6c57996405c009bea"
+  },
+  {
+    "id": "23c88773799b555b001cece968316a6843db962617736c7f414ffbfbb56323aa",
+    "name": "/cwlab-9200023e-redis-1",
+    "started_at": "2026-11-17T15:26:50.524400903Z",
+    "image": "sha256:71885d8cc6e42f2bc0aa2eb853bfc4be200b5108a46ac50e117ae1df0531fb80"
+  },
+  {
+    "id": "5d55d2ef8a5d0b4eb31a320d7811b4d1cc4f1fbd95b1c1c029b140d8546d4967",
+    "name": "/cwlab-9200023e-postgres-1",
+    "started_at": "2026-11-17T15:26:50.734509698Z",
+    "image": "sha256:0dd3149a06e4579a0d70d8fef9945636cd514005e7237deb27f9b67886f8dc4f"
+  }
+]

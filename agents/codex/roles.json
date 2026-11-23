@@ -1,0 +1,17 @@
+{
+  "coordinator": {
+    "brief": "agents/codex/coordinator.md",
+    "execution": "current Codex desktop session; collaboration tools",
+    "machine_permissions": "inherited; not isolated"
+  },
+  "implementer": {
+    "brief": "agents/codex/implementer.md",
+    "execution": "explicit collaboration spawn/followup; task worktree",
+    "machine_permissions": "inherited; write scope is a task agreement plus local checks"
+  },
+  "reviewer": {
+    "brief": "agents/codex/reviewer.md",
+    "execution": "fresh-context collaboration spawn; preferred read-only task",
+    "machine_permissions": "inherited in collaboration; CLI read-only probe checked separately"
+  }
+}

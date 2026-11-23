@@ -1,0 +1,55 @@
+{
+  "at": "2026-11-17T19:28:09.455901+00:00",
+  "subject_commit": "c10c00ad9a299d92d1a48eb43d5f8d37640d8bdd",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu-22.04",
+    "--exec",
+    "python3",
+    "-B",
+    "/mnt/c/Users/MFLAT-ADS-010/Documents/ChatGPT/chatwoot-vn-agent-ops/tools/agents/workspace_doctor.py",
+    "--profile",
+    "/mnt/c/Users/MFLAT-ADS-010/Documents/ChatGPT/chatwoot-vn-agent-ops/config/agents/runtime.json"
+  ],
+  "selected_result": {
+    "checks": [
+      {
+        "check": "profile",
+        "status": "PASS"
+      },
+      {
+        "check": "source_path",
+        "status": "PASS"
+      },
+      {
+        "check": "git_identity",
+        "status": "PASS"
+      },
+      {
+        "check": "source_directory",
+        "status": "PASS"
+      },
+      {
+        "check": "engine_identity",
+        "status": "PASS"
+      },
+      {
+        "check": "service_rails",
+        "status": "PASS"
+      },
+      {
+        "check": "service_vite",
+        "status": "PASS"
+      },
+      {
+        "check": "service_sidekiq",
+        "status": "PASS"
+      }
+    ],
+    "status": "HEALTHY"
+  },
+  "limits": "Additional coordinator live check using Python3.10 in Ubuntu and direct Linux CLI; not part of earlier reviewer execution"
+}

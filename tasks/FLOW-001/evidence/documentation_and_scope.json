@@ -1,0 +1,28 @@
+{
+  "subject_commit": "48f8a14ffcad7c5c5051ab5041c85074c60a620f",
+  "status": "PASS",
+  "exit_code": 0,
+  "observed_local_date": "2026-11-23",
+  "commands": [
+    "Inline Python verifies scope, subject blobs, JSON, selected secret patterns, relative Markdown file targets and PyYAML parse",
+    "git diff --check 11051194ad7733c2df0eadfcd48d9b42a61cdee2 48f8a14ffcad7c5c5051ab5041c85074c60a620f",
+    "Compare legacy task artifacts and core workflow/repository_check bytes against c7c8841"
+  ],
+  "results": {
+    "scope_files": 18,
+    "relative_file_links_checked": 73,
+    "yaml_files_parsed": [
+      ".github/ISSUE_TEMPLATE/bug_report.yml",
+      ".github/ISSUE_TEMPLATE/feature_request.yml",
+      ".github/workflows/agent-governance.yml"
+    ],
+    "selected_secret_pattern_findings": 0,
+    "core_and_legacy_records_unchanged": true,
+    "round_2_source_index_guard_documented": true
+  },
+  "limits": [
+    "YAML parse not hosted issue-form UI activation",
+    "Pattern/manual content read not exhaustive secret audit",
+    "No app build/tests/runtime or product acceptance; source baseline sharing is partial only"
+  ]
+}

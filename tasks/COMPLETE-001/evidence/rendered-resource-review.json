@@ -1,0 +1,16 @@
+{
+  "reviewer": "/root/portable_app_review",
+  "result": "PASS",
+  "app_subject": "07686773cb515aba4029823ffe585e80fca705a5",
+  "verification": [
+    "Independent renderallbuild/testprofiles exactproject/sourceSHA/FULL_BUILD/context/Dockerfile/SHAarg",
+    "Runtimebindonlynewsource/projectnonexternalvolumesnetwork, separateDBRedisstorageTMPtest",
+    "Loopback44440..42only,noPGRedisports/privileged/hostnetwork/fixedcontainernames",
+    "Secrets0600/state0700, worktreeclean",
+    "Portsfree; Docker12CPU15.48GiBRAM,protected9containers2.05GiB,C26.45GiBabovestop15"
+  ],
+  "limits": [
+    "Noresourcecaps, monitorpeak/disk",
+    "NoDockerbuild/startbyreviewer; executionchecksremainNOT_RUN"
+  ]
+}

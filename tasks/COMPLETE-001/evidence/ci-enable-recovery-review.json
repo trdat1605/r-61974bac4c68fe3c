@@ -1,0 +1,11 @@
+{
+  "reviewer": "/root/foundation_ci_audit",
+  "result": "PASS",
+  "script_sha256": "227baa2bd01ecb6293bcfebc7f257698a8049768f97ea1a25080e1bf9a0dc5be",
+  "sequence_adjustment": "All17old disabled+0runs beforeenable; atomicenabledtrue/selected thenall17/runs0readback, exactpinnedallowlistreadback BEFOREcreatingPR; candidatehasnopush/schedule",
+  "limits": [
+    "409isimplementerobserved, notofficialrequirementguarantee",
+    "Anyfailure immediateactualglobalstate readbackrequired, donotassumecatchdisabledsuccess",
+    "No merge/runtimeapproval; actualCIresults pending"
+  ]
+}

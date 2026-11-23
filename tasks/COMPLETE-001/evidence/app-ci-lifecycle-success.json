@@ -1,0 +1,212 @@
+{
+  "source_repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "subject_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "actual_ci_checkout_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+  "checkout_tree": "65705962f43b3c1a3b35920b66436d3c210c4db6",
+  "app_head_tree": "65705962f43b3c1a3b35920b66436d3c210c4db6",
+  "tree_equivalence": "PASS; merge checkout metadata differs, tracked tree identical",
+  "run_id": 45082996742,
+  "url": "https://github.com/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "GitHub Actions foundation-ci.yml: metadata, focused-frontend and isolated-runtime; python3 -B docker/isolated/verify_runtime.py",
+  "recorded_utc": "2026-11-22T23:42:14.176992+00:00",
+  "jobs": [
+    {
+      "name": "metadata",
+      "job_id": 137395198857,
+      "conclusion": "success",
+      "raw_log_sha256": "b965f00cbb075f29ee73df55edb0aabdfe4b465ec6853e64d0db32baa5da8469",
+      "selected_nonsecret_lines": [
+        "2026-11-22T23:23:54.7370023Z [command]/usr/bin/git log -1 --format=%H",
+        "2026-11-22T23:23:54.7390950Z 8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+        "2026-11-22T23:23:55.4013328Z Ran 23 tests in 0.225s"
+      ]
+    },
+    {
+      "name": "focused-frontend",
+      "job_id": 137395199109,
+      "conclusion": "success",
+      "raw_log_sha256": "deeb4f1267e62c3cf13903fb8daf62f4c67013bdb7f828509ac51e30d6041203",
+      "selected_nonsecret_lines": [
+        "2026-11-22T23:23:49.5484914Z [command]/usr/bin/git log -1 --format=%H",
+        "2026-11-22T23:23:49.5506925Z 8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+        "2026-11-22T23:24:03.3035546Z \u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m2 passed\u001b[39m\u001b[22m\u001b[90m (2)\u001b[39m",
+        "2026-11-22T23:24:03.3036803Z \u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m14 passed\u001b[39m\u001b[22m\u001b[90m (14)\u001b[39m"
+      ]
+    },
+    {
+      "name": "isolated-runtime",
+      "job_id": 137395199200,
+      "conclusion": "success",
+      "raw_log_sha256": "600705d579476f23e3bb775ea8bcdc8ab9391a114535cb131be3c8836d2ec5cb",
+      "selected_nonsecret_lines": [
+        "2026-11-22T23:23:52.7641005Z [command]/usr/bin/git log -1 --format=%H",
+        "2026-11-22T23:23:52.7662525Z 8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+        "2026-11-22T23:40:09.0792579Z FOUNDATION_RUNTIME_EVIDENCE {\"capacity\": {\"free_bytes\": 90990755840, \"minimum_bytes\": 16106127360}, \"exit_code\": 0, \"http_after_restart\": [{\"bytes\": 97, \"http\": 200, \"path\": \"/api\", \"port\": 44440, \"sha256\": \"a0b5ab92b7c57d59af37a5072c6cdaa72805787bc7b8030b074a323b794757e9\"}, {\"bytes\": 183530, \"http\": 200, \"path\": \"/vite-dev/@vite/client\", \"port\": 44441, \"sha256\": \"166a8136574a18855da6d42e3a7ad913ac25d25cb44dc72014524d48e27d72a2\"}], \"http_before\": [{\"bytes\": 97, \"http\": 200, \"path\": \"/api\", \"port\": 44440, \"sha256\": \"17445fb2ba9eb7045cb7be0f52dd5b457fc8ba71e7285f9299a854ab3b841ee1\"}, {\"bytes\": 9097, \"http\": 200, \"path\": \"/app/login\", \"port\": 44440, \"sha256\": \"8baa81753efaf5f3871460c6632211a15d05a6926ed3796b67e7b962a60c6dc4\"}, {\"bytes\": 183510, \"http\": 200, \"path\": \"/vite-dev/@vite/client\", \"port\": 44441, \"sha256\": \"0b52e073d0d7350e9c32ed9014f5c02cd9f81a78ef6f3726b292f64c2addabcd\"}, {\"bytes\": 18436, \"http\": 200, \"path\": \"/\", \"port\": 44442, \"sha256\": \"66595928dfa92945b870a810abbd933b1217fae4da714a67cd22d31408a8166c\"}], \"limits\": [\"Synthetic isolated hosted-runner verification; no production acceptance\", \"Focused RSpec/Vitest only; no full application suite or security certification\"], \"project\": \"cwdev-ci-runtime\", \"restore\": {\"counts_after\": [\"accounts=2\", \"users=1\", \"installation_configs=129\"], \"counts_before\": [\"accounts=2\", \"users=1\", \"installation_configs=129\"], \"dump_bytes\": 424607, \"dump_sha256\": \"ac924acfb8be8bb08ffdc7c0580057eba98ef09c064e55f63778e773f68d38ee\"}, \"source_commit\": \"8d953fd35000ffc06a9696ad0a6ba91c211f6466\", \"status\": \"PASS\", \"steps\": [{\"exit_code\": 0, \"name\": \"prepare\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"compose_config\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"full_app_image_build_and_sha\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"synthetic_database_prepare\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"start_isolated_services\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"synthetic_counts_cwdev_ci_runtime_dev\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"focused_application_tests\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"focused_api_and_session_specs\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"restart_application_services\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"synthetic_counts_cwdev_ci_runtime_dev\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"backup_synthetic_database\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"create_restore_database\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"restore_synthetic_backup\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"synthetic_counts_cwdev_ci_runtime_restore\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"repeat_prepare_idempotent\", \"status\": \"PASS\"}, {\"exit_code\": 0, \"name\": \"stop_owned_services\", \"status\": \"PASS\"}]}"
+      ]
+    }
+  ],
+  "runtime": {
+    "capacity": {
+      "free_bytes": 90990755840,
+      "minimum_bytes": 16106127360
+    },
+    "exit_code": 0,
+    "http_after_restart": [
+      {
+        "bytes": 97,
+        "http": 200,
+        "path": "/api",
+        "port": 44440,
+        "sha256": "a0b5ab92b7c57d59af37a5072c6cdaa72805787bc7b8030b074a323b794757e9"
+      },
+      {
+        "bytes": 183530,
+        "http": 200,
+        "path": "/vite-dev/@vite/client",
+        "port": 44441,
+        "sha256": "166a8136574a18855da6d42e3a7ad913ac25d25cb44dc72014524d48e27d72a2"
+      }
+    ],
+    "http_before": [
+      {
+        "bytes": 97,
+        "http": 200,
+        "path": "/api",
+        "port": 44440,
+        "sha256": "17445fb2ba9eb7045cb7be0f52dd5b457fc8ba71e7285f9299a854ab3b841ee1"
+      },
+      {
+        "bytes": 9097,
+        "http": 200,
+        "path": "/app/login",
+        "port": 44440,
+        "sha256": "8baa81753efaf5f3871460c6632211a15d05a6926ed3796b67e7b962a60c6dc4"
+      },
+      {
+        "bytes": 183510,
+        "http": 200,
+        "path": "/vite-dev/@vite/client",
+        "port": 44441,
+        "sha256": "0b52e073d0d7350e9c32ed9014f5c02cd9f81a78ef6f3726b292f64c2addabcd"
+      },
+      {
+        "bytes": 18436,
+        "http": 200,
+        "path": "/",
+        "port": 44442,
+        "sha256": "66595928dfa92945b870a810abbd933b1217fae4da714a67cd22d31408a8166c"
+      }
+    ],
+    "limits": [
+      "Synthetic isolated hosted-runner verification; no production acceptance",
+      "Focused RSpec/Vitest only; no full application suite or security certification"
+    ],
+    "project": "cwdev-ci-runtime",
+    "restore": {
+      "counts_after": [
+        "accounts=2",
+        "users=1",
+        "installation_configs=129"
+      ],
+      "counts_before": [
+        "accounts=2",
+        "users=1",
+        "installation_configs=129"
+      ],
+      "dump_bytes": 424607,
+      "dump_sha256": "ac924acfb8be8bb08ffdc7c0580057eba98ef09c064e55f63778e773f68d38ee"
+    },
+    "source_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+    "status": "PASS",
+    "steps": [
+      {
+        "exit_code": 0,
+        "name": "prepare",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "compose_config",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "full_app_image_build_and_sha",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "synthetic_database_prepare",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "start_isolated_services",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "synthetic_counts_cwdev_ci_runtime_dev",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "focused_application_tests",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "focused_api_and_session_specs",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "restart_application_services",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "synthetic_counts_cwdev_ci_runtime_dev",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "backup_synthetic_database",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "create_restore_database",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "restore_synthetic_backup",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "synthetic_counts_cwdev_ci_runtime_restore",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "repeat_prepare_idempotent",
+        "status": "PASS"
+      },
+      {
+        "exit_code": 0,
+        "name": "stop_owned_services",
+        "status": "PASS"
+      }
+    ]
+  },
+  "limits": [
+    "Disposable hosted runner and synthetic data only; no lab/course writes",
+    "Focused tests and selected row counts; not all features, browser UX, security or production stability",
+    "CI executed merge checkout, not branch-head Git metadata; identical tracked tree verified via API",
+    "Raw logs not committed; only selected lines and SHA256 retained"
+  ]
+}

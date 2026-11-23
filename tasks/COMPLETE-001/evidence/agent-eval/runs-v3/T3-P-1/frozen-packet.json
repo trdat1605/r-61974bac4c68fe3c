@@ -1,0 +1,150 @@
+{
+  "run_id": "T3-P-1",
+  "protocol_id": "COMPLETE-001-CODEX-COORDINATION-V3",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "source_root": "/root/code/chatwoot-worktrees/wsl-preflight",
+  "distribution": "Ubuntu-22.04",
+  "source_manifest": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+      "lines": 139,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md"
+    },
+    {
+      "path": "config/routes.rb",
+      "sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa",
+      "lines": 845,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/base_controller.rb",
+      "sha256": "298d5dee1def22f0a5a9c2dc6736cc143ccc94cc62eedb0297517058c8f70376",
+      "lines": 17,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+      "sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+      "lines": 240,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+    },
+    {
+      "path": "app/models/conversation.rb",
+      "sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820",
+      "lines": 445,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+      "sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054",
+      "lines": 9,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+      "sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+      "lines": 1521,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+    },
+    {
+      "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+      "sha256": "de949b6624b62cd3f8049a25d4a6cc70ae46eb64eb3cbd6bacc995b1084ed5a9",
+      "lines": 30,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb"
+    },
+    {
+      "path": "enterprise/app/models/enterprise/conversation.rb",
+      "sha256": "ecd8947b2de51ae7ce77a6beb3ec66d6942bcf7e53d59bf9c18b33acccc74d53",
+      "lines": 75,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb"
+    },
+    {
+      "path": "app/helpers/date_range_helper.rb",
+      "sha256": "a60d4fd264ad76ceb873e2fd87bfb009aecf7b9270b57ac2694d637ccee92ddb",
+      "lines": 19,
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb"
+    }
+  ],
+  "common_instructions": [
+    "Read the supplied project policy and role brief. Policy ID CHATWOOT_AGENT_POLICY_V1. Source app is separate from control repo.",
+    "Only inspect fixed-ref Git objects for allowlisted source files and related tree path metadata. No application/source/config writes, runtime calls, tests, package installation, shell initialization that executes project hooks, or reads of environment/secrets/customer data.",
+    "Use primary source at the exact full SHA. Distinguish SOURCE_OBSERVED, INFERRED_FROM_SOURCE and NOT_RUN. Existing test source is not a passing test run.",
+    "Do not invent defects. State conditions, impact and supporting source for any finding. Valid behavior and uncertainty are acceptable findings.",
+    "Exchange at least the one predefined cross-role dependency answer in the assigned route before final handoff. No finding may be accepted just because another agent asserted it.",
+    "Respect task and path scope. If a necessary source path is absent, request scope extension and stop that sub-question. Do not silently expand the dataset.",
+    "For each substantive claim cite repository-relative path and 1-based line or symbol, plus fixed-ref URL. Keep the source ref in every worker/final handoff.",
+    "Final worker output fields: run_id, role, source_ref, findings[{id,claim,classification,evidence,critical_dependency}], dependency_messages[{id,from,to,question_or_answer,source_refs}], uncertainties, proposed_check_commands, execution_status. Maximum 500 words; JSON or clearly equivalent structured prose.",
+    "Final coordinator output fields: run_id, source_ref, integrated_answer, retained_worker_finding_ids, unresolved_dependencies, findings_or_risks, proposed_check_commands, execution_status=SOURCE_ONLY_NOT_RUN, next_step. Maximum 900 words.",
+    "No token cap, token-saving objective, or claim about hidden reasoning/model usage. Report unavailable telemetry as NOT_EXPOSED."
+  ],
+  "allowed_operations": {
+    "source_content": "Read exact manifest paths using git show REF:PATH. Local fixed-ref primary source is sufficient; no live web search is needed.",
+    "source_metadata": "git rev-parse --verify REF^{commit}; git cat-file -t REF; git ls-tree -r --name-only REF -- app/controllers/api/v1/accounts enterprise/app/controllers enterprise/app/models app/models/concerns. Tree listing is metadata only; content reads still require manifest membership.",
+    "citation_urls": "Only https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/<manifest-path> and line anchors; no authenticated GitHub requests or external service communication.",
+    "control_context": "Observer supplies each frozen packet at an exact read-only file path with SHA256. Agents may read ONLY that packet, which contains policy/role brief/manifest and assigned case; no oracle, other tasks/runs, local session logs, credentials, or runtime profiles. The roster arrives separately. Observer verifies packet bytes before dispatch.",
+    "communication_tools": [
+      "collaboration-optimize.send_message to current-run roster",
+      "collaboration-optimize.list_agents only to verify own current-run roster if needed"
+    ],
+    "forbidden": [
+      "Any file write except the single assigned current-run evidence output, or any Git mutation",
+      "Any shell command beyond allowlisted immutable source/metadata reads",
+      "Reading .env, process environments, credentials, customer/lab/course data, databases or container logs",
+      "HTTP/API/runtime/container/DB/Redis access",
+      "Running application tests, builds, linters or seed/migration scripts",
+      "Messaging outside current-run roster",
+      "Creating chats/threads/subagents, installing software, changing config, merge, push, release",
+      "Reading oracle or prior run answers"
+    ],
+    "evidence_output": "Each worker may write only its exact assigned runs/<run_id>/worker_A-original.json or worker_B-original.json. Coordinator may write only coordinator-original.json in same assigned run. File contains final original structured output plus dependency message receipts, no secrets. No edits to packet/dispatch/other-run files/oracle. Save bytes once at completion; notify observer with SHA256. This exception is evidence capture, not source/application modification."
+  },
+  "arm": {
+    "name": "Codex direct-peer",
+    "worker_message_recipients": "other worker for dependency questions/answers; coordinator for status and final output",
+    "dependency_route": "Workers use actual collaboration-optimize.send_message directly to each other. No simulated messages or observer relays. Both endpoints include message_id and received/sent content in final receipts.",
+    "synthesis": "Fresh coordinator performs final synthesis after both workers finish; it does not relay dependency answers."
+  },
+  "case": {
+    "case_id": "T3",
+    "type": "regression design and source review",
+    "prompt": "Design a focused regression matrix for conversation toggle_status: empty versus explicit status, snoozed_until, human agent/admin opening, and AgentBot pending-to-open handoff. Explain controller/model/response interactions and which cases already exist in request specs. Provide proposed commands and prerequisites, explicitly NOT_RUN. Do not invent a reproduced bug or claim a new test was added.",
+    "role_A": "Trace controller, response template and enterprise controller overlay. Ask B how the model toggles/resets snooze and which requested cases are already in specs.",
+    "role_B": "Trace conversation model, enterprise model, date parser and toggle_status request specs. Ask A how human versus AgentBot paths affect assignee/AI assignee and handoff.",
+    "dependency_questions": [
+      "A->B: What are model toggle/reset semantics and which snooze/toggle cases already exist in specs?",
+      "B->A: What differs between human agent/admin opening and AgentBot pending-to-open handoff?"
+    ],
+    "source_paths": [
+      "config/routes.rb",
+      "app/controllers/api/v1/accounts/base_controller.rb",
+      "app/controllers/api/v1/accounts/conversations_controller.rb",
+      "app/models/conversation.rb",
+      "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+      "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+      "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+      "enterprise/app/models/enterprise/conversation.rb",
+      "app/helpers/date_range_helper.rb"
+    ]
+  },
+  "roles": {
+    "coordinator": "Fresh context per run. Delegate only the frozen two worker roles, operate the assigned routing arm, synthesize a <=900-word final handoff from worker evidence, and declare uncertainties. Read-only; no spawning. Save original synthesis only to assigned coordinator-original.json; do not write any other path.",
+    "worker_A": "Fresh context. Perform case-specific role A, ask/answer the defined cross-role dependency question, and return <=500 words of evidence-backed findings. Word limit constrains report length, not reasoning effort or token usage. Save original final receipt only to assigned worker_A-original.json; do not write any other path.",
+    "worker_B": "Fresh context. Perform case-specific role B, ask/answer the defined cross-role dependency question, and return <=500 words of evidence-backed findings. Word limit constrains report length, not reasoning effort or token usage. Save original final receipt only to assigned worker_B-original.json; do not write any other path."
+  },
+  "model_identity": "NOT_EXPOSED",
+  "prior_outputs": "NOT_PROVIDED",
+  "oracle": "NOT_PROVIDED",
+  "project_policy": "# Quy tắc vận hành agent của dự án Chatwoot Việt Nam\n\nPolicy ID: CHATWOOT_AGENT_POLICY_V1\n\nĐọc [README.md](README.md) để định vị trạng thái và bản chính tài liệu, rồi [docs/agents/README.md](docs/agents/README.md) và chỉ mở tuyến cần cho nhiệm vụ. Đây là repo điều phối/cấu hình/bằng chứng; source ứng dụng là một repo khác được xác định trong `config/agents/runtime.json` và từng phiếu việc. Không coi cwd của repo này là source app. Kho local lịch sử chỉ là tham khảo; chưa có bằng chứng mọi chat ở source app tự nạp chỉ dẫn repo này.\n\n- Nguồn trước đề xuất: đọc tài liệu/source chính thức đúng phiên bản; tách quan sát, suy luận, đề xuất và NOT_RUN. Ưu tiên đúng đắn, ổn định, bảo trì và bàn giao; không bỏ kiểm chứng để giảm token.\n- Giữ quy ước upstream khi làm ở source Chatwoot: đọc AGENTS/override thực tại checkout đó; kiểm app/enterprise khi liên quan. Không áp dụng cú pháp Claude vào Codex.\n- Trước sửa phải có phiếu trong `tasks/<id>/task.json`: mục tiêu/ref, acceptance, scope, phụ thuộc, môi trường/quyền, checks, receiver và escalation. Mỗi phạm vi chỉ một implementer ghi tại một thời điểm; claim qua công cụ ownership sau khi nó được kiểm chứng.\n- Công việc mới theo [quy trình sản phẩm](docs/development/product-workflow.md): issue thật → task → đúng app repo/ref → checks/review → PR → quyết định riêng. Phân biệt control commit với app commit; task mới có `issue_url`, PR có full issue URL và dòng `Task: tasks/ID/task.json`. Không sửa hồ sơ cũ để gắn issue hồi tố hoặc gọi PLAN_VALID là sản phẩm đạt.\n- Tách worktree không tách DB/Redis/container/port. Runtime dùng chung mặc định chỉ đọc; restart/migration/cấu hình nền tảng cần nhiệm vụ và người được giao rõ. Không reset DB, xóa volume/data, nâng runtime, mở quyền, merge PR hoặc phát hành trong nhiệm vụ agent-ops này.\n- Người thực hiện không tự review/chấp nhận thay đổi mình. Reviewer nhận brief/ngữ cảnh riêng, đúng commit và bằng chứng; không tự sửa đối tượng review. Agent hiện chia sẻ quyền máy, nên fresh context và claim không phải sandbox bảo mật.\n- Lưu PASS/FAIL/NOT_RUN với command, ref và bằng chứng đã làm sạch. Code đổi sau review cần kiểm lại phần ảnh hưởng. Validator chỉ kiểm những quan hệ máy có thể kiểm, không xác nhận nghiệp vụ hay tính trung thực của mọi receipt.\n- Điều phối được tích hợp local sau review/kiểm tra, chưa được merge PR. Chỉ chủ sản phẩm quyết định nghiệm thu nghiệp vụ, thay phạm vi/ưu tiên và bước merge/phát hành.\n- Không đưa secrets, env thực, thông tin khách hàng, dumps hoặc log nhạy cảm vào Git. Chỉ stage phạm vi được giao, đọc diff và quét nội dung trước push.\n- Khi probe chỉ dẫn yêu cầu nêu policy ID, trả ID phía trên từ chỉ dẫn đang có; không đoán nếu không thấy. Không coi việc trả ID là chứng minh tuân thủ toàn bộ chính sách.\n\nKiểm tra tooling: `python -B -m unittest discover -s tests -v`; đọc thêm lệnh chính xác trong README theo giai đoạn đang thực hiện. Không mặc định CLI, hooks hoặc CI đã được nạp chỉ vì file tồn tại.\n\nAdditional source-first rule supplied by product owner: consult official pinned source before proposals; distinguish observed/inferred/NOT_RUN. Correctness, stability, maintenance and independent review outrank token savings. Do not create agents merely for discussion. For this evaluation all participants are read-only, cannot spawn, cannot touch runtime or secrets.\n",
+  "project_policy_sha256": "f26356c8d2fd04538eaa11e6808785c610de00c2e0bf17d6e4dd2724c786670a",
+  "source_agent_guidelines": {
+    "path": "AGENTS.md",
+    "ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "instruction": "Read immutable AGENTS.md using permitted git show before source task; it is included in manifest. No app edits/tests authorized in this experiment."
+  },
+  "result_files": {
+    "coordinator": "C:\\Users\\MFLAT-ADS-010\\.codex\\worktrees\\repository-publication\\chatwoot-vn-agent-ops\\tasks\\COMPLETE-001\\evidence\\agent-eval\\runs-v3\\T3-P-1\\coordinator-original.json",
+    "worker_A": "C:\\Users\\MFLAT-ADS-010\\.codex\\worktrees\\repository-publication\\chatwoot-vn-agent-ops\\tasks\\COMPLETE-001\\evidence\\agent-eval\\runs-v3\\T3-P-1\\worker_A-original.json",
+    "worker_B": "C:\\Users\\MFLAT-ADS-010\\.codex\\worktrees\\repository-publication\\chatwoot-vn-agent-ops\\tasks\\COMPLETE-001\\evidence\\agent-eval\\runs-v3\\T3-P-1\\worker_B-original.json"
+  }
+}

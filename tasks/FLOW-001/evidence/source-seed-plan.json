@@ -1,0 +1,35 @@
+{
+  "id": "SOURCE-SEED-01",
+  "task_id": "FLOW-001",
+  "source_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "source_common_gitdir": "//wsl.localhost/Ubuntu-22.04/root/code/chatwoot-repository/.git",
+  "target_repository": "https://github.com/trdat1605/chatwoot-vn-app",
+  "target_visibility": "private",
+  "scope": "Seed existing upstream source/history only; no new app code or runtime changes. Runtime adapters require separate reviewed bootstrap implementation.",
+  "steps": [
+    "Check target repository absent or empty and private; stop on unexpected content",
+    "Create empty private repository only if absent, no README/gitignore initialization",
+    "Disable GitHub Actions through repository permissions API and read back enabled=false BEFORE first push",
+    "Verify exact source commit/tree/tag via Windows Git read-only UNC; no source Git remote/config/index mutation",
+    "Explicit push exact SHA:refs/heads/main to private target; no mirror/all/tags/force or private source refs",
+    "Read remote branch SHA and private/Actions status; source tree/licenses/history remain original",
+    "Record controls, hashes, command outcomes and NOT_RUN; no app build/start/stop, database access or claim of reproducible runtime"
+  ],
+  "safety": [
+    "No .env, ignored .codex, customer files or private backups enter source tree at exact upstream commit",
+    "No repository made public; no paid feature enabled; actions remain disabled",
+    "Original lab source checkout/branch/config/containers untouched",
+    "GitHub rulesets 403 is independent known plan limit, not bypassed"
+  ],
+  "acceptance": [
+    "Independent plan review PASS before mutations",
+    "Private=true and Actions.enabled=false readback before push",
+    "Remote main resolves exactly source_commit; original licenses retained at source pin",
+    "Source Git status remains clean; no remote/config changes on source",
+    "Source baseline sharing is partial ENV-001 progress, not fresh app reproduction or product CI"
+  ],
+  "not_run": [
+    "Fresh app clone setup, image build, isolated DB prep, application tests/UI and production acceptance",
+    "Inherited source Actions review/enablement and targeted product CI"
+  ]
+}

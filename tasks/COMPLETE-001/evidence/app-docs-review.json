@@ -1,0 +1,130 @@
+{
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/app_docs_final_review",
+  "recorded_utc": "2026-11-22T23:21:12Z",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "status": "PASS",
+  "scope": "Independent static review of README correction c77ce0b..27e1669 against unchanged helper, entrypoint, Compose and CI implementation; not runtime or product acceptance",
+  "independence": "Separate reviewer brief; reviewer did not implement or edit the app subject. Shared machine permissions are not a sandbox.",
+  "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "checkout": "WSL Ubuntu-22.04:/root/code/chatwoot-foundation-worktrees/complete-001",
+  "branch": "codex/portable-foundation",
+  "reviewed_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "diff_base": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+  "upstream_baseline": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "control_head_observed": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+  "control_inputs": {
+    "binding": "SHA256 of actual files read; not an attestation that current control working files equal control HEAD",
+    "tasks/COMPLETE-001/task.json": "946aeea89f03030bc6e59145724f743235af6de102e91126cce6cb1e965f527b",
+    "tasks/COMPLETE-001/evidence/app-task.json": "9e2d1e5beaa9143a5187af52dd64d73b9c684b6365d77767266e82628551e0d3",
+    "tasks/COMPLETE-001/evidence/fresh-source-handoff.json": "20d4f34dfc879a29dcf2023f4df5f61de6138bd6c9f1052b95202d3e1e076329"
+  },
+  "app_files_sha256": {
+    "docker/isolated/README.md": "fcb25becc3b8737a0134d9c31b59b5a2a53ff309e81c1be58f4271458cdc92aa",
+    "docker/isolated/bootstrap.py": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+    "docker/isolated/verify_runtime.py": "b41d797f02827fffdd826ed815d491b40ce2fb4c3e5e8841c49d2175cb101cfd",
+    "docker/isolated/entrypoint.sh": "39cac94404d98e08caed91a10aeb673c7bbb2a8f89b5cb74d230fc8ebb662148",
+    "docker/isolated/compose.yaml": "76a5c519aa96194f6fb7c3c3ee14b174524e3b746c1ea42dc5996ccebccbe076",
+    ".github/workflows/foundation-ci.yml": "873b6261ffd1b20029ec477292d079fc9dd48002c4027300352b5cc5183c9ce0"
+  },
+  "commands_observed": [
+    {
+      "command": "git rev-parse HEAD; git branch --show-current; git status --porcelain (at app checkout, repeated HEAD/status at end)",
+      "status": "PASS",
+      "result": "Exact subject 27e166927b93677863e7e7fda22109cfa2ae98b9; codex/portable-foundation; empty porcelain status before and after review"
+    },
+    {
+      "command": "git diff --stat c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72..HEAD; git diff c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72..HEAD -- docker/isolated/README.md; git diff --name-only c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72..HEAD",
+      "status": "PASS",
+      "result": "Exactly docker/isolated/README.md changed, 41 insertions and 7 deletions"
+    },
+    {
+      "command": "git diff --quiet c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72 HEAD -- docker/isolated/bootstrap.py docker/isolated/verify_runtime.py docker/isolated/entrypoint.sh docker/isolated/compose.yaml .github/workflows/foundation-ci.yml",
+      "status": "PASS",
+      "exit_code": 0,
+      "result": "Compared implementation files unchanged by documentation correction"
+    },
+    {
+      "command": "Read app AGENTS.md, scoped instructions inventory, README, bootstrap.py relevant paths, verify_runtime.py, entrypoint.sh, compose.yaml and foundation-ci.yml; sha256sum six compared files",
+      "status": "PASS",
+      "result": "No nested AGENTS/override found under docker or .github; actual source read, not only implementer summary"
+    },
+    {
+      "command": "git show caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82:docker/Dockerfile; git show caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82:docker/entrypoints/vite.sh; git rev-parse caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82^{commit}",
+      "status": "PASS",
+      "result": "Pinned baseline object present locally; original Docker metadata command and forced pnpm installation inspected without executing them"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "H2",
+      "status": "PASS",
+      "observation": "README:68-72 consistently describes prebuilt dependencies and no pnpm installation during startup; stale contradictory tail paragraph removed. entrypoint.sh:6-17 checks Vite executable or bundle check and then execs the command.",
+      "qualification": "The frontend missing-dependency error explicitly instructs a build; missing gems use Bundler's own bundle-check diagnostics. This static review does not assert startup success."
+    },
+    {
+      "id": "H3",
+      "status": "PASS",
+      "observation": "README:157-178 documents exact helper invocation, disposable Linux runner restriction, measured 15 GiB preallocation requirement, fixed cwdev-ci-runtime/44440-44442, synthetic backup/restore, focused tests, restart, repeated prepare, SHA-bound JSON and stop-only cleanup.",
+      "implementation": "verify_runtime.py:18-25,76-135 and foundation-ci.yml:60-72 implement these operations. The restored comparison is selected table counts; README does not claim a full data-equivalence or real-data recovery test.",
+      "qualification": "Host suitability and disposable execution are documented restrictions, not a helper-enforced hosted-runner identity check. Official runner specs do not guarantee this 15 GiB free-space gate passes; actual measured capacity and CI outcome remain necessary."
+    },
+    {
+      "id": "H4",
+      "status": "PASS",
+      "observation": "README:127-133 names the exact baseline object, a cat-file existence check and explicit upstream fetch for shallow clones. bootstrap.py:19,308-315 reads that pinned Dockerfile object; CI uses fetch-depth:0.",
+      "qualification": "Fetch syntax was checked against official Git documentation. No fetch or fresh shallow-clone reproduction was executed in this review. Fetch updates Git metadata; the documented promise is no checkout or application-data mutation."
+    },
+    {
+      "id": "H5",
+      "status": "PASS",
+      "observation": "README:189-195 supplies full control task and completion-page URLs and explicitly marks them as mutable working-branch links, separate from immutable review/acceptance receipts. Local completion page exists and states work remains in progress.",
+      "qualification": "This corrects app-document navigation and claim boundaries. It does not update or validate the entire control handover: app-task.json still names older implementation_subject 2db109ba24e50dc82ecac043b962eb578cda1afc. Coordinator must bind the final handover to the current app subject separately."
+    },
+    {
+      "id": "scope_and_claims",
+      "status": "PASS",
+      "observation": "Changed scope is documentation only. README distinguishes source inspection/CI file existence from execution and preserves separate runtime, browser, review, acceptance and merge/release decisions. No new full-runtime-success claim was introduced."
+    }
+  ],
+  "blocking_findings": [],
+  "sources_read": [
+    {
+      "url": "https://developers.chatwoot.com/contributing-guide/environment-setup/docker",
+      "type": "official living documentation, accessed 2026-11-22 UTC",
+      "supports": "Base image first, db:chatwoot_prepare and Compose startup sequence; project-specific isolation/hosted restrictions are local adaptations, not claims made by Chatwoot."
+    },
+    {
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/docker/Dockerfile#L77-L90",
+      "type": "official pinned source, read using local Git object",
+      "supports": "Original copied source and git rev-parse metadata command"
+    },
+    {
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/docker/entrypoints/vite.sh",
+      "type": "official pinned source, read using local Git object",
+      "supports": "Upstream PID/cache deletion, pnpm store prune and forced install contrasted with the scoped entrypoint"
+    },
+    {
+      "url": "https://git-scm.com/docs/git-fetch",
+      "type": "official Git documentation, page identifies manual updated in 2.56.0; accessed 2026-11-22 UTC",
+      "supports": "Fetch source accepts a fully spelled hexadecimal object name and URL; execution was not tested here."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/runners/github-hosted-runners",
+      "type": "official living documentation, accessed 2026-11-22 UTC",
+      "supports": "Standard ubuntu-24.04 hosted job uses a new VM; runner lifecycle is the basis for disposal. Listed storage is not a guarantee of 15 GiB measured free space."
+    }
+  ],
+  "not_run": [
+    "Any Docker, Compose, runtime bootstrap, build, service, test, package installation, browser or database command",
+    "Fresh clone, baseline fetch or app Git writes",
+    "Independent CI run query or log verification; run 45081235551 belongs to the prior SHA and is not evidence of execution at 27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "Runtime reproduction, production readiness, real customer-data recovery or protected lab/course preservation re-verification"
+  ],
+  "limitations": [
+    "PASS applies only to documentation accuracy/navigation and the correction diff at the exact reviewed commit; unchanged helper/workflow code was read for correspondence, not comprehensively re-audited or executed.",
+    "Control working-branch URLs were read as navigation pointers; this review does not certify live GitHub branch availability or current accepted handover state.",
+    "No secrets files, environment values or runtime data were read. App source remained read only; the sole repository output is this review receipt.",
+    "No self-approval, business acceptance, merge or release authorization is conveyed. Final integration needs correct current app/control SHA evidence and owner decision."
+  ]
+}

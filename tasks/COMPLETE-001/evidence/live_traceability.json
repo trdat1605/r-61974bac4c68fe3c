@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "Authenticated readback appPR3/head/base/body; independentlyreviewed apprequiredchecks apply/readback; control issue18/task/appissue2 links",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "observed_utc": "2026-11-23T00:25:28.833682+00:00",
+  "details": {
+    "app_pr": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/3",
+    "head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "app_required_checks": "app-required-checks-applied.json",
+    "main_unchanged": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "control_issue": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
+    "pending": "Control consolidatedPR/CI and ownermerge decision afterfinalreview"
+  },
+  "limits": "Current traceability/readback; finalcontrolPR and postmerge defaulttemplateactivation notperformed, not a completedrelease",
+  "final_ref_validation": "Revalidated sourcepatternscan, exact0f2aadc..12186bc scope/diffcheck and separateapp productverify; allboundcontrolbytes hashed at12186bc. Onlynav/status corrections sincepreviousreview, no tool/runtime changes."
+}

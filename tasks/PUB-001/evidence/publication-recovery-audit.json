@@ -1,0 +1,86 @@
+{
+  "task_id": "PUB-001",
+  "date": "2026-11-23",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "Re-audit current GitHub metadata after drift stop; scan selected credential patterns; stable sorted per-ID body/title/user identity hashes, IDs/heads/tags/Actions/artifacts guards",
+  "repositories": [
+    {
+      "id": 1461752107,
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "private": false,
+      "branches": {
+        "codex/agent-operating-system": "344f3a8a6315d1a5814479caa54434e571df3033",
+        "codex/docs-home": "2ab4e5f18219f926a6dbdad111db8e3c01bde9b3",
+        "codex/knowledge-handoff": "c7c884151d8baaa6d95312846b6ee4db3a6d5016",
+        "codex/product-foundation": "f8e5822ca885554dc57c8f56e927ae8ae99fe471",
+        "main": "02bcd4d195418b4d478a1b0c04171f57d2ce1b02",
+        "review/project-foundation": "4f8ff1c24dedc926d3e24197728b5d92de8a61f3"
+      },
+      "tags": {},
+      "actions_enabled": true,
+      "metadata_objects_scanned": 18,
+      "content_sha256": "6c5d76197bcf8087de6e2723565d4c2bbdb275e0de926f02360a539f188708cc",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "5b277e308123715ba87cc88a52ed43718e108189a689a54d9d9d857caaa01276",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "89110ec6c735f9ee4d40f19441495c74f4731669636429c19dfcbccee4c792d6",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/12": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/4": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/3": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/2": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "reviews/1": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "counts": {
+        "issues?state=all&per_page=100": 13,
+        "issues/comments?per_page=100": 0,
+        "pulls/comments?per_page=100": 0,
+        "pulls?state=all&per_page=100": 5,
+        "releases?per_page=100": 0,
+        "reviews/12": 0,
+        "reviews/4": 0,
+        "reviews/3": 0,
+        "reviews/2": 0,
+        "reviews/1": 0,
+        "commit-comments": 0
+      }
+    },
+    {
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "private": true,
+      "branches": {
+        "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      },
+      "tags": {},
+      "actions_enabled": false,
+      "metadata_objects_scanned": 0,
+      "content_sha256": "abdf11ed7f0a654cc893b5c5bb8a9bc29ce7845c19d409d1f436242f6c2c2fd4",
+      "surface_hashes": {
+        "issues?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "issues/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls/comments?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "pulls?state=all&per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "releases?per_page=100": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "commit-comments": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "counts": {
+        "issues?state=all&per_page=100": 0,
+        "issues/comments?per_page=100": 0,
+        "pulls/comments?per_page=100": 0,
+        "pulls?state=all&per_page=100": 0,
+        "releases?per_page=100": 0,
+        "commit-comments": 0
+      }
+    }
+  ],
+  "findings": [],
+  "limits": [
+    "Cannot reconstruct which original metadata field changed; not proof original content unchanged",
+    "Current metadata re-scanned before recovery; earlier history/log audit reused because refs and run IDs unchanged",
+    "Selected-pattern audit not exhaustive; no app/runtime changes"
+  ]
+}

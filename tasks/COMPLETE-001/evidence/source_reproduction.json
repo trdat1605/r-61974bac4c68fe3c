@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "PublicGitHubclone/ref/hash preflight; actualhosted fullbuild/prepare/up/restart/restore; exactapp finalreview",
+  "subject_commit": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "observed_utc": "2026-11-23T00:25:28.832189+00:00",
+  "details": {
+    "app_head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "checkout_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+    "tree": "65705962f43b3c1a3b35920b66436d3c210c4db6",
+    "evidence": "app-ci-lifecycle-success.json",
+    "fresh_source": "app-source-preflight.json",
+    "fresh_reader": "app-final-review.json",
+    "local_runtime_failure": "runtime-attempt-1.json",
+    "storage_plan": "docker-storage-plan-review-addendum.json"
+  },
+  "limits": "Hostlocal successor NOT_RUN due capacity; only disposablehosted lifecycle PASS, no existinglab move/fix or fullbrowser acceptance",
+  "final_ref_validation": "Revalidated sourcepatternscan, exact0f2aadc..12186bc scope/diffcheck and separateapp productverify; allboundcontrolbytes hashed at12186bc. Onlynav/status corrections sincepreviousreview, no tool/runtime changes."
+}

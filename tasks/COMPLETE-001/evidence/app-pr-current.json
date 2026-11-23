@@ -1,0 +1,11 @@
+{
+  "url": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/3",
+  "head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "base": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "draft": true,
+  "merged": false,
+  "body_sha256": "6eac47097f6ad08cba301991150c2df20ad42b528b398d995248768d5fa0f9e2",
+  "observed_utc": "2026-11-23T00:08:54.383359+00:00",
+  "status": "PASS",
+  "exit_code": 0
+}

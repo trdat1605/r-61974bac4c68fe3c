@@ -1,0 +1,45 @@
+{
+  "task_id": "AGENT-001",
+  "implementer": "workspace_doctor_worker",
+  "implementation_branch": "codex/agent-workspace-doctor",
+  "implementation_base": "4258210f971fce4f7e1e2292d136b3e2b7536331",
+  "subject_commit": "c10c00ad9a299d92d1a48eb43d5f8d37640d8bdd",
+  "changed_files": [
+    "tools/agents/workspace_doctor.py",
+    "tests/test_workspace_doctor.py"
+  ],
+  "checks": [
+    {
+      "name": "workspace_doctor_unit",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/AGENT-001/evidence/workspace_doctor_unit.json",
+      "sha256": "c0ebb47f6e545c738dc07f7c09f5b4469ab432c9dfeec99c310c717f1dae6ac8"
+    },
+    {
+      "name": "live_profile",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/AGENT-001/evidence/live_profile.json",
+      "sha256": "d788e7fbcb996c1857c0d1a0b84f21f67fe53fa195298ae15545c8caa45a1b69"
+    },
+    {
+      "name": "wrong_source_negative",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/AGENT-001/evidence/wrong_source_negative.json",
+      "sha256": "b0bf3c223a817e51555e7b4a4b0f80aea2f8f1cfd3cf713bf2ecb9e9da62bc46"
+    }
+  ],
+  "open_issues": [
+    "Reviewer initial pass had native Linux mocked; coordinator additionally ran live Ubuntu WSL direct CLI, see docs/agents/evidence/linux-doctor.json; other kernels untested",
+    "Directory identity assumes shared WSL kernel",
+    "No application business/UI or performance acceptance"
+  ],
+  "next_step": "Product owner reviews Draft PR; retain read-only runtime and do not merge automatically",
+  "receiver": "coordinator, then product owner",
+  "status": "awaiting_product_owner",
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271"
+  }
+}

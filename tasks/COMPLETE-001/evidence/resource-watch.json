@@ -1,0 +1,8 @@
+{
+  "status": "RESOURCE_WATCH",
+  "host_free_gib": 15.16,
+  "threshold_gib": 15,
+  "new_project": "cwdev-complete001",
+  "operation": "prepare-db in progress; no further allocating commands untilfree>=15GiB",
+  "no_global_prune": true
+}

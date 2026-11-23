@@ -1,0 +1,17 @@
+{
+  "run_id": 45089553611,
+  "head": "d2bf0dc3b512ea4ec6cc3dcda782425301d642bd",
+  "status": "FAIL",
+  "exit_code": 2,
+  "failed_job": "issue-and-product-record",
+  "selected_lines": [
+    "2026-11-23T00:34:25.7709076Z [command]/usr/bin/git log -1 --format=%H",
+    "2026-11-23T00:34:26.3426669Z {\"status\": \"PLAN_VALID\", \"task_id\": \"PRODUCT-EXAMPLE\", \"limits\": \"Consistency only: no reviewer identity or execution-truth attestation, product acceptance, security certification or merge enforcement\"}",
+    "2026-11-23T00:34:26.4459680Z {\"status\": \"BLOCKED\", \"error\": \"PR issue must belong to expected repository\", \"limits\": \"Consistency only: no reviewer identity or execution-truth attestation, product acceptance, security certification or merge enforcement\"}",
+    "2026-11-23T00:34:26.4581118Z ##[error]Process completed with exit code 2."
+  ],
+  "raw_log_sha256": "d4714aacf0c17787daaf42fe22ff128d4f80c5a1f813076ac55c05de51c4d5d1",
+  "contracts-and-tests": "PASS",
+  "product-source-check": "SKIPPED_AFTER_PRIOR_FAILURE",
+  "limits": "Failure preserved; no bypass/relabel. Raw log notcommitted."
+}

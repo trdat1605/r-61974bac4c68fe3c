@@ -1,0 +1,38 @@
+{
+  "at": "2026-11-17T19:58:17.901735+00:00",
+  "status": "RECOVERED_WITH_LIMITS",
+  "affected_repository": "trdat1605/chatwoot-vn control repo",
+  "incident_commit": "a5b884242c9e07dc665ab880c94ed38b4d3a9c92",
+  "restored_branch_commit": "059aef12f188f3d535ace56e6f5d4573ba40d45b",
+  "private_backups": [
+    "all-ref bundle",
+    "common Git config",
+    "linked-worktree index"
+  ],
+  "guarded_ref_update": true,
+  "working_task_files_preserved": [
+    "README.md",
+    "docs/agents/evaluation.md",
+    "docs/agents/state.md",
+    "docs/agents/evidence/system-review.json",
+    "docs/agents/evidence/hook-portability.json",
+    "docs/agents/evidence/environment-check.json",
+    "docs/agents/evidence/fresh-handover.json",
+    "docs/agents/evidence/ownership-release.json",
+    "tools/agents/repository_check.py",
+    "tests/test_workflow.py"
+  ],
+  "other_refs_unchanged": true,
+  "fixture_paths_absent_from_index": true,
+  "known_config_reconstructed": {
+    "core.bare": false,
+    "core.autocrlf": "local removed; inherited system true",
+    "user.name": "trdat1605",
+    "user.email": "project noreply effective author at059"
+  },
+  "limits": [
+    "No preincident config byte snapshot; reconstructed known settings, not byte-identical claim",
+    "No app/runtime/data changes in recovery",
+    "Incident local commit excluded from publication history; retained in private bundle/reflog"
+  ]
+}

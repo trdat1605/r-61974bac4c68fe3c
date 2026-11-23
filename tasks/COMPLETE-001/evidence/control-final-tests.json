@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "python -B -m unittest discover -s tests -v",
+  "subject_commit": "658b96c32b36ba66edc83bd8f1c46f599f578792",
+  "output_sha256": "af8a826fce225c349c845d4f29c67b2fbed2e147a948a690bc9c3b41231cccaf",
+  "observed_utc": "2026-11-23T00:21:11.974253+00:00",
+  "summary": "_path_blocks_before_any_command (test_workspace_doctor.WorkspaceDoctorTests.test_wrong_windows_or_linux_path_blocks_before_any_command) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 80 tests in 101.270s\r\n\r\nOK\r\n",
+  "limits": "Tooling tests; not product tests. Raw local output retained separately."
+}

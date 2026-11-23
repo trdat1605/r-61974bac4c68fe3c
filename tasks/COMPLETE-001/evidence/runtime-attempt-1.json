@@ -1,0 +1,17 @@
+{
+  "status": "FAIL",
+  "subject_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "phase": "runtime_vite_startup",
+  "observed": [
+    "FullDockerfileimagebuiltandmetadataSHAcorrect",
+    "prepareDBsuccess,newrails/sidekiq/vite/PGRedisMailhogcontainersstarted",
+    "GET/app/login200and/api200",
+    "Viteentrypointpnpm install --frozen-lockfile waitsinteractiveproceedprompt; no44441listener"
+  ],
+  "expected": "DevelopmentVite muststartwithoutinteractiveprompt; HTTPlogin200aloneisnotenough",
+  "correction_pending": "Usepreinstalledimage/volume dependencies withfailclosedcheck; noautomaticreinstall/rebuildnetwork onstartup",
+  "limits": [
+    "Nochangescurrentlab/course; onlynewsyntheticproject",
+    "Cfree15.16GiB nearplanstop15; resourcecorrectionplanbeforemoreallocations"
+  ]
+}

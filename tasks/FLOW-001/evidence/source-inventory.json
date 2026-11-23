@@ -1,0 +1,53 @@
+{
+  "observed_local_date": "2026-11-23",
+  "observer": "/root/source_repro_audit",
+  "source_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "status": "OBSERVED",
+  "git_status": "clean tracked source",
+  "local_adapter_hashes": [
+    {
+      "path": ".codex/desktop.sh",
+      "sha256": "ca7b05d3e77bd203e7450b79d765f48ba7489e231b25dc68c14a6b4fd677bd20"
+    },
+    {
+      "path": ".codex/compose.lab.yaml",
+      "sha256": "23454acbde355b8961e8aeb6a05c0ae8c5a5e3cd2e2e446d825547aa0fdb0a8d"
+    },
+    {
+      "path": ".codex/compose.desktop.yaml",
+      "sha256": "8be9567dfe7d131436bc4820ab6bdbd963abd5a7adc4589b99d11aeebc5e4340"
+    },
+    {
+      "path": ".codex/dockerfiles/base.Dockerfile",
+      "sha256": "6ace43965bb7f4d63c07c143bd4fa9e3bd12c30eb75cccd7fac22a36781f72fe"
+    },
+    {
+      "path": ".codex/dockerfiles/rails.Dockerfile",
+      "sha256": "1eb47ee5dd9d837656515c7d2a5abdbda6ecb76d23872a29e1266c5994439b51"
+    },
+    {
+      "path": ".codex/dockerfiles/vite.Dockerfile",
+      "sha256": "9cfcc061c8574d35795f0535655dff32df24e2ff20e638cfa9ea1b20f9b05762"
+    },
+    {
+      "path": ".codex/scripts/vite-entrypoint.sh",
+      "sha256": "ea951efa4d9e2a81dcf11fc336fb177ea5db335beb159a509fddac57351093b0"
+    }
+  ],
+  "ignore_observations": [
+    ".codex excluded by .gitignore:97",
+    "AGENTS.override.md excluded by common info/exclude:9"
+  ],
+  "findings": [
+    "desktop.sh and compose hardcode lab identity",
+    "desktop overlay is data-migration specific, not a fresh setup template",
+    "Docker worktree .git pointer differs from in-image metadata assumptions",
+    "Do not copy entire ignored .codex or customer data into source/build context"
+  ],
+  "limits": [
+    "Inventory read-only, no app build/test/reproduction",
+    "No credentials, env values, logs or databases read/published",
+    "Hashes refer to local selected files observed that day, not files present in app baseline repo"
+  ],
+  "recorded_by": "Coordinator from read-only audit agent tool messages"
+}

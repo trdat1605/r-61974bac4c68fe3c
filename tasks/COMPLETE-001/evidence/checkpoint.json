@@ -1,0 +1,24 @@
+{
+  "task_id": "COMPLETE-001",
+  "status": "TECHNICAL_REVIEW_CI_READY_FOR_OWNER_NOT_MERGED",
+  "control_branch": "codex/complete-foundation",
+  "control_spec_commit": "0a7f1f011c5bd84ff970020130b9323b2dfad77b",
+  "control_issue": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
+  "app_issue": "https://github.com/trdat1605/s-251521f7e9131fb0/issues/2",
+  "app_checkout": "/root/code/chatwoot-foundation-worktrees/complete-001",
+  "app_branch": "codex/portable-foundation",
+  "app_last_committed_subject": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "app_moving_edits": "None; app27e1669 finalreviewPASS and CI45082996742completedPASS. No app source changes since final review.",
+  "protected_runtime": "9container identities captured in protected-runtime-before.json; noexistingcontainerwrite/restart/dataaccess",
+  "quarantine": "All17inheritedworkflowdisabled; globalActionsenabledselectedallowlistonlypinnedcheckout/setupnode; candidateCIonly; appPR3",
+  "new_runtime": "Localproject001 cleanup preserved PGvolume and backup; protected9unchanged. HostCbelow15GiB prevents local successor allocation. Hostedcwdev-ci-runtime lifecycle45082996742PASS at apphead27e1669, mergecheckout8d953fd treeidentical. No currentlocalhostruntimechanges.",
+  "evaluation": "Complete12V3/36originals; T1addendum+T2/T3sourcegrading and materialsecondcheck preserve5PASS7failpartial. Facts87PASS13FAIL; common57PASS3FAIL. Provisionalpolicy retained, no topologywinner/nativeClaudeclaim. NewbriefCLIloaded, behavioralimprovementNOT_YET_EVALUATED.",
+  "reviews": "FinalappPASS27; controlPASS121,23boundinputs/publicreadback, freshreaderPASS; finalhookPASS80tests/341files/7tasks/50boundpaths. ControlCI45089722143bothjobsPASS after PRbodyfix; failed45089553611preserved.",
+  "required_next": [
+    "Commit/push publicationevidence only; confirm finalhead CI/checks and mainunchanged.",
+    "Present controlPR19 and appPR3 exactheads for ownerdecision; regularmergecommit forcontrol, no squash/rebase. No automaticmerge.",
+    "After authorizedmerge only: verify defaulttemplates/mainclone/owneracceptance; all7overallacceptance remainsopen untilthatdecision/check.",
+    "DockerD prepared/reviewed; executionrequiresseparatemaintenancegates, notperformed."
+  ],
+  "storage": "Plan+UI/mount/capacity evidence reviewed twice. PreparationhandoverPASS; executionBLOCKED; all5maintenance gates remain. No Dockerdata move/restart."
+}

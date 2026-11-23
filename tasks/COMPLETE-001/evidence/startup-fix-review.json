@@ -1,0 +1,14 @@
+{
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/portable_app_review",
+  "subject_commit": "2db109ba24e50dc82ecac043b962eb578cda1afc",
+  "result": "PASS_CODE_ONLY",
+  "verification": [
+    "Entrypointnolongerrunsinstall; requiresbuiltViteexecutable thenexec; missingdepsfailclear",
+    "Reviewer23testsPASS0.417s, sh-n/diffcheckPASS, exactHEADclean, locks/Dockerfile unchanged"
+  ],
+  "runtime_recovery": "Initiallyblockeduntilscope002andPGpreservation+scriptreview; laterplan/currentreviewkeptseparate",
+  "limits": [
+    "No claimallruntimePASS; owncleanupscript stillreviewing"
+  ]
+}

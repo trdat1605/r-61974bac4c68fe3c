@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "git -c core.hooksPath=.githooks commit -m docs(foundation):bind-final-independent-review-and-pilot-evidence",
+  "resulting_metadata_commit": "d2bf0dc3b512ea4ec6cc3dcda782425301d642bd",
+  "review_subject": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "output_sha256": "98f9456420271a1b41602e9014bb97481f56c1918b358e6d0e1326a02d3a4d24",
+  "unit_tests": 80,
+  "seconds": 53.712,
+  "files_scanned": 341,
+  "tasks_validated": 7,
+  "current_review_bound_paths": 50,
+  "limits": "Invocation-specific strictindex/receipt/pattern/testgate. Later publicationreceipt commit changes onlymetadata and receivesactualCI separately."
+}

@@ -1,0 +1,32 @@
+{
+  "run_id": "T1-R-1",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "packet_sha256": "a632fa22c0bcc55dc6128af3218150dcdb2bb00d7f189d156b867e0d3aa4af9c",
+  "roster": {
+    "coordinator": "/root/v3_t1r1_c",
+    "worker_A": "/root/v3_t1r1_a",
+    "worker_B": "/root/v3_t1r1_b"
+  },
+  "dispatch_utc": "2026-11-22T22:36:06.766537+00:00",
+  "model_identity": "NOT_EXPOSED",
+  "scope": "Exact perrole result_files once only; nooverwrite, nootherrole/packet/V2writes",
+  "status": "COMPLETED_PENDING_ADJUDICATION",
+  "observer_interventions": [
+    {
+      "type": "transport_clarification",
+      "content": "Send original final JSON tocoordinator actualmessage aftersavingownfile so coordinator neednotreadother-rolecontrolfiles. Noanswerhints.",
+      "applies_all_future_runs": true
+    },
+    {
+      "type": "transport_resume",
+      "target": "worker_A",
+      "reason": "CompletedagentneededfollowuptodeliverunchangedoriginalbodytoC; noanswerschanged"
+    }
+  ],
+  "end_utc": "2026-11-22T22:44:30.560402+00:00",
+  "output_hashes": {
+    "worker_A": "3f79ffaf9892e4426f20554e41b580bc7749c0e813f2c9aa200fe8b1c9c3fac1",
+    "worker_B": "8b6e3db74562662bfb61694c0ac742c943f777cbf857dfc51a6fe2e2ed0e6cbd",
+    "coordinator": "b38983bd8e50509f1b58ef3907df46c0c24b4c0fb0df368bb3a8b48aab5ae891"
+  }
+}

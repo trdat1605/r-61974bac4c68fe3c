@@ -1,0 +1,56 @@
+{
+  "task_id": "DOCS-002",
+  "implementer": "root_knowledge_handoff",
+  "implementation_branch": "codex/knowledge-handoff",
+  "implementation_base": "5b78a26ab92fa621d189ab62a6590fc599ffcd95",
+  "subject_commit": "a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1",
+  "changed_files": [
+    "README.md",
+    "docs/project-map.md",
+    "docs/status.md",
+    "docs/agents/README.md",
+    "docs/knowledge/README.md",
+    "docs/knowledge/reading-routes.md",
+    "docs/knowledge/context-packet.md",
+    "docs/knowledge/source-notes.md",
+    "docs/knowledge/supplemental-sources.json",
+    "docs/knowledge/user-materials/README.md",
+    "docs/knowledge/user-materials/ai-code-review-transcript.txt",
+    "docs/knowledge/references/chatwoot-v4.19.1-AGENTS.txt",
+    "docs/knowledge/references/chatwoot-v4.19.1-LICENSE.txt",
+    ".gitattributes"
+  ],
+  "checks": [
+    {
+      "name": "source_integrity",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/DOCS-002/evidence/source_integrity.json",
+      "sha256": "5f0228d6a627c66d82aa66121d89951e14934c3056ae7b0347fe0f4651d70879"
+    },
+    {
+      "name": "navigation_scope_content",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/DOCS-002/evidence/navigation_scope_content.json",
+      "sha256": "9902885e0f625d2ac298b78d96ba230ab80ba3ea3e2353a26a72aa3cf5294999"
+    }
+  ],
+  "input_hashes": {
+    "config/agents/runtime.json": "8dc556c336c824e24947a5e50728be39f318e5379609c015a460d3cafbc79271",
+    "docs/knowledge/sources.json": "419934b4696e5d9d76d8089b9cb73198abfe171a7b0fd9b17b2df9a298f20b5b",
+    "agents/codex/roles.json": "2dcdafc3f2c285ce090013687087f13a063420fe7e8beb2c684d10c4782cf481"
+  },
+  "receiver": "product owner",
+  "status": "awaiting_product_owner",
+  "open_issues": [
+    "Depends on unmerged Draft PR3, then PR2 and PR1; no merge authorized",
+    "Application source/adapters still outside this repository; clone cannot reproduce full app on another machine",
+    "Only selected raw references archived; remaining source snapshots stay in historical archive or linked URLs",
+    "Audio/video source and speaker/transcription fidelity unavailable",
+    "App chat auto-loading, performance A/B, feature flow, Zalo/mobile and full upgrade/rollback NOT_RUN",
+    "Original raw references retain six trailing-whitespace lines; both coordinator and reviewer explicitly record whole-diff whitespace FAIL, handwritten docs pass",
+    "No measured token savings or OS sandbox independence"
+  ],
+  "next_step": "Run final repository gate on staged review/handoff metadata, push branch and create dependent Draft PR based on codex/docs-home; owner reviews. Do not merge or alter application/runtime."
+}

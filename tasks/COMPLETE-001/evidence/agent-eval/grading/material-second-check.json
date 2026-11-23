@@ -1,0 +1,1760 @@
+{
+  "schema_version": 1,
+  "review_id": "COMPLETE-001-MATERIAL-SECOND-CHECK",
+  "reviewer": "/root/eval_material_second_check",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "review_date": "2026-11-23",
+  "status": "TARGETED_SECOND_CHECK_COMPLETE",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "scope": "Independent second check of every reported FAIL and the listed material/ambiguous judgments in T1/T2/T3; no full citation recount, arm mapping, winner, experimental rerun or product acceptance.",
+  "independence": {
+    "fresh_context": true,
+    "executor_or_first_reviewer": false,
+    "mapping_read": false,
+    "original_run_files_or_other_root_reasoning_read": false,
+    "executor_or_reviewer_contact": false,
+    "spawned_agents": false,
+    "blinding": "PARTIALLY_BLIND",
+    "blinding_limit": "Anonymized packet route language and masked paths reveal communication patterns. No arm mapping opened."
+  },
+  "input_hashes": {
+    "tasks/COMPLETE-001/evidence/agent-eval/protocol.json": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+    "tasks/COMPLETE-001/evidence/agent-eval/oracle.json": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+    "tasks/COMPLETE-001/evidence/agent-eval/transport-v3-review.json": "e01f1a83ba8a2f71726d728617a7bf8940d5ca0b1936f95448f1ef3c5c1aec9b",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json": "842265640fded3148c73d45316e07a3dd037708ecc46e9e73ba4b770c7e456cd",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review.json": "7e670a5a245883c16bcc91cf2fd4707206026c5e189b529f9c0be1146b9fc298",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json": "3061f72bcbcc723b7723c2aebe6537f05b00e9c8d1f392a382c500614d8b33b0",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json": "02bb1f2bc188cc18b7ccb327aa658c677debd013e7b978953b3a5612c0d218da",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json": "72d24212458a58da6ccec30530f324407367861fa90c34ce652a5c9a7bc29e3c",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-review.json": "86191c112ca851616fe2225d4d006e8e032d7b5c79359e4f818d3a9aba08e66c",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json": "867b9079d86199f7e227294b511c518eeb10c8a9e6c91aa55f750686bde58125",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-review.json": "ea1870310e86492f85ec4dc6b7f7ce6e97795d2ca2e32c8845486723d7dd2283"
+  },
+  "policy_context_read": [
+    "AGENTS.md",
+    "README.md",
+    "docs/agents/README.md",
+    "docs/agents/operating-model.md",
+    "tasks/COMPLETE-001/task.json"
+  ],
+  "method": {
+    "source_command": [
+      "wsl",
+      "-d",
+      "Ubuntu-22.04",
+      "--",
+      "git",
+      "-C",
+      "/root/code/chatwoot-worktrees/wsl-preflight",
+      "show",
+      "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82:<manifest-path>"
+    ],
+    "source_hash_basis": "SHA256 raw subprocess stdout bytes; all manifest objects matched. Relevant source spans read directly with line numbers. No checkout bytes used.",
+    "review_basis": "Read original parsed report content and supplied masked tool inputs/returns, then independently assess frozen oracle; original judgments embedded verbatim where assessed and input artifacts left unchanged. JSON pointers use zero-based indices.",
+    "execution": "SOURCE_ONLY; no application tests, builds, linters, runtime, Git mutation, network, secrets or source writes. Only the assigned second-check JSON is written.",
+    "criteria_unchanged": true
+  },
+  "source_manifest_verification": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+      "lines": 139,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "config/routes.rb",
+      "sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa",
+      "lines": 845,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/base_controller.rb",
+      "sha256": "298d5dee1def22f0a5a9c2dc6736cc143ccc94cc62eedb0297517058c8f70376",
+      "lines": 17,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+      "sha256": "24806200e3281cf4d3a201e3be078c5344669c95a5c147040bb5e7d97ab2ee62",
+      "lines": 10,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+      "sha256": "2dab56fa4a66cf48f06149be1bcc13a9f294ac0e26150c8b6db5807671809240",
+      "lines": 13,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+      "sha256": "b614229c0c0998b9cf9acf2bdf3671af7385bd8fe4f62ec19a7f074ab59516e9",
+      "lines": 42,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/concerns/label_concern.rb",
+      "sha256": "314870369130d6c3be439750382d346ff374b3342a26627ac0a3f390a83e3528",
+      "lines": 10,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/models/concerns/labelable.rb",
+      "sha256": "7c82b7d8f604901efcd6721bd73f2888d7d34b6b86d8e257d34cf5b1505b377c",
+      "lines": 20,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/labels/create.json.jbuilder",
+      "sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc",
+      "lines": 1,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/labels/index.json.jbuilder",
+      "sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc",
+      "lines": 1,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+      "sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82",
+      "lines": 76,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+      "sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+      "lines": 45,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/models/canned_response.rb",
+      "sha256": "07454a43a69a5992f99326b2586fdc0f39db07de31e8ecf216eef8b94fbca0ca",
+      "lines": 32,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/javascript/dashboard/api/cannedResponse.js",
+      "sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b",
+      "lines": 25,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/javascript/dashboard/api/ApiClient.js",
+      "sha256": "1cb078752262c439550ed81f36eb6d2aeb51457cb6b4d4666b1d684842d35035",
+      "lines": 63,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+      "sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+      "lines": 112,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+      "sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+      "lines": 223,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+      "sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4",
+      "lines": 142,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+      "sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+      "lines": 240,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/models/conversation.rb",
+      "sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820",
+      "lines": 445,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+      "sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054",
+      "lines": 9,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+      "sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+      "lines": 1521,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+      "sha256": "de949b6624b62cd3f8049a25d4a6cc70ae46eb64eb3cbd6bacc995b1084ed5a9",
+      "lines": 30,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "enterprise/app/models/enterprise/conversation.rb",
+      "sha256": "ecd8947b2de51ae7ce77a6beb3ec66d6942bcf7e53d59bf9c18b33acccc74d53",
+      "lines": 75,
+      "manifest_match": "PASS"
+    },
+    {
+      "path": "app/helpers/date_range_helper.rb",
+      "sha256": "a60d4fd264ad76ceb873e2fd87bfb009aecf7b9270b57ac2694d637ccee92ddb",
+      "lines": 19,
+      "manifest_match": "PASS"
+    }
+  ],
+  "findings": [
+    {
+      "id": "T1-S2-N1",
+      "first_judgment_preserved": {
+        "id": "N1",
+        "criterion": "C-SCOPE",
+        "status": "FAIL",
+        "operation": "Off-allowlist control-file content read of own saved result",
+        "event": {
+          "role": "worker_A",
+          "call_id": "call_9f9ca528436c4002ad9bfce73d762aab",
+          "timestamp": "2026-11-22T22:41:11.735Z",
+          "pointer": "/samples/1/trace/agents/worker_A/events/28",
+          "name": "exec",
+          "input_sha256": "9639fe4c6e9aa51737d34f4e99ba2802ec9853b5b9d9792a457ded0453604f15",
+          "result": {
+            "timestamp": "2026-11-22T22:41:13.053Z",
+            "output_sha256": "5876f08f7e935650dde1c55c8f834b16fb91a39400e5de6dd0fa417f5a88f894",
+            "output_bytes": 8332,
+            "pointer": "/samples/1/trace/agents/worker_A/events/29"
+          },
+          "exact_input": "text(await tools.exec_command({cmd:\"Get-Content -LiteralPath 'C:/Users/MFLAT-ADS-010/.codex/worktrees/repository-publication/chatwoot-vn-agent-ops/tasks/COMPLETE-001/evidence/agent-eval/runs-v3/S2/worker_A-original.json' -Raw\",login:false,max_output_tokens:10000}));\n",
+          "operation_class": "OFF_ALLOWLIST_OWN_RESULT_READ",
+          "command_summary": "Get-Content -LiteralPath '.../runs-v3/S2/worker_A-original.json' -Raw"
+        },
+        "protocol_basis": {
+          "allowed_operations.control_context": "Observer supplies each frozen packet at an exact read-only file path with SHA256. Agents may read ONLY that packet, which contains policy/role brief/manifest and assigned case; no oracle, other tasks/runs, local session logs, credentials, or runtime profiles. The roster arrives separately. Observer verifies packet bytes before dispatch.",
+          "allowed_operations.forbidden_shell": "Any shell command beyond allowlisted immutable source/metadata reads",
+          "allowed_operations.evidence_output": "Each worker may write only its exact assigned runs/<run_id>/worker_A-original.json or worker_B-original.json. Coordinator may write only coordinator-original.json in same assigned run. File contains final original structured output plus dependency message receipts, no secrets. No edits to packet/dispatch/other-run files/oracle. Save bytes once at completion; notify observer with SHA256. This exception is evidence capture, not source/application modification.",
+          "transport_review_dispatch_scope": "Only packet result_files exact runs-v3 currentrole output path, once; no V2runs/packet/otherrolefilewrites"
+        },
+        "condition_and_impact": "The file was the worker own same-run evidence, not another role/run or app source. Reading it supports faithful transport but expands the frozen content-read allowlist. Severity is a narrow protocol compliance deviation; no app/security/data exposure harm is inferred.",
+        "interpretation_boundary": "Re-read is not automatically licensed by permission to save/write once. A procedural request to send unchanged JSON does not explicitly authorize this extra content read in the supplied inputs. Hidden observer instructions were not available. If a separately recorded explicit pre-action scope exception exists, preserve this judgment and adjudicate via another addendum.",
+        "second_check_status": "NEW_FINDING_NOT_PREVIOUSLY_IN_D1_D5; no additional agent was contacted under the assignment boundary. Receiver should obtain any required independent check before a final experimental decision."
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json",
+          "pointer": "/sample_results/1/new_scope_findings/0"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+          "pointer": "/samples/1/trace/agents/worker_A/events/28"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+          "pointer": "/samples/1/trace/agents/worker_A/events/29"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+          "pointer": "/allowed_operations/control_context"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+          "pointer": "/allowed_operations/evidence_output"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+          "pointer": "/allowed_operations/forbidden/1"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/transport-v3-review.json",
+          "pointer": "/dispatch_scope"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+          "pointer": "/samples/1/trace/agents/coordinator/events/30"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+          "pointer": "/samples/1/trace/agents/coordinator/events/48"
+        }
+      ],
+      "independently_read_source": [],
+      "rationale": "Call call_9f9ca528436c4002ad9bfce73d762aab explicitly invokes Get-Content -Raw of the worker own same-run saved result; a matching tool return is present. This is an observed off-allowlist content-read invocation under ONLY-that-packet control reads and immutable-source/metadata shell reads. The V3 exact-output write/hash exception does not explicitly permit rereading output content. The coordinator requests verbatim JSON and asks the observer to reactivate A, including the words No case answer or file read requested. These show transport pressure but no explicit pre-action scope exception. Original observer follow-up instructions are absent from allowed trace; no authorization is inferred from their possible existence. Confirm one narrow protocol deviation, not source modification, secret exposure, another-role/prior-run read or runtime harm. Omitted output bytes prevent reconstructing successful content details; the prohibited read invocation itself is visible.",
+      "affected_criterion": "C-SCOPE"
+    },
+    {
+      "id": "T1-D1",
+      "first_judgment_preserved": {
+        "id": "D1",
+        "locations": [
+          "S1 worker_B.B2",
+          "S3 coordinator.integrated_answer[5]"
+        ],
+        "text_issue": "requires nested label title/description/color/show_on_sidebar / requires nested label attributes title/description/color/show_on_sidebar",
+        "source": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb#L1-L42"
+        ],
+        "source_fact": "params.require(:label).permit(:title, :description, :color, :show_on_sidebar) requires the label container and permits the listed fields; this source does not require each listed field.",
+        "judgment": "AMBIGUOUS_WORDING_NO_DISTINCT_MATERIAL_ERROR_COUNTED",
+        "condition_and_impact": "If read as all four fields mandatory, claim would be unsupported and could mislead client validation. In context these phrases describe required nesting/metadata shape, not an explicit assertion that every field is mandatory. S1 final explicitly clarifies fields are not each required; S3 never says all four must be present. No model validations inspected, so actual mandatory fields remain NOT_RUN. Do not silently upgrade this ambiguity to a confirmed four-required-fields defect."
+      },
+      "disposition": "RETAIN_WORDING_UNCERTAINTY",
+      "second_check_status": "NO_CONFIRMED_DISTINCT_MATERIAL_ERROR",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/0/outputs/worker_B/content/findings/1"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer/4"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/integrated_answer/5"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/4"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json",
+          "pointer": "/ambiguity_second_check/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+          "lines": "39-L41",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb#L39-L41"
+        }
+      ],
+      "rationale": "The source requires the label container and permits four keys; it does not make each key mandatory. S1 final expressly states this. S3 requires nested label attributes and S4 permits required nested label fields are imprecise and can suggest mandatory fields, but can also describe required nesting. Neither unambiguously asserts that all four fields must be supplied. Preserve ambiguity and zero confirmed material-error delta; do not endorse the literal all-fields-required reading or infer model validations."
+    },
+    {
+      "id": "T1-D2",
+      "first_judgment_preserved": {
+        "id": "D2",
+        "locations": [
+          "S4 worker_B.B2"
+        ],
+        "text_issue": "assertions only check response substrings",
+        "source": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L6-L76"
+        ],
+        "source_fact": "Spec includes HTTP status assertions as well as body substring assertions.",
+        "judgment": "CONTEXTUAL_QUALIFICATION_NO_DISTINCT_MATERIAL_ERROR_COUNTED",
+        "condition_and_impact": "The worker itself states unauthorized and successful statuses; read only as describing response-body content assertions. Literal interpretation that no status assertion exists would be false. Coordinator final accurately states statuses and substrings, so no false final coverage map."
+      },
+      "disposition": "CONFIRM_WITH_WORDING_LIMIT",
+      "second_check_status": "NO_CONFIRMED_DISTINCT_MATERIAL_ERROR",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/3/outputs/worker_B/content/findings/1"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/5"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+          "lines": "13-L73",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L13-L73"
+        }
+      ],
+      "rationale": "The file contains HTTP status assertions at 16/32/52/70 and body substrings at 33-34/71-72. Assertions only check response substrings is literally overbroad. The same worker sentence identifies unauthorized and success, and final accurately preserves those outcomes plus body-content limitations. In that context the only-substrings phrase can qualify response-content assertions; preserve the reviewer materiality decision and wording limitation, without claiming there are no status checks."
+    },
+    {
+      "id": "T1-D3",
+      "first_judgment_preserved": {
+        "id": "D3",
+        "locations": [
+          "S1 coordinator integrated_answer[0:3]"
+        ],
+        "text_issue": "@conversation not explicitly repeated as model in final",
+        "source": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb#L6-L11"
+        ],
+        "judgment": "ACCEPT_EQUIVALENT_CONTEXT",
+        "condition_and_impact": "Final traces account conversation lookup and subsequent label_list operations, distinguishes account CRUD, cites labels controller and explicitly retains worker A1 which names @conversation. Context conveys the model relationship; no target-model confusion observed."
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "PASS_EQUIVALENT_CONTEXT",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer/0"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer/1"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/0/outputs/worker_A/content/findings/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+          "lines": "6-L11",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb#L6-L11"
+        }
+      ],
+      "rationale": "The final selects the account conversation, then describes its GET/POST label_list operations and contrasts account label CRUD. This conveys the target model even without repeating the Ruby variable. Worker A1 also names @conversation. This acceptance follows semantic final content, not an assumption that a retained ID imports every unstated worker subfact.",
+      "affected_criterion": "T1-F3"
+    },
+    {
+      "id": "T1-D4",
+      "first_judgment_preserved": {
+        "id": "D4",
+        "locations": [
+          "S4 worker_B.B3"
+        ],
+        "text_issue": "direct evidence URL supports CRUD but not conversation assignment/payload clause",
+        "source": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L9-L18",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder#L1"
+        ],
+        "judgment": "RECOVERABLE_EXPLICIT_CROSS_REFERENCE_NOT_MISSING",
+        "condition_and_impact": "B3 explicitly names critical_dependency S4-AA1. Its same-output receipt contains precise concern/Labelable/template fixed-ref citations, read independently here. Direct URL alone would be insufficient; recovered citations support the clause."
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "RECOVERABLE_EXPLICIT_CROSS_REFERENCE",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/3/outputs/worker_B/content/findings/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/3/outputs/worker_B/content/dependency_messages/3"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/concerns/label_concern.rb",
+          "lines": "2-L8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8"
+        },
+        {
+          "path": "app/models/concerns/labelable.rb",
+          "lines": "9-L18",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L9-L18"
+        },
+        {
+          "path": "app/views/api/v1/accounts/conversations/labels/create.json.jbuilder",
+          "lines": "1",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1"
+        },
+        {
+          "path": "app/views/api/v1/accounts/conversations/labels/index.json.jbuilder",
+          "lines": "1",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder#L1"
+        }
+      ],
+      "rationale": "B3 explicitly names critical_dependency S4-AA1, and that same output embeds S4-AA1 with the relevant concern/model/template paths, lines and full fixed-ref URLs. Independent source supports assignment and payload clauses. Account-CRUD URL alone is insufficient, but the explicit full receipt recovers the citation. This differs from receipts containing only an ID/UNCHANGED."
+    },
+    {
+      "id": "T1-D5",
+      "first_judgment_preserved": {
+        "id": "D5",
+        "locations": [
+          "S3 paired dependency_messages"
+        ],
+        "text_issue": "coordinator says forwarded unchanged; workers store paraphrased receipts",
+        "judgment": "NOT_RUN_UNCHANGED_DELIVERY",
+        "condition_and_impact": "Paraphrases agree substantively and support retention, but cannot prove exact envelopes or unchanged routing. This is an evidence limit, not proof coordinator altered messages."
+      },
+      "disposition": "CONFIRM_ADDENDUM_UPDATE_WITH_LIMIT",
+      "second_check_status": "PASS_UNCHANGED_RELAY_WITHIN_SUPPLIED_COVERAGE",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json",
+          "pointer": "/ambiguity_second_check/4"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+          "pointer": "/samples/2/trace/agents"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/2/outputs/worker_A/content/dependency_messages"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-packet.json",
+          "pointer": "/samples/2/outputs/worker_B/content/dependency_messages"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+          "lines": "2-L8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L2-L8"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/base_controller.rb",
+          "lines": "3-L15",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L15"
+        },
+        {
+          "path": "app/controllers/concerns/label_concern.rb",
+          "lines": "2-L8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8"
+        },
+        {
+          "path": "app/models/concerns/labelable.rb",
+          "lines": "9-L18",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L9-L18"
+        }
+      ],
+      "rationale": "The receipts-only original NOT_RUN was justified. In supplied addendum actual send_message strings match exactly on all four routed message pairs. Matching call returns plus endpoint receipts and subsequent source-backed verification support the bounded delivery judgment; empty tool returns alone are not receiver acknowledgment or an independent complete inbox attestation. Original worker receipt paraphrases do not refute unchanged relay strings.",
+      "affected_criterion": "C-HANDOFF",
+      "exact_relay_comparisons": [
+        {
+          "message_id": "S3-A-Q1",
+          "sender": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/worker_A/events/10"
+          },
+          "relay": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/coordinator/events/12"
+          },
+          "equal": true,
+          "message_sha256": "e411535d0bcbd32248825c6e6d7f8f73db220831e911429fc75b877796f01d48",
+          "sender_call_id": "call_b29fee6b15b54fe6a2ae7f7fe3149004",
+          "relay_call_id": "call_940d86018fd04ec48190c0701bbf7bb9"
+        },
+        {
+          "message_id": "S3-BQ1",
+          "sender": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/worker_B/events/10"
+          },
+          "relay": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/coordinator/events/14"
+          },
+          "equal": true,
+          "message_sha256": "d9b6322fd2d2a8eefb51ca39c8231568d67f11ad9c69b4c123669f242a398f7f",
+          "sender_call_id": "call_315772e077424af8a0df499436bf8680",
+          "relay_call_id": "call_2ff3bc5f63aa4d95b137d5b07981ceb3"
+        },
+        {
+          "message_id": "S3-B-A1",
+          "sender": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/worker_B/events/14"
+          },
+          "relay": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/coordinator/events/20"
+          },
+          "equal": true,
+          "message_sha256": "9831fcdb43c95433c3b70fc4181877bd90d9c6e8c85ce2dda8db5289822b410e",
+          "sender_call_id": "call_7676d9cb65024b3c8d2688f9208365fa",
+          "relay_call_id": "call_3422304f25d74973b4b07cb9d2912cc3"
+        },
+        {
+          "message_id": "S3-A-ANSWER-BQ1",
+          "sender": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/worker_A/events/14"
+          },
+          "relay": {
+            "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-observation-addendum.json",
+            "pointer": "/samples/2/trace/agents/coordinator/events/22"
+          },
+          "equal": true,
+          "message_sha256": "5bc0721ae55d186270a432d6e1ee34e68a35cd5d2907849a0e76e8878f92bcb9",
+          "sender_call_id": "call_910503512e7a41b6a80acb036417f59d",
+          "relay_call_id": "call_1fb10850876449d1b61fc706155ccbf3"
+        }
+      ]
+    },
+    {
+      "id": "T2-S2-CIT-L79",
+      "first_judgment_preserved": {
+        "ambiguity": {
+          "issue": "Historical corrected line citation",
+          "judgment": "C-REF PASS for corrected final meaning; count three historical incorrect inline occurrences, one distinct error. A stricter never-any-wrong-line reading would fail C-REF despite explicit correction. This is not a material factual error or a correction by this reviewer."
+        },
+        "historical_entries": [
+          {
+            "location": "worker_A/dependency_messages/3/question_or_answer",
+            "citation": "CacheEnabledApiClient.js L79 cache-hit marshalling",
+            "status": "incorrect",
+            "distinct_error_id": "S2-CIT-L79",
+            "corrected_in_same_original": true,
+            "support": "Line79 closes getFromCache; invocation is line78. S2-BV1 explicitly corrects this; coordinator integrated_answer[2] uses L78. Historical receipt retained without endorsing wrong line."
+          },
+          {
+            "location": "worker_B/dependency_messages/2/question_or_answer",
+            "citation": "CacheEnabledApiClient.js L79 cache-hit marshalling",
+            "status": "incorrect",
+            "distinct_error_id": "S2-CIT-L79",
+            "corrected_in_same_original": true,
+            "support": "Line79 closes getFromCache; invocation is line78. S2-BV1 explicitly corrects this; coordinator integrated_answer[2] uses L78. Historical receipt retained without endorsing wrong line."
+          },
+          {
+            "location": "coordinator/dependency_receipts/3/question_or_answer",
+            "citation": "CacheEnabledApiClient.js L79 cache-hit marshalling",
+            "status": "incorrect",
+            "distinct_error_id": "S2-CIT-L79",
+            "corrected_in_same_original": true,
+            "support": "Line79 closes getFromCache; invocation is line78. S2-BV1 explicitly corrects this; coordinator integrated_answer[2] uses L78. Historical receipt retained without endorsing wrong line."
+          }
+        ],
+        "C-REF": {
+          "id": "C-REF",
+          "status": "PASS",
+          "rationale": "All output refs are exact; URLs/symbol anchors support associated claims. S2 historical L79 mistake is counted but explicitly superseded by L78 in both endpoints and final handoff.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        }
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "C_REF_PASS_AFTER_EXPLICIT_CORRECTION_HISTORICAL_INCORRECT_RETAINED",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/1/outputs/worker_A/content/dependency_messages/3"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/1/outputs/worker_B/content/dependency_messages/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/dependency_receipts/3"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/dependency_receipts/4"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/integrated_answer/2"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "lines": "74-L79",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L74-L79"
+        }
+      ],
+      "rationale": "Line78 invokes marshallData; line79 closes getFromCache. The three preserved BA1 receipt occurrences are indeed incorrect exact-line claims, one distinct proposition. BV1 explicitly corrects to 78 in the same originals and final synthesis uses 78. Frozen rules permit valid equivalent anchors and preserve corrected histories; they do not explicitly make every superseded historical line error an irreversible C-REF FAIL. Confirm current PASS while preserving the three historical incorrect occurrences and interpretation limit. No material behavior error or new corrected answer supplied by this reviewer.",
+      "affected_criterion": "C-REF"
+    },
+    {
+      "id": "T2-S3-T2-F8",
+      "first_judgment_preserved": {
+        "id": "T2-F8",
+        "status": "FAIL",
+        "rationale": "Commands and concrete contract/parity/account-switch checks are retained and labelled NOT_RUN, but final next_step only requires a separately authorized environment. It identifies no isolated/prepared dependency/environment prerequisite. This in-scope prerequisite is omitted, not unavailable evidence.",
+        "output_evidence": "proposed_check_commands; next_step; findings_or_risks",
+        "source_evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L121",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L222",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L5-L20"
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/next_step"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/proposed_check_commands"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/1/required_facts/7"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "AGENTS.md",
+          "lines": "3-L22",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L3-L22"
+        }
+      ],
+      "rationale": "Final supplies commands and concrete source-backed checks but only separately authorized environment as readiness language. Neither the final embedded receipts nor next_step identify isolation/preparation, installed dependencies or separated test services. Authorization is not a statement of isolation/readiness; frozen F8 expressly requires isolated dependency/environment prerequisites. Confirm omission FAIL, without requiring package-version recitation or actual execution.",
+      "affected_criterion": "T2-F8"
+    },
+    {
+      "id": "T2-S3-C-REF",
+      "first_judgment_preserved": {
+        "id": "C-REF",
+        "status": "FAIL",
+        "rationale": "All output refs are exact; URLs/symbol anchors support associated claims. One missing worker_A substantive test-source citation is recorded in ledger; it is an in-scope output citation omission.",
+        "source_evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/2/outputs/worker_A/content/uncertainties/0"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/2/outputs/worker_A/content/dependency_messages/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+          "pointer": "/common_instructions/6"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "lines": "1-L140",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L1-L140"
+        }
+      ],
+      "rationale": "Worker A uncertainties[0] substantively maps CRUD/auth/search/NUL and absence of cross-account rejection. Same output only cites the request spec at 22-29 in A-ANS1, establishing array equality, not the broader coverage/absence proposition. Proposed command names a file but supplies no line/symbol or full fixed-ref URL for that coverage statement. Source confirms the assertion is true; its citation is missing. Coordinator comprehensive spec citation does not retrospectively cite this separate worker assertion.",
+      "affected_criterion": "C-REF"
+    },
+    {
+      "id": "T2-S4-T2-F4",
+      "first_judgment_preserved": {
+        "id": "T2-F4",
+        "status": "FAIL",
+        "rationale": "Both hooks and accountScoped selection are retained, but no final handoff string identifies cacheModelName canned_response. B-A1 transport envelope contains it; final dependency_messages retains only IDs/UNCHANGED. A citation to source is not an explicit explanation of that omitted required detail.",
+        "output_evidence": "integrated_answer[2,3]; dependency_messages only IDs/UNCHANGED",
+        "source_evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/3"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/dependency_messages/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/1/required_facts/3"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "lines": "3-L21",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+        }
+      ],
+      "rationale": "Final correctly explains accountScoped and the bare-array hooks but omits the cacheModelName canned_response selection. The final receipt for B-A1 is only an ID/UNCHANGED, so its external transport content does not become final explanation. This cache key/model identifier is a distinct explicit required fact, not optional wording of the two hooks; confirm partial completeness FAIL.",
+      "affected_criterion": "T2-F4"
+    },
+    {
+      "id": "T2-S4-T2-F5",
+      "first_judgment_preserved": {
+        "id": "T2-F5",
+        "status": "FAIL",
+        "rationale": "Final says generic payload hooks/defaults are replaced, but never states generic extraction response.data.payload or generic marshalling {data:{payload:...}}. Worker-to-coordinator B-A1 trace includes them, yet final receipt only retains message ID; this required explanation was lost.",
+        "output_evidence": "integrated_answer[2]; dependency_messages only IDs/UNCHANGED",
+        "source_evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/3"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/dependency_messages/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/1/required_facts/4"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "lines": "43-L51",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+        }
+      ],
+      "rationale": "Final generic payload hooks and generic defaults words indicate a wrapper distinction but do not explain the default extraction path or returned wrapper shape. Source has response.data.payload and {data:{payload:rows}}. The required structural comparison cannot be recovered from final ID-only receipts or citation existence. Correct core conclusion remains credited elsewhere; confirm omission FAIL, not a false defect assertion.",
+      "affected_criterion": "T2-F5"
+    },
+    {
+      "id": "T2-S4-C-HANDOFF",
+      "first_judgment_preserved": {
+        "id": "C-HANDOFF",
+        "status": "FAIL",
+        "rationale": "Observed questions/answers followed displayed route and paired worker receipts agree, but final coordinator loses cacheModelName and explicit generic-wrapper details from two dependency facts while reporting no unresolved dependency. IDs alone do not retain these details.",
+        "delivery_evidence": "dependency_delivery.message_calls and original endpoint dependency_messages; empty delivery responses and agent-reported receiver coverage are explicit.",
+        "retention": [
+          {
+            "criterion": "T2-F1",
+            "status": "retained"
+          },
+          {
+            "criterion": "T2-F2",
+            "status": "retained"
+          },
+          {
+            "criterion": "T2-F4",
+            "status": "partially_lost",
+            "detail": "Required core adaptation retained; exact detail omitted as recorded in oracle FAIL."
+          },
+          {
+            "criterion": "T2-F5",
+            "status": "partially_lost",
+            "detail": "Required core adaptation retained; exact detail omitted as recorded in oracle FAIL."
+          }
+        ],
+        "source_evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/dependency_messages/2"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/unresolved_dependencies"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/common_criteria/2"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "lines": "3-L21",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+        },
+        {
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "lines": "43-L51",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+        }
+      ],
+      "rationale": "Frozen dependency_finding facts F4 and F5 are partially lost as detailed above; no unresolved dependency is recorded. Successful observed exchange does not establish semantic retention of all marked facts. Confirm retention FAIL without downgrading demonstrated message routing into nondelivery.",
+      "affected_criterion": "C-HANDOFF"
+    },
+    {
+      "id": "T3-S1-T3-F1",
+      "first_judgment_preserved": {
+        "id": "T3-F1",
+        "status": "FAIL",
+        "rationale": "POST is mentioned or evidenced, but final handoff never states the account-scoped display_id lookup and show? authorization. Those required facts are not supplied by retained-finding IDs or by citing a file that happens to contain them.",
+        "source_evidence": [
+          {
+            "path": "config/routes.rb",
+            "lines": "48-L58",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+          },
+          {
+            "path": "config/routes.rb",
+            "lines": "190-L221",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+          },
+          {
+            "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+            "lines": "189-L192",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "config/routes.rb",
+          "lines": "48-L58",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+        },
+        {
+          "path": "config/routes.rb",
+          "lines": "190-L221",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L8"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "189-L192",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+        }
+      ],
+      "rationale": "Final describes transition/controller/model behavior but does not explain lookup through Current.account.conversations by display_id and authorize show?. Complete final content, including receipts, supplies neither account lookup nor that authorization call. Route/spec source URLs or retained A IDs cannot substitute for those omitted propositions. Frozen F1 explicitly requires them; confirm completeness FAIL, not a fabricated access defect.",
+      "affected_criterion": "T3-F1"
+    },
+    {
+      "id": "T3-S1-T3-F9",
+      "first_judgment_preserved": {
+        "id": "T3-F9",
+        "status": "FAIL",
+        "rationale": "Both overlays are cited and Captain creation/SLA model callbacks are acknowledged; however final handoff omits the required enterprise controller permitted_update_params SLA feature-gated behavior. This is partial coverage, not a false assertion of no enterprise influence.",
+        "source_evidence": [
+          {
+            "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+            "lines": "18-L23",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+          },
+          {
+            "path": "enterprise/app/models/enterprise/conversation.rb",
+            "lines": "34-L65",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/8"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+          "lines": "18-L23",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+        },
+        {
+          "path": "enterprise/app/models/enterprise/conversation.rb",
+          "lines": "34-L65",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+        }
+      ],
+      "rationale": "Final says no toggle override and recognizes Captain/creation and model SLA side effects. It does not state enterprise controller permitted_update_params adds sla_policy_id only when account sla is enabled. The inspected source and frozen F9 explicitly include that controller behavior. A correct narrower claim of no toggle override and model-SLA commentary are not an equivalent explanation of parameter gating. Confirm explicit subfact omission FAIL; do not treat it as a false claim of no Enterprise influence or as proof parameter gating directly runs in toggle_status.",
+      "affected_criterion": "T3-F9"
+    },
+    {
+      "id": "T3-S2-T3-F1",
+      "first_judgment_preserved": {
+        "id": "T3-F1",
+        "status": "FAIL",
+        "rationale": "POST is mentioned or evidenced, but final handoff never states the account-scoped display_id lookup and show? authorization. Those required facts are not supplied by retained-finding IDs or by citing a file that happens to contain them.",
+        "source_evidence": [
+          {
+            "path": "config/routes.rb",
+            "lines": "48-L58",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+          },
+          {
+            "path": "config/routes.rb",
+            "lines": "190-L221",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+          },
+          {
+            "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+            "lines": "189-L192",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "config/routes.rb",
+          "lines": "48-L58",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+        },
+        {
+          "path": "config/routes.rb",
+          "lines": "190-L221",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L8"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "189-L192",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+        }
+      ],
+      "rationale": "Final describes transition/controller/model behavior but does not explain lookup through Current.account.conversations by display_id and authorize show?. Complete final content, including receipts, supplies neither account lookup nor that authorization call. Route/spec source URLs or retained A IDs cannot substitute for those omitted propositions. Frozen F1 explicitly requires them; confirm completeness FAIL, not a fabricated access defect.",
+      "affected_criterion": "T3-F1"
+    },
+    {
+      "id": "T3-S2-T3-F9",
+      "first_judgment_preserved": {
+        "id": "T3-F9",
+        "status": "FAIL",
+        "rationale": "Both overlays are cited and Captain creation/SLA model callbacks are acknowledged; however final handoff omits the required enterprise controller permitted_update_params SLA feature-gated behavior. This is partial coverage, not a false assertion of no enterprise influence.",
+        "source_evidence": [
+          {
+            "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+            "lines": "18-L23",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+          },
+          {
+            "path": "enterprise/app/models/enterprise/conversation.rb",
+            "lines": "34-L65",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/8"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+          "lines": "18-L23",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+        },
+        {
+          "path": "enterprise/app/models/enterprise/conversation.rb",
+          "lines": "34-L65",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+        }
+      ],
+      "rationale": "Final says no toggle override and recognizes Captain/creation and model SLA side effects. It does not state enterprise controller permitted_update_params adds sla_policy_id only when account sla is enabled. The inspected source and frozen F9 explicitly include that controller behavior. A correct narrower claim of no toggle override and model-SLA commentary are not an equivalent explanation of parameter gating. Confirm explicit subfact omission FAIL; do not treat it as a false claim of no Enterprise influence or as proof parameter gating directly runs in toggle_status.",
+      "affected_criterion": "T3-F9"
+    },
+    {
+      "id": "T3-S3-T3-F1",
+      "first_judgment_preserved": {
+        "id": "T3-F1",
+        "status": "FAIL",
+        "rationale": "POST is mentioned or evidenced, but final handoff never states the account-scoped display_id lookup and show? authorization. Those required facts are not supplied by retained-finding IDs or by citing a file that happens to contain them.",
+        "source_evidence": [
+          {
+            "path": "config/routes.rb",
+            "lines": "48-L58",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+          },
+          {
+            "path": "config/routes.rb",
+            "lines": "190-L221",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+          },
+          {
+            "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+            "lines": "189-L192",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "config/routes.rb",
+          "lines": "48-L58",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+        },
+        {
+          "path": "config/routes.rb",
+          "lines": "190-L221",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L8"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "189-L192",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+        }
+      ],
+      "rationale": "Final describes transition/controller/model behavior but does not explain lookup through Current.account.conversations by display_id and authorize show?. Complete final content, including receipts, supplies neither account lookup nor that authorization call. Route/spec source URLs or retained A IDs cannot substitute for those omitted propositions. Frozen F1 explicitly requires them; confirm completeness FAIL, not a fabricated access defect.",
+      "affected_criterion": "T3-F1"
+    },
+    {
+      "id": "T3-S3-T3-F9",
+      "first_judgment_preserved": {
+        "id": "T3-F9",
+        "status": "FAIL",
+        "rationale": "Both overlays are cited and Captain creation/SLA model callbacks are acknowledged; however final handoff omits the required enterprise controller permitted_update_params SLA feature-gated behavior. This is partial coverage, not a false assertion of no enterprise influence.",
+        "source_evidence": [
+          {
+            "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+            "lines": "18-L23",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+          },
+          {
+            "path": "enterprise/app/models/enterprise/conversation.rb",
+            "lines": "34-L65",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/8"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+          "lines": "18-L23",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+        },
+        {
+          "path": "enterprise/app/models/enterprise/conversation.rb",
+          "lines": "34-L65",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+        }
+      ],
+      "rationale": "Final says no toggle override and recognizes Captain/creation and model SLA side effects. It does not state enterprise controller permitted_update_params adds sla_policy_id only when account sla is enabled. The inspected source and frozen F9 explicitly include that controller behavior. A correct narrower claim of no toggle override and model-SLA commentary are not an equivalent explanation of parameter gating. Confirm explicit subfact omission FAIL; do not treat it as a false claim of no Enterprise influence or as proof parameter gating directly runs in toggle_status.",
+      "affected_criterion": "T3-F9"
+    },
+    {
+      "id": "T3-S4-T3-F1",
+      "first_judgment_preserved": {
+        "id": "T3-F1",
+        "status": "FAIL",
+        "rationale": "POST is mentioned or evidenced, but final handoff never states the account-scoped display_id lookup and show? authorization. Those required facts are not supplied by retained-finding IDs or by citing a file that happens to contain them.",
+        "source_evidence": [
+          {
+            "path": "config/routes.rb",
+            "lines": "48-L58",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+          },
+          {
+            "path": "config/routes.rb",
+            "lines": "190-L221",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+          },
+          {
+            "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+            "lines": "189-L192",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "config/routes.rb",
+          "lines": "48-L58",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58"
+        },
+        {
+          "path": "config/routes.rb",
+          "lines": "190-L221",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L221"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L8"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "189-L192",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L189-L192"
+        }
+      ],
+      "rationale": "Final describes transition/controller/model behavior but does not explain lookup through Current.account.conversations by display_id and authorize show?. Complete final content, including receipts, supplies neither account lookup nor that authorization call. Route/spec source URLs or retained A IDs cannot substitute for those omitted propositions. Frozen F1 explicitly requires them; confirm completeness FAIL, not a fabricated access defect.",
+      "affected_criterion": "T3-F1"
+    },
+    {
+      "id": "T3-S4-T3-F7",
+      "first_judgment_preserved": {
+        "id": "T3-F7",
+        "status": "FAIL",
+        "rationale": "All four field names are listed and payload assertions proposed, but conversation_id is never identified as display_id in the final answer or dependency receipts. The linked template supports it, but an unstated required fact is an omission.",
+        "source_evidence": [
+          {
+            "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+            "lines": "4-L8",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L4-L8"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/6"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/dependency_message_receipts"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+          "lines": "4-L8",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L4-L8"
+        }
+      ],
+      "rationale": "Final names conversation_id with the four payload fields, but neither synthesis nor embedded dependency receipts identify its value as conversation display_id. This is a distinct API identifier mapping required by F7. Valid template evidence supports it but does not express it in the answer; confirm omission FAIL while keeping citation correctness separate.",
+      "affected_criterion": "T3-F7"
+    },
+    {
+      "id": "T3-S4-T3-F8",
+      "first_judgment_preserved": {
+        "id": "T3-F8",
+        "status": "FAIL",
+        "rationale": "Final matrix maps the positive human/bot cases and valid gaps, but omits the unauthorized example present in worker_B B2. Listing B2 as retained does not preserve that access-baseline fact.",
+        "source_evidence": [
+          {
+            "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+            "lines": "604-L735",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/7"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/worker_B/content/findings/1"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+          "lines": "610-L616",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L610-L616"
+        },
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+          "lines": "626-L735",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L626-L735"
+        }
+      ],
+      "rationale": "Final regression matrix maps human/bot positive cases but omits the existing unauthenticated unauthorized example. Worker B2 and source lines610-616 supply it, yet final retained B2 ID and broad source range do not semantically carry that baseline; embedded compact receipts also omit it. Confirm F8 completeness FAIL, not assertion that the source lacks unauthorized coverage.",
+      "affected_criterion": "T3-F8"
+    },
+    {
+      "id": "T3-S4-T3-F9",
+      "first_judgment_preserved": {
+        "id": "T3-F9",
+        "status": "FAIL",
+        "rationale": "Both overlays are cited and Captain creation/SLA model callbacks are acknowledged; however final handoff omits the required enterprise controller permitted_update_params SLA feature-gated behavior. This is partial coverage, not a false assertion of no enterprise influence.",
+        "source_evidence": [
+          {
+            "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+            "lines": "18-L23",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+          },
+          {
+            "path": "enterprise/app/models/enterprise/conversation.rb",
+            "lines": "34-L65",
+            "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+          }
+        ]
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "FAIL",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/findings_or_risks"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/cases/2/required_facts/8"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+          "lines": "18-L23",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L18-L23"
+        },
+        {
+          "path": "enterprise/app/models/enterprise/conversation.rb",
+          "lines": "34-L65",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+        }
+      ],
+      "rationale": "Final says no toggle override and recognizes Captain/creation and model SLA side effects. It does not state enterprise controller permitted_update_params adds sla_policy_id only when account sla is enabled. The inspected source and frozen F9 explicitly include that controller behavior. A correct narrower claim of no toggle override and model-SLA commentary are not an equivalent explanation of parameter gating. Confirm explicit subfact omission FAIL; do not treat it as a false claim of no Enterprise influence or as proof parameter gating directly runs in toggle_status.",
+      "affected_criterion": "T3-F9"
+    },
+    {
+      "id": "T3-S1-F4-EQUIVALENCE",
+      "first_judgment_preserved": {
+        "criterion": {
+          "id": "T3-F4",
+          "status": "PASS",
+          "rationale": "Conditional explicit-status timestamp handling, epoch parsing, and the existing persisted human epoch assertion are represented. Epoch parsing/persistence is accepted as the equivalent contract rather than requiring the literal strptime/to_i spelling.",
+          "source_evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "lines": "176-L179",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+            },
+            {
+              "path": "app/helpers/date_range_helper.rb",
+              "lines": "13-L17",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "lines": "686-L697",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+            }
+          ]
+        },
+        "ambiguity": {
+          "topic": "T3-F4",
+          "decision": "PASS under equivalent epoch-contract paraphrase.",
+          "reason": "Reports do not uniformly reproduce DateTime.strptime(...,%s), to_s and to_i literally. Epoch parser semantics and existing persisted epoch checks are conveyed with valid source evidence; the oracle permits equivalent explanations."
+        }
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "PASS_EQUIVALENT_CONTEXT",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/0/outputs/coordinator/content/dependency_message_receipts"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/adjudication_rules/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "176-L179",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+        },
+        {
+          "path": "app/helpers/date_range_helper.rb",
+          "lines": "13-L17",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+        },
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+          "lines": "686-L697",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+        }
+      ],
+      "rationale": "Final describes explicit conditional deadline assignment, epoch parsing/persistence and the existing human epoch assertion, with relevant source evidence; S1 also names strptime in synthesis/receipt, while others convey equivalent epoch semantics. F4 does not require literal to_s/strptime/to_i recitation under the equivalent-explanation rule. Keep PASS; source-defined expectations remain NOT_RUN at runtime.",
+      "affected_criterion": "T3-F4"
+    },
+    {
+      "id": "T3-S2-F4-EQUIVALENCE",
+      "first_judgment_preserved": {
+        "criterion": {
+          "id": "T3-F4",
+          "status": "PASS",
+          "rationale": "Conditional explicit-status timestamp handling, epoch parsing, and the existing persisted human epoch assertion are represented. Epoch parsing/persistence is accepted as the equivalent contract rather than requiring the literal strptime/to_i spelling.",
+          "source_evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "lines": "176-L179",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+            },
+            {
+              "path": "app/helpers/date_range_helper.rb",
+              "lines": "13-L17",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "lines": "686-L697",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+            }
+          ]
+        },
+        "ambiguity": {
+          "topic": "T3-F4",
+          "decision": "PASS under equivalent epoch-contract paraphrase.",
+          "reason": "Reports do not uniformly reproduce DateTime.strptime(...,%s), to_s and to_i literally. Epoch parser semantics and existing persisted epoch checks are conveyed with valid source evidence; the oracle permits equivalent explanations."
+        }
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "PASS_EQUIVALENT_CONTEXT",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/1/outputs/coordinator/content/dependency_message_receipts"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/adjudication_rules/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "176-L179",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+        },
+        {
+          "path": "app/helpers/date_range_helper.rb",
+          "lines": "13-L17",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+        },
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+          "lines": "686-L697",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+        }
+      ],
+      "rationale": "Final describes explicit conditional deadline assignment, epoch parsing/persistence and the existing human epoch assertion, with relevant source evidence; S1 also names strptime in synthesis/receipt, while others convey equivalent epoch semantics. F4 does not require literal to_s/strptime/to_i recitation under the equivalent-explanation rule. Keep PASS; source-defined expectations remain NOT_RUN at runtime.",
+      "affected_criterion": "T3-F4"
+    },
+    {
+      "id": "T3-S3-F4-EQUIVALENCE",
+      "first_judgment_preserved": {
+        "criterion": {
+          "id": "T3-F4",
+          "status": "PASS",
+          "rationale": "Conditional explicit-status timestamp handling, epoch parsing, and the existing persisted human epoch assertion are represented. Epoch parsing/persistence is accepted as the equivalent contract rather than requiring the literal strptime/to_i spelling.",
+          "source_evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "lines": "176-L179",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+            },
+            {
+              "path": "app/helpers/date_range_helper.rb",
+              "lines": "13-L17",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "lines": "686-L697",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+            }
+          ]
+        },
+        "ambiguity": {
+          "topic": "T3-F4",
+          "decision": "PASS under equivalent epoch-contract paraphrase.",
+          "reason": "Reports do not uniformly reproduce DateTime.strptime(...,%s), to_s and to_i literally. Epoch parser semantics and existing persisted epoch checks are conveyed with valid source evidence; the oracle permits equivalent explanations."
+        }
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "PASS_EQUIVALENT_CONTEXT",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/2/outputs/coordinator/content/dependency_message_receipts"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/adjudication_rules/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "176-L179",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+        },
+        {
+          "path": "app/helpers/date_range_helper.rb",
+          "lines": "13-L17",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+        },
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+          "lines": "686-L697",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+        }
+      ],
+      "rationale": "Final describes explicit conditional deadline assignment, epoch parsing/persistence and the existing human epoch assertion, with relevant source evidence; S1 also names strptime in synthesis/receipt, while others convey equivalent epoch semantics. F4 does not require literal to_s/strptime/to_i recitation under the equivalent-explanation rule. Keep PASS; source-defined expectations remain NOT_RUN at runtime.",
+      "affected_criterion": "T3-F4"
+    },
+    {
+      "id": "T3-S4-F4-EQUIVALENCE",
+      "first_judgment_preserved": {
+        "criterion": {
+          "id": "T3-F4",
+          "status": "PASS",
+          "rationale": "Conditional explicit-status timestamp handling, epoch parsing, and the existing persisted human epoch assertion are represented. Epoch parsing/persistence is accepted as the equivalent contract rather than requiring the literal strptime/to_i spelling.",
+          "source_evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "lines": "176-L179",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+            },
+            {
+              "path": "app/helpers/date_range_helper.rb",
+              "lines": "13-L17",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "lines": "686-L697",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+            }
+          ]
+        },
+        "ambiguity": {
+          "topic": "T3-F4",
+          "decision": "PASS under equivalent epoch-contract paraphrase.",
+          "reason": "Reports do not uniformly reproduce DateTime.strptime(...,%s), to_s and to_i literally. Epoch parser semantics and existing persisted epoch checks are conveyed with valid source evidence; the oracle permits equivalent explanations."
+        }
+      },
+      "disposition": "CONFIRM",
+      "second_check_status": "PASS_EQUIVALENT_CONTEXT",
+      "evidence": [
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/integrated_answer"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-packet.json",
+          "pointer": "/samples/3/outputs/coordinator/content/dependency_message_receipts"
+        },
+        {
+          "file": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+          "pointer": "/adjudication_rules/0"
+        }
+      ],
+      "independently_read_source": [
+        {
+          "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+          "lines": "176-L179",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179"
+        },
+        {
+          "path": "app/helpers/date_range_helper.rb",
+          "lines": "13-L17",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+        },
+        {
+          "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+          "lines": "686-L697",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L686-L697"
+        }
+      ],
+      "rationale": "Final describes explicit conditional deadline assignment, epoch parsing/persistence and the existing human epoch assertion, with relevant source evidence; S1 also names strptime in synthesis/receipt, while others convey equivalent epoch semantics. F4 does not require literal to_s/strptime/to_i recitation under the equivalent-explanation rule. Keep PASS; source-defined expectations remain NOT_RUN at runtime.",
+      "affected_criterion": "T3-F4"
+    }
+  ],
+  "outcome_effects": {
+    "criterion_changes_from_latest_supplied_judgments": [],
+    "case_outcomes_retained": {
+      "T1": {
+        "S1": "PASS",
+        "S2": "FAIL",
+        "S3": "PASS",
+        "S4": "PASS"
+      },
+      "T2": {
+        "S1": "PASS",
+        "S2": "PASS",
+        "S3": "FAIL_INCOMPLETE",
+        "S4": "FAIL_INCOMPLETE"
+      },
+      "T3": {
+        "S1": "PARTIAL_FAIL",
+        "S2": "PARTIAL_FAIL",
+        "S3": "PARTIAL_FAIL",
+        "S4": "PARTIAL_FAIL"
+      }
+    },
+    "T1_first_receipts_only_judgment": "Preserved; original NOT_RUN lacked trace evidence. This check confirms addendum changes as bounded observations, including S2 scope FAIL, without overwriting first review.",
+    "reported_failures_checked": {
+      "T1_scope": 1,
+      "T2_required_facts": 3,
+      "T2_common_criteria": 2,
+      "T3_required_facts": 10
+    },
+    "new_confirmed_material_factual_error_delta": 0,
+    "new_unsupported_defect_assertion_delta": 0,
+    "counting_boundary": "No new exhaustive citation/count recalculation. All confirmations are source-only diagnostic judgments, not application-test PASS or human owner acceptance."
+  },
+  "limits": [
+    "Allowed observer extracts omit original root/base instructions and most tool output bodies. Original trace hashes are observer declarations, not independently verified raw-session hashes. No explicit root instruction authorizing the T1 own-result read is present; coordinator transport requests are visible and recorded without inventing authority.",
+    "An empty send_message tool return establishes no recipient acknowledgment. Exact relay equality plus paired endpoint receipts and subsequent source-backed reports support only delivery within supplied coverage; independent complete transport/inbox attestation is NOT_RUN/NOT_EXPOSED.",
+    "No full scope/security guarantee: shared permissions and fresh context are not sandbox isolation. Omitted outputs cannot prove exact successful write counts, complete action absence or secret-free raw sessions.",
+    "D1/D2 preserve contextual materiality decisions and wording ambiguity; they do not validate the false literal readings all four fields mandatory or no HTTP status assertions.",
+    "Citation counting units differ across first reviews: T1 direct report occurrences excludes raw receipt copies, T2 counts URL occurrences including copies, T3 deduplicates URLs per role. This targeted review does not harmonize or add those totals across cases. Historical corrected line errors remain visible where recorded.",
+    "Frozen protocol/oracle retain draft status text; transport-v3-review records PASS and exact hashes. Complete clearance timing is outside allowed inputs.",
+    "No arm winner, weighted score, statistical superiority, implementation quality conclusion, runtime behavior result, hidden token/model telemetry or native Claude execution inferred. Product owner acceptance remains separate."
+  ]
+}

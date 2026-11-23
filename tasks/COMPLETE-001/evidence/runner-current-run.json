@@ -1,0 +1,37 @@
+{
+  "observed_utc": "2026-11-22T23:31:02.322223+00:00",
+  "run_id": 45082996742,
+  "url": "https://github.com/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+  "app_head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 137395198857,
+      "name": "metadata",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-22T23:23:42Z",
+      "active_step": []
+    },
+    {
+      "id": 137395199109,
+      "name": "focused-frontend",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-22T23:23:43Z",
+      "active_step": []
+    },
+    {
+      "id": 137395199200,
+      "name": "isolated-runtime",
+      "status": "in_progress",
+      "conclusion": null,
+      "started_at": "2026-11-22T23:23:42Z",
+      "active_step": [
+        "Build, start, test, restart and restore isolated synthetic application"
+      ]
+    }
+  ],
+  "detailed_evidence": "app-ci-lifecycle-success.json"
+}

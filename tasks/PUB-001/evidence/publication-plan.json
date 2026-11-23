@@ -1,0 +1,51 @@
+{
+  "task_id": "PUB-001",
+  "date": "2026-11-23",
+  "status": "PROPOSED_NOT_EXECUTED",
+  "authorization": "User explicitly requested both renamed and public, accepting discoverability",
+  "repositories": [
+    {
+      "id": 1461752107,
+      "old": "trdat1605/chatwoot-vn",
+      "canonical": "trdat1605/r-61974bac4c68fe3c",
+      "private": true
+    },
+    {
+      "id": 1467945011,
+      "old": "trdat1605/chatwoot-vn-app",
+      "canonical": "trdat1605/s-251521f7e9131fb0",
+      "private": true
+    }
+  ],
+  "control_base": "62d7741",
+  "audit": "publication-audit-prechange.json",
+  "sequence": [
+    "Review audit and plan independently before mutation",
+    "Before mutation compare full metadata snapshot digest to surface-fingerprints.json, scan and fingerprint title/body/ID of issues/PRs/comments/reviews/commit-comments; check stable ID, branch/tag heads and Actions run IDs before EACH mutation; stop on unknown delta",
+    "Rename each using documented PATCH /repos/{current_owner}/{current_repo} name while private after GET repository ID assertion; read back stable ID/private/heads/Actions; no authenticated redirects",
+    "Publish via documented PATCH /repos/{current_owner}/{current_repo} private=false only after stable ID and content-only digest guard (title/body/ID unchanged across rename); verify anonymous public API and unchanged IDs/heads; app Actions remains disabled",
+    "Update common control origin and known independent clone origin, leave runtime source upstream unchanged",
+    "Adapt scoped current documentation/checker to canonical names with explicit trusted aliases; historical evidence stays byte-identical",
+    "Exact implementation commit review; sanitized scoped staging and final hook gate; push branch and Draft PR and verify actual CI",
+    "Read-only rulesets availability check; no merge/ruleset/enforcement or runtime changes"
+  ],
+  "rollback_limits": [
+    "Visibility/name can be changed back administratively; copies/forks/public disclosure cannot be undone",
+    "No history rewriting/deleting logs to conceal findings",
+    "Old PR HEAD snapshots do not gain new checker automatically; patch/stack acceptance separate"
+  ],
+  "not_authorized": [
+    "Billing",
+    "Merge/release",
+    "App source/runtime/DB/container/feature changes",
+    "Enable app Actions",
+    "New ruleset enforcement"
+  ],
+  "sources": [
+    "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility",
+    "https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository",
+    "https://docs.github.com/en/rest/repos/repos#update-a-repository"
+  ],
+  "metadata_guard": "Full JSON digest compared before any mutation, then protected content-only digest (IDs/title/body/user) stays identical across rename/publication; URL fields expected to transform are excluded, not arbitrary content.",
+  "additional_surfaces": "Reviewer checking repository commit comments and PR head coverage; any new sensitive surface blocks publication."
+}

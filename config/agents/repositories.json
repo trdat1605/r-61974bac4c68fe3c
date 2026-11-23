@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "repositories": [
+    {
+      "id": 1461752107,
+      "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+      "aliases": ["https://github.com/trdat1605/chatwoot-vn"]
+    },
+    {
+      "id": 1467945011,
+      "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+      "aliases": ["https://github.com/trdat1605/chatwoot-vn-app"]
+    }
+  ]
+}

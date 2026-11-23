@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/portable_app_review",
+  "result": "PASS",
+  "subject_commit": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+  "resolved_findings": [
+    "CleanupfailureFAILexit1 preservingearlierfailure",
+    "Actualmeasured15GiBcapacitygatebeforeprepare/allocation"
+  ],
+  "verification": [
+    "IndependentASTsimulatedcleanupfailure and14GiBcapacityfailbeforeallocation",
+    "ExactHEAD/cleantree/diffcheckPASS"
+  ],
+  "limits": [
+    "Onlycode+hostedCIpushcleared, actualruntimeNOT_RUN",
+    "Runnercapacitycanfailhonestly; no localDockeroperationsbyreviewer"
+  ]
+}

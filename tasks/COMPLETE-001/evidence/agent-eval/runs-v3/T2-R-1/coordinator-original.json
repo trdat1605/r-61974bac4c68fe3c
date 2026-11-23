@@ -1,0 +1,113 @@
+{
+  "run_id": "T2-R-1",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "integrated_answer": [
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Account-nested routes expose index/create/update/destroy, without show. Index directly renders the account relation as a bare JSON array; create/update return the saved object; destroy returns head :ok. Creation uses Current.account.canned_responses.new; update/destroy find through that association. Strong parameters permit short_code/content. The model requires content, short_code and account, with short_code unique per account.",
+      "evidence": [
+        "config/routes.rb:52,58,165 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+        "app/controllers/api/v1/accounts/canned_responses_controller.rb:4-31 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L31",
+        "app/models/canned_response.rb:16-21 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Search removes NUL bytes, uses a bound case-insensitive substring predicate against short_code OR content, then orders prefix short_code matches (1), other short_code matches (0.5), and content matches (0.2) descending. Ranking fragments use sanitize_sql_array. SQL quoting/binding does not mean literal wildcard escaping: the inspected code does not explicitly escape percent/underscore. Without search it returns Current.account.canned_responses.",
+      "evidence": [
+        "app/controllers/api/v1/accounts/canned_responses_controller.rb:34-43 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+        "app/models/canned_response.rb:23-30 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30"
+      ]
+    },
+    {
+      "classification": "INFERRED_FROM_SOURCE",
+      "claim": "The server array and client cache contract align. CannedResponse overrides extraction to response.data and marshalling to {data:rows}, replacing the generic payload hooks; cache hits and network reads therefore present rows at response.data. refetchAndCommit invokes extraction and returns the original network response; valid nonempty cache hits invoke marshalling. No shape defect follows from generic defaults. get(false), the default, uses network; invalid/empty cached rows refetch, while initial IndexedDB initialization failure falls back to network.",
+      "evidence": [
+        "app/javascript/dashboard/api/cannedResponse.js:3-21 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "app/javascript/dashboard/api/CacheEnabledApiClient.js:31-101 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L31-L101"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "The accountScoped singleton resolves URL account IDs from window.location.pathname at read time. The cache dataManager getter also reads the current route and creates a DataManager when accountId changes; cache-key requests use that route account. This is explicit selection logic, not proof of all authorization or asynchronous switching behavior.",
+      "evidence": [
+        "app/javascript/dashboard/api/ApiClient.js:17-38 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L38",
+        "app/javascript/dashboard/api/CacheEnabledApiClient.js:16-23,62-65 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L23",
+        "app/javascript/dashboard/api/CacheEnabledApiClient.js:62-65 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L62-L65"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Existing request-spec source asserts unauthenticated rejection, bare-array list, search ranking/NUL removal, and successful CRUD. Cache-spec source exercises wrapper/bare-array doubles, cold/hit/changed-key behavior, account switching with equal cache keys, network bypass and IndexedDB failure. These are assertions present in source, not executed results; the bare-array double mirrors rather than imports the production subclass.",
+      "evidence": [
+        "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb:10-142 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L142",
+        "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js:25-223 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L223"
+      ]
+    }
+  ],
+  "retained_worker_finding_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "B1",
+    "B2",
+    "B3"
+  ],
+  "unresolved_dependencies": [],
+  "findings_or_risks": [
+    "NOT_RUN: no runtime, tests, builds or network requests. No observed failing behavior established.",
+    "Current.account selection/authorization helpers and DataManager implementation lie outside the manifest; their internal guarantees remain unverified. Account setup invokes current_account via app/controllers/api/v1/accounts/base_controller.rb:3-5 https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L5",
+    "NOT_EXPOSED: model identity, hidden reasoning and usage telemetry."
+  ],
+  "dependency_messages": [
+    {
+      "id": "T2-R-1-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "relay": "UNCHANGED"
+    },
+    {
+      "id": "T2-R-1-BQ1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "relay": "UNCHANGED"
+    },
+    {
+      "id": "T2-R-1-B-A1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "relay": "UNCHANGED"
+    },
+    {
+      "id": "T2-R-1-A-ANS-BQ1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "relay": "UNCHANGED"
+    }
+  ],
+  "proposed_check_commands": [
+    {
+      "command": "bundle exec rspec spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+      "status": "PROPOSED_NOT_RUN"
+    },
+    {
+      "command": "pnpm test app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+      "status": "PROPOSED_NOT_RUN",
+      "limitation": "Exact runner arguments unverified; inspect authorized tooling before execution."
+    }
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN",
+  "next_step": "After separate authorization in an isolated prepared environment at this SHA, run focused checks; consider actual-subclass contract coverage and cross-account CRUD/search cases. Request scope extension before auditing excluded helpers.",
+  "worker_original_receipts": [
+    {
+      "role": "worker_A",
+      "transport": "FULL_EXACT_JSON_SEND_MESSAGE",
+      "sha256": "f29e9881b226b1ff7db115afade6a6841854c23c1d8b18460ca052ee78312658"
+    },
+    {
+      "role": "worker_B",
+      "transport": "FULL_EXACT_JSON_SEND_MESSAGE",
+      "sha256": "f2a1144b2645afff27e876d48e5c18014ed6a4e70a5794a2903c05e3f58ff418"
+    }
+  ]
+}

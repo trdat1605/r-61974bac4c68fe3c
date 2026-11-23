@@ -1,0 +1,21 @@
+{
+  "status": "PLAN_NOT_EXECUTED",
+  "reason": "HostCfreebelow15GiB afterownedcleanup; no restart/moveVHD/prune/currentruntime changes. Existingusercomplete7+CIauthorization permits ephemeralrunnerverification while storagechoicepending.",
+  "app_subject_before_change": "2db109ba24e50dc82ecac043b962eb578cda1afc",
+  "proposed_scope": [
+    "docker/isolated/verify_runtime.py",
+    ".github/workflows/foundation-ci.yml"
+  ],
+  "sequence": [
+    "IndependentreviewnewruntimeverificationhelperandCIapp-smokejob",
+    "Hostedrunner checksfreecapacity; fullDockerfilebuild cacheallowedbutlabel; newcwdev-project/services/syntheticdata only",
+    "Exercise prepare/config/build/prepareDB/up readiness/API/Vite/HTTP, realRSpec+Vitest, restart,persistencebackuprestore innewtemporaryDB withknowncounts",
+    "PrintonlysanitizedJSONmarker withactualrunnercheckoutSHA/jobs/results; nocredentials/env/dbdumpartifact",
+    "Keepfailedattemptlogs/receipt ifruntimefails; fix/reviewnewSHA rerunaffectedchecks; localprojectPGbackupretained",
+    "No localnewallocationbelow15GiB, no DockerVHDmove/daemonrestart/foreignprune"
+  ],
+  "limits": [
+    "HostedLinuxCI providesfreshseparatemachineproof; doesnotmeanlocalWindowsdiskproblemfixed",
+    "SourceHEADforPRmerge recordedseparate reviewedapphead; no merge/release"
+  ]
+}

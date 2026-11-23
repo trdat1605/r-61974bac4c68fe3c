@@ -1,0 +1,18 @@
+{
+  "run_id": "T1-R-1",
+  "protocol_sha256": "35caa806f45be64041af21de766a941a016e1e0b4face2cd6a489c3618feaa2b",
+  "oracle_sha256": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+  "packet_sha256": "cc26ff041db5b5493513e6d67da35ec2d33b4f65d55ecb1d482b89d5e1c1fac0",
+  "roster": {
+    "coordinator": "/root/eval_t1r1_c",
+    "worker_A": "/root/eval_t1r1_a",
+    "worker_B": "/root/eval_t1r1_b"
+  },
+  "dispatch_utc": "2026-11-22T22:30:03.829982+00:00",
+  "model_identity": "NOT_EXPOSED",
+  "source_manifest_check": "../../source-manifest-check.json",
+  "status": "SHAKEDOWN_COMPLETED_EXCLUDED",
+  "end_utc": "2026-11-22T22:34:26.885431+00:00",
+  "original_outputs": "Available in current collaboration tool messages; not copied verbatim to Git. V3 exact per-role output files address this capture limitation before comparative dataset.",
+  "adjudicated": false
+}

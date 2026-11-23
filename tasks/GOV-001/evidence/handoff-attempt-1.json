@@ -1,0 +1,14 @@
+{
+  "task_id": "GOV-001",
+  "date": "2026-11-23",
+  "status": "FAIL",
+  "exit_code": 1,
+  "command": "git -c core.hooksPath=.githooks commit -m docs(governance):record-reviewed-main-protection-evidence",
+  "observed": "Strictstagedgate rejected cleanup-script.py.txt because Git autocrlf normalized originalCRLF bytes; no commit created, no test or remotesettings changed",
+  "finding": {
+    "path": "tasks/GOV-001/evidence/cleanup-script.py.txt",
+    "check": "staged_working_mismatch"
+  },
+  "correction": "Store originalsource decodedutf8 in escapedJSON plus exactbyteshash; roundtrip source.encode(utf8) reconstructs reviewedhash; do not relax stagedgate",
+  "original_script_sha256": "c01c92de8a3e44285dacbf906d2572859f088587550e5e04077608dd1629b106"
+}

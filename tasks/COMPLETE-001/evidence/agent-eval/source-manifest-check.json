@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "command": "Read immutable git show REF:PATH raw bytes and compare all25SHA256 to frozenmanifest",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b"
+    },
+    {
+      "path": "config/routes.rb",
+      "sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/base_controller.rb",
+      "sha256": "298d5dee1def22f0a5a9c2dc6736cc143ccc94cc62eedb0297517058c8f70376"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+      "sha256": "24806200e3281cf4d3a201e3be078c5344669c95a5c147040bb5e7d97ab2ee62"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+      "sha256": "2dab56fa4a66cf48f06149be1bcc13a9f294ac0e26150c8b6db5807671809240"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+      "sha256": "b614229c0c0998b9cf9acf2bdf3671af7385bd8fe4f62ec19a7f074ab59516e9"
+    },
+    {
+      "path": "app/controllers/concerns/label_concern.rb",
+      "sha256": "314870369130d6c3be439750382d346ff374b3342a26627ac0a3f390a83e3528"
+    },
+    {
+      "path": "app/models/concerns/labelable.rb",
+      "sha256": "7c82b7d8f604901efcd6721bd73f2888d7d34b6b86d8e257d34cf5b1505b377c"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/labels/create.json.jbuilder",
+      "sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/labels/index.json.jbuilder",
+      "sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+      "sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+      "sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9"
+    },
+    {
+      "path": "app/models/canned_response.rb",
+      "sha256": "07454a43a69a5992f99326b2586fdc0f39db07de31e8ecf216eef8b94fbca0ca"
+    },
+    {
+      "path": "app/javascript/dashboard/api/cannedResponse.js",
+      "sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b"
+    },
+    {
+      "path": "app/javascript/dashboard/api/ApiClient.js",
+      "sha256": "1cb078752262c439550ed81f36eb6d2aeb51457cb6b4d4666b1d684842d35035"
+    },
+    {
+      "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+      "sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1"
+    },
+    {
+      "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+      "sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+      "sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4"
+    },
+    {
+      "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+      "sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4"
+    },
+    {
+      "path": "app/models/conversation.rb",
+      "sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820"
+    },
+    {
+      "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+      "sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054"
+    },
+    {
+      "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+      "sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809"
+    },
+    {
+      "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+      "sha256": "de949b6624b62cd3f8049a25d4a6cc70ae46eb64eb3cbd6bacc995b1084ed5a9"
+    },
+    {
+      "path": "enterprise/app/models/enterprise/conversation.rb",
+      "sha256": "ecd8947b2de51ae7ce77a6beb3ec66d6942bcf7e53d59bf9c18b33acccc74d53"
+    },
+    {
+      "path": "app/helpers/date_range_helper.rb",
+      "sha256": "a60d4fd264ad76ceb873e2fd87bfb009aecf7b9270b57ac2694d637ccee92ddb"
+    }
+  ],
+  "limits": [
+    "Read-only source verification, not app tests or evaluation execution"
+  ]
+}

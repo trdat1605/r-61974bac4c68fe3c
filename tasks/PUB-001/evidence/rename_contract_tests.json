@@ -1,0 +1,16 @@
+{
+  "command": "python -B -m unittest discover -s tests -v",
+  "tests": 80,
+  "duration_seconds": 84.159,
+  "log": "tasks/PUB-001/evidence/contract-tests.txt",
+  "limits": [
+    "Run before commit; tested tools/test bytes unchanged at exactsubject; docs-only edits followed",
+    "Windows local tests; hosted Linux result recorded separately"
+  ],
+  "task_id": "PUB-001",
+  "name": "rename_contract_tests",
+  "status": "PASS",
+  "exit_code": 0,
+  "subject_commit": "802091dff84462293cdde6eabc93b5b90e5e3105",
+  "date": "2026-11-23"
+}

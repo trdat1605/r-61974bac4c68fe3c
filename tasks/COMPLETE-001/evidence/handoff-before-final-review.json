@@ -1,0 +1,8 @@
+{
+  "status": "EXPECTED_BLOCKED",
+  "exit_code": 1,
+  "command": "python -B tools/agents/workflow.py handoff --task tasks/COMPLETE-001/task.json --handoff tasks/COMPLETE-001/handoff.json --review tasks/COMPLETE-001/review.json",
+  "subject": "12186bce8b99bd4ec5f6879bf32939a7b80ea074",
+  "observed": "Review refers to stale/wrong commit",
+  "reason": "Original FAIL review658 still active while independent newsubjectreview beingauthored. No gate bypass; finalcheck mustwait newreview."
+}

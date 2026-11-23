@@ -1,0 +1,32 @@
+{
+  "task_id": "GOV-001",
+  "reviewer": "/root/branch_rules_final_review",
+  "reviewed_commit": "a4e3dbd520d95fd27266ba539b6f6ab08900a31e",
+  "result": "PASS",
+  "blocking_findings": [],
+  "input_hashes": {
+    "config/github/control-main.ruleset.json": "7c995bcd74295c73fa2b702eaf0790aa95b029a1a96fe8cba417ae7f402ad9e2",
+    "config/github/app-main.ruleset.json": "c34090d842245a9c97671e0a9cdd6da41ae88c4c202ce38bb0513edbee442a66",
+    "config/agents/repositories.json": "3d917599e4d6aa0df9b79bbe90ee30ee8dba5a5c524717424ccbb101ddcf19ab"
+  },
+  "date": "2026-11-23",
+  "recorded_by": "Coordinator transcribed independent finalreview output; reviewer readonly no edits/mutations",
+  "execution_receipt_sha256": "b345602ff896d3e90322e8b2539d0185a9b0abc4d167028ed50c99f266037e7f",
+  "independently_executed": [
+    "Exact8filescope diffcheck; historicaltasks/tools/workflows unchanged",
+    "Threeboundinputhashes andhandoff/checkreceipthashes matched",
+    "Anonymous IDs/defaultmain/active rulesets27859154,27859157 onlydefaulttarget/effective mainrules configmatched",
+    "All originalheads preflightmatched, probePRsclosedunmerged, no proberefs",
+    "APIjobs actualfailure45073259804 andsuccess45073330723 sameheadverified",
+    "Seven denialentries andexpectedFAIL/freshheadquirk retained; separate missingchecksuite distinctioncorrect",
+    "Plan/execution/cleanupscript snapshots/hashes verifiedandparsechecked without executing",
+    "TaskVALID andrelativeMarkdownlinksexist; implementer80tests logread"
+  ],
+  "limits": [
+    "Emptybypass/collaborator/appActionsdisabled based on authenticatedimplementerreceipts; anonymousresponses hidebypass",
+    "80tests implementerlogread, notindependentrerun",
+    "Historicalreadiness snapshots; reviewer didnotrepeatmutations",
+    "No actualmerge/productCI/app-runtimecorrectness/humanapproval proof",
+    "Final metadata/index/hook andfuturehostedCI require separate checks"
+  ]
+}

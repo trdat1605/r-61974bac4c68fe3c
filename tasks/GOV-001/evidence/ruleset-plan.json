@@ -1,0 +1,55 @@
+{
+  "task_id": "GOV-001",
+  "date": "2026-11-23",
+  "status": "PLAN_NOT_EXECUTED",
+  "authorization": "User said oke b\u1eaft \u0111\u1ea7u \u0111i after next-step proposal including independently reviewed branch protection and actual checks; no real-main updates or merges",
+  "repositories": [
+    {
+      "id": 1461752107,
+      "slug": "trdat1605/r-61974bac4c68fe3c",
+      "config": "config/github/control-main.ruleset.json",
+      "probe_base": "f8e5822ca885554dc57c8f56e927ae8ae99fe471"
+    },
+    {
+      "id": 1467945011,
+      "slug": "trdat1605/s-251521f7e9131fb0",
+      "config": "config/github/app-main.ruleset.json",
+      "probe_base": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+    }
+  ],
+  "config_hashes": {
+    "config/github/app-main.ruleset.json": "c34090d842245a9c97671e0a9cdd6da41ae88c4c202ce38bb0513edbee442a66",
+    "config/github/control-main.ruleset.json": "7c995bcd74295c73fa2b702eaf0790aa95b029a1a96fe8cba417ae7f402ad9e2"
+  },
+  "preconditions": [
+    "Check stable IDs/defaultmain/all pre-existing branch heads/rulesets empty/appActionsdisabled from preflight before remote mutation",
+    "No pre-existing resource names may be reused/removed; choose unpredictable exact probe refs and persist created ref SHAs and ruleset IDs immediately",
+    "Documented GitHub API on fixed host, NoRedirect, credential stays process-memory; no user/runtime secrets in receipts"
+  ],
+  "sequence": [
+    "Create owned target refs at audited probe_base (control f8e5822 ancestor of reviewed PUB-001). Create fresh same-tree head commits at head_base (control reviewed3feef9b, app pinnedcaab); no file edits in either repo. Persist all refs and SHAs.",
+    "Create one active actual ruleset per repo from exact reviewed JSON with only temporary exact probe target added alongside ~DEFAULT_BRANCH; persist response IDs then verify effective main and probe rules",
+    "On probes ONLY attempt direct fastforward update, forced nonfastforward update, deletion. Expected server rejections recorded with rule-specific error; head must remain probe_base. No write/force/delete request ever names realmain",
+    "Replay reviewed PUB-001 content as a SYNTHETIC enforcement probe: fresh same-tree head initially has missing checks; invalid PR metadata causes actual required job FAIL, then valid PUB-001 issue/task metadata reruns jobs and permits readiness. This is not a new PUB-001 handoff or product acceptance. Never merge.",
+    "App positive PR may be attempted using same-tree commit only; if emptydiff PR unsupported record NOT_RUN rather than modifying appsource",
+    "Remove ONLY temporary target from owned ruleset while preserving main/all original rules; close probe PRs unmerged and delete ONLY recorded owned test refs after SHA guards; verify original heads unchanged, main rules active, appActionsdisabled",
+    "Current docs/config exact-commit independent review, final handoff/hook, push branch, dependent DraftPR and actualCI"
+  ],
+  "approval_policy": "Zero GitHub approvals because sole collaborator is owner; fresh-context agent reviews remain explicit artifacts, not human GitHub approvals. Future humanreview policy separate. No bypass actors even owner. Admin can change settings; not immutable security sandbox.",
+  "limits": [
+    "Do not enforce control checks on app; no productCI exists there and Actions remain disabled",
+    "Only defaultmain protected; current stack branches remain writable feature branches. PR1 targetingmain lacks these jobs until separate integration work; it should remain blocked, not bypassed",
+    "Positive test measures PR check/merge readiness without actual merge; real merge enforcement/execution and product acceptance remain NOT_RUN",
+    "Status integration binding authenticates GitHubActions app, not correctness of arbitrary workflow bytes; workflow governance still needs review",
+    "Do not call fixtures/policy checks evidence appstable or all7improvementscomplete",
+    "Synthetic probe uses reviewed PUB-001 source/task replay, not GOV-001 delivery or product task proof; no files changed by probe commits."
+  ],
+  "rollback": "On owned settings error remove probe targets first preserving main protections; retain failed evidence. If actual payload differs unexpectedly stop and review. Only restore/delete newly owned ruleset under reviewed corrective plan; never delete unknown policies. No data/runtime rollback needed.",
+  "sources": [
+    "https://docs.github.com/en/rest/repos/rules",
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository",
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets",
+    "https://docs.github.com/en/rest/repos/rule-suites"
+  ],
+  "probe_resources": "tasks/GOV-001/evidence/probe-resources.json"
+}

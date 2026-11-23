@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "python -B -m unittest discover -s tests -v",
+  "tests": 80,
+  "seconds": 108.13,
+  "control_head": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+  "working_tree_tool_changes": false,
+  "limits": "Tooling fixtures; not application runtime tests. Later control documentation/config edits require separate scope/ref validation."
+}

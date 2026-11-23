@@ -1,0 +1,50 @@
+{
+  "survey_date": "2026-11-18",
+  "reviewer": "/root/fresh_handover_check",
+  "reviewed_commit": "050c6ac7820ce7727e9a050888d5d5a893048b0b",
+  "result": "PASS_WITH_LIMITS",
+  "context": "fresh brief without preceding chat history",
+  "recorded_by": "coordinator from actual agent final message retrieved using list_agents",
+  "found_without_asking": [
+    "policy ID CHATWOOT_AGENT_POLICY_V1",
+    "control repo versus separate Linux application source and exact pin",
+    "task scope, forbidden runtime writes and owner decisions",
+    "commands for doctor, tests, repository checker and handoff",
+    "AGENT-001 exact reviewed commit and awaiting_product_owner status",
+    "tool-loading, hook, CI and OS-isolation limits"
+  ],
+  "read_set": [
+    "AGENTS.md",
+    "docs/agents/README.md",
+    "docs/agents/operating-model.md",
+    "docs/agents/state.md",
+    "config/agents/runtime.json",
+    "tasks/AGENT-001/task.json",
+    "tasks/AGENT-001/handoff.json",
+    "tasks/AGENT-001/review.json",
+    "docs/agents/evaluation.md",
+    "docs/agents/decisions/0001-agent-operation.md",
+    "docs/agents/evidence/codex-loading.json",
+    "agents/codex/roles.json",
+    "tasks/AGENT-001/evidence/",
+    "tools/agents/workflow.py",
+    ".githooks/pre-commit",
+    ".github/workflows/agent-governance.yml"
+  ],
+  "actually_executed": [
+    "Git control HEAD/branch/status clean before and after",
+    "handoff validator READY_FOR_OWNER exit0 at then-current code",
+    "AGENTS bytes hash matched loading receipt",
+    "core.hooksPath query unset"
+  ],
+  "missing_at_time": [
+    "new Draft PR URL",
+    "actual GitHub CI run URL"
+  ],
+  "limits": [
+    "Navigation/handover test at historical050, not review of later gate fixes",
+    "Doctor, full tests and app runtime NOT_RUN by this agent",
+    "Agent read AGENTS explicitly; automatic loading proved separately",
+    "No UI/product/performance/upgrade acceptance"
+  ]
+}
