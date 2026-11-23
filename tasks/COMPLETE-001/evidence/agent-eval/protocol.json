@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "protocol_id": "COMPLETE-001-CODEX-COORDINATION-V3",
+  "created_date": "2026-11-23",
+  "status": "DRAFT_REQUIRES_INDEPENDENT_REVIEW_NO_RUNS",
+  "parent_task": "tasks/COMPLETE-001/task.json",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "objective": "Compare correctness, citations, handoff retention and scope compliance of coordinator-routed and direct-peer communication using available Codex collaboration tools on fixed-ref Chatwoot source-only work.",
+  "user_scope_adjustment": {
+    "user_statement": "Chưa có; kiểm chứng các cách phối hợp Codex hiện có và ghi rõ giới hạn Claude",
+    "interpretation": "Available Codex coordination patterns are the accepted comparison scope. Native Claude Agent Teams remains NOT_RUN; no installation or subscription is authorized.",
+    "acceptance_boundary": "This source-only A/B is separate from the actual implementation/runtime pilot. Do not claim it compares bugfix implementation, validates native Claude Teams, or establishes an optimal architecture."
+  },
+  "native_claude": {
+    "status": "NOT_RUN",
+    "reason": "No Claude CLI found in prior capability audit; no installation/subscription authorization. Codex peer messaging must not be relabelled Claude Agent Teams.",
+    "source": "https://code.claude.com/docs/en/agent-teams"
+  },
+  "source": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "local_read_root": "/root/code/chatwoot-worktrees/wsl-preflight",
+    "distribution": "Ubuntu-22.04",
+    "read_method": "Use git show REF:PATH through wsl -d Ubuntu-22.04 -- git -C ROOT. Read immutable Git objects, not checkout bytes or the running application.",
+    "manifest_hash_basis": "SHA256 of raw stdout bytes from git show REF:PATH, obtained with Python subprocess.run(capture_output=True). No checkout newline conversion.",
+    "manifest": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+        "lines": 139,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md"
+      },
+      {
+        "path": "config/routes.rb",
+        "sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa",
+        "lines": 845,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/base_controller.rb",
+        "sha256": "298d5dee1def22f0a5a9c2dc6736cc143ccc94cc62eedb0297517058c8f70376",
+        "lines": 17,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+        "sha256": "24806200e3281cf4d3a201e3be078c5344669c95a5c147040bb5e7d97ab2ee62",
+        "lines": 10,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+        "sha256": "2dab56fa4a66cf48f06149be1bcc13a9f294ac0e26150c8b6db5807671809240",
+        "lines": 13,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+        "sha256": "b614229c0c0998b9cf9acf2bdf3671af7385bd8fe4f62ec19a7f074ab59516e9",
+        "lines": 42,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb"
+      },
+      {
+        "path": "app/controllers/concerns/label_concern.rb",
+        "sha256": "314870369130d6c3be439750382d346ff374b3342a26627ac0a3f390a83e3528",
+        "lines": 10,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb"
+      },
+      {
+        "path": "app/models/concerns/labelable.rb",
+        "sha256": "7c82b7d8f604901efcd6721bd73f2888d7d34b6b86d8e257d34cf5b1505b377c",
+        "lines": 20,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb"
+      },
+      {
+        "path": "app/views/api/v1/accounts/conversations/labels/create.json.jbuilder",
+        "sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc",
+        "lines": 1,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder"
+      },
+      {
+        "path": "app/views/api/v1/accounts/conversations/labels/index.json.jbuilder",
+        "sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc",
+        "lines": 1,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder"
+      },
+      {
+        "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+        "sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82",
+        "lines": 76,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+        "sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+        "lines": 45,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+      },
+      {
+        "path": "app/models/canned_response.rb",
+        "sha256": "07454a43a69a5992f99326b2586fdc0f39db07de31e8ecf216eef8b94fbca0ca",
+        "lines": 32,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb"
+      },
+      {
+        "path": "app/javascript/dashboard/api/cannedResponse.js",
+        "sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b",
+        "lines": 25,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js"
+      },
+      {
+        "path": "app/javascript/dashboard/api/ApiClient.js",
+        "sha256": "1cb078752262c439550ed81f36eb6d2aeb51457cb6b4d4666b1d684842d35035",
+        "lines": 63,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js"
+      },
+      {
+        "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+        "sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+        "lines": 112,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js"
+      },
+      {
+        "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+        "sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+        "lines": 223,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+      },
+      {
+        "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+        "sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4",
+        "lines": 142,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+        "sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+        "lines": 240,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+      },
+      {
+        "path": "app/models/conversation.rb",
+        "sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820",
+        "lines": 445,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb"
+      },
+      {
+        "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+        "sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054",
+        "lines": 9,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder"
+      },
+      {
+        "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+        "sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+        "lines": 1521,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+      },
+      {
+        "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+        "sha256": "de949b6624b62cd3f8049a25d4a6cc70ae46eb64eb3cbd6bacc995b1084ed5a9",
+        "lines": 30,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb"
+      },
+      {
+        "path": "enterprise/app/models/enterprise/conversation.rb",
+        "sha256": "ecd8947b2de51ae7ce77a6beb3ec66d6942bcf7e53d59bf9c18b33acccc74d53",
+        "lines": 75,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb"
+      },
+      {
+        "path": "app/helpers/date_range_helper.rb",
+        "sha256": "a60d4fd264ad76ceb873e2fd87bfb009aecf7b9270b57ac2694d637ccee92ddb",
+        "lines": 19,
+        "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb"
+      }
+    ]
+  },
+  "control_baseline": "c714462d8c3cca103b52da4652a404b811151d82",
+  "prerequisites": [
+    "Independent reviewer verifies protocol and every oracle fact against the pinned source, records exact protocol/oracle SHA256 and clears blocking findings before any run.",
+    "Freeze protocol/oracle hashes and worker prompts; record approval evidence separately without rewriting these frozen files.",
+    "Root observer verifies four slots available, collaboration send_message and fresh fork_turns=none available. No model overrides; record exposed configured model identity only, otherwise NOT_EXPOSED.",
+    "Verify source manifest and required Git objects before each pair; mismatch is an infrastructure stop, not a product finding.",
+    "Workers/coordinators receive only their exact frozen packet path+SHA (common instructions, case/role, roster placeholder, source manifest and allowed operations). No oracle/prior-run outputs/score expectations or implementation rationale. Read-only packet transport avoids manual brief drift; it does not change case tasks or grading.",
+    "Use three fresh child agents per run: coordinator, worker_A, worker_B. Root is observer only. No worker or coordinator creates nested agents.",
+    "Do not run this experiment while any of its three child slots remain occupied by unrelated active agents."
+  ],
+  "roles": {
+    "observer": "Root creates fresh agents, supplies frozen packets/roster, timestamps events, records exposed evidence and enforces scope. It must not solve case questions, relay in peer arm, improve answers, or reveal earlier outputs/oracle.",
+    "coordinator": "Fresh context per run. Delegate only the frozen two worker roles, operate the assigned routing arm, synthesize a <=900-word final handoff from worker evidence, and declare uncertainties. Read-only; no spawning. Save original synthesis only to assigned coordinator-original.json; do not write any other path.",
+    "worker_A": "Fresh context. Perform case-specific role A, ask/answer the defined cross-role dependency question, and return <=500 words of evidence-backed findings. Word limit constrains report length, not reasoning effort or token usage. Save original final receipt only to assigned worker_A-original.json; do not write any other path.",
+    "worker_B": "Fresh context. Perform case-specific role B, ask/answer the defined cross-role dependency question, and return <=500 words of evidence-backed findings. Word limit constrains report length, not reasoning effort or token usage. Save original final receipt only to assigned worker_B-original.json; do not write any other path.",
+    "adjudicator": "Fresh context after run, independent of execution and protocol authorship where possible. Receives anonymized final answers, worker outputs/communication records needed for retention, frozen oracle and pinned source, not earlier evaluators' reasoning. Checks claims directly; does not edit subject outputs."
+  },
+  "common_instructions": [
+    "Read the supplied project policy and role brief. Policy ID CHATWOOT_AGENT_POLICY_V1. Source app is separate from control repo.",
+    "Only inspect fixed-ref Git objects for allowlisted source files and related tree path metadata. No application/source/config writes, runtime calls, tests, package installation, shell initialization that executes project hooks, or reads of environment/secrets/customer data.",
+    "Use primary source at the exact full SHA. Distinguish SOURCE_OBSERVED, INFERRED_FROM_SOURCE and NOT_RUN. Existing test source is not a passing test run.",
+    "Do not invent defects. State conditions, impact and supporting source for any finding. Valid behavior and uncertainty are acceptable findings.",
+    "Exchange at least the one predefined cross-role dependency answer in the assigned route before final handoff. No finding may be accepted just because another agent asserted it.",
+    "Respect task and path scope. If a necessary source path is absent, request scope extension and stop that sub-question. Do not silently expand the dataset.",
+    "For each substantive claim cite repository-relative path and 1-based line or symbol, plus fixed-ref URL. Keep the source ref in every worker/final handoff.",
+    "Final worker output fields: run_id, role, source_ref, findings[{id,claim,classification,evidence,critical_dependency}], dependency_messages[{id,from,to,question_or_answer,source_refs}], uncertainties, proposed_check_commands, execution_status. Maximum 500 words; JSON or clearly equivalent structured prose.",
+    "Final coordinator output fields: run_id, source_ref, integrated_answer, retained_worker_finding_ids, unresolved_dependencies, findings_or_risks, proposed_check_commands, execution_status=SOURCE_ONLY_NOT_RUN, next_step. Maximum 900 words.",
+    "No token cap, token-saving objective, or claim about hidden reasoning/model usage. Report unavailable telemetry as NOT_EXPOSED."
+  ],
+  "allowed_operations": {
+    "source_content": "Read exact manifest paths using git show REF:PATH. Local fixed-ref primary source is sufficient; no live web search is needed.",
+    "source_metadata": "git rev-parse --verify REF^{commit}; git cat-file -t REF; git ls-tree -r --name-only REF -- app/controllers/api/v1/accounts enterprise/app/controllers enterprise/app/models app/models/concerns. Tree listing is metadata only; content reads still require manifest membership.",
+    "citation_urls": "Only https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/<manifest-path> and line anchors; no authenticated GitHub requests or external service communication.",
+    "control_context": "Observer supplies each frozen packet at an exact read-only file path with SHA256. Agents may read ONLY that packet, which contains policy/role brief/manifest and assigned case; no oracle, other tasks/runs, local session logs, credentials, or runtime profiles. The roster arrives separately. Observer verifies packet bytes before dispatch.",
+    "communication_tools": [
+      "collaboration-optimize.send_message to current-run roster",
+      "collaboration-optimize.list_agents only to verify own current-run roster if needed"
+    ],
+    "forbidden": [
+      "Any file write except the single assigned current-run evidence output, or any Git mutation",
+      "Any shell command beyond allowlisted immutable source/metadata reads",
+      "Reading .env, process environments, credentials, customer/lab/course data, databases or container logs",
+      "HTTP/API/runtime/container/DB/Redis access",
+      "Running application tests, builds, linters or seed/migration scripts",
+      "Messaging outside current-run roster",
+      "Creating chats/threads/subagents, installing software, changing config, merge, push, release",
+      "Reading oracle or prior run answers"
+    ],
+    "evidence_output": "Each worker may write only its exact assigned runs/<run_id>/worker_A-original.json or worker_B-original.json. Coordinator may write only coordinator-original.json in same assigned run. File contains final original structured output plus dependency message receipts, no secrets. No edits to packet/dispatch/other-run files/oracle. Save bytes once at completion; notify observer with SHA256. This exception is evidence capture, not source/application modification."
+  },
+  "arms": {
+    "R": {
+      "name": "Codex coordinator-routed",
+      "worker_message_recipients": "coordinator only; never worker-to-worker",
+      "dependency_route": "Worker sends question/evidence envelope to coordinator. Coordinator forwards unchanged with original message_id to other worker, then relays answer unchanged. Coordinator may clarify missing citation but may not supply the substantive answer.",
+      "synthesis": "Fresh coordinator performs final synthesis after both workers finish."
+    },
+    "P": {
+      "name": "Codex direct-peer",
+      "worker_message_recipients": "other worker for dependency questions/answers; coordinator for status and final output",
+      "dependency_route": "Workers use actual collaboration-optimize.send_message directly to each other. No simulated messages or observer relays. Both endpoints include message_id and received/sent content in final receipts.",
+      "synthesis": "Fresh coordinator performs final synthesis after both workers finish; it does not relay dependency answers."
+    }
+  },
+  "dataset": [
+    {
+      "case_id": "T1",
+      "type": "source research",
+      "prompt": "Explain the account-scoped conversation-label GET/POST contract, lookup/authorization, permitted labels, mutation semantics and response shape. Distinguish this from account label CRUD; map existing request-test coverage and one justified unverified gap. No implementation or runtime execution.",
+      "role_A": "Trace route, conversation labels controller, LabelConcern, Labelable and response templates. Ask B whether lookup uses display_id and which access boundary is verified.",
+      "role_B": "Trace account/conversation access boundary and existing labels request tests; contrast account labels controller. Ask A whether POST appends or assigns label_list and what shape the response uses.",
+      "dependency_questions": [
+        "A->B: Is the conversation lookup account scoped and based on display_id, and what access evidence exists?",
+        "B->A: Does this POST call append or assign labels, and does the response use a payload wrapper?"
+      ],
+      "source_paths": [
+        "config/routes.rb",
+        "app/controllers/api/v1/accounts/base_controller.rb",
+        "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+        "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+        "app/controllers/api/v1/accounts/labels_controller.rb",
+        "app/controllers/concerns/label_concern.rb",
+        "app/models/concerns/labelable.rb",
+        "app/views/api/v1/accounts/conversations/labels/create.json.jbuilder",
+        "app/views/api/v1/accounts/conversations/labels/index.json.jbuilder",
+        "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+      ]
+    },
+    {
+      "case_id": "T2",
+      "type": "API and frontend contract",
+      "prompt": "Explain canned-response server operations, account scoping, search sanitization and response shape, then reconcile that shape with inherited frontend cache extraction/marshalling/account selection. Separate source facts, existing test evidence and proposed checks. Do not infer a cache bug from generic defaults without reading the subclass.",
+      "role_A": "Trace canned-response routes/controller/model and request specs. Ask B which client response shape is required and how cache wrappers are adapted.",
+      "role_B": "Trace cannedResponse.js, ApiClient and CacheEnabledApiClient plus focused cache specs. Ask A whether the server list is a bare array or payload wrapper and which account boundary/server search behavior is explicit.",
+      "dependency_questions": [
+        "A->B: How does the subclass adapt the inherited cache extraction/marshalling contract?",
+        "B->A: Is the index response a bare array or payload wrapper, and is server lookup scoped to Current.account?"
+      ],
+      "source_paths": [
+        "config/routes.rb",
+        "app/controllers/api/v1/accounts/base_controller.rb",
+        "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+        "app/models/canned_response.rb",
+        "app/javascript/dashboard/api/cannedResponse.js",
+        "app/javascript/dashboard/api/ApiClient.js",
+        "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+        "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+        "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb"
+      ]
+    },
+    {
+      "case_id": "T3",
+      "type": "regression design and source review",
+      "prompt": "Design a focused regression matrix for conversation toggle_status: empty versus explicit status, snoozed_until, human agent/admin opening, and AgentBot pending-to-open handoff. Explain controller/model/response interactions and which cases already exist in request specs. Provide proposed commands and prerequisites, explicitly NOT_RUN. Do not invent a reproduced bug or claim a new test was added.",
+      "role_A": "Trace controller, response template and enterprise controller overlay. Ask B how the model toggles/resets snooze and which requested cases are already in specs.",
+      "role_B": "Trace conversation model, enterprise model, date parser and toggle_status request specs. Ask A how human versus AgentBot paths affect assignee/AI assignee and handoff.",
+      "dependency_questions": [
+        "A->B: What are model toggle/reset semantics and which snooze/toggle cases already exist in specs?",
+        "B->A: What differs between human agent/admin opening and AgentBot pending-to-open handoff?"
+      ],
+      "source_paths": [
+        "config/routes.rb",
+        "app/controllers/api/v1/accounts/base_controller.rb",
+        "app/controllers/api/v1/accounts/conversations_controller.rb",
+        "app/models/conversation.rb",
+        "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+        "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+        "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+        "enterprise/app/models/enterprise/conversation.rb",
+        "app/helpers/date_range_helper.rb"
+      ]
+    }
+  ],
+  "schedule": {
+    "repetitions_per_case_per_arm": 2,
+    "total_runs": 12,
+    "run_order": [
+      "T1-R-1",
+      "T1-P-1",
+      "T1-P-2",
+      "T1-R-2",
+      "T2-P-1",
+      "T2-R-1",
+      "T2-R-2",
+      "T2-P-2",
+      "T3-R-1",
+      "T3-P-1",
+      "T3-P-2",
+      "T3-R-2"
+    ],
+    "execution": "Sequential runs; within a run the two workers operate concurrently after roster delivery. All three executor agents must be fresh per run. Do not reuse outputs/context across repetitions.",
+    "time_policy": "Observer records UTC dispatch, ready, last substantive output and final times using an actually available clock. At 20 minutes request status; incomplete runs remain INCOMPLETE. Any extension must be applied to both arms of that case/repetition pair and documented; never truncate an arm to manufacture a win. External interruptions/tool failures are infrastructure outcomes and remain visible.",
+    "retry_policy": "Do not rerun for low scores. Retry only recorded infrastructure failures using same frozen packet and fresh agents; retain both attempted runs and reason. Prompt/oracle changes require new protocol version and rerun affected comparisons."
+  },
+  "grading": {
+    "oracle_path": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+    "primary_metrics": [
+      "required_fact_PASS_FAIL_NOT_RUN_counts",
+      "material_factual_error_count",
+      "unsupported_or_extraneous_finding_count",
+      "citation_correct_incorrect_missing_counts",
+      "required_dependency_retained_lost_unresolved_counts",
+      "ref_correctness",
+      "prohibited_scope_action_count",
+      "handoff_completeness"
+    ],
+    "secondary_metrics": [
+      "actually_observed_elapsed_time",
+      "observed_routed_relays",
+      "observed_direct_peer_messages",
+      "human_or_observer_interventions",
+      "tool_failures"
+    ],
+    "counting": "One oracle criterion receives PASS/FAIL/NOT_RUN. Count material factual errors by distinct incorrect proposition, deduplicating repeats; separately count unsupported defect assertions and irrelevant findings. Cite source/reason for every FAIL. No weighted aggregate winner.",
+    "case_pass": "All required oracle facts and common criteria PASS; no material factual error or prohibited scope action. A partial answer remains partial, not an overall PASS.",
+    "comparison": "Publish paired run-level counts and case outcomes; explain disagreements and unresolved criteria. Do not claim statistical superiority from 12 runs or extrapolate to implementation/runtime tasks, other models, unlimited peer discussion or native Claude Teams.",
+    "adjudication": "Anonymize arm labels in grading packets where feasible and record what could not be blinded. Reviewer independently reads pinned source. Preserve original answer and first judgment; corrections require reason and exact evidence. A second independent check adjudicates disputed material findings before a final decision. Human owner acceptance remains separate.",
+    "telemetry": "Use tool outputs for observable delivery when available. Correlate sender and receiver message_id/content receipts, but label them agent-reported where no independent trace exists. Missing observability is NOT_EXPOSED and limits handoff conclusions; never fabricate model identity, token counts, message delivery or timing."
+  },
+  "evidence_contract": {
+    "record_before_dispatch": [
+      "protocol_sha256",
+      "oracle_sha256",
+      "independent_review_reference",
+      "run_id",
+      "frozen_prompt_and_roster",
+      "source_manifest_verification",
+      "exposed_tool_and_model_settings_or_NOT_EXPOSED",
+      "clock_source_and_timestamps"
+    ],
+    "record_after_run": [
+      "worker_A_original_output",
+      "worker_B_original_output",
+      "coordinator_original_handoff",
+      "available_original_message_tool_evidence",
+      "sender_receiver_dependency_receipts",
+      "read_scope_and_prohibited_action_observations",
+      "anonymized_grading_packet",
+      "adjudicator_result",
+      "infrastructure_limits"
+    ],
+    "storage": "Observer controls dispatch/evaluation records. Executors may save only their exact original result file in their own assigned current-run directory, once, with SHA256; app/source/config remain read-only. No oracle or other-run reads.",
+    "hash_basis": "Hash saved evidence bytes with SHA256. State capture limitations; do not treat receipts as proof of all actions or fresh context as a security boundary."
+  },
+  "decision_rule": "Use the observed correctness and scope evidence to make a provisional available-Codex operating choice. If evidence ties, conflicts, or is too narrow, retain the current policy with explicit revisit conditions. Speed or fewer messages cannot compensate for correctness/scope failures. Native Claude remains NOT_RUN.",
+  "limitations": [
+    "Small diagnostic sample; two repetitions do not estimate reliable population error rates.",
+    "Three source-only cases; no seeded-defect recall, actual bugfix quality, app runtime, writes or conflict resolution are measured.",
+    "Workers share machine permissions; scope restrictions are instructions plus observed checks, not security isolation.",
+    "Coordinator is fresh per run but source/problem content repeats; fresh context is not independently verified complete input telemetry.",
+    "Model/usage metadata and complete peer-message traces may not be exposed.",
+    "Dataset/oracle authored by an agent requires independent verification and owner judgment."
+  ],
+  "primary_guidance": [
+    {
+      "url": "https://code.claude.com/docs/en/agent-teams",
+      "observed": "Claude-native team mechanism differs from this available Codex topology comparison; experimental product guidance is not a local benchmark."
+    },
+    {
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "observed": "Separate contexts and tool/permission configuration do not imply a native team; current documentation also supports some peer messaging."
+    },
+    {
+      "url": "https://www.anthropic.com/research/multi-agent-research-system",
+      "observed": "Start task-relevant evaluations early and check facts/citations/completeness; published research results do not establish Chatwoot code performance."
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "observed": "Define task objectives/dataset/criteria, compare outputs and assess handoff; this protocol is project-specific, not an official prescribed sample size."
+    }
+  ],
+  "transport_revision": "V3 before comparative dataset: allow exact per-role original output artifact writes to avoid manual transcript loss. Cases/arms/oracle/grading unchanged. First V2 T1-R-1 retained as capture/pipeline shakedown, excluded from comparative dataset; repeat all12 under sameV3 before scoring. Not a retry for low score."
+}

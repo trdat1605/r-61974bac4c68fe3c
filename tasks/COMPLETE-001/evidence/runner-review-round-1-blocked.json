@@ -1,0 +1,22 @@
+{
+  "reviewer": "/root/portable_app_review",
+  "subject_commit": "998c7a98fafd8cb475141f5771fa5e91bfd238b1",
+  "result": "BLOCKED",
+  "findings": [
+    {
+      "priority": "P1",
+      "path": "docker/isolated/verify_runtime.py:115",
+      "description": "StopcleanupfailurecouldretainPASSexit0; falseCIgreen"
+    },
+    {
+      "priority": "P2",
+      "path": ".github/workflows/foundation-ci.yml:68",
+      "description": "dfreportsbutdoesnotgatecapacity; actualrunnerfreecannotassume"
+    }
+  ],
+  "checks": "Reviewer23testsPASS0.425s/AST/diffcheck/exactHEAD",
+  "limits": [
+    "NoDocker/runtimeexecutionbyreviewer",
+    "Correctednextsubjectc77pendingreview"
+  ]
+}

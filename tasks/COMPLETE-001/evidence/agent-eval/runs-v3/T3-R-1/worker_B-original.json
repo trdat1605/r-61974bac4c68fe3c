@@ -1,0 +1,111 @@
+{
+  "run_id": "T3-R-1",
+  "role": "worker_B",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "B1",
+      "claim": "toggle_status saves open->resolved; resolved/pending/snoozed->open. Before-save clears snoozed_until unless final status is snoozed. Explicit deadline parsing uses epoch seconds after controller stringification.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L177",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L136-L137",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L290-L292",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+      ],
+      "critical_dependency": "A-Q1 answered via B-A1"
+    },
+    {
+      "id": "B2",
+      "claim": "Existing request examples cover unauthorized; empty status open->resolved; explicit pending->open; omitted status agent self-assignment/admin AI clearing; explicit pending; human snoozing with persisted epoch; bot snoozing; bot explicit pending->open with handoff dispatch. These are source assertions, not passing runs.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+      ],
+      "critical_dependency": null
+    },
+    {
+      "id": "B3",
+      "claim": "Independently checked A-A1: human resulting-open path locks, clears AI, and assigns only agents. AgentBot handoff requires pending plus explicit open; model preserves nonblank waiting_since, clears AI, opens and dispatches. Handoff controller branch leaves @status unset; template exposes it as success. Characterize payload rather than declaring a reproduced defect.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L181-L187",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L184-L197",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L1-L9"
+      ],
+      "critical_dependency": "B-Q1 -> A-A1"
+    },
+    {
+      "id": "B4",
+      "claim": "Proposed matrix: omitted/empty/explicit status across four starting statuses; snoozed deadline absent/present, retained while snoozed, cleared on exit; deadline supplied with blank status; agent/admin with existing/unassigned owner and AI; AgentBot explicit-open versus blank-status paths; blank/nonblank waiting_since; persisted state plus response fields and handoff dispatch. These combinations extend the inspected block; no new test added.",
+      "classification": "INFERRED_FROM_SOURCE",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L197",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100"
+      ],
+      "critical_dependency": "B1-B3"
+    },
+    {
+      "id": "B5",
+      "claim": "Enterprise model adds Captain creation-state selection and guarded SLA completion updates on status changes, without overriding toggle/reset. Include SLA-enabled characterization separately.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+      ],
+      "critical_dependency": null
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T3-R-1-B-Q1",
+      "from": "worker_B",
+      "to": "worker_A via coordinator",
+      "question_or_answer": "Asked human versus AgentBot assignment/handoff differences.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L184-L197"
+      ]
+    },
+    {
+      "id": "T3-R-1-A-A1",
+      "from": "worker_A via coordinator",
+      "to": "worker_B",
+      "question_or_answer": "Answered human lock/AI clearing/agent assignment, explicit bot handoff, unset @status; independently verified in B3.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L181-L187"
+      ]
+    },
+    {
+      "id": "T3-R-1-A-Q1",
+      "from": "worker_A via coordinator",
+      "to": "worker_B",
+      "question_or_answer": "Asked model toggle/reset and existing specs.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L177"
+      ]
+    },
+    {
+      "id": "T3-R-1-B-A1",
+      "from": "worker_B",
+      "to": "worker_A via coordinator",
+      "question_or_answer": "Answered toggle/reset, parser, existing examples and enterprise behavior with citations summarized in B1/B2/B5.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Runtime serialization, malformed-date HTTP handling and enterprise execution unverified; broader spec coverage outside allowlist unknown. Telemetry NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    {
+      "command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations_controller_spec.rb:604",
+      "prerequisites": "Authorized isolated test DB/Redis, configured dependencies and pinned Ruby; initialize rbenv per AGENTS.md. Proposed only.",
+      "evidence": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L3-L21"
+    }
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

@@ -1,0 +1,129 @@
+{
+  "run_id": "T2-R-1",
+  "role": "worker_A",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "A1",
+      "claim": "Account-nested routes expose index/create/update/destroy. Current.account scopes listing, creation and member lookup. Create/update return records; destroy returns head :ok. Strong params allow short_code/content; model requires account/content/short_code and account-scoped short_code uniqueness.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        {
+          "path": "config/routes.rb",
+          "symbol": "resources :canned_responses",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb"
+        },
+        {
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "lines": "1-43",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L1-L43"
+        },
+        {
+          "path": "app/models/canned_response.rb",
+          "lines": "16-21",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21"
+        }
+      ],
+      "critical_dependency": null
+    },
+    {
+      "id": "A2",
+      "claim": "Search removes null bytes, applies bound case-insensitive substring matching to short_code/content and ranks prefix/short_code substring/content substring 1/0.5/0.2 descending. Model quotes ranking values. Percent/underscore are not explicitly escaped; no deterministic tie-break is declared.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        {
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "lines": "34-43",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43"
+        },
+        {
+          "path": "app/models/canned_response.rb",
+          "lines": "23-30",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30"
+        }
+      ],
+      "critical_dependency": null
+    },
+    {
+      "id": "A3",
+      "claim": "Index is a bare JSON array. Independently inspected subclass overrides extract response.data and marshal {data:rows}, matching server shape; generic payload defaults therefore establish no shape defect. Route account is resolved when accessed. Request-spec source covers unauthorized CRUD, successful CRUD, ranked search and null removal; cache-spec source covers bare-array parity/account switching. None executed.",
+      "classification": "INFERRED_FROM_SOURCE",
+      "evidence": [
+        {
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "lines": "10-140",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L140"
+        },
+        {
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "lines": "3-21",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+        },
+        {
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "lines": "16-23,43-99",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L99"
+        },
+        {
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "lines": "17-36",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36"
+        },
+        {
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "lines": "90-120,193-206",
+          "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L206"
+        }
+      ],
+      "critical_dependency": "T2-R-1-B-A1"
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T2-R-1-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "question_or_answer": "How does subclass adapt inherited extraction/marshalling; required client response shape?",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+      ]
+    },
+    {
+      "id": "T2-R-1-BQ1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "question_or_answer": "Is index bare array or wrapper, Current.account scoped, and what explicit search behavior?",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ]
+    },
+    {
+      "id": "T2-R-1-A-ANS-BQ1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "question_or_answer": "Bare array; all operations scoped through Current.account; null removal, bound ILIKE and weighted ranking. Sent through coordinator with controller/model/request-spec citations.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30"
+      ]
+    },
+    {
+      "id": "T2-R-1-B-A1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "question_or_answer": "Subclass overrides both payload hooks for bare arrays; network/cache shapes match. Received through coordinator; independently checked source.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78-L89"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Shared authentication/helper implementation outside manifest; cross-account denial not exercised. Mid-request account-switch races and production behavior unverified. Telemetry NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    "NOT_RUN: bundle exec rspec spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+    "NOT_RUN: pnpm test app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

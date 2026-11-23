@@ -1,0 +1,1944 @@
+{
+  "dataset": "COMPLETE-001-CODEX-COORDINATION-V3",
+  "created_utc": "2026-11-22T23:58:18.066858+00:00",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "oracle_sha256": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+  "runs": [
+    {
+      "run_id": "T1-R-1",
+      "packet_sha256": "a632fa22c0bcc55dc6128af3218150dcdb2bb00d7f189d156b867e0d3aa4af9c",
+      "dispatch_sha256": "1100871164e838bddbe8ba2c4f36948e1fa0eb1c035f74c44cfbdd7f3149bfd8",
+      "original_sha256": {
+        "worker_A": "3f79ffaf9892e4426f20554e41b580bc7749c0e813f2c9aa200fe8b1c9c3fac1",
+        "worker_B": "8b6e3db74562662bfb61694c0ac742c943f777cbf857dfc51a6fe2e2ed0e6cbd",
+        "coordinator": "b38983bd8e50509f1b58ef3907df46c0c24b4c0fb0df368bb3a8b48aab5ae891"
+      },
+      "trace_sha256": "a56026d1119f75da16207dbb1954e9340d140b281273be650bff029d2f0e4b51",
+      "available_tool_events": 126,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_a",
+          "event_utc": "2026-11-22T22:36:07.540Z",
+          "call_id": "call_e717586727b6499b91273ddf7d615067"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_b",
+          "event_utc": "2026-11-22T22:36:13.640Z",
+          "call_id": "call_01cb9b66f2ae49329ff57a2f5236fb85"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_b",
+          "event_utc": "2026-11-22T22:36:26.927Z",
+          "call_id": "call_1e2678a679db48c3bbb4d1f6e14d1c9a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_a",
+          "event_utc": "2026-11-22T22:36:32.523Z",
+          "call_id": "call_06e1f0f5fc154215894a5458be7d540f"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_a",
+          "event_utc": "2026-11-22T22:36:57.251Z",
+          "call_id": "call_a21066dcb01b442792fcee337eaabf59"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_b",
+          "event_utc": "2026-11-22T22:37:07.694Z",
+          "call_id": "call_9447421264674578b4014a6a51603306"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_a",
+          "event_utc": "2026-11-22T22:38:32.625Z",
+          "call_id": "call_5e697656cf584b7fa437e00fba70da72"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r1_a",
+          "event_utc": "2026-11-22T22:39:51.659Z",
+          "call_id": "call_e7982ddf4a9749c39835293343deed85"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:40:32.787Z",
+          "call_id": "call_9cbf9b13ac404fd99e7b64c36384948f"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:40:48.025Z",
+          "call_id": "call_7a94cb2d3bf34362a5dd691bc1e80779"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:43:13.260Z",
+          "call_id": "call_dde8251fe7c24865a5ba7eab86c4464a"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:35:49.470Z",
+          "call_id": "call_a35559623a334fc28fc0234ca8d57dfb"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:36:17.521Z",
+          "call_id": "call_486585e2b5444a06acb56d093ef21c2d"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:36:48.133Z",
+          "call_id": "call_0b8ab41564544d53a23ca560e76655d5"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:37:24.348Z",
+          "call_id": "call_ebd9dd3cf0a2438cb78c1f55ca0a20c1"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:38:19.859Z",
+          "call_id": "call_abb565ed8e534517bbc66e6525caa21f"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:38:25.524Z",
+          "call_id": "call_1b67541c7df148acb743c680fc94621b"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:42:04.932Z",
+          "call_id": "call_51b20c2bc53b4b05801a26a49ea79b60"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:36:05.124Z",
+          "call_id": "call_4522f054a1194f9badf6353bdc09698e"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:36:25.749Z",
+          "call_id": "call_3f49b281fc1744d48e73470b0da9efd8"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:36:44.339Z",
+          "call_id": "call_47bd115686324f899ae7a76783264bff"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:38:02.516Z",
+          "call_id": "call_a8472a21adac481c8c7453aada0b0349"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r1_c",
+          "event_utc": "2026-11-22T22:38:44.030Z",
+          "call_id": "call_62672bb72b37434f88d40eb80eb61618"
+        }
+      ],
+      "interventions": [
+        {
+          "type": "transport_clarification",
+          "content": "Send original final JSON tocoordinator actualmessage aftersavingownfile so coordinator neednotreadother-rolecontrolfiles. Noanswerhints.",
+          "applies_all_future_runs": true
+        },
+        {
+          "type": "transport_resume",
+          "target": "worker_A",
+          "reason": "CompletedagentneededfollowuptodeliverunchangedoriginalbodytoC; noanswerschanged"
+        }
+      ]
+    },
+    {
+      "run_id": "T1-P-1",
+      "packet_sha256": "a356575b2bf92d8bbc08106f72ab730ce08d2de2212a3d1b0abe0bac557f81de",
+      "dispatch_sha256": "d27159d412de6038882b2e53552bde9eb5b0649b2613120ed12ba3eeb7fd6f83",
+      "original_sha256": {
+        "worker_A": "3f2a31939df6dee7e1f4419f6dc2b038de533138d07ebc8396bb1f69aa5e604c",
+        "worker_B": "b8fc48f771654cc471bc8439f7c7e381637d5e1118ae822478a8f4af0f51de75",
+        "coordinator": "ca0fe2582899d9d4e7941bca75bd784c25f099d8dc754367ebaab45c8f73a637"
+      },
+      "trace_sha256": "480cbbc110cb5c296a3156bdd48490c71b7fea3c45461ad177c7beaf3eef703a",
+      "available_tool_events": 108,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:44:28.915Z",
+          "call_id": "call_d4a18f0d419d4804bb91f293d023a1a5"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:44:33.442Z",
+          "call_id": "call_07bae4dcb7a34c6fa548a01418236ee4"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_b",
+          "event_utc": "2026-11-22T22:44:38.108Z",
+          "call_id": "call_c42664cbe30e45268e95e698e8777f5e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:45:11.814Z",
+          "call_id": "call_2e2e3a607fcf414794691e76377aa240"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_b",
+          "event_utc": "2026-11-22T22:45:15.784Z",
+          "call_id": "call_677cf1d485954460ba6058ebbceebaa4"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_b",
+          "event_utc": "2026-11-22T22:46:10.383Z",
+          "call_id": "call_c91d499c888846cf8bca149d9de8f2b1"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:46:36.159Z",
+          "call_id": "call_c64e881b8ec04e679ad3fb2cbf6bdcbb"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:48:08.514Z",
+          "call_id": "call_2c010828faac45d9843c82db166cb9bb"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p1_c",
+          "event_utc": "2026-11-22T22:44:20.808Z",
+          "call_id": "call_55ef7fa1ea68429a816cc0fabad87c76"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p1_b",
+          "event_utc": "2026-11-22T22:44:38.280Z",
+          "call_id": "call_ed828661f5df4a9fb993dfdc775d5636"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p1_b",
+          "event_utc": "2026-11-22T22:45:03.529Z",
+          "call_id": "call_e8142b556ab14b2a96e5ace1a4a25fd0"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p1_b",
+          "event_utc": "2026-11-22T22:45:41.488Z",
+          "call_id": "call_82fe8e04f67f4161af9fa30383a00914"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p1_c",
+          "event_utc": "2026-11-22T22:47:35.896Z",
+          "call_id": "call_8fd5710dc8c24e4d8a3a8c8b446dfdaa"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:47:41.193Z",
+          "call_id": "call_939a8915145548e2b7fe404447a4836f"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p1_c",
+          "event_utc": "2026-11-22T22:44:27.309Z",
+          "call_id": "call_2c93198491e748ecb0adea88b50324bb"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:44:42.135Z",
+          "call_id": "call_9546be117b254ffea4c08155f93771f3"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p1_a",
+          "event_utc": "2026-11-22T22:45:03.623Z",
+          "call_id": "call_2dd30de1dda348fab03a80a86c50606d"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p1_c",
+          "event_utc": "2026-11-22T22:45:55.409Z",
+          "call_id": "call_c5502edf2072428a8d0437aa0aa94c84"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p1_c",
+          "event_utc": "2026-11-22T22:47:54.172Z",
+          "call_id": "call_bbb4c203c9c54565b98b735d30e6e115"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p1_c",
+          "event_utc": "2026-11-22T22:47:59.541Z",
+          "call_id": "call_5dbfa006543a47f9823377505acac7aa"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T1-P-2",
+      "packet_sha256": "9f5f0de6bab626617ef01e588597ca6cac51cc2105fffb8ca4c443589327b16a",
+      "dispatch_sha256": "9e386bf38d285cb903f34f96a2906dab3de472c2593019932c72cfddc79e87ba",
+      "original_sha256": {
+        "worker_A": "a6684e0ffc29632535cbbd66c88bc7b73928d9df7450da6208d4a5086bfa4a63",
+        "worker_B": "98f13e0ad8e0bab67bd5f3974899fb80f280d0f9bb0d13ee8ae5bdebe9d0e6c6",
+        "coordinator": "539f3d6763d372e0fac54211a9f8fae221efdfae5fcd34ac472fd8838f49ba19"
+      },
+      "trace_sha256": "9c16f19be8ccfc6ba79384061fa72f3bd15f629c6a53cdaf33572675cdd59b3d",
+      "available_tool_events": 104,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:49:36.263Z",
+          "call_id": "call_5d114f4e1dd74d8fb513c65877e5eb5c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_a",
+          "event_utc": "2026-11-22T22:49:57.104Z",
+          "call_id": "call_85bec395903f4d4b968f0935c976016a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_a",
+          "event_utc": "2026-11-22T22:50:05.553Z",
+          "call_id": "call_ff410ceb1149490486be656521df0a7a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_b",
+          "event_utc": "2026-11-22T22:50:11.853Z",
+          "call_id": "call_f7d6508d920f43fc9076d2715145c22c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_b",
+          "event_utc": "2026-11-22T22:51:23.376Z",
+          "call_id": "call_55f400817f204cc0ba624538c29463bb"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:52:46.590Z",
+          "call_id": "call_aac9d530d36d4af2bad6121b03b0a203"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_a",
+          "event_utc": "2026-11-22T22:52:50.232Z",
+          "call_id": "call_8e9ca86baa754f479e6d89b10bba48ba"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_b",
+          "event_utc": "2026-11-22T22:52:54.768Z",
+          "call_id": "call_2b4b504ff92844fbb860af7842b81e06"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_b",
+          "event_utc": "2026-11-22T22:53:06.052Z",
+          "call_id": "call_862c029d03104c198cc4b1e3837745c2"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1p2_a",
+          "event_utc": "2026-11-22T22:53:52.888Z",
+          "call_id": "call_4fa604c858074439b76ec303b5526de9"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:49:50.517Z",
+          "call_id": "call_3f9c2089557a422cb3a45d7523444963"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_b",
+          "event_utc": "2026-11-22T22:50:16.061Z",
+          "call_id": "call_de8ceda461a248b4a090e517db1499e3"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_b",
+          "event_utc": "2026-11-22T22:50:35.101Z",
+          "call_id": "call_8233c42d129d4a139c080c365edc9303"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:51:13.421Z",
+          "call_id": "call_d320a625b06542548828acb1bb522478"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:52:02.125Z",
+          "call_id": "call_a4913f2bb6e34990b7e2601509c5e49a"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:53:39.187Z",
+          "call_id": "call_51015cabc8794d789b1797ded88c0242"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:53:44.517Z",
+          "call_id": "call_64c19f4bab794c01835968796dddc299"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:50:00.836Z",
+          "call_id": "call_9f0c2c4eee09430f83997e236ac295fb"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p2_a",
+          "event_utc": "2026-11-22T22:50:21.891Z",
+          "call_id": "call_d662ce57e38f402fa4028cd3b818597b"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p2_a",
+          "event_utc": "2026-11-22T22:50:53.162Z",
+          "call_id": "call_9e651c1bbda24bed9fb1ebf078c8c885"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:51:17.612Z",
+          "call_id": "call_0637f77eb9f2483289c49cf8d58c4f23"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:52:53.252Z",
+          "call_id": "call_20874c4a649841ce99fba51f13f9c3d7"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1p2_c",
+          "event_utc": "2026-11-22T22:52:58.152Z",
+          "call_id": "call_ac13a70ad5544709b24603ebf37eb682"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T1-R-2",
+      "packet_sha256": "9ac8f975919e1edcb8a8cf9f020268ebd7baa182452c96b02ea57848adf125fd",
+      "dispatch_sha256": "6e89b44565a7378ecfbb996e12fa76c0ce1c442ac11273a58eb5aa10d993e7d5",
+      "original_sha256": {
+        "worker_A": "17f00ed615cd099fce949f6958b056f1a79b1519d09addc4fc0441aa4fce4b33",
+        "worker_B": "d839bf57c684cacfd5a36ba754a3855f4fe75ed14c14b86864a9e00d0bf918bc",
+        "coordinator": "4cdd0259f96e9308a5af5d0969d927dd31d785568e25e47bcbedc2bcda4fd798"
+      },
+      "trace_sha256": "6df805a51c16a4a852aa4caa3a0f9b89aa795fa82053dd406c79f9448c9e7430",
+      "available_tool_events": 106,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:57:58.259Z",
+          "call_id": "call_6c803f8c43be46e38aa9cfe36b01035c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_a",
+          "event_utc": "2026-11-22T22:58:17.482Z",
+          "call_id": "call_095427b041d34a26a766a282cc78faa5"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_b",
+          "event_utc": "2026-11-22T22:58:21.266Z",
+          "call_id": "call_01f19e9efd9e4769ad1892ac37fdb706"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_b",
+          "event_utc": "2026-11-22T22:58:31.661Z",
+          "call_id": "call_940d86018fd04ec48190c0701bbf7bb9"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_a",
+          "event_utc": "2026-11-22T22:58:36.610Z",
+          "call_id": "call_2ff3bc5f63aa4d95b137d5b07981ceb3"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_a",
+          "event_utc": "2026-11-22T22:58:59.454Z",
+          "call_id": "call_3422304f25d74973b4b07cb9d2912cc3"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_b",
+          "event_utc": "2026-11-22T22:59:11.138Z",
+          "call_id": "call_1fb10850876449d1b61fc706155ccbf3"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T22:59:28.376Z",
+          "call_id": "call_4eaefd16711f4c4792f86c62ea3ec118"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_a",
+          "event_utc": "2026-11-22T22:59:42.800Z",
+          "call_id": "call_d072e82011394320bab2bb2e66abbc65"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_b",
+          "event_utc": "2026-11-22T22:59:46.437Z",
+          "call_id": "call_8ec62c369769427082648a8acfa8bf79"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_a",
+          "event_utc": "2026-11-22T23:00:51.520Z",
+          "call_id": "call_9181f1a28dbb46c59a35449a0cc64630"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:00:58.344Z",
+          "call_id": "call_25e755c2648a43bea4d90c2b4f10a2b5"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t1r2_b",
+          "event_utc": "2026-11-22T23:01:15.189Z",
+          "call_id": "call_8c56e91e2531428889d070972df601e9"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:58:11.979Z",
+          "call_id": "call_ef5f87fbd10c4277ab2e6ee73ffed144"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:58:26.228Z",
+          "call_id": "call_b29fee6b15b54fe6a2ae7f7fe3149004"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:58:53.222Z",
+          "call_id": "call_910503512e7a41b6a80acb036417f59d"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:59:23.172Z",
+          "call_id": "call_1184c7ad741b4e2aa49001f7fcf29b97"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T23:00:39.440Z",
+          "call_id": "call_6b42479da6bf46cfa9f3d97a7d28e926"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:58:18.141Z",
+          "call_id": "call_f61f7d806b8b4a4f91e589ac0d2d3f82"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:58:30.705Z",
+          "call_id": "call_315772e077424af8a0df499436bf8680"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:58:47.027Z",
+          "call_id": "call_7676d9cb65024b3c8d2688f9208365fa"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T22:59:33.993Z",
+          "call_id": "call_f8d6033f43244a72ab0d86f2a07cc718"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T23:01:05.076Z",
+          "call_id": "call_2791f3b98dc6487b8d3988317d7aca6e"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t1r2_c",
+          "event_utc": "2026-11-22T23:01:10.446Z",
+          "call_id": "call_cfed6455c3f94c89b061d0cd0bfb46c6"
+        }
+      ],
+      "interventions": [
+        {
+          "type": "rosterclarification",
+          "reason": "Coordinatorprefixlist_agents returnedempty; exactspawnedrosterresupplied, nocasehints"
+        }
+      ]
+    },
+    {
+      "run_id": "T2-P-1",
+      "packet_sha256": "947575e2ebfdcb974f694516d0f5250ec3186804b060986d006dcd77cd1168c8",
+      "dispatch_sha256": "167e10fce95ff473e555bf2cf7c23cff2da96137ee40e16d0fb636383ab1f252",
+      "original_sha256": {
+        "worker_A": "8f2bbf6ce3033033c3813cce66e8f3b73ae72633c7c7d437c27650485f094ac0",
+        "worker_B": "6fe2751f70bb01b55b20cf307b553e6f47c8430cb536080582ac063e03f66eb4",
+        "coordinator": "b2c3ad22171d7beb7ab4fbbedc429dc069782811fad1213fade4769f21591cb0"
+      },
+      "trace_sha256": "166e4913c889337cf7239745e91fdd399903a3aa0606ffbf0a7705013bbde0c4",
+      "available_tool_events": 118,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:10:36.195Z",
+          "call_id": "call_3cb018fe3a074e7bb4e3e1c9c140af3b"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:10:47.309Z",
+          "call_id": "call_df06750973ca4508be98b9f980485a07"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:10:52.280Z",
+          "call_id": "call_9f6e84774f1c4dbf842f4c734337d79b"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:11:02.160Z",
+          "call_id": "call_87b8cb33d6404808b5d88b11b40dc8a6"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:11:38.600Z",
+          "call_id": "call_3ec33bd92ee841d1bc8b7d54625b8c97"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:11:42.433Z",
+          "call_id": "call_18bb04530e214e9f87c699b1e99efcd3"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:12:24.881Z",
+          "call_id": "call_14a4f27c647a4d7b9e75f264aef9951b"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:12:59.623Z",
+          "call_id": "call_87f81eb7b63a463aaf6f7c1ed9eb4931"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:13:22.094Z",
+          "call_id": "call_edc994e4263e4d3d89e9e6cae12a0d9c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:13:49.920Z",
+          "call_id": "call_f1d09aa98e7f4596b018565a3212b42e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:14:14.433Z",
+          "call_id": "call_987e45027cf3465b9ef421b01c9c580b"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p1_c",
+          "event_utc": "2026-11-22T23:10:15.687Z",
+          "call_id": "call_8d0f20baa0c84449b713bd18e1f1a870"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:10:51.058Z",
+          "call_id": "call_5659eef1ccd84d1bb5a3766ca6fdecb0"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:11:22.554Z",
+          "call_id": "call_681fcd16b6f74102a3d5b8bee5606385"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p1_b",
+          "event_utc": "2026-11-22T23:11:44.748Z",
+          "call_id": "call_a82ed7d345b84a62bd4bdcd67016929e"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p1_c",
+          "event_utc": "2026-11-22T23:13:26.663Z",
+          "call_id": "call_599c30ddddb944cda616bc671e150d75"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p1_c",
+          "event_utc": "2026-11-22T23:10:33.262Z",
+          "call_id": "call_3f235995707a4c4194cfa582042e861e"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p1_c",
+          "event_utc": "2026-11-22T23:10:54.043Z",
+          "call_id": "call_fd02c10e1c014c6e9df6a89a56266cab"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:10:58.334Z",
+          "call_id": "call_35bc8fbccef44b7d95a58f1d49de0fa5"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:11:17.858Z",
+          "call_id": "call_8c7c32e4526d4530957ee60e1983f590"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p1_a",
+          "event_utc": "2026-11-22T23:11:48.914Z",
+          "call_id": "call_7a96aee2fd884bee8ab38008f925408c"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p1_c",
+          "event_utc": "2026-11-22T23:13:54.541Z",
+          "call_id": "call_7fda4e99c00b41599ab236134053ef1a"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T2-R-1",
+      "packet_sha256": "5b6106a789466c34a0fee19d09961c9ca1189b61a7f020f69104c7edce6a17f8",
+      "dispatch_sha256": "a323be19ad14317b337dd333ef162b4059401fd9a54ed55058ba60b8c3cd43e3",
+      "original_sha256": {
+        "worker_A": "f29e9881b226b1ff7db115afade6a6841854c23c1d8b18460ca052ee78312658",
+        "worker_B": "f2a1144b2645afff27e876d48e5c18014ed6a4e70a5794a2903c05e3f58ff418",
+        "coordinator": "0d65af7d6db4fa1656a429a25c251ed48127cc3c1770ea5e3ee542729eec579c"
+      },
+      "trace_sha256": "51504347070d5515fa2e265528d93ef5f57f76c1192a9adf1d07222ada72e6b8",
+      "available_tool_events": 96,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:16:04.103Z",
+          "call_id": "call_25469fb13ea844b4920d1e11fe2763e0"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_a",
+          "event_utc": "2026-11-22T23:16:21.457Z",
+          "call_id": "call_840c175fdf184b65adefbeb1eb84a92c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_b",
+          "event_utc": "2026-11-22T23:16:26.119Z",
+          "call_id": "call_9f13d76fb3994977bc18ef19bfc1038b"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_b",
+          "event_utc": "2026-11-22T23:16:36.109Z",
+          "call_id": "call_d7bea6ae43c24b9db43571f9de36a567"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_a",
+          "event_utc": "2026-11-22T23:16:40.489Z",
+          "call_id": "call_41a72e3b84b64d11929483ac8aaaacfa"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_a",
+          "event_utc": "2026-11-22T23:17:06.432Z",
+          "call_id": "call_4366ea21a7d849008b6bc1be3f6f0b6c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_b",
+          "event_utc": "2026-11-22T23:17:17.821Z",
+          "call_id": "call_e58dbf2fcee84bcabe2967a81aa27ab7"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:17:27.308Z",
+          "call_id": "call_51738a100cb540a59882484e14381fe3"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_b",
+          "event_utc": "2026-11-22T23:17:44.030Z",
+          "call_id": "call_0a96814d470e4f3fb2cde9a37524e877"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r1_a",
+          "event_utc": "2026-11-22T23:18:57.831Z",
+          "call_id": "call_14ab6eb5d7164c02b2814b393874b75a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:19:01.918Z",
+          "call_id": "call_6856fd4c145b4094a996d97ed6973c18"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:19:34.353Z",
+          "call_id": "call_f5edf1d3cac545c59660e7940c246ccd"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:16:00.945Z",
+          "call_id": "call_9f4e34ee3006405386743be5caf89150"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:16:31.179Z",
+          "call_id": "call_b28f59870b244718a2814a4b25eb219e"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:16:57.514Z",
+          "call_id": "call_ff9ac5fd10b7417e836130a83faecf73"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:17:31.098Z",
+          "call_id": "call_fe2f5c2c68cf497896b9161a7e3a25e4"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:18:52.175Z",
+          "call_id": "call_ca620da99c1240c7881e190b12629a17"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:18:58.658Z",
+          "call_id": "call_a6c9b556cef74b27a158fc1c0503b72e"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:16:07.852Z",
+          "call_id": "call_4b6807aa864d46aeabc65690f4095a2c"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:16:35.324Z",
+          "call_id": "call_f7a276d4e77345f6b14ce82cd9bab444"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:16:54.137Z",
+          "call_id": "call_9ffb5097e5334a41b0789d0a8e507238"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r1_c",
+          "event_utc": "2026-11-22T23:18:42.307Z",
+          "call_id": "call_32c2923349c44962a0effae12a32f7ea"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:18:47.622Z",
+          "call_id": "call_24825e57c6894d159bd9e428564b22f8"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T2-R-2",
+      "packet_sha256": "9c6d50625a28e177d9c93797c4274b4823e928846cd41d69890c0a792b21025c",
+      "dispatch_sha256": "476cae09c4fd56841a0d1d826e572514f9977c2b5443bcb7c314629457a48490",
+      "original_sha256": {
+        "worker_A": "93e066150d81755f9a133821d95ad0130d3fe4f0d0fe7aeecdc9e7e3c618f5b5",
+        "worker_B": "3ad1ebd6ce418252183c6107666c83650a8c6ddd4c70da1b007f0fc9d9c883f8",
+        "coordinator": "ded1b70b34a1b6823ed4d668508d5e6ed0a57ad390b81375b8d6a83e87a87cb8"
+      },
+      "trace_sha256": "e76de92b87c5ac579e8515e6d002f14af4cf26bdc66d9a6179d8d54b8b01967e",
+      "available_tool_events": 104,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:22:56.450Z",
+          "call_id": "call_7de8edefad254d63b8bed41558050d56"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_a",
+          "event_utc": "2026-11-22T23:23:08.815Z",
+          "call_id": "call_e21c5b5ea31442dbacc27311ec37d034"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:23:19.215Z",
+          "call_id": "call_032021903e16489c8665bc97ff4909b2"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_a",
+          "event_utc": "2026-11-22T23:23:36.595Z",
+          "call_id": "call_cd77733fc627425da86ac8ea82658f0d"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_b",
+          "event_utc": "2026-11-22T23:23:39.928Z",
+          "call_id": "call_3e6ed23d86de4c6087f78b73c9dbac65"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_b",
+          "event_utc": "2026-11-22T23:24:00.775Z",
+          "call_id": "call_5f360fc9b2114790b5703ce77d21089e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_a",
+          "event_utc": "2026-11-22T23:24:09.407Z",
+          "call_id": "call_3e5d08cb94dc4131af8fa1afae8d2a6c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_a",
+          "event_utc": "2026-11-22T23:24:32.531Z",
+          "call_id": "call_0a3088cbd77340f898fc15fd58c78b24"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_b",
+          "event_utc": "2026-11-22T23:24:44.563Z",
+          "call_id": "call_e3e5b27ba63b4b7382873ddb7405b39b"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:25:00.274Z",
+          "call_id": "call_62e0f0d0b8bb435ea3456a8ef91b4b4a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_a",
+          "event_utc": "2026-11-22T23:25:26.771Z",
+          "call_id": "call_4a6013195f8446caa869c3c9bf4b996a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_b",
+          "event_utc": "2026-11-22T23:25:30.314Z",
+          "call_id": "call_254a2cabb7d84363be20e43ab15fc6d5"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_b",
+          "event_utc": "2026-11-22T23:26:00.160Z",
+          "call_id": "call_2e791d69c8e74c1f8412e1199399aa6f"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:26:16.800Z",
+          "call_id": "call_dd55cc39f7dc4a97af8010783a95db56"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2r2_a",
+          "event_utc": "2026-11-22T23:27:22.650Z",
+          "call_id": "call_c910e5973b794e019eb7e60928204510"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:27:39.203Z",
+          "call_id": "call_8c9a0613b7c24c008639086f39feeec3"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:23:13.909Z",
+          "call_id": "call_01e0a34432b84b49b2a3b4bf29cc16a5"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:23:54.459Z",
+          "call_id": "call_c4ff8e92d61c48daa73f76d9d2d86340"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:24:27.567Z",
+          "call_id": "call_bbe8a6f929bf490aa54c7db80b91f874"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:26:24.609Z",
+          "call_id": "call_a3eed06ade844adb8c6ff946851ef344"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:26:32.776Z",
+          "call_id": "call_bc05cce4d5ee456291dd224f454306af"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:23:10.723Z",
+          "call_id": "call_f2c83ed1c99f49c8857597afa0c7362c"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:23:55.700Z",
+          "call_id": "call_01cd5feaf87b44619929b79261754365"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:24:21.503Z",
+          "call_id": "call_fc6c195bf393437b9ff2ecc00b7432e3"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:24:41.810Z",
+          "call_id": "call_415bd431211b40b0a7316994eaf581af"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:25:48.609Z",
+          "call_id": "call_a45348e4952948f3864e09d191b668dc"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2r2_c",
+          "event_utc": "2026-11-22T23:25:53.836Z",
+          "call_id": "call_e317c17baebc4da49999af03d9708873"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T2-P-2",
+      "packet_sha256": "4dc2e4636d8ec90d34b74b11056b8204b8f57e9901d5dd06fee8070c948b5dee",
+      "dispatch_sha256": "ef31299ce489087549802d9b28995d2d2862eb41d1a91c3a64ad04085361645d",
+      "original_sha256": {
+        "worker_A": "2d6ed678f5a3ea278e1744d9a8d4df39c71a9220834dd13d4671104935c55ebd",
+        "worker_B": "64c98038187ae1f642f79148a3af3ed7d2924466a89d74123d0cdc03636eb18a",
+        "coordinator": "52a126007bd9b9ddc09ab8a41f10c17f7f6688a14f25f445484355ce35c0f700"
+      },
+      "trace_sha256": "5a1757d3c3015300f17de49855409a9eb489b4de71498ce7137c619f04101788",
+      "available_tool_events": 108,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:28:12.033Z",
+          "call_id": "call_5d069c3b471c4b249fa3b7aeec978a90"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_a",
+          "event_utc": "2026-11-22T23:28:29.871Z",
+          "call_id": "call_d5cae782550444008d5477a9a3b9cfe8"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_b",
+          "event_utc": "2026-11-22T23:28:33.388Z",
+          "call_id": "call_ff892e15e3e84a1ebd144c2fb8b65b40"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_a",
+          "event_utc": "2026-11-22T23:28:44.516Z",
+          "call_id": "call_f85559228dee42b2b7b3f4d799acb343"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_b",
+          "event_utc": "2026-11-22T23:28:48.151Z",
+          "call_id": "call_33ff2a12f0684e47a585e4f5887f3536"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:29:31.158Z",
+          "call_id": "call_a0656a95be114e118e0a605b1a0805cf"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_a",
+          "event_utc": "2026-11-22T23:29:51.511Z",
+          "call_id": "call_3451c9a66c264be49b757f6c4b237223"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_b",
+          "event_utc": "2026-11-22T23:29:55.228Z",
+          "call_id": "call_a86caade9c774695a57a97e71ad42797"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:31:05.651Z",
+          "call_id": "call_260ea3320d674debab353c9e0b4c968e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_a",
+          "event_utc": "2026-11-22T23:31:38.259Z",
+          "call_id": "call_55e2ac86001d448eb97466082dc23b27"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t2p2_b",
+          "event_utc": "2026-11-22T23:31:41.744Z",
+          "call_id": "call_a88889d7f1684b789e9e304600a22f9c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:33:02.128Z",
+          "call_id": "call_abbc69feaa5b4e44bb396f6383826600"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p2_c",
+          "event_utc": "2026-11-22T23:28:19.569Z",
+          "call_id": "call_08e6ba538f6d4641974dfbd0c3e1fb84"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p2_b",
+          "event_utc": "2026-11-22T23:28:54.189Z",
+          "call_id": "call_2916ccc146db44319936af9dc97a7f3b"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p2_b",
+          "event_utc": "2026-11-22T23:29:12.539Z",
+          "call_id": "call_db57fad449ac40ae8f5844104fe923bc"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t2p2_c",
+          "event_utc": "2026-11-22T23:31:23.939Z",
+          "call_id": "call_373f323e0a0a490eb97095482278143a"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:31:30.109Z",
+          "call_id": "call_b1bac04c2f9543869d2abb8aecbe81c9"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p2_c",
+          "event_utc": "2026-11-22T23:28:27.751Z",
+          "call_id": "call_92cacc4ff72b4e4b8f815cd6a02cca2c"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p2_a",
+          "event_utc": "2026-11-22T23:28:52.911Z",
+          "call_id": "call_8174f783f5b14c94868b0c07b9d39d05"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p2_a",
+          "event_utc": "2026-11-22T23:29:31.670Z",
+          "call_id": "call_83fbf0dfae44404e8f51fdbf8da9bf98"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t2p2_c",
+          "event_utc": "2026-11-22T23:31:30.216Z",
+          "call_id": "call_d201bbd7e91541af81bf4542c96f80e1"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:31:38.535Z",
+          "call_id": "call_a773214a5ff54ba897f36a99cdc0b7a6"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T3-R-1",
+      "packet_sha256": "b19bc47667d01f7fec52f0d01731bbf9a7bc242af662954b11bff598908c88d1",
+      "dispatch_sha256": "4091a113cfc07a5bb9559f0d11c427bc1f165c01a0a8c0ece2f1321500fec2f4",
+      "original_sha256": {
+        "worker_A": "5c8a476258e83369d48ccaf7345cf686a27a41ac975c9428aaaca0624003b9b0",
+        "worker_B": "a5ea874499fb4b7cdbca5c412019a04e9a80e102bc610d7f6f88e4ae474d5c2d",
+        "coordinator": "6414fb4a1b028c4763a6168c3adbdbeb4d5f8b7e737b9c436a9f3a2c0f2cc9c9"
+      },
+      "trace_sha256": "b30e4af0ed22ad33482692437f29b0136936d5bc7313d75bc819057a6514dea8",
+      "available_tool_events": 120,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:33:39.437Z",
+          "call_id": "call_b2e427202397481eb11f8a21a30500f3"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_a",
+          "event_utc": "2026-11-22T23:33:49.222Z",
+          "call_id": "call_cee1ffa003764d2c9dbcd70ff57d8041"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_b",
+          "event_utc": "2026-11-22T23:33:54.943Z",
+          "call_id": "call_3edc6ceea1ae464eafb57661d2cc286e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_a",
+          "event_utc": "2026-11-22T23:34:12.007Z",
+          "call_id": "call_2055ee06297c40a689a83987d3eceb5c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_b",
+          "event_utc": "2026-11-22T23:34:16.112Z",
+          "call_id": "call_b5ac802385404a17b7b0b936f4c47613"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_b",
+          "event_utc": "2026-11-22T23:34:38.923Z",
+          "call_id": "call_d7aee65386e942278665482e479c3d32"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_a",
+          "event_utc": "2026-11-22T23:34:43.923Z",
+          "call_id": "call_8ca0b30e57cc49cb995702d6ebbec977"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_b",
+          "event_utc": "2026-11-22T23:35:19.218Z",
+          "call_id": "call_dfbb14cf366143938bc269d52a09b4b7"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_a",
+          "event_utc": "2026-11-22T23:35:35.829Z",
+          "call_id": "call_50578960e63441e2913d908c2ac0d79c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:35:45.664Z",
+          "call_id": "call_2d098074058243b9b3fe06f2d6e84139"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_a",
+          "event_utc": "2026-11-22T23:36:13.015Z",
+          "call_id": "call_4b994cbbbb5d4e35bca86a3d9b1dbe78"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_b",
+          "event_utc": "2026-11-22T23:36:16.614Z",
+          "call_id": "call_6a471407f4d848f98de732b0ceedf532"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_a",
+          "event_utc": "2026-11-22T23:37:24.420Z",
+          "call_id": "call_ca2646ee629946c0a55e687bfacd0f8a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r1_b",
+          "event_utc": "2026-11-22T23:37:29.210Z",
+          "call_id": "call_bb6a6cb757644c8f8954fc44f3fc39a1"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:37:34.231Z",
+          "call_id": "call_9a56c2fa4f7946ae95d0163dc239f418"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:38:41.086Z",
+          "call_id": "call_3aa2a08d6d504ff894e5e51d35153458"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:33:45.310Z",
+          "call_id": "call_49723237a88648538d88f227212c518d"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:34:21.055Z",
+          "call_id": "call_0895c338dd364e9390bd4337b74de8c1"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:34:59.836Z",
+          "call_id": "call_4d709ca4b5c74a2ea84042c8f46408a7"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:35:23.006Z",
+          "call_id": "call_0e2e1bb976cf4a8789cf0dc202c1dc15"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:37:07.631Z",
+          "call_id": "call_cc03fb145cba442dbacfa2d1f892e9c2"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:37:13.072Z",
+          "call_id": "call_a83dc47fcd8a4cdea039e5e43e127064"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:34:00.675Z",
+          "call_id": "call_be76538f54b449b2b204b110041867d5"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:34:35.356Z",
+          "call_id": "call_8a9af3f24bf14fb685401784cea16e62"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:35:13.988Z",
+          "call_id": "call_7b56a7f8b6f04def9f41c5ff5be52ba2"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:37:02.697Z",
+          "call_id": "call_793130fcd5504e4fb3d0c2da74e42b1c"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r1_c",
+          "event_utc": "2026-11-22T23:37:07.893Z",
+          "call_id": "call_e8c5e988bcd14bde8bd88bc6e3d445c1"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:37:13.308Z",
+          "call_id": "call_280da491d8594187a01ab7053d2c9a12"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T3-P-1",
+      "packet_sha256": "47c501a58356b8806e2ccac9079aab5e65359cd8392f655cc60925bcc7b3fa3f",
+      "dispatch_sha256": "d1bae6658b33f3a2dfbf46fef83ae577af6d629f2056b87d2f41a7d82787952d",
+      "original_sha256": {
+        "worker_A": "81c69ce05dc49ff9475c5e6b0acbd2c7d429608675fd642d5ff200d76b7e9f64",
+        "worker_B": "8b937a61f23393125d46877d6ecf6cb79acbbd1ef9e5a45617fe1ed2b6e7e663",
+        "coordinator": "84bb9044ee8f5e903f711ffe4a1c8d3c0211f4da28294038b2308c72f997d3b9"
+      },
+      "trace_sha256": "f154773a924c44e41299d714cbeceb726c80ca820e34793c1d8efdbe665af796",
+      "available_tool_events": 120,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:39:11.433Z",
+          "call_id": "call_0b9481d9951e460982405cf3430aadfb"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p1_a",
+          "event_utc": "2026-11-22T23:39:29.461Z",
+          "call_id": "call_ffb1fde3076f45ea8a28dcbe801bf4cc"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:39:35.668Z",
+          "call_id": "call_32b3147a976b4bee8382f00bb3bd829e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p1_a",
+          "event_utc": "2026-11-22T23:39:39.061Z",
+          "call_id": "call_74e90993558b428b88372f221c397244"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:39:42.703Z",
+          "call_id": "call_761f7d843cac487f83b63757009356bb"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:40:21.585Z",
+          "call_id": "call_3d58c29782cb4081bf6304ffa7525a2b"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p1_a",
+          "event_utc": "2026-11-22T23:42:40.232Z",
+          "call_id": "call_c61caf7ea96a4d6dbd203a889efc3ac2"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:43:21.748Z",
+          "call_id": "call_9e9ce9cd353e4b38bcfbc838ffd977d5"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:43:25.463Z",
+          "call_id": "call_c848034896ca429c99b8fe8e08021338"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:44:24.409Z",
+          "call_id": "call_5e46fd5768524b7295ce606e8e912f34"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_c",
+          "event_utc": "2026-11-22T23:39:25.123Z",
+          "call_id": "call_87601f37a66c430e82d9a5ec67e02dd3"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:39:43.894Z",
+          "call_id": "call_8ce174c86f5e4b05b789200dc8e1c1d1"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:40:21.039Z",
+          "call_id": "call_1dd2d69d65fb42e980c7807fee180ab2"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:40:29.154Z",
+          "call_id": "call_179d28bc5cac457fab32818c48f1e7e3"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_c",
+          "event_utc": "2026-11-22T23:40:45.398Z",
+          "call_id": "call_9e083076b1514dc59b00ebd0fc359546"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_b",
+          "event_utc": "2026-11-22T23:41:07.556Z",
+          "call_id": "call_6394912c36bf44769e47f9f30043cd9d"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p1_c",
+          "event_utc": "2026-11-22T23:42:34.636Z",
+          "call_id": "call_34f7f303ba5a40ff868f4ba8ba702500"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:42:40.438Z",
+          "call_id": "call_1124317e8a7e4216abc26b44086e98d6"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p1_c",
+          "event_utc": "2026-11-22T23:39:30.747Z",
+          "call_id": "call_332c50a773a04449bf011a4672091c41"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p1_a",
+          "event_utc": "2026-11-22T23:39:51.843Z",
+          "call_id": "call_bdae2c78979142aab282aefd90bda098"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p1_a",
+          "event_utc": "2026-11-22T23:40:46.924Z",
+          "call_id": "call_b527fba4f39d4b0ead49122bd4b7385f"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p1_c",
+          "event_utc": "2026-11-22T23:41:02.214Z",
+          "call_id": "call_1683d979d2a34316ad8f22a58b4684e6"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p1_c",
+          "event_utc": "2026-11-22T23:43:08.505Z",
+          "call_id": "call_ff8d4675b8564f1db08ee62e30afdbf7"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:43:14.932Z",
+          "call_id": "call_9b70a61c2a754585b1b753edb8f59982"
+        }
+      ],
+      "interventions": []
+    },
+    {
+      "run_id": "T3-P-2",
+      "packet_sha256": "d5ab1cca80632a68ea56bc78da5c526c40550f9e30a9e990eac1322137a92ca2",
+      "dispatch_sha256": "d0d0dabd58fccea6557b85bcae3c818d71921b0f3e906ee22189bdb4c5c29da2",
+      "original_sha256": {
+        "worker_A": "8237487e601a3fd85aa9921220c0e28512f6f955fcb6697869068752f436f9d4",
+        "worker_B": "d951200c5a92dc37921d3d2efea137d73ac53895a2d4304524bace565840cd68",
+        "coordinator": "200f283afe0aa21a5cee311a391558be1ab35d0c704d83f09dc13b9a8c2ae5e8"
+      },
+      "trace_sha256": "0fff3d4887cf6d9e3585d5d79ffce1d0ee7fbc6842158b4805e448443272ac06",
+      "available_tool_events": 112,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:44:49.049Z",
+          "call_id": "call_d2e9e1106a08413890b4f841a1556dcb"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:45:10.849Z",
+          "call_id": "call_962bd708bc81459eaa2e1fe7dd42a1f7"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:45:45.514Z",
+          "call_id": "call_b3e4028564594e80a3af145b8d747d0c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p2_a",
+          "event_utc": "2026-11-22T23:46:32.927Z",
+          "call_id": "call_d7f2d657f72140c098998febc97bba62"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p2_b",
+          "event_utc": "2026-11-22T23:46:36.879Z",
+          "call_id": "call_b6b292adabc147c28d76c9f3b2d65162"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:46:40.446Z",
+          "call_id": "call_74098ecc1bb04bbe858bdbc99d7ad60c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:48:04.283Z",
+          "call_id": "call_2b0f8968d36b43c1a7efb983592fcd8e"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p2_a",
+          "event_utc": "2026-11-22T23:49:11.640Z",
+          "call_id": "call_c8b155857efd4f8aa68c7ef0c0e8cf06"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3p2_b",
+          "event_utc": "2026-11-22T23:49:14.955Z",
+          "call_id": "call_9e7a882e7b4d4205b8556a1a14ac35d9"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:51:01.875Z",
+          "call_id": "call_4335842b65dd45ab9c78bbb4bf782554"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_c",
+          "event_utc": "2026-11-22T23:44:58.854Z",
+          "call_id": "call_b594efaabd814122a4600f85c8cf4f15"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:45:08.278Z",
+          "call_id": "call_8f57eaf0597f40dc9dd673d5a40a21f8"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_c",
+          "event_utc": "2026-11-22T23:46:25.341Z",
+          "call_id": "call_5f7f16ca5a394ed3adb20b82c150c2ed"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_b",
+          "event_utc": "2026-11-22T23:46:41.950Z",
+          "call_id": "call_d0fba271d7e44e738bbde45a174580ed"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_b",
+          "event_utc": "2026-11-22T23:47:20.008Z",
+          "call_id": "call_c58934a38f26439a8f0fa2934254ec71"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_b",
+          "event_utc": "2026-11-22T23:47:58.329Z",
+          "call_id": "call_1101e6b93d35432fbc75e792a82319f0"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_c",
+          "event_utc": "2026-11-22T23:49:41.438Z",
+          "call_id": "call_55662d51cfc74403be23961962ca01fd"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:49:48.245Z",
+          "call_id": "call_d2910b540464418dbccd3f6086b7e5ee"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3p2_c",
+          "event_utc": "2026-11-22T23:49:54.108Z",
+          "call_id": "call_112e0f049aa54395a7193d1ef99d156f"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p2_c",
+          "event_utc": "2026-11-22T23:45:05.807Z",
+          "call_id": "call_3f5595a6584d44bcbb382dfcdbac322d"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p2_a",
+          "event_utc": "2026-11-22T23:46:40.547Z",
+          "call_id": "call_f97ea9871d934b2e9233c396d91c383f"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p2_a",
+          "event_utc": "2026-11-22T23:47:23.361Z",
+          "call_id": "call_9cfdaaed8b0b47f2a86d4cfb46e12eb4"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p2_a",
+          "event_utc": "2026-11-22T23:47:48.088Z",
+          "call_id": "call_d277bc992cb24e31803faf2e918cdb7a"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3p2_c",
+          "event_utc": "2026-11-22T23:49:46.992Z",
+          "call_id": "call_feab1dd9a4bd4d9c91906e678c312e12"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:49:52.808Z",
+          "call_id": "call_161e9a645ae546f3953a5c49429a2668"
+        }
+      ],
+      "interventions": [
+        {
+          "type": "start_signal_delivery",
+          "description": "Coordinator reported A had not received START and had done no source reads; coordinator forwarded original START to both workers. No prompt/source/criteria/answers changed."
+        }
+      ]
+    },
+    {
+      "run_id": "T3-R-2",
+      "packet_sha256": "3fe31da3b53b7fa11f5fc9a93de8bfbbbd3ccee5df0e1417b0de1d0e0060227e",
+      "dispatch_sha256": "37140c29c5cc08b6b53816296464fe598dfc9c3b118b270be1b3372db1de804a",
+      "original_sha256": {
+        "worker_A": "c7bd3a88c8efa916d1bc0ca4c6fd1636f94c31273e99888b55ac95cd138b4d1a",
+        "worker_B": "2894c8fa393d7084a6a58adcd5e0ceb3978e2b83c24fbdb018cb7ef5fd0d2620",
+        "coordinator": "7ebeade438c04013d0139a88c783832b1a54b2376c08448b795a03f9e51623ad"
+      },
+      "trace_sha256": "d61a1710594e7a45f83c255e4b89e489460dbf0e27a7400076519850924d79e4",
+      "available_tool_events": 112,
+      "observed_message_calls": [
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:51:32.772Z",
+          "call_id": "call_3c5c1a84db4b42ab8c434f78443eead8"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:52:02.305Z",
+          "call_id": "call_b6b83c0a8e374de5bc616bcedd43f03a"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_a",
+          "event_utc": "2026-11-22T23:52:05.390Z",
+          "call_id": "call_55b437e11c9c4468a944055b6bb5f0fe"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_b",
+          "event_utc": "2026-11-22T23:52:08.788Z",
+          "call_id": "call_a184af103fae419f97720c5a4b877534"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_b",
+          "event_utc": "2026-11-22T23:52:22.779Z",
+          "call_id": "call_82440c2cfc644dda87fdc27b02e4f99d"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_a",
+          "event_utc": "2026-11-22T23:52:27.573Z",
+          "call_id": "call_0e069400e7d24dc1adeb4a973d95e59c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_b",
+          "event_utc": "2026-11-22T23:52:59.440Z",
+          "call_id": "call_2d5004a15aad4fe9a8b1e207ec86deb6"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_a",
+          "event_utc": "2026-11-22T23:53:14.760Z",
+          "call_id": "call_729a856f1fe4405f8172c6b7cd4a1f55"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_a",
+          "event_utc": "2026-11-22T23:53:45.287Z",
+          "call_id": "call_3cdb7566313d4a50947c19fd6e23dc30"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:53:51.029Z",
+          "call_id": "call_114279038710485398c2914b9bd3ce96"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_a",
+          "event_utc": "2026-11-22T23:54:12.549Z",
+          "call_id": "call_7b88d46cf909471fa922f160461d4b93"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root/v3_t3r2_b",
+          "event_utc": "2026-11-22T23:54:16.797Z",
+          "call_id": "call_e1252d45ea754301811247e635ed1c6c"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:56:20.430Z",
+          "call_id": "call_c680bc3dd9f849a99ed6885ff7088642"
+        },
+        {
+          "from_role": "coordinator",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:56:28.329Z",
+          "call_id": "call_220dc717522f4d86a3f8cbdc42b9c2a2"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:51:46.222Z",
+          "call_id": "call_5d6f0a3cd5af45438ff22e3c938c9918"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:52:16.031Z",
+          "call_id": "call_81c52da281ce4baaa32c4af7917ca323"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:52:45.606Z",
+          "call_id": "call_ae4644781d264e18a6d461e8ed41f84a"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:53:26.505Z",
+          "call_id": "call_11d45a258ee1496ba638b8c42146cf83"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:55:11.338Z",
+          "call_id": "call_d149ea4ef87c45cf8ffc9546ab362d72"
+        },
+        {
+          "from_role": "worker_A",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:55:17.755Z",
+          "call_id": "call_17bba3786ae9472fa9fe0eefe592a64a"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:51:58.874Z",
+          "call_id": "call_03c4856a46c448c384e73255b3b7f0f6"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:52:19.402Z",
+          "call_id": "call_da482aac81d945969bb0e8d65b68bd2a"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:52:55.571Z",
+          "call_id": "call_d909311aca2f46b3b2ee351e61b3d187"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:53:35.052Z",
+          "call_id": "call_60e4bc9b0722402bacfc5de400d4b2e0"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:55:12.193Z",
+          "call_id": "call_9ff33290664c4040b2df60cf39386450"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root/v3_t3r2_c",
+          "event_utc": "2026-11-22T23:55:17.840Z",
+          "call_id": "call_aa4e7e06d6484ca893459c538f52991e"
+        },
+        {
+          "from_role": "worker_B",
+          "target": "/root",
+          "event_utc": "2026-11-22T23:55:23.907Z",
+          "call_id": "call_4b8238066cb04139877282d3987555a4"
+        }
+      ],
+      "interventions": []
+    }
+  ],
+  "status": "ALL12_OUTPUTS_CAPTURED_PENDING_ADJUDICATION",
+  "limits": [
+    "No sample removed for low score; V2 excluded shakedown kept separately",
+    "Message calls count is not delivery proof; adjudicators inspect tool responses and paired endpoint originals",
+    "Timestamps reflect observer dispatch/capture and available tool events, not controlled performance comparison",
+    "No token/model identity or complete OS behavior telemetry"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "run_id": "T1-P-1",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "integrated_answer": [
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "GET and POST /api/v1/accounts/:account_id/conversations/:conversation_id/labels map to index/create. The conversation controller permits conversation_id and labels: [] and selects @conversation as model; this is an array-shaped labels input, not nested label attributes.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L208",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb#L1-L12"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "The account base invokes current_account via EnsureCurrentAccountHelper. Conversation lookup uses Current.account.conversations.find_by!(display_id: params[:conversation_id]), then authorize @conversation, :show?. Access-token API calls additionally encounter the account API-enabled guard; complete membership, authentication and show? rules are outside the manifest.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L1-L15",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L2-L8"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "POST calls update_labels(permitted_params[:labels]), which executes update!(label_list: labels), then reads label_list. It uses assignment rather than the separate add_labels helper, which combines existing and new labels. GET simply reads label_list. Replacement intent is inferred from assignment; exact normalization/persistence behavior is unverified.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L5-L18"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Both Jbuilder templates use json.payload @labels: the response shape is {\"payload\": labels}. Exact runtime serialization was not exercised.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder#L1"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Account label CRUD is separate: /api/v1/accounts/:account_id/labels exposes index/show/create/update/destroy, invokes check_authorization, policy-scopes index, fetches/creates through Current.account.labels, and permits required nested label fields title, description, color, show_on_sidebar. Destroy deletes the record and enqueues Labels::RemoveAssociationsJob. This does not establish which label titles conversation assignment ultimately accepts.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L370",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb#L2-L40"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "The request-spec file declares four examples: unauthenticated GET/POST return unauthorized; an account agent added as inbox_member succeeds for GET/POST using conversation.display_id. GET checks label1/label2 response substrings; POST checks label3/label4 substrings. These assertions do not prove the exact payload structure or removal of prior labels, and no tests ran.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L6-L76"
+      ]
+    }
+  ],
+  "retained_worker_finding_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "B1",
+    "B2",
+    "B3"
+  ],
+  "unresolved_dependencies": [
+    "Predefined peer questions are resolved and independently checked against pinned source.",
+    "Exact account-helper/show? policy semantics and Labelable::Persistence/tag normalization remain outside the manifest. Scope extension would be required before answering those sub-questions."
+  ],
+  "findings_or_risks": [
+    {
+      "classification": "INFERRED_FROM_SOURCE",
+      "claim": "One justified unverified gap: this request-spec file has no authenticated cross-account/inaccessible-conversation denial example. Account-scoped lookup and authorize invocation provide source evidence of boundaries, but the listed tests do not verify denial. This is a coverage gap, not a demonstrated defect.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L13-L73",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L6-L8"
+      ]
+    }
+  ],
+  "dependency_message_receipts": [
+    {
+      "ids": [
+        "T1-P-1-AQ1",
+        "T1-P-1-BA1"
+      ],
+      "route": "A directly asked B; B directly answered A.",
+      "content": "Account-scoped display_id lookup then show?; source-only unauthenticated/access-positive specs; helper/policy internals and denial coverage unverified.",
+      "verification": "Both original final JSON bodies received by actual send_message; both endpoints retained matching question/answer content. A sent T1-P-1-AV1 after independent source verification."
+    },
+    {
+      "ids": [
+        "T1-P-1-BQ1",
+        "T1-P-1-AA1"
+      ],
+      "route": "B directly asked A; A directly answered B.",
+      "content": "POST assigns label_list through update_labels; both templates wrap payload.",
+      "verification": "Both endpoint originals retain matching content. B reported independent git-show verification. Coordinator did not relay or supply answers and independently read the allowlisted sources."
+    }
+  ],
+  "proposed_check_commands": [
+    {
+      "command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+      "status": "NOT_RUN",
+      "condition": "Only under a separately authorized execution task; add a cross-account/inaccessible denial example if authorized."
+    }
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN",
+  "next_step": "Accept this as fixed-ref source research only. Obtain scope extension for helper/policy/persistence details or a separate authorized test task for runtime verification.",
+  "capture_metadata": {
+    "packet_sha256": "a356575b2bf92d8bbc08106f72ab730ce08d2de2212a3d1b0abe0bac557f81de",
+    "worker_originals": "Full original JSON bodies received through actual worker messages; worker files were not read.",
+    "model_identity": "NOT_EXPOSED",
+    "telemetry": "NOT_EXPOSED"
+  }
+}

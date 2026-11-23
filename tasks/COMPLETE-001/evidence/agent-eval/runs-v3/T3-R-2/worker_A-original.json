@@ -1,0 +1,88 @@
+{
+  "run_id": "T3-R-2",
+  "role": "worker_A",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "A1",
+      "claim": "Explicit present status sets status, conditionally parses snoozed_until.to_s, then save!; blank/omitted status invokes model toggle and ignores snoozed_until. Template returns success=@status, display_id, current_status, snoozed_until; bot branch does not assign @status.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L179",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L4-L8"
+      ],
+      "critical_dependency": "B-A1 independently verified."
+    },
+    {
+      "id": "A2",
+      "claim": "Resulting open human User clears AI under lock; agent self-assigns, admin does not explicitly replace assignee. AgentBot requires pending plus explicit open for handoff: preserve existing waiting_since, initialize blank, clear AI, open, dispatch. Empty bot status takes generic toggle. Enterprise controller has no override.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L181-L187",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L184-L197",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L1-L30"
+      ],
+      "critical_dependency": "BA1 answered; B correction verified."
+    },
+    {
+      "id": "A3",
+      "claim": "Proposed matrix: omitted/nil/empty status across open/resolved/pending/snoozed; explicit enum statuses; snoozed with epoch versus absent timestamp from nil/existing snooze; exit-snooze reset; agent/admin opening with existing human/AI owner; AgentBot pending explicit-open versus blank, waiting_since nil/present. Assert persisted state and response fields; bot success=null is source inference requiring execution.",
+      "classification": "INFERRED_FROM_SOURCE",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L136",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L177",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L290-L292",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+      ],
+      "critical_dependency": "B-A1 verified; no reproduced defect."
+    },
+    {
+      "id": "A4",
+      "claim": "Existing block covers empty open->resolved, explicit pending->open/schema, omitted agent/admin opening, explicit pending, human snooze+epoch, bot snooze, bot handoff event. Additional matrix postconditions are proposals; existing examples were not run.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+      ],
+      "critical_dependency": "B-A1 independently checked."
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T3-R-2-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B via coordinator",
+      "question_or_answer": "Asked model toggle/reset semantics and existing snooze/toggle specs.",
+      "source_refs": [
+        "app/models/conversation.rb:172-197,290-292"
+      ]
+    },
+    {
+      "id": "T3-R-2-BQ1",
+      "from": "worker_B via coordinator",
+      "to": "worker_A",
+      "question_or_answer": "Asked human versus AgentBot paths; answered T3-R-2-BA1 with controller/template/enterprise evidence.",
+      "source_refs": [
+        "app/controllers/api/v1/accounts/conversations_controller.rb:83-100,181-187"
+      ]
+    },
+    {
+      "id": "T3-R-2-B-A1",
+      "from": "worker_B via coordinator",
+      "to": "worker_A",
+      "question_or_answer": "Toggle/reset/spec answer verified independently; correction T3-R-2-B-A1-correction confirms callback line 136.",
+      "source_refs": [
+        "app/models/conversation.rb:136,172-197,290-292",
+        "spec/controllers/api/v1/accounts/conversations_controller_spec.rb:604-735"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Full middleware/concerns and response schema outside manifest; broader coverage unverified. No tests added. Telemetry NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    "NOT_RUN: bundle exec rspec spec/controllers/api/v1/accounts/conversations_controller_spec.rb:604. Requires separate authorization, isolated prepared test services/schema, pinned checkout and dependencies, correct Ruby with rbenv initialized per AGENTS.md."
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

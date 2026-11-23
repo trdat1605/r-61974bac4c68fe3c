@@ -1,0 +1,151 @@
+{
+  "task_id": "COMPLETE-001",
+  "date": "2026-11-23",
+  "status": "PLAN_NOT_APPLIED",
+  "repository": "trdat1605/s-251521f7e9131fb0",
+  "repository_id": 1467945011,
+  "ruleset_id": 27859157,
+  "expected_main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "expected_head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "run_id": 45082996742,
+  "checkout_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+  "observed_required_checks": [
+    {
+      "name": "isolated-runtime",
+      "app_id": 15368,
+      "conclusion": "success",
+      "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9"
+    },
+    {
+      "name": "focused-frontend",
+      "app_id": 15368,
+      "conclusion": "success",
+      "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9"
+    },
+    {
+      "name": "metadata",
+      "app_id": 15368,
+      "conclusion": "success",
+      "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9"
+    }
+  ],
+  "before": {
+    "name": "GOV-001 app main",
+    "target": "branch",
+    "enforcement": "active",
+    "bypass_actors": [],
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      }
+    ]
+  },
+  "candidate": {
+    "target": "branch",
+    "enforcement": "active",
+    "bypass_actors": [],
+    "conditions": {
+      "ref_name": {
+        "include": [
+          "~DEFAULT_BRANCH"
+        ],
+        "exclude": []
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": true,
+          "required_status_checks": [
+            {
+              "context": "metadata",
+              "integration_id": 15368
+            },
+            {
+              "context": "focused-frontend",
+              "integration_id": 15368
+            },
+            {
+              "context": "isolated-runtime",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ],
+    "name": "GOV-001 app main"
+  },
+  "candidate_file": "config/github/app-main.ruleset.json",
+  "candidate_file_sha256": "c8c1fed6923c44136b65686d8baa2551695ef03b762213a325bbaddd3428d506",
+  "only_permitted_change": "Add required_status_checks for metadata/focused-frontend/isolated-runtime from Actions15368, strict; no other policy or heads changes",
+  "sources": [
+    "https://docs.github.com/en/rest/repos/rules",
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+    "https://docs.github.com/en/enterprise-cloud@latest/rest/repos/rules"
+  ],
+  "limitations": [
+    "Required source app is not proof of workflow correctness",
+    "Zero GitHub approvals is existing sole-owner setting; agent review not human approval",
+    "No merge, bypass, visibility or runtime changes permitted"
+  ],
+  "check_attachment_note": "Actions check-runs attach to app head, while checkout runs PR merge ref; merge-ref check-runs query returned empty and was not treated as success.",
+  "script_snapshot": "tasks/COMPLETE-001/evidence/app-required-checks-script.txt",
+  "script_snapshot_sha256": "ea36943a815138dabf8f2b92516ee19e178d615b41089ce7cd23971ef4ff18e2",
+  "script_exec_path": "C:\\Users\\MFLAT-~1\\AppData\\Local\\Temp\\chatwoot-app-required-checks.py",
+  "script_exec_sha256": "ea36943a815138dabf8f2b92516ee19e178d615b41089ce7cd23971ef4ff18e2",
+  "pre_review_correction": "LiveAPI exposes additional existing pull_request fields required_reviewers=[] and require_extra_approval_for_unattributed_changes=true. Preserve all actual prior rule fields exactly instead of reconstructing from older config.",
+  "script_boundary": "Self-contained API/NoRedirect/credential-in-memory helper; no dynamic helper dependency. Secret values never printed or persisted."
+}

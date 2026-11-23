@@ -1,0 +1,19 @@
+{
+  "profile_id": "chatwoot-isolated-foundation-example",
+  "distribution": "Ubuntu-22.04",
+  "source_repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "source_branch": "codex/portable-foundation",
+  "source_commit": "c77ce0b7b05f98f129eab2d89e6a66e8ee1f9b72",
+  "source_root": "REPLACE_WITH_FRESH_LINUX_CHECKOUT",
+  "compose_project": "cwdev-new-unique-id",
+  "runtime_access": "exclusive-write-only-to-new-project",
+  "shared_runtime": false,
+  "ports": {
+    "rails": 44440,
+    "vite": 44441,
+    "mailhog": 44442
+  },
+  "database_policy": "New synthetic development/test/restore DBs; never existing lab or course DBs",
+  "secret_policy": "Generated locally by reviewed bootstrap; chmod600 and ignored. No secret values in this example.",
+  "note": "Example is not an active lab profile or workspace_doctor input. Actual isolated-run evidence and checkout SHA must be verified at use."
+}

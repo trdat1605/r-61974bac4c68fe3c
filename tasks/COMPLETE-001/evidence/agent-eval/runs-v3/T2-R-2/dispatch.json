@@ -1,0 +1,20 @@
+{
+  "run_id": "T2-R-2",
+  "packet_sha256": "9c6d50625a28e177d9c93797c4274b4823e928846cd41d69890c0a792b21025c",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "roster": {
+    "coordinator": "/root/v3_t2r2_c",
+    "worker_A": "/root/v3_t2r2_a",
+    "worker_B": "/root/v3_t2r2_b"
+  },
+  "dispatch_utc": "2026-11-22T23:23:16.799644+00:00",
+  "status": "OUTPUTS_CAPTURED",
+  "model_identity": "NOT_EXPOSED",
+  "observer_interventions": [],
+  "capture_end_utc": "2026-11-22T23:29:19.657537+00:00",
+  "output_sha256": {
+    "coordinator-original.json": "ded1b70b34a1b6823ed4d668508d5e6ed0a57ad390b81375b8d6a83e87a87cb8",
+    "worker_A-original.json": "93e066150d81755f9a133821d95ad0130d3fe4f0d0fe7aeecdc9e7e3c618f5b5",
+    "worker_B-original.json": "3ad1ebd6ce418252183c6107666c83650a8c6ddd4c70da1b007f0fc9d9c883f8"
+  }
+}

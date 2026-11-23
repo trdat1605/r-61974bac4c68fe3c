@@ -2,7 +2,7 @@
 
 Ngày **23/11/2026**, [QA-001 / issue #9](https://github.com/trdat1605/chatwoot-vn/issues/9), phụ thuộc [source/reproduction #8](https://github.com/trdat1605/chatwoot-vn/issues/8). Owner kỹ thuật: coordinator và implementer nhiệm vụ app; reviewer khác; chủ sản phẩm chấp nhận phạm vi.
 
-**Hiện chưa có bugfix/feature Chatwoot đi trọn vòng trong FLOW-001.** Tooling fixtures hoặc kế hoạch hợp lệ không thay pilot sản phẩm. Không chọn một thay đổi cosmetic để tạo cảm giác quy trình đã được thử.
+**FLOW-001 chưa có pilot ứng dụng; COMPLETE-001 đang thực hiện pilot Docker metadata thật.** Xem [issue app2](https://github.com/trdat1605/s-251521f7e9131fb0/issues/2), [PR app3](https://github.com/trdat1605/s-251521f7e9131fb0/pull/3) và [trạng thái](completion.md). Source app và control SHA riêng, các lần FAIL và sửa/review giữ trong evidence. Tooling fixtures hoặc kế hoạch hợp lệ không thay pilot sản phẩm. Không chọn một thay đổi cosmetic để tạo cảm giác quy trình đã được thử.
 
 ## Điều kiện bắt đầu
 
@@ -19,7 +19,7 @@ Hai ứng viên khảo sát đã biết: lỗi build metadata Git khi Docker đ�
 | Docker/bootstrap | Cấu hình parse với env giả, build đúng source ref, mount/service identity, chuẩn bị DB/test riêng và restart/cleanup đúng namespace |
 | Kênh ngoài | Hợp đồng/quyền API, mock lỗi có căn cứ, test live với tài khoản được cấp; mock PASS không chứng minh Zalo thật |
 
-[CE workflow đúng app pin](https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/.github/workflows/run_foss_spec.yml) có lint/frontend/RSpec, bỏ enterprise ở lượt CE và Brakeman đang non-blocking. Dùng làm đầu vào chọn checks, không sao chép toàn pipeline/publish hoặc gọi CE xanh là full Enterprise/security đạt. Source app repo mới giữ Actions tắt đến khi các workflow kế thừa được rà riêng.
+[CE workflow đúng app pin](https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/.github/workflows/run_foss_spec.yml) có lint/frontend/RSpec, bỏ enterprise ở lượt CE và Brakeman đang non-blocking. Dùng làm đầu vào chọn checks, không sao chép toàn pipeline/publish hoặc gọi CE xanh là full Enterprise/security đạt. COMPLETE-001 đã tắt 17 workflow kế thừa, bật riêng workflow foundation sau review với action allowlist/token đọc; không bật pipeline publish upstream.
 
 ## Hồ sơ đủ để đánh giá pilot
 
@@ -29,4 +29,4 @@ Hai ứng viên khảo sát đã biết: lỗi build metadata Git khi Docker đ�
 - App PR liên kết issue/control task, kết quả checks và product How to test. Sau đổi base phải kiểm tổ hợp.
 - Owner acceptance, merge/release/post-change checks chỉ ghi đã làm khi có quyền và bằng chứng. Nếu dừng ở Draft PR thì chỉ nghiệm thu đến mốc đó.
 
-FLOW-001 tạo nền móng/checker và liên kết; pilot app, app CI, UI, Zalo/mobile và production release vẫn **NOT_RUN**. Chưa có giới hạn tải hoặc bảo đảm ổn định sản phẩm mới.
+FLOW-001 chỉ tạo nền móng/checker. COMPLETE-001 đã có lỗi build thật, regression và [CI vòng đời PASS](../../tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json) ở apphead27e1669, mergecheckout8d953fd có tree giống hệt. [Product record](../../tasks/COMPLETE-001/evidence/product-record.json) đã liên kết [review app cuối PASS](../../tasks/COMPLETE-001/evidence/app-final-review.json) tại đúng27e1669; kiểm consistency trên control commit và review tích hợp còn chờ. UI tương tác, Zalo/mobile, nâng cấp sản phẩm và production release vẫn NOT_RUN. Không có giới hạn tải hoặc bảo đảm ổn định toàn sản phẩm mới.

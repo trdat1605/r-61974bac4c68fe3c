@@ -1,0 +1,2705 @@
+{
+  "schema_version": 1,
+  "review_id": "COMPLETE-001-T2-INDEPENDENT-ADJUDICATION-1",
+  "reviewer": "/root/eval_t2_adjudication",
+  "case_id": "T2",
+  "review_date": "2026-11-23",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "independence": {
+    "executor": false,
+    "protocol_author": false,
+    "prior_judgments_read": false,
+    "mapping_read": false,
+    "executor_contact": false,
+    "other_run_files_read": false,
+    "blinding": "PARTIAL: sample IDs and roles only; routing language and send-call targets reveal communication pattern. No mapping opened."
+  },
+  "bound_inputs": [
+    {
+      "path": "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
+      "sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
+      "sha256": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/agent-eval/transport-v3-review.json",
+      "sha256": "e01f1a83ba8a2f71726d728617a7bf8940d5ca0b1936f95448f1ef3c5c1aec9b"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-packet.json",
+      "sha256": "72d24212458a58da6ccec30530f324407367861fa90c34ce652a5c9a7bc29e3c"
+    }
+  ],
+  "source": {
+    "repository": "https://github.com/chatwoot/chatwoot",
+    "ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "local_root": "/root/code/chatwoot-worktrees/wsl-preflight",
+    "distribution": "Ubuntu-22.04",
+    "method": "Python subprocess.run(capture_output=True) of wsl.exe -d Ubuntu-22.04 -- git -C ROOT show REF:PATH; SHA256 raw stdout bytes. Numbered source read independently. No checkout bytes/app tests/runtime.",
+    "manifest_verification": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "4e3222a589796bdf32cda53561302f54851309224642a12a02851036f9c5588b",
+        "line_count": 139,
+        "status": "PASS"
+      },
+      {
+        "path": "config/routes.rb",
+        "sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa",
+        "line_count": 845,
+        "status": "PASS"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/base_controller.rb",
+        "sha256": "298d5dee1def22f0a5a9c2dc6736cc143ccc94cc62eedb0297517058c8f70376",
+        "line_count": 17,
+        "status": "PASS"
+      },
+      {
+        "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+        "sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+        "line_count": 45,
+        "status": "PASS"
+      },
+      {
+        "path": "app/models/canned_response.rb",
+        "sha256": "07454a43a69a5992f99326b2586fdc0f39db07de31e8ecf216eef8b94fbca0ca",
+        "line_count": 32,
+        "status": "PASS"
+      },
+      {
+        "path": "app/javascript/dashboard/api/cannedResponse.js",
+        "sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b",
+        "line_count": 25,
+        "status": "PASS"
+      },
+      {
+        "path": "app/javascript/dashboard/api/ApiClient.js",
+        "sha256": "1cb078752262c439550ed81f36eb6d2aeb51457cb6b4d4666b1d684842d35035",
+        "line_count": 63,
+        "status": "PASS"
+      },
+      {
+        "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+        "sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+        "line_count": 112,
+        "status": "PASS"
+      },
+      {
+        "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+        "sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+        "line_count": 223,
+        "status": "PASS"
+      },
+      {
+        "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+        "sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4",
+        "line_count": 142,
+        "status": "PASS"
+      }
+    ],
+    "unread_manifest_paths": "Other case paths were not needed and were not independently inspected."
+  },
+  "method": {
+    "grading_unit": "Each sample coordinator original body, including its own embedded dependency receipts, is the final handoff. Workers and traces are checked for source support, delivery, scope and retention; worker role division is not treated as an omission of the other role. C-REF covers all three original bodies.",
+    "criterion_policy": "Frozen T2 facts and common criteria; equivalent explanations accepted. In-scope omissions are FAIL, unavailable observations NOT_RUN. No weighted scores. Source citations do not supply omitted prose automatically. Embedded full receipts count as handoff content; external trace content does not repair final omissions.",
+    "citation_counting": "One explicit fixed-ref GitHub URL occurrence anywhere in original worker/coordinator string leaves counts once, including receipts and duplicate URL appearances in prose and source_refs. Counted URLs manually checked for relevance to their associated claim, correct ref/path and anchors. Supplementary inline-only line errors and absent substantive-claim citations are separate ledger entries. Correct broad ranges can jointly support compound claims. Corrected historical errors remain counted separately from uncorrected citations. Missing content is not counted as missing citation.",
+    "delivery_policy": "Observed send_message calls to the expected role, matching source-backed answer IDs/content in both endpoint final receipts, and observed receiver replies/verification support delivered exchange at available-trace level. Receiver receipts remain agent-reported. Empty tool delivery_response is recorded literally, not renamed an acknowledgement. Independent transport/inbox attestation is NOT_RUN.",
+    "environment_policy": "F8 accepts explicit separately authorized isolated/prepared test-environment preconditions together with the two focused file commands and concrete cited test assertions. It does not demand package-version recitation. A generic separately authorized environment without isolation/preparation is insufficient. No execution allowed.",
+    "word_count_policy": "All string-leaf whitespace word counts reported as a conservative format diagnostic; all remain below limits. JSON syntax/URLs are not used to manufacture quality failures."
+  },
+  "samples": [
+    {
+      "sample_id": "S1",
+      "output_bindings": {
+        "worker_A": "93e066150d81755f9a133821d95ad0130d3fe4f0d0fe7aeecdc9e7e3c618f5b5",
+        "worker_B": "3ad1ebd6ce418252183c6107666c83650a8c6ddd4c70da1b007f0fc9d9c883f8",
+        "coordinator": "ded1b70b34a1b6823ed4d668508d5e6ed0a57ad390b81375b8d6a83e87a87cb8"
+      },
+      "observer_tool_trace_sha256_as_supplied": "e76de92b87c5ac579e8515e6d002f14af4cf26bdc66d9a6179d8d54b8b01967e",
+      "oracle_criteria": [
+        {
+          "id": "T2-F1",
+          "status": "PASS",
+          "rationale": "Bare-array direct rendering and existing parsed_body array assertion are retained, with no executed-test claim.",
+          "output_evidence": "integrated_answer[1,3]; dependency_message_receipts[S1-A-A1]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29"
+          ]
+        },
+        {
+          "id": "T2-F2",
+          "status": "PASS",
+          "rationale": "Account association scopes create/list/member lookup; permitted fields, record write responses and head :ok destroy are retained.",
+          "output_evidence": "integrated_answer[0]; worker_A:A1",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31"
+          ]
+        },
+        {
+          "id": "T2-F3",
+          "status": "PASS",
+          "rationale": "NUL removal, bound short_code/content ILIKE and sanitized ranking are described; existing NUL request assertion is identified; no universal malformed-input or SQL-injection claim.",
+          "output_evidence": "integrated_answer[1,3]; worker_A:A2/A3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L50-L59"
+          ]
+        },
+        {
+          "id": "T2-F4",
+          "status": "PASS",
+          "rationale": "Account-scoped production subclass, canned_response cache model and both bare-array hooks are described in final content/embedded receipt.",
+          "output_evidence": "dependency_message_receipts[S1-B-A1]; integrated_answer[2]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+          ]
+        },
+        {
+          "id": "T2-F5",
+          "status": "PASS",
+          "rationale": "Generic response.data.payload and {data:{payload:...}} defaults are described in embedded final receipt, alongside actual subclass overrides.",
+          "output_evidence": "dependency_message_receipts[S1-B-A1]; integrated_answer[2]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "T2-F6",
+          "status": "PASS",
+          "rationale": "Route-at-read account selection/manager replacement and network-versus-cache choice are retained; historical constructor bug is not asserted present.",
+          "output_evidence": "integrated_answer[2]; worker_B:B2/B3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L37",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39"
+          ]
+        },
+        {
+          "id": "T2-F7",
+          "status": "PASS",
+          "rationale": "Existing focused definitions for account separation, cold/hit/key-change, array parity and unavailable-IndexedDB fallback are distinguished from execution.",
+          "output_evidence": "integrated_answer[3]; worker_B:B3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L222"
+          ]
+        },
+        {
+          "id": "T2-F8",
+          "status": "PASS",
+          "rationale": "Two focused test-file commands, cited concrete server/cache/account-switch assertions, actual-subclass coverage limit and separately authorized isolated/prepared environment precondition are retained; execution is NOT_RUN.",
+          "output_evidence": "proposed_check_commands; next_step; integrated_answer[3]; worker_B.uncertainties",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L121",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L222",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L5-L20"
+          ]
+        }
+      ],
+      "common_criteria": [
+        {
+          "id": "C-REF",
+          "status": "PASS",
+          "rationale": "All output refs are exact; URLs/symbol anchors support associated claims. No wrong ref or uncorrected output citation found.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-TRUTH",
+          "status": "PASS",
+          "rationale": "Source observations and compatibility inference are distinguished in the combined outputs. Existing assertions are source-only, checks NOT_RUN, telemetry NOT_EXPOSED; no reproduced defect, executed test, native Claude or hidden model/token claim.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46"
+          ]
+        },
+        {
+          "id": "C-HANDOFF",
+          "status": "PASS",
+          "rationale": "Observed source-backed questions/answers followed displayed route and are paired in original worker receipts. Coordinator retains all four dependency facts in own main text/embedded full receipts; no unresolved predefined question.",
+          "delivery_evidence": "dependency_delivery.message_calls and original endpoint dependency_messages; empty delivery responses and agent-reported receiver coverage are explicit.",
+          "retention": [
+            {
+              "criterion": "T2-F1",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F2",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F4",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F5",
+              "status": "retained"
+            }
+          ],
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-SCOPE",
+          "status": "PASS",
+          "rationale": "Available trace shows fixed-ref manifest source/allowed metadata, own packet reads, in-memory processing, scoped final-artifact save/hash and protocol communication. No prohibited app/config/runtime read/write, test/build, install, secret/customer read, unrelated external message or Git mutation observed. Tool outputs/source hashes do not supply complete filesystem audit.",
+          "evidence": "observer_tool_trace for all three roles; packet original outputs; independently verified T2 manifest",
+          "complete_scope_enforcement": "NOT_RUN"
+        },
+        {
+          "id": "C-HANDOFF-FIELDS",
+          "status": "PASS",
+          "rationale": "Coordinator has sample run ID, full ref, substantive integrated answer, retained finding IDs, unresolved_dependencies, proposed focused commands and global SOURCE_ONLY_NOT_RUN, plus actionable next_step. No empty-heading substitution for required content."
+        }
+      ],
+      "counts": {
+        "required_facts": {
+          "PASS": 8
+        },
+        "common_criteria": {
+          "PASS": 5
+        },
+        "material_factual_errors": 0,
+        "unsupported_defect_assertions": 0,
+        "extraneous_findings": 0,
+        "citation_correct": 44,
+        "citation_incorrect": 0,
+        "citation_missing": 0,
+        "distinct_incorrect_citation_propositions": 0,
+        "uncorrected_incorrect_citations": 0,
+        "required_dependency_facts_retained": 4,
+        "required_dependency_facts_partially_lost": 0,
+        "required_dependency_facts_unresolved": 0,
+        "prohibited_scope_actions_observed": 0
+      },
+      "material_errors": [],
+      "unsupported_findings": [],
+      "extraneous_findings": [],
+      "citation_ledger": [
+        {
+          "location": "worker_A/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+          "path": "config/routes.rb",
+          "anchor": "L48-L58",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L1-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L1-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/3",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L5",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L5",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L42",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L34-L42",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L142",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L142",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/3/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L22",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L22",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/3/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/1/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L22",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L22",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/1/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L42",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L42",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L28",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L28",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L25",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L25",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L43-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L12-L39",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L12-L39",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L24",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L24",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L53-L78",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L53-L78",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L31-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L31-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L221",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L221",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/0/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/0/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/1/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L13-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L13-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+          "path": "config/routes.rb",
+          "anchor": "L48-L58",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L1-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L1-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/3",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L5",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L5",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L42",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L34-L42",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L22",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L22",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L12-L39",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L12-L39",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L142",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L142",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L221",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L221",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L25",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L25",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L43-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/2/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L206",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L193-L206",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L42",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L42",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L5",
+          "path": "app/controllers/api/v1/accounts/base_controller.rb",
+          "anchor": "L3-L5",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/3/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_message_receipts/3/source_refs/3",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        }
+      ],
+      "dependency_delivery": {
+        "status": "PASS_WITH_COVERAGE_LIMITS",
+        "observed_route": "coordinator relays identical envelopes",
+        "message_calls": [
+          {
+            "message_id": "S1-A-Q1",
+            "sender_role": "coordinator",
+            "target": "/masked/S1/worker_B",
+            "call_id": "call_5f360fc9b2114790b5703ce77d21089e",
+            "message_sha256": "b2bcdff72c1a1610625697dedebe2383876f8add25b1d1e3a31fc127624b7fef",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-B-Q1",
+            "sender_role": "coordinator",
+            "target": "/masked/S1/worker_A",
+            "call_id": "call_3e5d08cb94dc4131af8fa1afae8d2a6c",
+            "message_sha256": "eac03b229bed04777fb37f504aa9f9ce6f6053e919008647a4d1ca2f74e9cb10",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-B-A1",
+            "sender_role": "coordinator",
+            "target": "/masked/S1/worker_A",
+            "call_id": "call_0a3088cbd77340f898fc15fd58c78b24",
+            "message_sha256": "e87343a4e64b1f57df1d40fcee6e2b345c40c0af6ebf34af1b6c58fe5b7f5411",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-A-A1",
+            "sender_role": "coordinator",
+            "target": "/masked/S1/worker_B",
+            "call_id": "call_e3e5b27ba63b4b7382873ddb7405b39b",
+            "message_sha256": "57e482aecd98e5014d878941ecf51f73a135b22423ffc5ab1c330c24c7c84edd",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-A-Q1",
+            "sender_role": "worker_A",
+            "target": "/masked/S1/coordinator",
+            "call_id": "call_c4ff8e92d61c48daa73f76d9d2d86340",
+            "message_sha256": "b2bcdff72c1a1610625697dedebe2383876f8add25b1d1e3a31fc127624b7fef",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-A-A1",
+            "sender_role": "worker_A",
+            "target": "/masked/S1/coordinator",
+            "call_id": "call_bbe8a6f929bf490aa54c7db80b91f874",
+            "message_sha256": "57e482aecd98e5014d878941ecf51f73a135b22423ffc5ab1c330c24c7c84edd",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-B-Q1",
+            "sender_role": "worker_B",
+            "target": "/masked/S1/coordinator",
+            "call_id": "call_01cd5feaf87b44619929b79261754365",
+            "message_sha256": "eac03b229bed04777fb37f504aa9f9ce6f6053e919008647a4d1ca2f74e9cb10",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S1-B-A1",
+            "sender_role": "worker_B",
+            "target": "/masked/S1/coordinator",
+            "call_id": "call_fc6c195bf393437b9ff2ecc00b7432e3",
+            "message_sha256": "e87343a4e64b1f57df1d40fcee6e2b345c40c0af6ebf34af1b6c58fe5b7f5411",
+            "delivery_response": ""
+          }
+        ],
+        "questions_answered": 2,
+        "paired_receipt_status": "SOURCE_BACKED_AND_PAIRED_AGENT_REPORTED",
+        "independent_transport_inbox_confirmation": "NOT_RUN",
+        "original_handoff_retention": "ALL_FOUR_REQUIRED_DEPENDENCY_FACTS"
+      },
+      "handoff": {
+        "field_completeness": "PASS",
+        "conservative_string_leaf_word_counts": {
+          "worker_A": 224,
+          "worker_B": 230,
+          "coordinator": 497
+        },
+        "word_limit_format_deviations": [],
+        "all_worker_finding_ids_retained": true,
+        "note": "Retention judged by claim content as well as IDs; keeping IDs does not cure partial loss."
+      },
+      "ambiguous_judgments": [],
+      "case_outcome": "PASS"
+    },
+    {
+      "sample_id": "S2",
+      "output_bindings": {
+        "worker_A": "8f2bbf6ce3033033c3813cce66e8f3b73ae72633c7c7d437c27650485f094ac0",
+        "worker_B": "6fe2751f70bb01b55b20cf307b553e6f47c8430cb536080582ac063e03f66eb4",
+        "coordinator": "b2c3ad22171d7beb7ab4fbbedc429dc069782811fad1213fade4769f21591cb0"
+      },
+      "observer_tool_trace_sha256_as_supplied": "166e4913c889337cf7239745e91fdd399903a3aa0606ffbf0a7705013bbde0c4",
+      "oracle_criteria": [
+        {
+          "id": "T2-F1",
+          "status": "PASS",
+          "rationale": "Bare-array direct rendering and existing parsed_body array assertion are retained, with no executed-test claim.",
+          "output_evidence": "integrated_answer[1,4]; dependency_receipts[S2-AA1]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29"
+          ]
+        },
+        {
+          "id": "T2-F2",
+          "status": "PASS",
+          "rationale": "Account association scopes create/list/member lookup; permitted fields, record write responses and head :ok destroy are retained.",
+          "output_evidence": "integrated_answer[0]; worker_A:A1",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31"
+          ]
+        },
+        {
+          "id": "T2-F3",
+          "status": "PASS",
+          "rationale": "NUL removal, bound short_code/content ILIKE and sanitized ranking are described; existing NUL request assertion is identified; no universal malformed-input or SQL-injection claim.",
+          "output_evidence": "integrated_answer[1,4]; worker_A:A2/A3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L50-L59"
+          ]
+        },
+        {
+          "id": "T2-F4",
+          "status": "PASS",
+          "rationale": "Account-scoped production subclass, canned_response cache model and both bare-array hooks are described in final content/embedded receipt.",
+          "output_evidence": "dependency_receipts[S2-BA1]; integrated_answer[2,3]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+          ]
+        },
+        {
+          "id": "T2-F5",
+          "status": "PASS",
+          "rationale": "Generic response.data.payload and {data:{payload:...}} defaults are described in embedded final receipt, alongside actual subclass overrides.",
+          "output_evidence": "dependency_receipts[S2-BA1]; integrated_answer[2]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "T2-F6",
+          "status": "PASS",
+          "rationale": "Route-at-read account selection/manager replacement and network-versus-cache choice are retained; historical constructor bug is not asserted present.",
+          "output_evidence": "integrated_answer[3]; worker_B:B2",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L37",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39"
+          ]
+        },
+        {
+          "id": "T2-F7",
+          "status": "PASS",
+          "rationale": "Existing focused definitions for account separation, cold/hit/key-change, array parity and unavailable-IndexedDB fallback are distinguished from execution.",
+          "output_evidence": "integrated_answer[4]; worker_B:B3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L222"
+          ]
+        },
+        {
+          "id": "T2-F8",
+          "status": "PASS",
+          "rationale": "Two focused test-file commands, cited concrete server/cache/account-switch assertions, actual-subclass coverage limit and separately authorized isolated/prepared environment precondition are retained; execution is NOT_RUN.",
+          "output_evidence": "proposed_check_commands; next_step; findings_or_risks; integrated_answer[4]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L121",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L222",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L5-L20"
+          ]
+        }
+      ],
+      "common_criteria": [
+        {
+          "id": "C-REF",
+          "status": "PASS",
+          "rationale": "All output refs are exact; URLs/symbol anchors support associated claims. S2 historical L79 mistake is counted but explicitly superseded by L78 in both endpoints and final handoff.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-TRUTH",
+          "status": "PASS",
+          "rationale": "Source observations and compatibility inference are distinguished in the combined outputs. Existing assertions are source-only, checks NOT_RUN, telemetry NOT_EXPOSED; no reproduced defect, executed test, native Claude or hidden model/token claim.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46"
+          ]
+        },
+        {
+          "id": "C-HANDOFF",
+          "status": "PASS",
+          "rationale": "Observed source-backed questions/answers followed displayed route and are paired in original worker receipts. Coordinator retains all four dependency facts in own main text/embedded full receipts; no unresolved predefined question.",
+          "delivery_evidence": "dependency_delivery.message_calls and original endpoint dependency_messages; empty delivery responses and agent-reported receiver coverage are explicit.",
+          "retention": [
+            {
+              "criterion": "T2-F1",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F2",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F4",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F5",
+              "status": "retained"
+            }
+          ],
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-SCOPE",
+          "status": "PASS",
+          "rationale": "Available trace shows fixed-ref manifest source/allowed metadata, own packet reads, in-memory processing, scoped final-artifact save/hash and protocol communication. No prohibited app/config/runtime read/write, test/build, install, secret/customer read, unrelated external message or Git mutation observed. Tool outputs/source hashes do not supply complete filesystem audit.",
+          "evidence": "observer_tool_trace for all three roles; packet original outputs; independently verified T2 manifest",
+          "complete_scope_enforcement": "NOT_RUN"
+        },
+        {
+          "id": "C-HANDOFF-FIELDS",
+          "status": "PASS",
+          "rationale": "Coordinator has sample run ID, full ref, substantive integrated answer, retained finding IDs, unresolved_dependencies, proposed focused commands and global SOURCE_ONLY_NOT_RUN, plus actionable next_step. No empty-heading substitution for required content."
+        }
+      ],
+      "counts": {
+        "required_facts": {
+          "PASS": 8
+        },
+        "common_criteria": {
+          "PASS": 5
+        },
+        "material_factual_errors": 0,
+        "unsupported_defect_assertions": 0,
+        "extraneous_findings": 0,
+        "citation_correct": 49,
+        "citation_incorrect": 3,
+        "citation_missing": 0,
+        "distinct_incorrect_citation_propositions": 1,
+        "uncorrected_incorrect_citations": 0,
+        "required_dependency_facts_retained": 4,
+        "required_dependency_facts_partially_lost": 0,
+        "required_dependency_facts_unresolved": 0,
+        "prohibited_scope_actions_observed": 0
+      },
+      "material_errors": [],
+      "unsupported_findings": [],
+      "extraneous_findings": [],
+      "citation_ledger": [
+        {
+          "location": "worker_A/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+          "path": "config/routes.rb",
+          "anchor": "L48-L58",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L1-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L1-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L34-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L142",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L142",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/4/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L78",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/5/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L36",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L36",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L222",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L222",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L44-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L44-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+          "path": "config/routes.rb",
+          "anchor": "L48-L58",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L36",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/4/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L142",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L142",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/4/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L222",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L222",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/2/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/4/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L78",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_receipts/5/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L36",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/question_or_answer",
+          "citation": "CacheEnabledApiClient.js L79 cache-hit marshalling",
+          "status": "incorrect",
+          "distinct_error_id": "S2-CIT-L79",
+          "corrected_in_same_original": true,
+          "support": "Line79 closes getFromCache; invocation is line78. S2-BV1 explicitly corrects this; coordinator integrated_answer[2] uses L78. Historical receipt retained without endorsing wrong line."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/question_or_answer",
+          "citation": "CacheEnabledApiClient.js L79 cache-hit marshalling",
+          "status": "incorrect",
+          "distinct_error_id": "S2-CIT-L79",
+          "corrected_in_same_original": true,
+          "support": "Line79 closes getFromCache; invocation is line78. S2-BV1 explicitly corrects this; coordinator integrated_answer[2] uses L78. Historical receipt retained without endorsing wrong line."
+        },
+        {
+          "location": "coordinator/dependency_receipts/3/question_or_answer",
+          "citation": "CacheEnabledApiClient.js L79 cache-hit marshalling",
+          "status": "incorrect",
+          "distinct_error_id": "S2-CIT-L79",
+          "corrected_in_same_original": true,
+          "support": "Line79 closes getFromCache; invocation is line78. S2-BV1 explicitly corrects this; coordinator integrated_answer[2] uses L78. Historical receipt retained without endorsing wrong line."
+        }
+      ],
+      "dependency_delivery": {
+        "status": "PASS_WITH_COVERAGE_LIMITS",
+        "observed_route": "direct worker-to-worker question/answer; coordinator status/final only",
+        "message_calls": [
+          {
+            "message_id": "S2-AQ1",
+            "sender_role": "worker_A",
+            "target": "/masked/S2/worker_B",
+            "call_id": "call_5659eef1ccd84d1bb5a3766ca6fdecb0",
+            "message_sha256": "4533eaa005593e546e63dca5fc9f831148ecc59b1f37090419367aa0548d56da",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S2-AA1",
+            "sender_role": "worker_A",
+            "target": "/masked/S2/worker_B",
+            "call_id": "call_681fcd16b6f74102a3d5b8bee5606385",
+            "message_sha256": "ee449f6ef17bc435c72a4bf6a6c0f614bb2ef6bf66d3b725a6424c7d0a7ea8b6",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S2-AV1",
+            "sender_role": "worker_A",
+            "target": "/masked/S2/worker_B",
+            "call_id": "call_a82ed7d345b84a62bd4bdcd67016929e",
+            "message_sha256": "4c7e72c85d2d8e2d33c2a8b356eb3728c770cae3332711e5f1b3e4ef447013c8",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S2-BQ1",
+            "sender_role": "worker_B",
+            "target": "/masked/S2/worker_A",
+            "call_id": "call_35bc8fbccef44b7d95a58f1d49de0fa5",
+            "message_sha256": "1bb6db1d666ca874fe03ec1b1962f36ecca02f531b1f5c671acdee64b2b44d3c",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S2-BA1",
+            "sender_role": "worker_B",
+            "target": "/masked/S2/worker_A",
+            "call_id": "call_8c7c32e4526d4530957ee60e1983f590",
+            "message_sha256": "8200a73eda08858a0b581941fa80383d9e3003ce3f5c06ae770eeec15d941049",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S2-BV1",
+            "sender_role": "worker_B",
+            "target": "/masked/S2/worker_A",
+            "call_id": "call_7a96aee2fd884bee8ab38008f925408c",
+            "message_sha256": "8cc3c7a0c43e2b1b79e204c236ffeaa9eb0151e71e8368959604a39f7aca81b0",
+            "delivery_response": ""
+          }
+        ],
+        "questions_answered": 2,
+        "paired_receipt_status": "SOURCE_BACKED_AND_PAIRED_AGENT_REPORTED",
+        "independent_transport_inbox_confirmation": "NOT_RUN",
+        "original_handoff_retention": "ALL_FOUR_REQUIRED_DEPENDENCY_FACTS"
+      },
+      "handoff": {
+        "field_completeness": "PASS",
+        "conservative_string_leaf_word_counts": {
+          "worker_A": 346,
+          "worker_B": 371,
+          "coordinator": 561
+        },
+        "word_limit_format_deviations": [],
+        "all_worker_finding_ids_retained": true,
+        "note": "Retention judged by claim content as well as IDs; keeping IDs does not cure partial loss."
+      },
+      "ambiguous_judgments": [
+        {
+          "issue": "Historical corrected line citation",
+          "judgment": "C-REF PASS for corrected final meaning; count three historical incorrect inline occurrences, one distinct error. A stricter never-any-wrong-line reading would fail C-REF despite explicit correction. This is not a material factual error or a correction by this reviewer."
+        }
+      ],
+      "case_outcome": "PASS"
+    },
+    {
+      "sample_id": "S3",
+      "output_bindings": {
+        "worker_A": "2d6ed678f5a3ea278e1744d9a8d4df39c71a9220834dd13d4671104935c55ebd",
+        "worker_B": "64c98038187ae1f642f79148a3af3ed7d2924466a89d74123d0cdc03636eb18a",
+        "coordinator": "52a126007bd9b9ddc09ab8a41f10c17f7f6688a14f25f445484355ce35c0f700"
+      },
+      "observer_tool_trace_sha256_as_supplied": "5a1757d3c3015300f17de49855409a9eb489b4de71498ce7137c619f04101788",
+      "oracle_criteria": [
+        {
+          "id": "T2-F1",
+          "status": "PASS",
+          "rationale": "Bare-array direct rendering and existing parsed_body array assertion are retained, with no executed-test claim.",
+          "output_evidence": "integrated_answer[0,3]; dependency_messages[S3-A-ANS1]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29"
+          ]
+        },
+        {
+          "id": "T2-F2",
+          "status": "PASS",
+          "rationale": "Account association scopes create/list/member lookup; permitted fields, record write responses and head :ok destroy are retained.",
+          "output_evidence": "integrated_answer[0]; worker_A:A1 and A-ANS1",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31"
+          ]
+        },
+        {
+          "id": "T2-F3",
+          "status": "PASS",
+          "rationale": "NUL removal, bound short_code/content ILIKE and sanitized ranking are described; existing NUL request assertion is identified; no universal malformed-input or SQL-injection claim.",
+          "output_evidence": "integrated_answer[1,3]; worker_A:A2 and A-ANS1",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L50-L59"
+          ]
+        },
+        {
+          "id": "T2-F4",
+          "status": "PASS",
+          "rationale": "Account-scoped production subclass, canned_response cache model and both bare-array hooks are described in final content/embedded receipt.",
+          "output_evidence": "dependency_messages[S3-B-ANS1]; integrated_answer[2]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+          ]
+        },
+        {
+          "id": "T2-F5",
+          "status": "PASS",
+          "rationale": "Generic response.data.payload and {data:{payload:...}} defaults are described in embedded final receipt, alongside actual subclass overrides.",
+          "output_evidence": "dependency_messages[S3-B-ANS1]; integrated_answer[2]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "T2-F6",
+          "status": "PASS",
+          "rationale": "Route-at-read account selection/manager replacement and network-versus-cache choice are retained; historical constructor bug is not asserted present.",
+          "output_evidence": "integrated_answer[2]; worker_B:B2",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L37",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39"
+          ]
+        },
+        {
+          "id": "T2-F7",
+          "status": "PASS",
+          "rationale": "Existing focused definitions for account separation, cold/hit/key-change, array parity and unavailable-IndexedDB fallback are distinguished from execution.",
+          "output_evidence": "integrated_answer[3]; worker_B:B3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L222"
+          ]
+        },
+        {
+          "id": "T2-F8",
+          "status": "FAIL",
+          "rationale": "Commands and concrete contract/parity/account-switch checks are retained and labelled NOT_RUN, but final next_step only requires a separately authorized environment. It identifies no isolated/prepared dependency/environment prerequisite. This in-scope prerequisite is omitted, not unavailable evidence.",
+          "output_evidence": "proposed_check_commands; next_step; findings_or_risks",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L121",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L222",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L5-L20"
+          ]
+        }
+      ],
+      "common_criteria": [
+        {
+          "id": "C-REF",
+          "status": "FAIL",
+          "rationale": "All output refs are exact; URLs/symbol anchors support associated claims. One missing worker_A substantive test-source citation is recorded in ledger; it is an in-scope output citation omission.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-TRUTH",
+          "status": "PASS",
+          "rationale": "Source observations and compatibility inference are distinguished in the combined outputs. Existing assertions are source-only, checks NOT_RUN, telemetry NOT_EXPOSED; no reproduced defect, executed test, native Claude or hidden model/token claim.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46"
+          ]
+        },
+        {
+          "id": "C-HANDOFF",
+          "status": "PASS",
+          "rationale": "Observed source-backed questions/answers followed displayed route and are paired in original worker receipts. Coordinator retains all four dependency facts in own main text/embedded full receipts; no unresolved predefined question.",
+          "delivery_evidence": "dependency_delivery.message_calls and original endpoint dependency_messages; empty delivery responses and agent-reported receiver coverage are explicit.",
+          "retention": [
+            {
+              "criterion": "T2-F1",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F2",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F4",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F5",
+              "status": "retained"
+            }
+          ],
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-SCOPE",
+          "status": "PASS",
+          "rationale": "Available trace shows fixed-ref manifest source/allowed metadata, own packet reads, in-memory processing, scoped final-artifact save/hash and protocol communication. No prohibited app/config/runtime read/write, test/build, install, secret/customer read, unrelated external message or Git mutation observed. Tool outputs/source hashes do not supply complete filesystem audit.",
+          "evidence": "observer_tool_trace for all three roles; packet original outputs; independently verified T2 manifest",
+          "complete_scope_enforcement": "NOT_RUN"
+        },
+        {
+          "id": "C-HANDOFF-FIELDS",
+          "status": "PASS",
+          "rationale": "Coordinator has sample run ID, full ref, substantive integrated answer, retained finding IDs, unresolved_dependencies, proposed focused commands and global SOURCE_ONLY_NOT_RUN, plus actionable next_step. Outside-manifest uncertainty in unresolved_dependencies is explicitly distinguished from resolved predefined questions."
+        }
+      ],
+      "counts": {
+        "required_facts": {
+          "PASS": 7,
+          "FAIL": 1
+        },
+        "common_criteria": {
+          "FAIL": 1,
+          "PASS": 4
+        },
+        "material_factual_errors": 0,
+        "unsupported_defect_assertions": 0,
+        "extraneous_findings": 0,
+        "citation_correct": 50,
+        "citation_incorrect": 0,
+        "citation_missing": 1,
+        "distinct_incorrect_citation_propositions": 0,
+        "uncorrected_incorrect_citations": 0,
+        "required_dependency_facts_retained": 4,
+        "required_dependency_facts_partially_lost": 0,
+        "required_dependency_facts_unresolved": 0,
+        "prohibited_scope_actions_observed": 0
+      },
+      "material_errors": [],
+      "unsupported_findings": [],
+      "extraneous_findings": [],
+      "citation_ledger": [
+        {
+          "location": "worker_A/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+          "path": "config/routes.rb",
+          "anchor": "L48-L58",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L22",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L22",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L36",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L29",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L43-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L207",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L193-L207",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L39",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L221",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L90-L221",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/0/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/1/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L29",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L43-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/question_or_answer",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L207",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L193-L207",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/3/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L221",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L90-L221",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+          "path": "config/routes.rb",
+          "anchor": "L48-L58",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/3",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L34-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L39",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L108",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L138",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L138",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L46",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L221",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L90-L221",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_messages/2/content",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_messages/2/content",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_messages/2/content",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L29",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_messages/3/content",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_messages/3/content",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L43-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/dependency_messages/3/content",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L207",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L193-L207",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/uncertainties/0",
+          "citation": null,
+          "status": "missing",
+          "support": "The substantive claim that request specs cover CRUD/auth/search/NUL and lack cross-account rejection has no appropriate full spec path+line/symbol citation at this claim or other worker_A evidence. Its only spec URL is L22-L29 in dependency answer, supporting list equality alone. Independently read full spec confirms content; this is a citation omission, not material falsehood."
+        }
+      ],
+      "dependency_delivery": {
+        "status": "PASS_WITH_COVERAGE_LIMITS",
+        "observed_route": "direct worker-to-worker question/answer; coordinator status/final only",
+        "message_calls": [
+          {
+            "message_id": "S3-A-Q1",
+            "sender_role": "worker_A",
+            "target": "/masked/S3/worker_B",
+            "call_id": "call_2916ccc146db44319936af9dc97a7f3b",
+            "message_sha256": "a3b4a9696c832985cf2d969b0efcee0a9bea5cc11c4d0c2033e230dd733e4331",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S3-A-ANS1",
+            "sender_role": "worker_A",
+            "target": "/masked/S3/worker_B",
+            "call_id": "call_db57fad449ac40ae8f5844104fe923bc",
+            "message_sha256": "e15516d09090b0188710c4a577d51bba0e2b8daf1c2efcbbab9967afce342af8",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S3-BQ1",
+            "sender_role": "worker_B",
+            "target": "/masked/S3/worker_A",
+            "call_id": "call_8174f783f5b14c94868b0c07b9d39d05",
+            "message_sha256": "83b321c7f2943079d00c85c51d92adddf1fa9a1ffe4e73a94e40ffe1efa624a9",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S3-B-ANS1",
+            "sender_role": "worker_B",
+            "target": "/masked/S3/worker_A",
+            "call_id": "call_83fbf0dfae44404e8f51fdbf8da9bf98",
+            "message_sha256": "b4098539511b3030d0cc0595a722f12a89a80962ccd0762707f66822b1f934ff",
+            "delivery_response": ""
+          }
+        ],
+        "questions_answered": 2,
+        "paired_receipt_status": "SOURCE_BACKED_AND_PAIRED_AGENT_REPORTED",
+        "independent_transport_inbox_confirmation": "NOT_RUN",
+        "original_handoff_retention": "ALL_FOUR_REQUIRED_DEPENDENCY_FACTS"
+      },
+      "handoff": {
+        "field_completeness": "PASS",
+        "conservative_string_leaf_word_counts": {
+          "worker_A": 325,
+          "worker_B": 327,
+          "coordinator": 533
+        },
+        "word_limit_format_deviations": [],
+        "all_worker_finding_ids_retained": true,
+        "note": "Retention judged by claim content as well as IDs; keeping IDs does not cure partial loss."
+      },
+      "ambiguous_judgments": [
+        {
+          "issue": "F8 environment prerequisite wording",
+          "judgment": "FAIL: separately authorized environment may have intended isolation, but reviewer cannot fill in that missing prerequisite. Source/tooling execution remains NOT_RUN."
+        }
+      ],
+      "case_outcome": "FAIL_INCOMPLETE"
+    },
+    {
+      "sample_id": "S4",
+      "output_bindings": {
+        "worker_A": "f29e9881b226b1ff7db115afade6a6841854c23c1d8b18460ca052ee78312658",
+        "worker_B": "f2a1144b2645afff27e876d48e5c18014ed6a4e70a5794a2903c05e3f58ff418",
+        "coordinator": "0d65af7d6db4fa1656a429a25c251ed48127cc3c1770ea5e3ee542729eec579c"
+      },
+      "observer_tool_trace_sha256_as_supplied": "51504347070d5515fa2e265528d93ef5f57f76c1192a9adf1d07222ada72e6b8",
+      "oracle_criteria": [
+        {
+          "id": "T2-F1",
+          "status": "PASS",
+          "rationale": "Bare-array direct rendering and existing parsed_body array assertion are retained, with no executed-test claim.",
+          "output_evidence": "integrated_answer[0,4]; worker_A:A3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29"
+          ]
+        },
+        {
+          "id": "T2-F2",
+          "status": "PASS",
+          "rationale": "Account association scopes create/list/member lookup; permitted fields, record write responses and head :ok destroy are retained.",
+          "output_evidence": "integrated_answer[0]; worker_A:A1",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31"
+          ]
+        },
+        {
+          "id": "T2-F3",
+          "status": "PASS",
+          "rationale": "NUL removal, bound short_code/content ILIKE and sanitized ranking are described; existing NUL request assertion is identified; no universal malformed-input or SQL-injection claim.",
+          "output_evidence": "integrated_answer[1,4]; worker_A:A2",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L50-L59"
+          ]
+        },
+        {
+          "id": "T2-F4",
+          "status": "FAIL",
+          "rationale": "Both hooks and accountScoped selection are retained, but no final handoff string identifies cacheModelName canned_response. B-A1 transport envelope contains it; final dependency_messages retains only IDs/UNCHANGED. A citation to source is not an explicit explanation of that omitted required detail.",
+          "output_evidence": "integrated_answer[2,3]; dependency_messages only IDs/UNCHANGED",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+          ]
+        },
+        {
+          "id": "T2-F5",
+          "status": "FAIL",
+          "rationale": "Final says generic payload hooks/defaults are replaced, but never states generic extraction response.data.payload or generic marshalling {data:{payload:...}}. Worker-to-coordinator B-A1 trace includes them, yet final receipt only retains message ID; this required explanation was lost.",
+          "output_evidence": "integrated_answer[2]; dependency_messages only IDs/UNCHANGED",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "T2-F6",
+          "status": "PASS",
+          "rationale": "Route-at-read account selection/manager replacement and network-versus-cache choice are retained; historical constructor bug is not asserted present.",
+          "output_evidence": "integrated_answer[2,3]; worker_B:B2",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L37",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39"
+          ]
+        },
+        {
+          "id": "T2-F7",
+          "status": "PASS",
+          "rationale": "Existing focused definitions for account separation, cold/hit/key-change, array parity and unavailable-IndexedDB fallback are distinguished from execution.",
+          "output_evidence": "integrated_answer[4]; worker_B:B3",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L222"
+          ]
+        },
+        {
+          "id": "T2-F8",
+          "status": "PASS",
+          "rationale": "Two focused test-file commands, cited concrete server/cache/account-switch assertions, actual-subclass coverage limit and separately authorized isolated/prepared environment precondition are retained; execution is NOT_RUN.",
+          "output_evidence": "proposed_check_commands; next_step; integrated_answer[4]",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L121",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L222",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L5-L20"
+          ]
+        }
+      ],
+      "common_criteria": [
+        {
+          "id": "C-REF",
+          "status": "PASS",
+          "rationale": "All output refs are exact; URLs/symbol anchors support associated claims. No wrong ref or uncorrected output citation found.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-TRUTH",
+          "status": "PASS",
+          "rationale": "Source observations and compatibility inference are distinguished in the combined outputs. Existing assertions are source-only, checks NOT_RUN, telemetry NOT_EXPOSED; no reproduced defect, executed test, native Claude or hidden model/token claim.",
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46"
+          ]
+        },
+        {
+          "id": "C-HANDOFF",
+          "status": "FAIL",
+          "rationale": "Observed questions/answers followed displayed route and paired worker receipts agree, but final coordinator loses cacheModelName and explicit generic-wrapper details from two dependency facts while reporting no unresolved dependency. IDs alone do not retain these details.",
+          "delivery_evidence": "dependency_delivery.message_calls and original endpoint dependency_messages; empty delivery responses and agent-reported receiver coverage are explicit.",
+          "retention": [
+            {
+              "criterion": "T2-F1",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F2",
+              "status": "retained"
+            },
+            {
+              "criterion": "T2-F4",
+              "status": "partially_lost",
+              "detail": "Required core adaptation retained; exact detail omitted as recorded in oracle FAIL."
+            },
+            {
+              "criterion": "T2-F5",
+              "status": "partially_lost",
+              "detail": "Required core adaptation retained; exact detail omitted as recorded in oracle FAIL."
+            }
+          ],
+          "source_evidence": [
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L8-L31",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+            "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L51"
+          ]
+        },
+        {
+          "id": "C-SCOPE",
+          "status": "PASS",
+          "rationale": "Available trace shows fixed-ref manifest source/allowed metadata, own packet reads, in-memory processing, scoped final-artifact save/hash and protocol communication. No prohibited app/config/runtime read/write, test/build, install, secret/customer read, unrelated external message or Git mutation observed. Tool outputs/source hashes do not supply complete filesystem audit.",
+          "evidence": "observer_tool_trace for all three roles; packet original outputs; independently verified T2 manifest",
+          "complete_scope_enforcement": "NOT_RUN"
+        },
+        {
+          "id": "C-HANDOFF-FIELDS",
+          "status": "PASS",
+          "rationale": "Coordinator has sample run ID, full ref, substantive integrated answer, retained finding IDs, unresolved_dependencies, proposed focused commands and global SOURCE_ONLY_NOT_RUN, plus actionable next_step. No empty-heading substitution for required content."
+        }
+      ],
+      "counts": {
+        "required_facts": {
+          "PASS": 6,
+          "FAIL": 2
+        },
+        "common_criteria": {
+          "PASS": 4,
+          "FAIL": 1
+        },
+        "material_factual_errors": 0,
+        "unsupported_defect_assertions": 0,
+        "extraneous_findings": 0,
+        "citation_correct": 42,
+        "citation_incorrect": 0,
+        "citation_missing": 0,
+        "distinct_incorrect_citation_propositions": 0,
+        "uncorrected_incorrect_citations": 0,
+        "required_dependency_facts_retained": 2,
+        "required_dependency_facts_partially_lost": 2,
+        "required_dependency_facts_unresolved": 0,
+        "prohibited_scope_actions_observed": 0
+      },
+      "material_errors": [],
+      "unsupported_findings": [],
+      "extraneous_findings": [],
+      "citation_ledger": [
+        {
+          "location": "worker_A/findings/0/evidence/0/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb",
+          "path": "config/routes.rb",
+          "anchor": "resources :canned_responses",
+          "status": "correct",
+          "support": "Equivalent valid symbol resources :canned_responses is supplied in same evidence object; exists at routes.rb:165."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/1/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L1-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L1-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/0/evidence/2/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/0/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L34-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/1/evidence/1/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/0/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L140",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L140",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/1/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/2/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L99",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L99",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/3/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L36",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L36",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/findings/2/evidence/4/url",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L206",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L90-L206",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/0/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_A/dependency_messages/3/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78-L89",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L78-L89",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L50",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L43-L50",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78-L89",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L78-L89",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L39",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L23",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L23",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/1/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L53-L78",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L53-L78",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L46",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/findings/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L222",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L90-L222",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/1/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L6",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/1/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L26-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L26-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/1/source_refs/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/1/source_refs/3",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L22-L59",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/source_refs/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "worker_B/dependency_messages/2/source_refs/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78-L89",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L78-L89",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L165",
+          "path": "config/routes.rb",
+          "anchor": "L165",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L31",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L4-L31",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/0/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L16-L21",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L16-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L34-L43",
+          "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+          "anchor": "L34-L43",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/1/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+          "path": "app/models/canned_response.rb",
+          "anchor": "L23-L30",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+          "path": "app/javascript/dashboard/api/cannedResponse.js",
+          "anchor": "L3-L21",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/2/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L31-L101",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L31-L101",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L38",
+          "path": "app/javascript/dashboard/api/ApiClient.js",
+          "anchor": "L17-L38",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L23",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L16-L23",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/3/evidence/2",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L62-L65",
+          "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+          "anchor": "L62-L65",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/4/evidence/0",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L10-L142",
+          "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+          "anchor": "L10-L142",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/integrated_answer/4/evidence/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L223",
+          "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+          "anchor": "L25-L223",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        },
+        {
+          "location": "coordinator/findings_or_risks/1",
+          "citation": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L5",
+          "path": "app/controllers/api/v1/accounts/base_controller.rb",
+          "anchor": "L3-L5",
+          "status": "correct",
+          "support": "Fixed ref, allowlisted path and line/symbol evidence independently checked; supports associated proposition jointly with adjacent citations."
+        }
+      ],
+      "dependency_delivery": {
+        "status": "PASS_WITH_COVERAGE_LIMITS",
+        "observed_route": "coordinator relays identical envelopes",
+        "message_calls": [
+          {
+            "message_id": "S4-A-Q1",
+            "sender_role": "coordinator",
+            "target": "/masked/S4/worker_B",
+            "call_id": "call_d7bea6ae43c24b9db43571f9de36a567",
+            "message_sha256": "f5ae57fc58f9baf8a7f55502a6a2977e7fedeb0fc2bcfbb1057facdc2816622e",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-BQ1",
+            "sender_role": "coordinator",
+            "target": "/masked/S4/worker_A",
+            "call_id": "call_41a72e3b84b64d11929483ac8aaaacfa",
+            "message_sha256": "b30324325bbf14fa58ee61e28ad5f1e9076d123271b2895d0b1bb3baeaa49159",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-B-A1",
+            "sender_role": "coordinator",
+            "target": "/masked/S4/worker_A",
+            "call_id": "call_4366ea21a7d849008b6bc1be3f6f0b6c",
+            "message_sha256": "4f61546917af9eb634c6b5f96e3a01eb8d71d916b622a8457cbc1a4290daccc5",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-A-ANS-BQ1",
+            "sender_role": "coordinator",
+            "target": "/masked/S4/worker_B",
+            "call_id": "call_e58dbf2fcee84bcabe2967a81aa27ab7",
+            "message_sha256": "9b502f00f4d08d7fb7fbc00ff17410b5b0b3e3932b5624329a296c474e62d3bf",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-A-Q1",
+            "sender_role": "worker_A",
+            "target": "/masked/S4/coordinator",
+            "call_id": "call_b28f59870b244718a2814a4b25eb219e",
+            "message_sha256": "f5ae57fc58f9baf8a7f55502a6a2977e7fedeb0fc2bcfbb1057facdc2816622e",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-A-ANS-BQ1",
+            "sender_role": "worker_A",
+            "target": "/masked/S4/coordinator",
+            "call_id": "call_ff9ac5fd10b7417e836130a83faecf73",
+            "message_sha256": "9b502f00f4d08d7fb7fbc00ff17410b5b0b3e3932b5624329a296c474e62d3bf",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-BQ1",
+            "sender_role": "worker_B",
+            "target": "/masked/S4/coordinator",
+            "call_id": "call_f7a276d4e77345f6b14ce82cd9bab444",
+            "message_sha256": "b30324325bbf14fa58ee61e28ad5f1e9076d123271b2895d0b1bb3baeaa49159",
+            "delivery_response": ""
+          },
+          {
+            "message_id": "S4-B-A1",
+            "sender_role": "worker_B",
+            "target": "/masked/S4/coordinator",
+            "call_id": "call_9ffb5097e5334a41b0789d0a8e507238",
+            "message_sha256": "4f61546917af9eb634c6b5f96e3a01eb8d71d916b622a8457cbc1a4290daccc5",
+            "delivery_response": ""
+          }
+        ],
+        "questions_answered": 2,
+        "paired_receipt_status": "SOURCE_BACKED_AND_PAIRED_AGENT_REPORTED",
+        "independent_transport_inbox_confirmation": "NOT_RUN",
+        "original_handoff_retention": "PARTIAL"
+      },
+      "handoff": {
+        "field_completeness": "PASS",
+        "conservative_string_leaf_word_counts": {
+          "worker_A": 260,
+          "worker_B": 284,
+          "coordinator": 425
+        },
+        "word_limit_format_deviations": [],
+        "all_worker_finding_ids_retained": true,
+        "note": "Retention judged by claim content as well as IDs; keeping IDs does not cure partial loss."
+      },
+      "ambiguous_judgments": [
+        {
+          "issue": "Required explanation versus shortened valid summary",
+          "judgment": "Core compatibility conclusion is correct. F4/F5 FAIL are explicit-detail omissions under frozen oracle, not contradicted source or a bug assertion. If source citation alone were accepted as explaining all omitted fields, these two criteria would change; that would be a grading interpretation requiring separate adjudication."
+        }
+      ],
+      "case_outcome": "FAIL_INCOMPLETE"
+    }
+  ],
+  "limits": [
+    "Only anonymized packet bodies and observer tool-call extraction were read for these four samples; original runs and mapping were not opened. Original artifact hashes are bound as supplied metadata, not independently recomputed from inaccessible original bytes after anonymization.",
+    "Trace covers extracted response_item calls for one segment per role. Tool-output bodies other than delivery responses are replaced by hashes. No complete OS audit, full before/after filesystem diff, hidden reasoning, original prompts, or independently verified fresh-context boundary is exposed.",
+    "No independent inbox/transport acknowledgement is present: every extracted send delivery_response is an empty string. Paired endpoint receipts are agent-reported; correlated trace calls support but do not prove a transport/security guarantee.",
+    "C-SCOPE PASS means no prohibited action observed in available trace and outputs. It is not proof of absence of unlogged actions. Frozen packet reads, own final-artifact write/hash, administrative readiness/completion messages to observer and coordination waits are interpreted as protocol logistics, not unrelated external messaging.",
+    "No application tests, linters, builds, runtime/container/DB/Redis calls, package installs, source writes or Git mutations were run for this adjudication. Proposed commands are NOT_RUN.",
+    "No model/token/timing superiority, weighted winner, statistical significance, implementation quality, defect recall, native Claude result, or human product acceptance is claimed."
+  ],
+  "aggregate_counts": {
+    "samples": 4,
+    "required_facts": {
+      "PASS": 29,
+      "FAIL": 3
+    },
+    "common_criteria": {
+      "PASS": 18,
+      "FAIL": 2
+    },
+    "material_factual_errors": 0,
+    "unsupported_defect_assertions": 0,
+    "extraneous_findings": 0,
+    "citations": {
+      "correct": 185,
+      "incorrect": 3,
+      "missing": 1
+    },
+    "distinct_incorrect_citation_propositions": 1,
+    "prohibited_scope_actions_observed": 0,
+    "required_dependency_facts_retained": 14,
+    "required_dependency_facts_partially_lost": 2,
+    "required_dependency_facts_unresolved": 0,
+    "case_outcomes": {
+      "S1": "PASS",
+      "S2": "PASS",
+      "S3": "FAIL_INCOMPLETE",
+      "S4": "FAIL_INCOMPLETE"
+    },
+    "aggregation_limit": "Raw counts only. No mapping, arm winner, weighting or statistical inference."
+  }
+}

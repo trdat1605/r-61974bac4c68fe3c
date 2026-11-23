@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "source_repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "subject_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "command": "python3 -B docker/isolated/bootstrap.py metadata-regression --base-image sha256:26bc36dfdd6c06aa8093c55142e141758cc9eb713904091ca161b2eb88376897",
+  "observed": {
+    "actual_upstream_metadata_block_linked_worktree": "EXPECTED_FAIL specificallyGitnotarepository",
+    "actual_fixed_metadata_block_with_real_host_SHA": "PASS",
+    "short_nonhex_longSHA": "REJECTED",
+    "normalGitfallback": "PASS"
+  },
+  "log_sha256": "836d77c866d73e9cff1b5936848754a0b5faf22555c05c1a8990b3dc965139f0",
+  "limits": [
+    "ControlledtinyDockercontext provesmetadatafix; fullappimagebuild separate",
+    "UsesexistingGit-equippedimagebyID withverifiedtemporarynamedtag; originalimageandtagretained"
+  ]
+}

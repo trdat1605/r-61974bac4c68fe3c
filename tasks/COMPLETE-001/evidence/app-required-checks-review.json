@@ -1,0 +1,166 @@
+{
+  "task_id": "COMPLETE-001",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "reviewer": "fresh-context app_required_checks_review; independent from root_foundation_completion",
+  "review_type": "Independent plan/script review with public unauthenticated GET verification; no mutation execution",
+  "reviewed_control_commit": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+  "reviewed_utc": "2026-11-23T00:12:34.239464+00:00",
+  "status": "PASS",
+  "exit_code": 0,
+  "blocking_findings": [],
+  "cleared_for_narrow_operation": true,
+  "operation": {
+    "method": "PUT",
+    "url": "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/rulesets/27859157",
+    "repository_id": 1467945011,
+    "ruleset_id": 27859157,
+    "expected_main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+    "expected_app_head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "allowed_change": "Append required_status_checks for metadata, focused-frontend, isolated-runtime, each integration_id15368; strict_required_status_checks_policy=true and do_not_enforce_on_create=true; preserve all prior policy fields. No other remote mutation."
+  },
+  "input_sha256": {
+    "tasks/COMPLETE-001/task.json": "0364359a2ee954b536f471196b508aa22aaec915826670188deaba3c9d1a87f2",
+    "tasks/COMPLETE-001/evidence/app-required-checks-plan.json": "1aa383d6bc3824af219aa7dbbfb96e9de0cbebb64f29e067b7d2bc5c7f45534b",
+    "tasks/COMPLETE-001/evidence/app-required-checks-script.txt": "ea36943a815138dabf8f2b92516ee19e178d615b41089ce7cd23971ef4ff18e2",
+    "config/github/app-main.ruleset.json": "c8c1fed6923c44136b65686d8baa2551695ef03b762213a325bbaddd3428d506",
+    "tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json": "2506b51f3315a94ea4266a72d1ca40524c5568787e83379a0b5896a880f5ba9c",
+    "tasks/COMPLETE-001/evidence/app-workflow-current.json": "e739655b27156ea633481212a20c06c03924b58004b705a0a23e295d0bbcf892"
+  },
+  "script_snapshot_sha256": "ea36943a815138dabf8f2b92516ee19e178d615b41089ce7cd23971ef4ff18e2",
+  "script_exec_path": "C:\\Users\\MFLAT-ADS-010\\AppData\\Local\\Temp\\chatwoot-app-required-checks.py",
+  "script_exec_sha256": "ea36943a815138dabf8f2b92516ee19e178d615b41089ce7cd23971ef4ff18e2",
+  "candidate_sha256": "c8c1fed6923c44136b65686d8baa2551695ef03b762213a325bbaddd3428d506",
+  "checks": [
+    {
+      "name": "Exact snapshot and execution bytes",
+      "status": "PASS",
+      "method": "Read SHA256 of both files; byte equality; ast.parse only. Mutation script was not imported or executed."
+    },
+    {
+      "name": "Minimal ruleset change",
+      "status": "PASS",
+      "method": "Parsed candidate equals plan candidate; all top-level prior mutable fields and ordered existing rules equal plan.before. required_reviewers=[] and require_extra_approval_for_unattributed_changes=true preserved."
+    },
+    {
+      "name": "Repository/main/app identity",
+      "status": "PASS",
+      "method": "Unauthenticated GET repository, main ref and codex/portable-foundation ref",
+      "observed": {
+        "repository_id": 1467945011,
+        "default_branch": "main",
+        "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+        "app_head": "27e166927b93677863e7e7fda22109cfa2ae98b9"
+      }
+    },
+    {
+      "name": "Live prior rules",
+      "status": "PASS",
+      "method": "Unauthenticated GET ruleset27859157 confirms repository source, name, active branch target, conditions and all prior rule fields match plan.before; public API deliberately omits bypass_actors."
+    },
+    {
+      "name": "Actual successful check source",
+      "status": "PASS",
+      "method": "Unauthenticated GET commits/expected_head/check-runs and actions/runs/45082996742",
+      "observed": {
+        "total_check_runs": 3,
+        "app_id": 15368,
+        "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+        "check_names": [
+          "metadata",
+          "focused-frontend",
+          "isolated-runtime"
+        ],
+        "check_ids": [
+          137395198857,
+          137395199109,
+          137395199200
+        ],
+        "all_status": "completed",
+        "all_conclusion": "success",
+        "run_id": 45082996742,
+        "workflow_id": 427206880,
+        "workflow_path": ".github/workflows/foundation-ci.yml",
+        "run_event": "pull_request",
+        "run_attempt": 1
+      }
+    },
+    {
+      "name": "CI merge checkout tree relationship",
+      "status": "PASS",
+      "method": "Unauthenticated GET git/commits for expected app head and actual CI checkout",
+      "observed": {
+        "head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+        "checkout": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+        "both_tree_sha": "65705962f43b3c1a3b35920b66436d3c210c4db6"
+      }
+    },
+    {
+      "name": "Workflow inventory matches evidence",
+      "status": "PASS",
+      "method": "Unauthenticated GET actions/workflows?per_page=100",
+      "observed": {
+        "total_count": 18,
+        "active_workflow_ids": [
+          427206880
+        ],
+        "disabled_manually_count": 17
+      }
+    },
+    {
+      "name": "Script mutation and preflight boundary",
+      "status": "PASS",
+      "method": "Static source/AST read: one remote mutation call only, fixed PUT to owned ruleset; hardcoded repo ID/default branch; expected main/app refs; exact full prior policy; candidate equality/hash and prior-rule preservation; completed success for each exact Actions15368 context on expected-head endpoint. No ref, permission, workflow or runtime mutation."
+    },
+    {
+      "name": "Readback and success boundary",
+      "status": "PASS",
+      "method": "Static source: PASS receipt emitted only after exact mutable ruleset readback, main equality and active effective required_status_checks parameters. API errors/assertion failures interrupt before PASS emission. Existing applied receipt absent at review time."
+    },
+    {
+      "name": "Credential/redirect exposure boundary",
+      "status": "PASS",
+      "method": "Static source: token obtained only by executor from noninteractive git credential helper, used in Authorization header to fixed api.github.com origin; NoRedirect forbids forwarding credentials to another URL; no token printing or persistence in source. Reviewer did not retrieve credentials."
+    }
+  ],
+  "execution_conditions": [
+    "Recheck plan, candidate and execution-script SHA256 against this receipt immediately before execution; any byte change requires renewed review.",
+    "Run from this control repository with normal non-optimized Python (__debug__ true, no -O/-OO and no PYTHONOPTIMIZE). Current read-only python -B -c probe reported optimize=0 and __debug__=True; script guards use assert.",
+    "Respect the script stale guards. A changed repo/ref/prior ruleset is a stop condition, not permission to refresh expected values without review.",
+    "Keep one ruleset operator during this bounded operation. There is no transactional compare-and-swap across preflight GET and PUT.",
+    "If PUT succeeds but readback fails, inspect live state read-only before deciding next action; failure does not imply rollback. Do not treat a stale or absent receipt as evidence of application.",
+    "Execution PASS proves only server configuration/readback. Actual blocked merge attempt, merge, release and product acceptance remain outside this clearance."
+  ],
+  "sources": [
+    {
+      "url": "https://docs.github.com/en/rest/repos/rules#update-a-repository-ruleset",
+      "read_sections": "Get/update repository ruleset; required_status_checks parameters; get rules for a branch",
+      "applied_criteria": "Use fixed repository/ruleset PUT; retain current policy; bind contexts to integration; strict policy; verify active branch rules. Bypass actors are visible only to users with write access."
+    },
+    {
+      "url": "https://docs.github.com/en/enterprise-cloud@latest/rest/repos/rules",
+      "read_sections": "required_status_checks context/integration_id/strict_required_status_checks_policy",
+      "applied_criteria": "Cross-check same required-check schema; no Enterprise-only evaluate enforcement selected."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+      "read_sections": "Unique job names; required check expected app source; strict versus loose checks",
+      "applied_criteria": "Observed names from real checks; source15368 selected; strict policy chosen. Source app binding does not establish workflow correctness."
+    },
+    {
+      "url": "https://docs.github.com/en/rest/checks/runs#list-check-runs-for-a-git-reference",
+      "read_sections": "List check runs for a Git reference; ref/filter/pagination",
+      "applied_criteria": "Query immutable expected-head SHA. Three returned entries all completed success from app15368. Empty merge-ref response is not interpreted as success."
+    }
+  ],
+  "limits": [
+    "Mutation script execution, authenticated bypass-list verification, post-PUT effective-rule behavior and actual merge blocking: NOT_RUN by reviewer. No credentials retrieved and no remote/runtime mutation.",
+    "Public ruleset GET omits bypass_actors by design. Executor exact selected==plan.before guard must verify actual authenticated bypass_actors=[] and abort on change.",
+    "This is exact-byte review of uncommitted plan/script/candidate, not approval of any later edited version or all files at reviewed_control_commit.",
+    "Required checks bind GitHub Actions app15368, not a particular workflow identity. The currently observed checks were independently linked to foundation-ci.yml/run45082996742; future same-name workflow substitution is outside this one-time configuration claim.",
+    "Preflight is not atomic; app ref is checked before PUT, main is also checked after PUT, and script itself contains no ref mutation. Concurrent external writes remain possible.",
+    "Script does not independently validate its own hash or plan hash; the exact-byte executor precheck is required. Candidate equality/hash is enforced by script.",
+    "Single-page check/effective-rule reads are sufficient for current three check-runs/small ruleset and otherwise can fail closed on missing entries; this receipt does not certify a general reusable mutation tool.",
+    "All CI evidence is selected hosted-runner scope. No full app suite rerun, independent raw-log replay, runtime certification or human GitHub approval is claimed.",
+    "Agent has shared machine rights; fresh review context is not an OS or credential sandbox."
+  ]
+}

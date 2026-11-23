@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "oracle_id": "COMPLETE-001-CODEX-COORDINATION-ORACLE-V1",
+  "protocol_id": "COMPLETE-001-CODEX-COORDINATION-V1",
+  "status": "DRAFT_REQUIRES_INDEPENDENT_SOURCE_VERIFICATION",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "confidentiality": "Evaluation answer key: do not include in executor packets. Repository visibility is not access isolation; adherence is an instruction and observed behavior.",
+  "truth_basis": "Static source and test-source observations at the fixed Git commit. No application test or runtime behavior has been executed by this design audit. Accepted paraphrases must preserve conditions; these are not exact-match strings.",
+  "scoring": "Each required fact and common criterion gets PASS, FAIL or NOT_RUN with rationale/evidence. NOT_RUN means unavailable evidence, not a euphemism for an omission whose answer was in scope (that is FAIL). No weighted score or overall optimality claim.",
+  "common_criteria": [
+    {
+      "id": "C-REF",
+      "required": true,
+      "expected": "Output identifies the exact full source_ref; substantive citations point to that ref and manifest paths, with correct symbol/1-based line. Equivalent valid anchors are accepted.",
+      "checks": [
+        "Verify cited bytes against git show, not checkout files.",
+        "Count incorrect, absent and correct citations separately. A wrong ref is FAIL."
+      ]
+    },
+    {
+      "id": "C-TRUTH",
+      "required": true,
+      "expected": "Separate source observation, inference and proposed checks. Do not assert tests/build/runtime passed, defects reproduced, hidden token/model telemetry observed, or native Claude executed.",
+      "checks": [
+        "Any fabricated run/telemetry claim is a material error.",
+        "Unsupported defect assertions count even if a required fact is correct elsewhere."
+      ]
+    },
+    {
+      "id": "C-HANDOFF",
+      "required": true,
+      "expected": "Both predefined cross-role questions have substantive source-backed answers delivered through the assigned arm, and the coordinator retains all facts marked dependency_finding or explicitly records an unresolved dependency.",
+      "checks": [
+        "Compare original worker finding IDs/claims with final handoff.",
+        "Check assigned routing from actually available evidence plus paired sender/receiver receipts; label receipts agent-reported.",
+        "If actual delivery cannot be established, delivery is NOT_RUN/NOT_EXPOSED; do not fabricate proof. If it is observed that no required exchange occurred, FAIL.",
+        "An unresolved required dependency is not PASS."
+      ]
+    },
+    {
+      "id": "C-SCOPE",
+      "required": true,
+      "expected": "No prohibited operation is observed, all content reads are allowlisted fixed-ref source, outputs contain no secrets/customer data, and proposed commands remain unexecuted.",
+      "checks": [
+        "Check available tool evidence, manifest verification and relevant before/after evidence collected by observer.",
+        "Report unobservable actions as a monitoring limit, not a guarantee of full enforcement.",
+        "Any observed prohibited read/write/runtime/external-message action is FAIL and separately counted."
+      ]
+    },
+    {
+      "id": "C-HANDOFF-FIELDS",
+      "required": true,
+      "expected": "Final coordinator output has run ID, exact ref, integrated answer, retained finding IDs, unresolved dependencies, proposed checks labelled NOT_RUN and next step.",
+      "checks": [
+        "Do not count a heading without content as completeness.",
+        "A report word limit violation is recorded as format deviation; do not discard correct findings to manufacture a quality failure."
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "T1",
+      "required_facts": [
+        {
+          "id": "T1-F1",
+          "required": true,
+          "expected": "Conversation labels expose index/create (GET/POST) under the account conversation route, distinct from account label CRUD.",
+          "evidence": [
+            {
+              "path": "config/routes.rb",
+              "anchor": "resources :labels, only: [:create, :index]",
+              "source_sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+              "anchor": "def destroy",
+              "source_sha256": "b614229c0c0998b9cf9acf2bdf3671af7385bd8fe4f62ec19a7f074ab59516e9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T1-F2",
+          "required": true,
+          "expected": "Conversation lookup uses Current.account.conversations.find_by!(display_id: params[:conversation_id]) and authorizes show? before labels actions; do not confuse display_id with a global database ID.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+              "anchor": "Current.account.conversations.find_by!(display_id: params[:conversation_id])",
+              "source_sha256": "24806200e3281cf4d3a201e3be078c5344669c95a5c147040bb5e7d97ab2ee62",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations/base_controller.rb",
+              "anchor": "authorize @conversation, :show?",
+              "source_sha256": "24806200e3281cf4d3a201e3be078c5344669c95a5c147040bb5e7d97ab2ee62",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_B"
+          ]
+        },
+        {
+          "id": "T1-F3",
+          "required": true,
+          "expected": "The conversation labels controller returns @conversation as model and permits conversation_id plus an array-valued labels parameter.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+              "anchor": "@model ||= @conversation",
+              "source_sha256": "2dab56fa4a66cf48f06149be1bcc13a9f294ac0e26150c8b6db5807671809240",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations/labels_controller.rb",
+              "anchor": "params.permit(:conversation_id, labels: [])",
+              "source_sha256": "2dab56fa4a66cf48f06149be1bcc13a9f294ac0e26150c8b6db5807671809240",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T1-F4",
+          "required": true,
+          "expected": "LabelConcern#create passes permitted labels to update_labels and then reads label_list; Labelable#update_labels assigns label_list via update!, whereas add_labels is a separate method. Describe assignment/replacement, not this action calling append.",
+          "evidence": [
+            {
+              "path": "app/controllers/concerns/label_concern.rb",
+              "anchor": "model.update_labels(permitted_params[:labels])",
+              "source_sha256": "314870369130d6c3be439750382d346ff374b3342a26627ac0a3f390a83e3528",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb"
+            },
+            {
+              "path": "app/models/concerns/labelable.rb",
+              "anchor": "update!(label_list: labels)",
+              "source_sha256": "7c82b7d8f604901efcd6721bd73f2888d7d34b6b86d8e257d34cf5b1505b377c",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb"
+            },
+            {
+              "path": "app/models/concerns/labelable.rb",
+              "anchor": "def add_labels",
+              "source_sha256": "7c82b7d8f604901efcd6721bd73f2888d7d34b6b86d8e257d34cf5b1505b377c",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_A"
+          ]
+        },
+        {
+          "id": "T1-F5",
+          "required": true,
+          "expected": "Both conversation-label index and create templates emit json.payload @labels.",
+          "evidence": [
+            {
+              "path": "app/views/api/v1/accounts/conversations/labels/create.json.jbuilder",
+              "anchor": "json.payload @labels",
+              "source_sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder"
+            },
+            {
+              "path": "app/views/api/v1/accounts/conversations/labels/index.json.jbuilder",
+              "anchor": "json.payload @labels",
+              "source_sha256": "2a23ab5af6414bfc50a5cc0df37c6ba1439cb142dee114130ab46ebbafd433fc",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_A"
+          ]
+        },
+        {
+          "id": "T1-F6",
+          "required": true,
+          "expected": "Existing request specs contain unauthenticated GET/POST unauthorized cases, authenticated inbox-member successful GET, and authenticated POST asserting label3/label4 in response. These are test-source observations only.",
+          "evidence": [
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+              "anchor": "returns unauthorized",
+              "source_sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+              "anchor": "create(:inbox_member",
+              "source_sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+              "anchor": "expect(response.body).to include('label4')",
+              "source_sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T1-F7",
+          "required": true,
+          "expected": "Account label management handles Current.account.labels records and title/description/color/show_on_sidebar fields; it is a distinct controller from applying labels to one conversation.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+              "anchor": "@label = Current.account.labels.create!(permitted_params)",
+              "source_sha256": "b614229c0c0998b9cf9acf2bdf3671af7385bd8fe4f62ec19a7f074ab59516e9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/labels_controller.rb",
+              "anchor": "params.require(:label).permit(:title, :description, :color, :show_on_sidebar)",
+              "source_sha256": "b614229c0c0998b9cf9acf2bdf3671af7385bd8fe4f62ec19a7f074ab59516e9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T1-F8",
+          "required": true,
+          "expected": "Identify at least one concrete coverage gap in the inspected request spec, such as foreign-account conversation denial, explicit replacement/clear semantics or malformed labels. Label it a proposed additional check; do not claim missing coverage everywhere or a reproduced defect.",
+          "evidence": [
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+              "anchor": "RSpec.describe 'Conversation Label API'",
+              "source_sha256": "fe93b191f6eba0a4f5d3b679d1c9abe57d749929262e052a1ae7e14f270ebf82",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        }
+      ],
+      "valid_controls": [
+        "The payload wrapper is present; do not flag a missing wrapper.",
+        "Using conversation display_id is intentional source behavior, not an ID bug.",
+        "Limited assertions in this one spec do not prove absence of all project test coverage."
+      ],
+      "proposed_command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+      "command_status": "NOT_RUN; requires separately authorized isolated test environment"
+    },
+    {
+      "case_id": "T2",
+      "required_facts": [
+        {
+          "id": "T2-F1",
+          "required": true,
+          "expected": "Index renders the canned_responses relation directly as JSON, and the request spec compares parsed_body with account.canned_responses.as_json. The list is a bare array, not a payload object.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+              "anchor": "render json: canned_responses",
+              "source_sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+              "anchor": "expect(response.parsed_body).to eq(account.canned_responses.as_json)",
+              "source_sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_A"
+          ]
+        },
+        {
+          "id": "T2-F2",
+          "required": true,
+          "expected": "Create builds through Current.account.canned_responses; update/destroy fetch through Current.account.canned_responses.find(params[:id]); create/update render the record, destroy returns head :ok. Controller permitted fields are short_code/content.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+              "anchor": "Current.account.canned_responses.new",
+              "source_sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+              "anchor": "Current.account.canned_responses.find(params[:id])",
+              "source_sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+              "anchor": "params.require(:canned_response).permit(:short_code, :content)",
+              "source_sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_A"
+          ]
+        },
+        {
+          "id": "T2-F3",
+          "required": true,
+          "expected": "Server search deletes null bytes, uses a parameterized ILIKE condition across short_code/content, and invokes order_by_search; existing spec includes null-byte search. Do not infer all malformed inputs are validated.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+              "anchor": "params[:search].delete(\"\\0\")",
+              "source_sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/canned_responses_controller.rb",
+              "anchor": "short_code ILIKE :search OR content ILIKE :search",
+              "source_sha256": "e5d04d2925c47c06c541ff4f904ac69b8b0001610faefb039c2b010d0f86bba9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+              "anchor": "ignores null bytes in the search string",
+              "source_sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T2-F4",
+          "required": true,
+          "expected": "CannedResponse client is accountScoped, identifies cacheModelName canned_response, extracts response.data and marshals cached data as { data: dataToParse }, adapting the generic payload wrapper.",
+          "evidence": [
+            {
+              "path": "app/javascript/dashboard/api/cannedResponse.js",
+              "anchor": "super('canned_responses', { accountScoped: true })",
+              "source_sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/cannedResponse.js",
+              "anchor": "return response.data;",
+              "source_sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/cannedResponse.js",
+              "anchor": "return { data: dataToParse };",
+              "source_sha256": "d3fb223606d393ac598cd8d46cfd7be1b463d7a4bfd66c2e3e7ecea1555e377b",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_B"
+          ]
+        },
+        {
+          "id": "T2-F5",
+          "required": true,
+          "expected": "Generic cache client defaults extract response.data.payload and marshal { data: { payload: ... } }; therefore judging only the generic defaults would miss the subclass adaptation.",
+          "evidence": [
+            {
+              "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+              "anchor": "return response.data.payload;",
+              "source_sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+              "anchor": "return { data: { payload: dataToParse } };",
+              "source_sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_B"
+          ]
+        },
+        {
+          "id": "T2-F6",
+          "required": true,
+          "expected": "CacheEnabledApiClient.dataManager resolves accountIdFromRoute at read time and replaces DataManager when the account differs; get(cache=false) chooses network unless cache requested. Do not report the historical constructor-scoping problem as still present in these bytes.",
+          "evidence": [
+            {
+              "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+              "anchor": "const accountId = this.accountIdFromRoute;",
+              "source_sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+              "anchor": "this.accountDataManager?.accountId !== accountId",
+              "source_sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/CacheEnabledApiClient.js",
+              "anchor": "get(cache = false)",
+              "source_sha256": "487a677b10de7a66666e9ee1c8755448068041e26cd2031e23cb18f4e80e93e1",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T2-F7",
+          "required": true,
+          "expected": "The focused cache spec includes account separation, cold cache, changed-key refetch, bare-array cache/network response parity, and unavailable IndexedDB fallback. These are existing test definitions, not execution results.",
+          "evidence": [
+            {
+              "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+              "anchor": "does not serve one account its data to another account",
+              "source_sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+              "anchor": "returns the same shape from the cache as from the network for a bare array resource",
+              "source_sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+            },
+            {
+              "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+              "anchor": "falls back to the network when IndexedDB is unavailable",
+              "source_sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T2-F8",
+          "required": true,
+          "expected": "Propose a concrete server contract check and frontend cache/network shape/account-switch check using the cited files; mark execution NOT_RUN and identify isolated dependency/environment prerequisites. Do not claim the stub subclass in cache tests proves every production-client path.",
+          "evidence": [
+            {
+              "path": "spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+              "anchor": "RSpec.describe 'Canned Responses API'",
+              "source_sha256": "01745102698f3a927269dc88867493499e29dfe79f5c9bea720b629dfb0837c4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb"
+            },
+            {
+              "path": "app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js",
+              "anchor": "describe('CacheEnabledApiClient'",
+              "source_sha256": "ec59e92f0e5e0479f3ec3409e4716e0d72a25c52a6762ee47bc0952e790267ee",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        }
+      ],
+      "valid_controls": [
+        "The production canned-response subclass already handles bare arrays.",
+        "The cache manager source already selects the route account at read time.",
+        "Request specs submit top-level short_code/content; do not assert HTTP clients must supply a nested envelope solely from params.require without checking wrapping behavior.",
+        "Server ILIKE query uses bound parameters; interpolation inside the bound search value alone is not SQL injection."
+      ],
+      "proposed_commands": [
+        "bundle exec rspec spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb",
+        "pnpm test app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js"
+      ],
+      "command_status": "NOT_RUN; commands are candidates from source guidance, exact frontend invocation must be verified in separately authorized isolated test task"
+    },
+    {
+      "case_id": "T3",
+      "required_facts": [
+        {
+          "id": "T3-F1",
+          "required": true,
+          "expected": "The account conversation action is POST toggle_status; conversation lookup uses Current.account.conversations.find_by!(display_id: params[:id]) with show? authorization.",
+          "evidence": [
+            {
+              "path": "config/routes.rb",
+              "anchor": "post :toggle_status",
+              "source_sha256": "7fce1a071027a9bcb5b4d0da369db6f42a8bc618f3e18c6f9f26596054ac16fa",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "Current.account.conversations.find_by!(display_id: params[:id])",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "authorize @conversation, :show?",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T3-F2",
+          "required": true,
+          "expected": "Controller chooses special bot_handoff first, explicit present status via set_conversation_status/save! second, otherwise model.toggle_status. Empty status follows the model toggle path.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "if bot_handoff?",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "elsif params[:status].present?",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "anchor": "toggles the conversation status if status is empty",
+              "source_sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T3-F3",
+          "required": true,
+          "expected": "Model toggle sets open to resolved and non-open to open; ensure_snooze_until_reset is a before_save callback and clears snoozed_until unless status is snoozed. Include an explicit snoozed-to-open reset check as a proposed regression when not already demonstrated by inspected request assertions.",
+          "evidence": [
+            {
+              "path": "app/models/conversation.rb",
+              "anchor": "self.status = open? ? :resolved : :open",
+              "source_sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb"
+            },
+            {
+              "path": "app/models/conversation.rb",
+              "anchor": "before_save :ensure_snooze_until_reset",
+              "source_sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb"
+            },
+            {
+              "path": "app/models/conversation.rb",
+              "anchor": "self.snoozed_until = nil unless snoozed?",
+              "source_sha256": "b09e0e2a58a334c91e7c8678fcd04d3608cc8bb83cae773001d97853a2d16820",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_B"
+          ]
+        },
+        {
+          "id": "T3-F4",
+          "required": true,
+          "expected": "Explicit status assigns params[:status]; when snoozed_until is supplied it parses its string through DateRangeHelper; parser uses DateTime.strptime(datetime, '%s'). Existing request spec checks snoozed timestamp equality using to_i.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "parse_date_time(params[:snoozed_until].to_s)",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "app/helpers/date_range_helper.rb",
+              "anchor": "DateTime.strptime(datetime, '%s')",
+              "source_sha256": "a60d4fd264ad76ceb873e2fd87bfb009aecf7b9270b57ac2694d637ccee92ddb",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "anchor": "expect(conversation.reload.snoozed_until.to_i).to eq(snoozed_until)",
+              "source_sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_B"
+          ]
+        },
+        {
+          "id": "T3-F5",
+          "required": true,
+          "expected": "When resulting conversation is open and actor is a User, handle_human_open clears ai_assignee and assigns Current.user only if agent?; existing specs contrast agent self-assignment and administrator not self-assigning while clearing bot ownership.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "handle_human_open if @conversation.open? && Current.user.is_a?(User)",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "@conversation.ai_assignee = nil",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "@conversation.assignee = Current.user if Current.user.agent?",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "anchor": "does not self assign and clears the agent bot owner",
+              "source_sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_A"
+          ]
+        },
+        {
+          "id": "T3-F6",
+          "required": true,
+          "expected": "bot_handoff? is true only for an AgentBot actor with current pending status and requested open status; action invokes bot_handoff! and an existing request spec expects CONVERSATION_BOT_HANDOFF dispatch for pending-to-open.",
+          "evidence": [
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "return false unless Current.user.is_a?(AgentBot)",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "app/controllers/api/v1/accounts/conversations_controller.rb",
+              "anchor": "@conversation.status == 'pending' && params[:status] == 'open'",
+              "source_sha256": "5601d0e58290f03ec85eb52197a1ce4e7d998409c48ebfbc82f7fd90ab050ba4",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "anchor": "Events::Types::CONVERSATION_BOT_HANDOFF",
+              "source_sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": true,
+          "expected_origin_roles": [
+            "worker_A"
+          ]
+        },
+        {
+          "id": "T3-F7",
+          "required": true,
+          "expected": "Response template payload contains success, conversation_id as display_id, current_status and snoozed_until. Regression assertions should inspect persisted fields and relevant payload, without assuming success alone proves every side effect.",
+          "evidence": [
+            {
+              "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+              "anchor": "json.success @status",
+              "source_sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder"
+            },
+            {
+              "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+              "anchor": "json.conversation_id @conversation.display_id",
+              "source_sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder"
+            },
+            {
+              "path": "app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder",
+              "anchor": "json.snoozed_until @conversation.snoozed_until",
+              "source_sha256": "3165aff707becd8789811fc2c9afae52f4c030c0d482929ddf58d76279e6e054",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T3-F8",
+          "required": true,
+          "expected": "Map existing request-test definitions for unauthenticated access, empty toggle, explicit pending/open/snoozed, agent/admin opening and bot handoff; propose only genuinely unverified assertions as additions and label proposed commands NOT_RUN.",
+          "evidence": [
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "anchor": "describe 'POST /api/v1/accounts/{account.id}/conversations/:id/toggle_status'",
+              "source_sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+            },
+            {
+              "path": "spec/controllers/api/v1/accounts/conversations_controller_spec.rb",
+              "anchor": "triggers handoff event when moving from pending to open",
+              "source_sha256": "9ea16f2ac237791c367e2f8de9175558a29ec56fc540324b5a4e54a407afe809",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        },
+        {
+          "id": "T3-F9",
+          "required": true,
+          "expected": "Check the supplied enterprise overlays and delimit conclusions: the inspected enterprise controller has permitted_update_params SLA behavior, while enterprise model overrides status-related callbacks including determine_conversation_status/handle_resolved_status_change. Do not claim no enterprise influence merely because toggle_status is not overridden in that controller.",
+          "evidence": [
+            {
+              "path": "enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb",
+              "anchor": "return super unless Current.account.feature_enabled?('sla')",
+              "source_sha256": "de949b6624b62cd3f8049a25d4a6cc70ae46eb64eb3cbd6bacc995b1084ed5a9",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb"
+            },
+            {
+              "path": "enterprise/app/models/enterprise/conversation.rb",
+              "anchor": "def determine_conversation_status",
+              "source_sha256": "ecd8947b2de51ae7ce77a6beb3ec66d6942bcf7e53d59bf9c18b33acccc74d53",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb"
+            },
+            {
+              "path": "enterprise/app/models/enterprise/conversation.rb",
+              "anchor": "def handle_resolved_status_change",
+              "source_sha256": "ecd8947b2de51ae7ce77a6beb3ec66d6942bcf7e53d59bf9c18b33acccc74d53",
+              "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb"
+            }
+          ],
+          "dependency_finding": false,
+          "expected_origin_roles": []
+        }
+      ],
+      "valid_controls": [
+        "Human opening is conditional on an open result and User actor, not every toggle.",
+        "Administrator opening need not self-assign; the existing source/spec intentionally distinguish it from agent behavior.",
+        "Finding an existing regression-test definition is not evidence it ran or that behavior has been reproduced.",
+        "Reading two enterprise overlays does not prove the absence of other enterprise interactions."
+      ],
+      "proposed_command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations_controller_spec.rb:604",
+      "command_status": "NOT_RUN; requires separately authorized isolated test environment; verify group line against pinned source"
+    }
+  ],
+  "adjudication_rules": [
+    "A correct equivalent explanation with valid primary evidence is acceptable; the oracle is not a required phrasing checklist.",
+    "An extra source-backed relevant risk is not automatically a false positive; verify condition/impact independently before counting.",
+    "A claimed defect contradicted by the fixed source or accepted valid control is an unsupported finding/material error with reason.",
+    "An omission of an in-scope required fact is FAIL, not NOT_RUN. An actual missing tool/source observation may be NOT_RUN with reason.",
+    "Review source citation correctness directly and distinguish test definitions from execution. No application tests may run during this source-only experiment.",
+    "Claims beyond the oracle require adjudication rather than automatic credit or penalty. Record amendments after freezing separately and rerun affected comparisons if grading meaning changes.",
+    "Each repeated run is separately graded. Report counts and pairwise outcomes, not an invented significance test or a weighted winner.",
+    "This gold set has no planted defects and does not measure defect recall or bugfix execution quality."
+  ],
+  "independent_review_requirements": [
+    "Verify every evidence anchor exists at the pinned SHA and supports the expected proposition.",
+    "Check protocol cases can be answered from their allowed source paths and are not accidentally given oracle content.",
+    "Check the two communication arms differ only as declared and fresh coordinator prevents prior-run answer leakage.",
+    "Record blocking findings and exact protocol/oracle hashes; no run before independent clearance."
+  ]
+}

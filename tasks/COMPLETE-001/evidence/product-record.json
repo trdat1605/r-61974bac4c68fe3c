@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task_id": "COMPLETE-001",
+  "issue": "https://github.com/trdat1605/s-251521f7e9131fb0/issues/2",
+  "source": {
+    "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+    "base_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "criteria": [
+    {
+      "id": "AC-METADATA",
+      "description": "Actual upstream linked-worktree Git metadata baseline fails and explicit verified SHA fix plus normalclone fallback passes",
+      "checks": [
+        "metadata_regression"
+      ]
+    },
+    {
+      "id": "AC-ISOLATION",
+      "description": "Tracked-source snapshot and private synthetic project remain isolated; clean-source/id/port/secret boundaries checked",
+      "checks": [
+        "boundary_tests",
+        "isolated_lifecycle"
+      ]
+    },
+    {
+      "id": "AC-RUNTIME",
+      "description": "Fresh hosted build/setup/focused tests/restart and synthetic backup/restore with selected counts passes",
+      "checks": [
+        "isolated_lifecycle",
+        "focused_frontend"
+      ]
+    }
+  ],
+  "environment": "Disposable hosted Ubuntu24.04 runner; cwdev-ci-runtime,ports44440-44442, synthetic dev/test/restoreDB; no existinglab/course access",
+  "risk": "Docker metadata/bootstrap/CI only; no app publicAPI/data model/mobile changes. HTTP200/focused tests do not attest allUI/security/features. Localhost hostdisk remains belowthreshold.",
+  "rollback": "Code branch remains unmerged; lab unchanged. Bootstrap newproject retains source/config pin; syntheticDBrestore exercised onlyhostedrunner. No production rollback acceptance.",
+  "implementation": {
+    "subject_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "implementer": "root_foundation_completion"
+  },
+  "review": {
+    "reviewer": "/root/foundation_app_final_review",
+    "reviewed_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "result": "PASS",
+    "blocking_findings": [],
+    "limits": "Fresh independent full app static review plus public API/receipts; no local runtime or rawCIlog rerun, no humanGitHubapproval or productacceptance. See app-final-review.json.",
+    "evidence": "tasks/COMPLETE-001/evidence/app-final-review.json",
+    "sha256": "86dadeff6c15f7815501e59ced39735f0fdaf5509a8966f8677ddf89dcd065ed"
+  },
+  "checks": [
+    {
+      "name": "metadata_regression",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/COMPLETE-001/evidence/product-metadata_regression.json",
+      "sha256": "a6469bfb6b5983def1de95b96269eab6abd237e7706583dc22b6cd552026af7c"
+    },
+    {
+      "name": "boundary_tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/COMPLETE-001/evidence/product-boundary_tests.json",
+      "sha256": "49e677498267f18b0b9b0e7956cb9d44547428d9cc949debe6783c30e006fa6d"
+    },
+    {
+      "name": "isolated_lifecycle",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/COMPLETE-001/evidence/product-isolated_lifecycle.json",
+      "sha256": "531c099c7be43512686e6fa2789ad8b8787afdd2f0b9f30b8243e4fcf1e1b09f"
+    },
+    {
+      "name": "focused_frontend",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/COMPLETE-001/evidence/product-focused_frontend.json",
+      "sha256": "7e391d1238db2f9299af446b77b9c5caf1fb06ff4f335bd79996dccdd1ad1bcf"
+    }
+  ]
+}

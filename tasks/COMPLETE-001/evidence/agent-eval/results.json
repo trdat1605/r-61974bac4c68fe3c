@@ -1,0 +1,258 @@
+{
+  "dataset": "COMPLETE-001-CODEX-COORDINATION-V3",
+  "status": "EVALUATION_EXECUTED_WITH_OBSERVED_FAILURES",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "runs": [
+    {
+      "run_id": "T1-P-1",
+      "sample_id": "S4",
+      "case": "T1",
+      "arm": "direct-peer",
+      "case_outcome": "PASS",
+      "fact_counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json"
+    },
+    {
+      "run_id": "T1-P-2",
+      "sample_id": "S1",
+      "case": "T1",
+      "arm": "direct-peer",
+      "case_outcome": "PASS",
+      "fact_counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json"
+    },
+    {
+      "run_id": "T1-R-1",
+      "sample_id": "S2",
+      "case": "T1",
+      "arm": "coordinator-routed",
+      "case_outcome": "FAIL",
+      "fact_counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 4,
+        "FAIL": 1,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json"
+    },
+    {
+      "run_id": "T1-R-2",
+      "sample_id": "S3",
+      "case": "T1",
+      "arm": "coordinator-routed",
+      "case_outcome": "PASS",
+      "fact_counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T1-review-addendum.json"
+    },
+    {
+      "run_id": "T2-P-1",
+      "sample_id": "S2",
+      "case": "T2",
+      "arm": "direct-peer",
+      "case_outcome": "PASS",
+      "fact_counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-review.json"
+    },
+    {
+      "run_id": "T2-P-2",
+      "sample_id": "S3",
+      "case": "T2",
+      "arm": "direct-peer",
+      "case_outcome": "FAIL_INCOMPLETE",
+      "fact_counts": {
+        "PASS": 7,
+        "FAIL": 1,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 4,
+        "FAIL": 1,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-review.json"
+    },
+    {
+      "run_id": "T2-R-1",
+      "sample_id": "S4",
+      "case": "T2",
+      "arm": "coordinator-routed",
+      "case_outcome": "FAIL_INCOMPLETE",
+      "fact_counts": {
+        "PASS": 6,
+        "FAIL": 2,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 4,
+        "FAIL": 1,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-review.json"
+    },
+    {
+      "run_id": "T2-R-2",
+      "sample_id": "S1",
+      "case": "T2",
+      "arm": "coordinator-routed",
+      "case_outcome": "PASS",
+      "fact_counts": {
+        "PASS": 8,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T2-review.json"
+    },
+    {
+      "run_id": "T3-P-1",
+      "sample_id": "S1",
+      "case": "T3",
+      "arm": "direct-peer",
+      "case_outcome": "PARTIAL_FAIL",
+      "fact_counts": {
+        "PASS": 7,
+        "FAIL": 2,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-review.json"
+    },
+    {
+      "run_id": "T3-P-2",
+      "sample_id": "S4",
+      "case": "T3",
+      "arm": "direct-peer",
+      "case_outcome": "PARTIAL_FAIL",
+      "fact_counts": {
+        "PASS": 5,
+        "FAIL": 4,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-review.json"
+    },
+    {
+      "run_id": "T3-R-1",
+      "sample_id": "S3",
+      "case": "T3",
+      "arm": "coordinator-routed",
+      "case_outcome": "PARTIAL_FAIL",
+      "fact_counts": {
+        "PASS": 7,
+        "FAIL": 2,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-review.json"
+    },
+    {
+      "run_id": "T3-R-2",
+      "sample_id": "S2",
+      "case": "T3",
+      "arm": "coordinator-routed",
+      "case_outcome": "PARTIAL_FAIL",
+      "fact_counts": {
+        "PASS": 7,
+        "FAIL": 2,
+        "NOT_RUN": 0
+      },
+      "common_counts": {
+        "PASS": 5,
+        "FAIL": 0,
+        "NOT_RUN": 0
+      },
+      "judgment": "tasks/COMPLETE-001/evidence/agent-eval/grading/T3-review.json"
+    }
+  ],
+  "aggregate": {
+    "case_pass": 5,
+    "case_fail_or_partial": 7,
+    "required_facts": {
+      "PASS": 87,
+      "FAIL": 13,
+      "NOT_RUN": 0
+    },
+    "common_criteria": {
+      "PASS": 57,
+      "FAIL": 3,
+      "NOT_RUN": 0
+    }
+  },
+  "input_sha256": {
+    "protocol.json": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+    "oracle.json": "6fbd35b9824688eff7738ba96e69a329ae3003b6bfd6faf9a3aeda272e152d5a",
+    "dataset-manifest.json": "e2998983b54455cb2e1124f8b5ac6f6b0326a01e329ea5510ddbf8b0fe0ca965",
+    "grading/T1-review.json": "7e670a5a245883c16bcc91cf2fd4707206026c5e189b529f9c0be1146b9fc298",
+    "grading/T1-review-addendum.json": "02bb1f2bc188cc18b7ccb327aa658c677debd013e7b978953b3a5612c0d218da",
+    "grading/T2-review.json": "86191c112ca851616fe2225d4d006e8e032d7b5c79359e4f818d3a9aba08e66c",
+    "grading/T3-review.json": "ea1870310e86492f85ec4dc6b7f7ce6e97795d2ca2e32c8845486723d7dd2283",
+    "grading/material-second-check.json": "c8597de91b879d7709d7dd1aaa184c61f750d1aa42595683d100a2f258100b7c"
+  },
+  "decision": "Retain current coordinator+subagents policy provisionally; allow scoped peer dependency exchanges when useful, with explicit permission/acceptance coverage. This experiment does not establish either arm as optimal or replace implementation/runtime review.",
+  "improvements": "Existing coordinator/reviewer briefs now require acceptance-to-evidence completeness and explicit artifact transport/read permissions for future tasks; loaded by CLI, behavioral improvement NOT_YET_EVALUATED. Frozen V3 originals and judgments unchanged.",
+  "limits": [
+    "12 source-only diagnostic runs, no statistical/topology/model superiority claim",
+    "Native Claude Teams NOT_RUN per accepted user scope; no nativeTeams equivalence",
+    "No token/model/hiddencontext telemetry available",
+    "One own-result read outside frozen allowlist observed; no app/secret/runtime breach observed in supplied traces, fullbehavior unknown",
+    "Fact omissions and citations differ from incorrect factual propositions; zero distinct material factualerrors reported is limited to reviewed cases",
+    "Citation counting differs across case reviewers; do not sum or compare citation totals across cases",
+    "Second independent check confirms latest criterion/case dispositions; firstjudgments preserved"
+  ]
+}

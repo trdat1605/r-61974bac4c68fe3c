@@ -1,0 +1,19 @@
+{
+  "task_id": "COMPLETE-001",
+  "status": "FAIL",
+  "phase": "prepare_before_any_runtime_build_start",
+  "subject_commit": "073c3a7ccd989505dedf8c579aa78683ea0c1a5c",
+  "command": "python3 -B docker/isolated/bootstrap.py prepare --port-base 44440",
+  "error_type": "tarfile.LinkOutsideDestinationError",
+  "path": ".windsurf/rules/chatwoot.md",
+  "target": "UNVERIFIED: original receipt inferred ../../../AGENTS.md; independent source read shows ../../AGENTS.md",
+  "observed": "Secure tar data filter rejected source link outside generated snapshot. No containers/volumes/build/start or secrets file created; bootstrap removes only its newly created state directory.",
+  "correction_pending": "Narrow compatibility omission of exact non-runtime developer-rule pointer path+symlink type+target, with regression; preserve all other security filtering.",
+  "limits": [
+    "Static10tests had not covered actual upstream symlink; source snapshot preparation not yet complete"
+  ],
+  "observed_resolved_target": "/root/code/chatwoot-foundation-worktrees/complete-001/.codex/isolated/AGENTS.md",
+  "initial_inference": "Coordinator initially inferred an outside/dangling upstream target; that inference was incorrect.",
+  "verified_source_target": "../../AGENTS.md (inside source root)",
+  "diagnosis": "Independent implementer reproduced Python3.10.12 tarfile data-filter resolving member.linkname from destination root without dirname(member.name). Actual Git archive link is safe; same filter rejects it on this host."
+}

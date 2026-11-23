@@ -1,0 +1,85 @@
+{
+  "run_id": "T2-P-2",
+  "role": "worker_B",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "B1",
+      "claim": "Subclass hooks preserve bare-array response.data; no generic-default mismatch is established.",
+      "classification": "INFERRED_FROM_SOURCE",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43"
+      ],
+      "critical_dependency": "Server answer independently verified."
+    },
+    {
+      "id": "B2",
+      "claim": "Account derives from current route; dataManager reselects on account change. Cache validates keys, refetches empty/stale rows, and falls back when initialization fails.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108"
+      ],
+      "critical_dependency": "DataManager internals outside manifest."
+    },
+    {
+      "id": "B3",
+      "claim": "Specs assert account-switch isolation, cold/warm/stale behavior, bare-array parity and fallback using doubles; NOT_RUN.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L221"
+      ],
+      "critical_dependency": "Runtime unverified."
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T2-P-2-BQ1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "question_or_answer": "message_id=T2-P-2-BQ1; from=worker_B; to=worker_A. At source_ref caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82: Is the index response a bare array or payload wrapper, and is server lookup scoped to Current.account? Please cite exact permitted source paths/lines and explicit search behavior. I will independently verify.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43"
+      ]
+    },
+    {
+      "id": "T2-P-2-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "question_or_answer": "message_id=T2-P-2-A-Q1; A->B predefined dependency: How does the subclass adapt the inherited cache extraction/marshalling contract? Please give exact source lines and response shape. I will verify against immutable frontend source. source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21"
+      ]
+    },
+    {
+      "id": "T2-P-2-A-ANS1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "question_or_answer": "message_id=T2-P-2-A-ANS1; response_to=T2-P-2-BQ1; from=worker_A; to=worker_B. At caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82, canned_responses_controller.rb:4-6 renders canned_responses directly (bare array); spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb:22-29 compares parsed_body directly to account.canned_responses.as_json. Controller :8-11 creates through Current.account; :26-28 fetches update/destroy using Current.account.canned_responses.find; :34-43 index/search use Current.account.canned_responses. Search :35-39 removes NUL, binds %search% into short_code/content ILIKE, calls order_by_search; model :23-30 sanitizes ORDER CASE arguments and ranks short-code prefix 1, short-code substring .5, content .2. References: https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L29 . SOURCE_OBSERVED; request specs only read, NOT_RUN.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L43",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30"
+      ]
+    },
+    {
+      "id": "T2-P-2-B-ANS1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "question_or_answer": "message_id=T2-P-2-B-ANS1; response_to=T2-P-2-A-Q1; from=worker_B; to=worker_A; source_ref=caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82. cannedResponse.js:3-21 enables accountScoped, selects canned_response, overrides extractDataFromResponse to response.data and marshallData to {data: rows}. Base defaults CacheEnabledApiClient.js:43-51 use response.data.payload / {data:{payload:rows}}, but polymorphic calls at :78 and :87-90 use subclass hooks. Therefore inherited generic defaults do not imply canned-response shape mismatch. Cache specs :193-207 assert identical response.data arrays on network/cache using BareArrayClient test double (:27-46), not actual singleton; source read only NOT_RUN. https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L99 ; https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L193-L207. Independently verified your server response/account/search answer against controller :4-43 and model :23-30.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L108",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L221"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "DataManager/helper internals and concurrent route-change behavior unverified."
+  ],
+  "proposed_check_commands": [
+    "pnpm test app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js (NOT_RUN; authorized environment required)."
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

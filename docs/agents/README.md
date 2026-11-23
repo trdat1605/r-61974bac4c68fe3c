@@ -1,5 +1,12 @@
 # Bắt đầu vận hành AI coding agent
 
+**Công việc hiện hành:** [COMPLETE-001](../development/completion.md),
+[checkpoint máy đọc](../../tasks/COMPLETE-001/evidence/checkpoint.json).
+Đọc trạng thái này trước các kết quả lịch sử dưới đây. Bài so sánh Codex và pilot
+app là hai phép kiểm khác nhau; nguồn ứng dụng vẫn ở repo riêng. Runtime lab/course
+chỉ đọc; không chạy ví dụ build local khi C dưới ngưỡng 15 GiB. Docker sang D mới
+là [phương án chuẩn bị](../runbooks/docker-storage-migration.md).
+
 Ngày thiết lập: 18/11/2026. [README dự án](../../README.md) là cửa vào chung; [trạng thái dự án](../status.md) là bản tóm tắt hiện hành. [state.md](state.md) giữ checkpoint agent ngày 18/11 và bằng chứng theo revision, không suy từ việc có các file.
 
 1. Đọc AGENTS.md của repo điều phối và [operating-model.md](operating-model.md).

@@ -32,7 +32,11 @@
     "docs/runbooks/isolated-development.md",
     "config/agents/isolated-runtime.example.json",
     ".github/workflows/agent-governance.yml",
-    "config/github/app-main.ruleset.json"
+    "config/github/app-main.ruleset.json",
+    "docs/runbooks/docker-storage-migration.md",
+    "agents/codex/coordinator.md",
+    "agents/codex/reviewer.md",
+    ".gitattributes"
   ],
   "affected": [
     "Control integration andavailableagent eval",
@@ -59,7 +63,8 @@
     "Sửa app trên checkout và nhánh riêng theo app-task.json; không sửa source hoặc dữ liệu của lab/course hiện có.",
     "Sau review độc lập, build/chạy/test/restart/backup/restore project mới cwdev-complete001 hoặc project kế tiếp cwdev-complete002. Chỉ được xóa containers/volumes do chính COMPLETE-001 tạo với dữ liệu tổng hợp sau khi backup/hash/ID/label/mount được kiểm và script cleanup được reviewer khác xác nhận; không xóa bất kỳ dữ liệu/tài nguyên lab/course hoặc tài nguyên không xác định.",
     "Tắt các workflow kế thừa khi Actions toàn kho còn tắt; chỉ bật CI đã được review sau khi kiểm trạng thái mọi workflow.",
-    "Chuẩn bị PR tích hợp có SHA và review cụ thể; quyết định merge/phát hành vẫn dành cho chủ sản phẩm."
+    "Chuẩn bị PR tích hợp có SHA và review cụ thể; quyết định merge/phát hành vẫn dành cho chủ sản phẩm.",
+    "Sau review độc lập của kế hoạch/script cụ thể và CI đã PASS, chỉ thêm ba required app checks vào ruleset hiện có; giữ nguyên main, bypass và các trường policy khác. Không merge hoặc phát hành."
   ],
   "checks": [
     "governance_and_scope",
@@ -84,7 +89,10 @@
     "config/agents/runtime.json",
     "tasks/COMPLETE-001/evidence/agent-eval/protocol.json",
     "tasks/COMPLETE-001/evidence/agent-eval/oracle.json",
-    "config/github/app-main.ruleset.json"
+    "config/github/app-main.ruleset.json",
+    "agents/codex/coordinator.md",
+    "agents/codex/reviewer.md",
+    ".gitattributes"
   ],
   "status": "specified",
   "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18",
@@ -99,13 +107,22 @@
   ],
   "scope_decision": {
     "agent_evaluation": "Người dùng xác nhận chưa có Claude Code; yêu cầu kiểm chứng các cách phối hợp Codex hiện có và ghi rõ giới hạn Claude.",
-    "native_claude_teams": "NOT_RUN; không dùng tên này cho các phép thử Codex."
+    "native_claude_teams": "NOT_RUN; không dùng tên này cho các phép thử Codex.",
+    "docker_storage": "User requests preparation and independent review of Docker-data relocation to D only; do not apply migration/restart existing runtime."
   },
   "scope_decisions": [
     {
       "basis": "Người dùng yêu cầu hoàn thiện cả7mục; prepare/fullbuild/CI/runtimepilot vàdiễntậpphụchồisynthetictaskresources làcôngviệccầnthiếtđãđượcgiao.",
       "runtime_successor": "cwdev-complete002 thay snapshot076 cóstartupbug; giữbằngchứngoldref, khônglà thayruntimehiệncó.",
       "cleanup_boundary": "Chỉownednewsyntheticproject001 saubackup; không pruneglobal hoặc xóakhôngrõowner."
+    },
+    {
+      "basis": "Empirical V3 source-only judgments identify lost required details/citation omissions in coordinator finalhandoff; preserve originals and firstjudgments; improve future briefs without retroactively changing frozen experiment.",
+      "change": "Add acceptance-to-evidence and unresolved-detail checks to existing coordinator/reviewer briefs, independent finalcontrolreview required."
+    },
+    {
+      "basis": "Two newly received independent review originals use CRLF and their raw hashes are already bound by product/evaluation records. Preserve original judgment bytes through Git checkout, instead of rewriting originals/hashes.",
+      "change": "Exact -text attributes for only app-final-review.json and grading/material-second-check.json; normal repository LF policy retained for other files. Finalcontrolreview mustcheck."
     }
   ]
 }

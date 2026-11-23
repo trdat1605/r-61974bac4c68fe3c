@@ -1,0 +1,24 @@
+{
+  "settings_file": "C:\\Users\\MFLAT-ADS-010\\AppData\\Roaming\\Docker\\settings-store.json",
+  "selected_settings": {
+    "EnableIntegrationWithDefaultWslDistro": true,
+    "IntegratedWslDistros": [
+      "Ubuntu-22.04"
+    ]
+  },
+  "vhd_files": [
+    {
+      "path": "C:\\Users\\MFLAT-ADS-010\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+      "size_bytes": 28879880192,
+      "size_gib": 26.9
+    },
+    {
+      "path": "C:\\Users\\MFLAT-ADS-010\\AppData\\Local\\Docker\\wsl\\main\\ext4.vhdx",
+      "size_bytes": 100663296,
+      "size_gib": 0.09
+    }
+  ],
+  "disk_D_free_gib": 72.41,
+  "status": "READ_ONLY_INVENTORY",
+  "note": "Not fullsettings dump; no credentialfields. No changes/move/restart."
+}

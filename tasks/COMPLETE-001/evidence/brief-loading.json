@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "checks": [
+    {
+      "role": "coordinator",
+      "exit_code": 0,
+      "new_brief_content_loaded": true,
+      "stdout_sha256": "3e3ca18ede9b1f3481485cb6e1995e5cc7b36391908f6fff7ab5fd4ee350a9b7",
+      "command": "python -B tools/agents/workflow.py brief --role coordinator --task tasks/COMPLETE-001/task.json"
+    },
+    {
+      "role": "reviewer",
+      "exit_code": 0,
+      "new_brief_content_loaded": true,
+      "stdout_sha256": "65f0b61136d0593b918d0dee0d8089f091b02c01272650c6de4c434947c4dfa2",
+      "command": "python -B tools/agents/workflow.py brief --role reviewer --task tasks/COMPLETE-001/task.json"
+    }
+  ],
+  "earlier_observer_attempt": {
+    "status": "FAIL",
+    "error": "JSONDecodeError",
+    "cause": "Observer initially parsed documented plaintext brief as JSON; corrected reader to UTF-8 plaintext. No product/toolcode fix or changed successcriteria."
+  },
+  "limits": "Confirms explicit CLI loads role text; does not prove all future chats auto-load or comply. Original frozen eval packets unchanged."
+}

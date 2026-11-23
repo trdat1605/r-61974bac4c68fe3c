@@ -1,0 +1,25 @@
+{
+  "run_id": "T3-P-2",
+  "packet_sha256": "d5ab1cca80632a68ea56bc78da5c526c40550f9e30a9e990eac1322137a92ca2",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "roster": {
+    "coordinator": "/root/v3_t3p2_c",
+    "worker_A": "/root/v3_t3p2_a",
+    "worker_B": "/root/v3_t3p2_b"
+  },
+  "dispatch_utc": "2026-11-22T23:45:05.516603+00:00",
+  "status": "OUTPUTS_CAPTURED",
+  "model_identity": "NOT_EXPOSED",
+  "observer_interventions": [
+    {
+      "type": "start_signal_delivery",
+      "description": "Coordinator reported A had not received START and had done no source reads; coordinator forwarded original START to both workers. No prompt/source/criteria/answers changed."
+    }
+  ],
+  "capture_end_utc": "2026-11-22T23:51:54.330794+00:00",
+  "output_sha256": {
+    "coordinator-original.json": "200f283afe0aa21a5cee311a391558be1ab35d0c704d83f09dc13b9a8c2ae5e8",
+    "worker_A-original.json": "8237487e601a3fd85aa9921220c0e28512f6f955fcb6697869068752f436f9d4",
+    "worker_B-original.json": "d951200c5a92dc37921d3d2efea137d73ac53895a2d4304524bace565840cd68"
+  }
+}

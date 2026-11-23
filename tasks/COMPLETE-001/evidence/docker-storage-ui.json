@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-11-22T23:18:16.929473+00:00",
+  "method": "computer-use @oai/sky read-only Docker Desktop accessibility document",
+  "version": "4.99.0",
+  "window": "Settings - Docker Desktop",
+  "backend": "WSL 2",
+  "disk_image_location": "C:/Users/MFLAT-ADS-010/AppData/Local/Docker/wsl",
+  "section": "VM resources",
+  "observed_controls": [
+    "Disk image location",
+    "Browse…",
+    "No unsaved changes",
+    "Apply disabled"
+  ],
+  "actions": [
+    "Opened existing Docker dashboard",
+    "Navigated to Settings only"
+  ],
+  "not_performed": [
+    "No Browse selection",
+    "No settings edit or Apply",
+    "No stop/restart/move/backup"
+  ],
+  "limitations": [
+    "Availability of location control verified; relocation itself NOT_RUN",
+    "Initial input failed geometry unavailable; refreshed real window and navigated successfully"
+  ]
+}

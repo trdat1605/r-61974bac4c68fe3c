@@ -1,0 +1,25 @@
+{
+  "run_id": "T1-R-2",
+  "packet_sha256": "9ac8f975919e1edcb8a8cf9f020268ebd7baa182452c96b02ea57848adf125fd",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "roster": {
+    "coordinator": "/root/v3_t1r2_c",
+    "worker_A": "/root/v3_t1r2_a",
+    "worker_B": "/root/v3_t1r2_b"
+  },
+  "dispatch_utc": "2026-11-22T22:58:23.547084+00:00",
+  "status": "COMPLETED_PENDING_ADJUDICATION",
+  "model_identity": "NOT_EXPOSED",
+  "observer_interventions": [
+    {
+      "type": "rosterclarification",
+      "reason": "Coordinatorprefixlist_agents returnedempty; exactspawnedrosterresupplied, nocasehints"
+    }
+  ],
+  "end_utc": "2026-11-22T23:02:34.111865+00:00",
+  "output_hashes": {
+    "worker_A": "17f00ed615cd099fce949f6958b056f1a79b1519d09addc4fc0441aa4fce4b33",
+    "worker_B": "d839bf57c684cacfd5a36ba754a3855f4fe75ed14c14b86864a9e00d0bf918bc",
+    "coordinator": "4cdd0259f96e9308a5af5d0969d927dd31d785568e25e47bcbedc2bcda4fd798"
+  }
+}

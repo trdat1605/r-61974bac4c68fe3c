@@ -1,0 +1,139 @@
+{
+  "run_id": "T1-R-2",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "integrated_answer": [
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "GET and POST /api/v1/accounts/:account_id/conversations/:conversation_id/labels map to index/create; conversation labels expose only these two actions.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L48-L58",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L190-L208"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "The conversation before_action resolves Current.account.conversations.find_by!(display_id: params[:conversation_id]), then invokes authorize @conversation, :show?. Account base includes EnsureCurrentAccountHelper and schedules current_account, conditional token API-access and MFA checks. This establishes visible call boundaries, not the omitted helper/policy's criteria.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L2-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/base_controller.rb#L3-L15"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Conversation-label parameters permit conversation_id and labels: []; model is @conversation. No catalog-membership restriction appears in this controller/concern; permissible values and normalization inside omitted persistence code remain unverified. GET reads model.label_list; POST calls update_labels(permitted_params[:labels]) then reads that list.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/labels_controller.rb#L1-L11",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L4-L10"
+      ]
+    },
+    {
+      "classification": "INFERRED_FROM_SOURCE",
+      "claim": "POST replaces the assigned label list rather than appending: update_labels calls update!(label_list: labels), while the distinct combining add_labels helper is not called by this endpoint. Persistence, normalization and edge-input behavior were not executed.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/concerns/label_concern.rb#L2-L4",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/concerns/labelable.rb#L9-L18"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Both response templates emit json.payload @labels: the response has a payload wrapper containing model.label_list.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/create.json.jbuilder#L1",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/labels/index.json.jbuilder#L1"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Account label CRUD is separate: /accounts/:account_id/labels exposes index/show/create/update/destroy for Current.account.labels, uses policy_scope/check_authorization, fetches by label ID, and requires nested label attributes title/description/color/show_on_sidebar. Destroy enqueues association cleanup. These are account label records, distinct from replacing a conversation's label list.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/config/routes.rb#L370",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/labels_controller.rb#L1-L42"
+      ]
+    },
+    {
+      "classification": "SOURCE_OBSERVED",
+      "claim": "Supplied request-test source covers GET/POST unauthenticated unauthorized responses and successful authenticated account agents with inbox membership. GET checks label1/label2 substrings; POST seeds those then checks label3/label4 substrings. It asserts neither exact payload, old-label removal, reloaded persistence nor authenticated denial. This is coverage inspection, not passing execution.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L6-L76"
+      ]
+    }
+  ],
+  "retained_worker_finding_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "B1",
+    "B2",
+    "B3",
+    "B4"
+  ],
+  "unresolved_dependencies": [
+    "Cross-role questions resolved through unchanged relay and independent fixed-ref inspection.",
+    "Current-account resolution, show? policy criteria and Labelable::Persistence are outside manifest. No conclusion about their implementation; further investigation requires scope extension."
+  ],
+  "findings_or_risks": [
+    {
+      "classification": "INFERRED_FROM_SOURCE",
+      "claim": "One justified unverified gap: an authenticated user denied access to the conversation. The controller invokes show? authorization, but supplied request specs demonstrate only unauthenticated denial and authorized membership success. This does not establish a defect; a denial scenario is needed to verify the access boundary.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations/base_controller.rb#L6-L8",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb#L13-L76"
+      ]
+    }
+  ],
+  "dependency_message_receipts": [
+    {
+      "id": "T1-R-2-A-Q1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "route": "A -> coordinator -> B",
+      "receipt": "Received and forwarded unchanged using actual send_message."
+    },
+    {
+      "id": "T1-R-2-B-A1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "route": "B -> coordinator -> A",
+      "receipt": "Received and forwarded unchanged; A independently verified (T1-R-2-A-VERIFIED-B-A1)."
+    },
+    {
+      "id": "T1-R-2-BQ1",
+      "from": "worker_B",
+      "to": "worker_A",
+      "route": "B -> coordinator -> A",
+      "receipt": "Received and forwarded unchanged using actual send_message."
+    },
+    {
+      "id": "T1-R-2-A-ANSWER-BQ1",
+      "from": "worker_A",
+      "to": "worker_B",
+      "route": "A -> coordinator -> B",
+      "receipt": "Received and forwarded unchanged; B independently verified (T1-R-2-B-VERIFY1)."
+    }
+  ],
+  "worker_final_receipts": [
+    {
+      "role": "worker_A",
+      "sha256": "17f00ed615cd099fce949f6958b056f1a79b1519d09addc4fc0441aa4fce4b33",
+      "receipt": "Full exact original JSON received through actual message before exit; acknowledged. Worker file not read."
+    },
+    {
+      "role": "worker_B",
+      "sha256": "d839bf57c684cacfd5a36ba754a3855f4fe75ed14c14b86864a9e00d0bf918bc",
+      "receipt": "Full exact original JSON received through actual message before exit; acknowledged. Worker file not read."
+    }
+  ],
+  "verification": "Coordinator independently read all cited manifest source using immutable git show. Pinned commit resolved successfully; an initial unquoted PowerShell rev-parse invocation failed, then quoted retry resolved the exact ref. Packet SHA256 verified.",
+  "proposed_check_commands": [
+    {
+      "command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations/labels_controller_spec.rb",
+      "status": "NOT_RUN",
+      "condition": "Future explicitly authorized test environment; existing suite alone does not add the missing denial scenario."
+    }
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN",
+  "telemetry": "NOT_EXPOSED",
+  "next_step": "If deeper access verification is requested, extend manifest to current-account helper and authorization policy; separately authorize an authenticated-denial request check. No implementation, runtime execution or product acceptance occurred."
+}

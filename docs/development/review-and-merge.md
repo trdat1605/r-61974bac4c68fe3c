@@ -31,3 +31,19 @@ Khi có tính năng/gói và quyết định quyền phù hợp: reviewer đọc
 ## Nguồn
 
 [GitHub protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) mô tả availability/private plans, stale review, checks và bypass. [GitHub Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use) hỗ trợ quyền tối thiểu, tránh chạy PR input như shell và pin dependencies. [Claude Code review](https://claude.dev/blog/solving-code-review-at-anthropic/) là căn cứ tham khảo trách nhiệm, không cấp quyền hoặc bảo đảm thực thi cho repo này.
+
+## COMPLETE-001 — CI ứng dụng và PR tích hợp
+
+App [PR3](https://github.com/trdat1605/s-251521f7e9131fb0/pull/3) đã chạy
+[CI45082996742](https://github.com/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742)
+PASS tại head27e1669: metadata, focused-frontend và isolated-runtime. Bản local
+`config/github/app-main.ruleset.json` đề xuất ba required contexts từ GitHub Actions
+app15368; [kế hoạch/script](../../tasks/COMPLETE-001/evidence/app-required-checks-plan.json)
+đã được review độc lập và [apply/readback PASS](../../tasks/COMPLETE-001/evidence/app-required-checks-applied.json). Cả ba contexts được yêu cầu trên main với source Actions15368, strict và không bypass; prior fields/main giữ nguyên. Đây là server config readback, chưa là merge hoặc kiểm thử sản phẩm đầy đủ.
+
+PR control tích hợp nối toàn bộ ancestry hiện có tới main; phải merge commit,
+không squash/rebase vì gate theo reviewed-subject ancestry. Final review nhận exact
+control subject, app subject và receipts riêng. CI control sẽ clone đúng app SHA
+để kiểm product record, ngoài tests/handoff/issue checks. Gate consistency không
+xác thực toàn bộ lời khai hoặc nghiệp vụ. Chỉ xin quyết định merge sau khi PR/SHA
+cụ thể và checks/reviews sẵn sàng; không đóng issue hoặc đổi Draft thay owner.

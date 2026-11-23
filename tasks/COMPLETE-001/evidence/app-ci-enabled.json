@@ -1,0 +1,136 @@
+{
+  "task_id": "COMPLETE-001",
+  "status": "PASS",
+  "source_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "steps": [
+    {
+      "step": "preconditions",
+      "status": "PASS",
+      "repo_id": 1467945011,
+      "all17disabled": true,
+      "global_enabled": false,
+      "main": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+      "head": "07686773cb515aba4029823ffe585e80fca705a5",
+      "workflow_sha256": "5d99ffa2d51e39becea2a2a54581ff840efe685652c70a8f8bb5956b93f3da79"
+    },
+    {
+      "step": "enable_selected_before_allowlist",
+      "status": "PASS",
+      "reason": "GitHub409 while globallydisabled; all17individuallyoff andruns0, noPR/push/schedulecandidateevent"
+    },
+    {
+      "step": "pinned_actions_allowlist",
+      "status": "PASS",
+      "policy": {
+        "github_owned_allowed": false,
+        "verified_allowed": false,
+        "patterns_allowed": [
+          "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020"
+        ]
+      }
+    },
+    {
+      "step": "create_app_pr",
+      "status": "PASS",
+      "url": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/3",
+      "number": 3,
+      "head": "07686773cb515aba4029823ffe585e80fca705a5"
+    },
+    {
+      "step": "observed_candidate_runs",
+      "status": "PASS",
+      "runs": [
+        {
+          "id": 45079328287,
+          "path": ".github/workflows/foundation-ci.yml",
+          "head_sha": "07686773cb515aba4029823ffe585e80fca705a5",
+          "event": "pull_request",
+          "status": "in_progress"
+        }
+      ]
+    },
+    {
+      "step": "final",
+      "status": "PASS",
+      "old_states": [
+        {
+          "id": 427113058,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113059,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113060,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113061,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113064,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113065,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113066,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113067,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113069,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113070,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113071,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113073,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113074,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113075,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113077,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113078,
+          "state": "disabled_manually"
+        },
+        {
+          "id": 427113079,
+          "state": "disabled_manually"
+        }
+      ]
+    }
+  ],
+  "exit_code": 0,
+  "pr_url": "https://github.com/trdat1605/s-251521f7e9131fb0/pull/3",
+  "pr_number": 3,
+  "limits": [
+    "CI results pending; script onlyenablesreviewedworkflowandcreatesDraftPR",
+    "No merge/release/runtime mutation; main source preserved",
+    "Individualoldworkflowstates andactionsallowlist guard ongoing"
+  ]
+}

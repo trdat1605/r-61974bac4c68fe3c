@@ -1,41 +1,39 @@
 # Trạng thái dự án
 
-Cập nhật khảo sát **23/11/2026, Asia/Saigon**. [Điểm bắt đầu](../README.md), [nơi lưu bản chính](project-map.md). Nội dung này thay vai trò trạng thái tổng thể của các ghi chép trước; không thay kết quả lịch sử tại đúng revision.
+Cập nhật **23/11/2026, Asia/Saigon**. [Điểm bắt đầu](../README.md), [bản đồ](project-map.md), [công việc COMPLETE-001](development/completion.md). Đây là trạng thái kỹ thuật đang thực hiện trên `codex/complete-foundation`, chưa merge hoặc nghiệm thu toàn bộ bảy mục.
 
-## Thay đổi kho ngày 23/11 — PUB-001
+## Hai môi trường cần phân biệt
 
-Hai kho đã được đổi tên và công khai theo yêu cầu riêng của chủ sản phẩm: [control](https://github.com/trdat1605/r-61974bac4c68fe3c) và [app](https://github.com/trdat1605/s-251521f7e9131fb0). Xem [quyết định/phạm vi/bằng chứng](development/repository-publication.md). Giữ nguyên ID, nhánh và source app; Actions app tiếp tục tắt. Task/evidence lịch sử giữ tên/visibility theo thời điểm ghi. FLOW-001 đã review PASS và CI tại bản bàn giao `f8e5822`; không đồng nghĩa bảy cải tiến hoàn tất. PR stack còn Draft/open; chưa merge hoặc bật server enforcement.
+**Lab hiện có** dùng Chatwoot v4.19.1 tại `caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82`, branch `codex/wsl-migration`, Docker Desktop + WSL2, source Linux, development. [Profile](../config/agents/runtime.json) và [cách chạy](runbooks/local-development.md). COMPLETE-001 giữ lab Chatwoot và website khóa học ở phạm vi chỉ đọc, không đổi code/runtime/dữ liệu của hai ứng dụng này.
 
-## Bảo vệ nhánh — GOV-001
+**Môi trường thử COMPLETE-001** dùng clone/worktree và nhánh app `codex/portable-foundation` riêng. [App task](../tasks/COMPLETE-001/evidence/app-task.json) giữ SHA hiện hành. [Draft app PR3](https://github.com/trdat1605/s-251521f7e9131fb0/pull/3) sửa lỗi Docker build từ linked worktree và cung cấp bootstrap/CI tách biệt. Nó chưa được đưa vào lab hoặc main. Không dùng control commit làm app commit.
 
-[Issue15](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/15) đã áp main rules sau khi public: yêu cầu PR, chặn deletion/nonfastforward cả hai kho; control yêu cầu hai job từ GitHub Actions. Probe đã thấy invalid metadata → required job FAIL → blocked, rồi valid metadata → jobs PASS → clean. Không merge thật; probe là replay, không phải sản phẩm. [Kế hoạch và kết quả](development/branch-protection.md), [tracker cập nhật](development/improvement-tracker.md). Kho app chưa có product CI; dựng lại môi trường và pilot vẫn là việc tiếp theo. Tài liệu/control CI không chứng minh Chatwoot ổn định.
+## Bằng chứng đã có và giới hạn
 
-## Đã quan sát / đã có bằng chứng
+- Regression Docker thực: baseline upstream lỗi Git metadata, bản sửa PASS. Full development image build đã PASS tại `0768677`; đó không phải bằng chứng build ở mọi commit sau. [Các receipt](../tasks/COMPLETE-001/evidence/) giữ cả lỗi và giới hạn.
+- Runtime thử local lần đầu FAIL vì Vite đợi cài dependency tương tác. Có sửa và review riêng; không đổi FAIL cũ thành PASS. Do C dưới ngưỡng 15 GiB, không tạo thêm runtime local. Chỉ tài nguyên tổng hợp do task tạo đã được dọn sau backup/review; Postgres volume thử vẫn giữ. Chín container được bảo vệ giữ nguyên identity/start time tại lần đối chiếu.
+- CI ứng dụng đã chạy metadata và focused frontend thật; lifecycle build/setup/test/restart/restore trên runner dùng một lần đã PASS tại apphead27e1669, mergecheckout8d953fd có tree giống hệt. Xem đúng run/SHA trong [completion](development/completion.md), không suy từ CI cũ.
+- Bộ công cụ điều phối local: 80 unit tests PASS; đây là test fixtures của tooling, không chứng minh sản phẩm Chatwoot ổn định.
+- Phép so sánh Codex theo protocol V3 đã đủ 12 lượt, có chấm độc lập và second check (5 PASS, 7 fail/partial); coordinator-routed và peer đều là cơ chế Codex hiện có. Claude Agent Teams NOT_RUN theo phạm vi người dùng đã xác nhận. Giữ lựa chọn tạm và cải thiện brief sau các lỗi thực; chưa có kết luận mô hình tối ưu hoặc số đo tiết kiệm token.
+- [F5 ngày 23/11](reviews/performance/2026-11-23-f5.md): hai lượt load khoảng 13,12s/11,02s; HTML khoảng 186ms/161ms. Chờ module development trước khi API bắt đầu là quan sát, chưa cô lập mọi nguyên nhân hoặc có production comparison. Load event không đồng nghĩa app dùng được. Chưa sửa hiệu năng F5.
 
-- Source ứng dụng đang chạy: Chatwoot v4.19.1, commit `caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82`, branch `codex/wsl-migration`. Kiểm lại ngày 23/11: HEAD/branch đúng profile và `git status --short` rỗng. Vị trí/môi trường: [profile](../config/agents/runtime.json), [runbook](runbooks/local-development.md).
-- Docker Desktop + WSL2, source Linux, chế độ development. Lượt chẩn đoán 23/11 ghi sáu dịch vụ đang chạy và health HTTP200; không phải nghiệm thu đầy đủ ứng dụng.
-- [F5 ngày 23/11](reviews/performance/2026-11-23-f5.md): hai lượt load khoảng 13,12s và 11,02s trong trình duyệt đã quan sát, trong khi HTML khoảng 186ms và 161ms. Bằng chứng mạnh chỉ về chờ tải frontend module development trước khi API bắt đầu; chưa cô lập hết nguyên nhân, chưa có đối chiếu production hoặc sửa hiệu năng. Load event không phải thời điểm app dùng được.
-- [Báo cáo nền móng 18/11](reviews/project-foundation/README.md) và [checkpoint agent 18/11](agents/state.md) giữ các kết quả đạt/không đạt/NOT_RUN theo ngày và commit. Đã có thử nghiệm giao việc/review/tooling; không suy ra hệ thống sản phẩm ổn định hoặc mọi phiên AI tự đọc đúng.
+## Quản trị và nơi lưu kết quả
 
-## Tài liệu dùng chung đang thay đổi
+Hai kho [control](https://github.com/trdat1605/r-61974bac4c68fe3c) và [app](https://github.com/trdat1605/s-251521f7e9131fb0) công khai theo PUB-001. Tên ngẫu nhiên không giữ bí mật. Control chứa tài liệu/cấu hình/công cụ/bằng chứng sạch; app chứa source ứng dụng. Secrets, dumps và dữ liệu khách hàng không đưa vào Git.
 
-Kho công khai `trdat1605/r-61974bac4c68fe3c` hiện chứa hồ sơ/công cụ, **chưa chứa source ứng dụng**. DOCS-001 thiết lập README, bản đồ, catalog gốc và trạng thái trên `codex/docs-home`; [review](../tasks/DOCS-001/review.json) PASS đúng subject và [PR #3](https://github.com/trdat1605/r-61974bac4c68fe3c/pull/3) có [CI đạt](https://github.com/trdat1605/r-61974bac4c68fe3c/actions/runs/45056629726) tại bản bàn giao. Không mở rộng kết quả ấy sang revision khác hoặc sản phẩm.
+GOV-001 đã bật rules yêu cầu PR, chặn deletion/non-fast-forward trên main hai kho; control có hai required jobs. [Bằng chứng quản trị](development/branch-protection.md) bao gồm phép thử fail → blocked, pass → clean; chưa merge thật, agent review không là GitHub human approval. COMPLETE-001 đã bổ sung CI app và ba required checks sau review, tắt toàn bộ 17 workflow kế thừa; chỉ workflow đã review được bật với action allowlist và token đọc. Xem receipt hiện hành thay vì dùng trạng thái Actions-disabled lịch sử.
 
-DOCS-002 trên `codex/knowledge-handoff` đã có [review PASS](../tasks/DOCS-002/review.json) tại app-independent documentation subject `a2f8fcf45bc5479a0a5f8548784e03a309f7a1b1`, bản bàn giao control `c7c884151d8baaa6d95312846b6ee4db3a6d5016`, [Draft PR #4](https://github.com/trdat1605/r-61974bac4c68fe3c/pull/4) và [CI đạt tại bản đó](https://github.com/trdat1605/r-61974bac4c68fe3c/actions/runs/45058938525). Reviewer tiếp quản từ clone GitHub trên cùng máy; chưa là dựng app máy khác hoặc app-chat auto-loading. Giữ cả ngoại lệ whitespace nguyên gốc và các gate chưa đạt trước metadata trong hồ sơ.
+Main control còn gần bản khởi tạo; bộ tài liệu mới nằm trên nhánh làm việc và PR stack chưa merge. PR tích hợp phải giữ ancestry của reviews bằng merge commit. Không coi file templates có trên nhánh là đã active trên default branch.
 
-FLOW-001 trên `codex/product-foundation` triển khai nền móng [bảy cải tiến](development/improvement-tracker.md), liên kết issue5–11, [quy trình sản phẩm](development/product-workflow.md), checker và nguồn/reproduction. Kết quả review cuối và CI của bản mới xem task/PR; tài liệu có mặt không chứng minh mọi cổng đã đạt. Source app baseline đã có ở [chatwoot-vn-app](https://github.com/trdat1605/s-251521f7e9131fb0) đúng `caab07a8...`, Actions tắt trước first push và vẫn tắt; [bằng chứng](../tasks/FLOW-001/evidence/source-seeded.json). Chưa có adapter portable hoặc product CI.
+## Việc còn mở
 
-Kiểm GitHub ngày 23/11 trước FLOW-001: PR1–4 còn Draft/open. Nhánh FLOW-001 phụ thuộc #4, rồi #3 → #2 → #1. Chưa merge, chưa nghiệm thu sản phẩm; trạng thái PR/checks có thể đổi sau ngày ghi, kiểm trực tiếp tại PR. GET rulesets private trả403 yêu cầuPro; [giới hạn và điều kiện review/merge](development/review-and-merge.md), không gọi localhook/CI là server enforcement.
-
-## Chưa hoàn tất và việc tiếp theo
-
-| Phần việc | Giới hạn / bước tối thiểu tiếp theo |
+| Phần | Bước cần hoàn tất |
 | --- | --- |
-| Tài liệu và bàn giao | Đã bổ sung bản ghi âm dạng text và bản AGENTS tham khảo; còn các snapshots cũ ngoài Git. DOCS-001 đã thử đọc cùng máy; DOCS-002 thử từ clone GitHub mới. Cả hai không tự chứng minh auto-loading ở chat app hoặc dựng app trên máy mới |
-| Quản lý source/cấu hình | Source baseline công khai đã có; runtime adapters còn local/ignored. [Issue #8 và kế hoạch](development/source-reproduction.md), fresh setup/build/test app chưa thực hiện |
-| Hiệu năng/UI | Chưa có A/B và production comparison; chưa sửa F5. Chốt phép đo app-ready và cấu hình đối chứng trước sửa |
-| Quy trình thực tế | [Issue #5/quy trình G1–G10](development/product-workflow.md) và tooling mới có phạm vi rõ; chưa chứng minh trọn vòng một feature app. [Pilot #9](development/pilot.md) chờ đủ source/test prerequisites; không tự merge |
-| Zalo và mobile | Chưa triển khai connector; cần chốt loại Zalo/API, scope và test toàn tuyến. Mobile chỉ là bản tham khảo, chưa thử cặp tương thích |
-| Nâng cấp/hoàn tác | Có các bằng chứng phục hồi trước đây nhưng chưa diễn tập cập nhật toàn bộ code + cấu hình + dữ liệu + uploads. Không nâng runtime trong DOCS-001 |
+| Bảy cải tiến | Theo [tracker](development/improvement-tracker.md), eval và lifecycle CI đã có kết quả; còn source handover tổng thể và final exact-commit control review; chuẩn bị PR để owner quyết định |
+| Dung lượng Docker | [Phương án sang D](runbooks/docker-storage-migration.md) đã có review vòng đầu; execution BLOCKED vì cần backup/capacity/maintenance/rollback/postchecks cụ thể. Chưa chuyển hoặc restart Docker |
+| Giao diện/hiệu năng | Chưa kiểm đầy đủ thao tác trình duyệt ở môi trường mới; chưa có production comparison |
+| Zalo/mobile | Chưa triển khai connector hoặc kiểm cặp tương thích mobile; cần task/API/scope riêng |
+| Nâng cấp | Diễn tập dữ liệu tổng hợp không thay thử nâng Chatwoot cùng code/config/dữ liệu/uploads thật |
+| Nghiệm thu | Owner quyết định theo PR/SHA cụ thể sau checks/review; chưa merge/phát hành hoặc chấp nhận nghiệp vụ |
 
-FLOW-001 chỉ thay control docs/tooling/templates/CI và chia sẻ source app baseline upstream có review kế hoạch. Không đổi code runtime Chatwoot, feature flags, database, container hoặc cấu hình agent hệ thống. Chưa claim product verify/build/UI PASS. Không có số đo tiết kiệm token và không dùng số lượng tài liệu làm bằng chứng chất lượng.
+Hồ sơ nền móng [18/11](reviews/project-foundation/README.md), [agent state lịch sử](agents/state.md) và tasks AGENT/DOCS/FLOW/PUB/GOV giữ nguyên theo revision. Nội dung lịch sử không thay trạng thái hiện hành; không sửa receipt cũ để làm xanh.

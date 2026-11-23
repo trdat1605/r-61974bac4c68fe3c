@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/foundation_app_final_review",
+  "implementer": "root_foundation_completion",
+  "recorded_utc": "2026-11-23T00:07:38.293790+00:00",
+  "policy_id": "CHATWOOT_AGENT_POLICY_V1",
+  "result": "PASS",
+  "status": "PASS",
+  "blocking_findings": [],
+  "scope": "Independent final review of all eight application changes from pinned baseline to subject; source, CI receipt bindings, public GitHub readbacks and static fresh-reader handover. This is not owner product acceptance or human GitHub approval.",
+  "independence": "Fresh separate reviewer brief; reviewer did not implement or change the application subject, did not contact executors, and writes only this receipt. Shared machine privileges are not security isolation.",
+  "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "branch": "codex/portable-foundation",
+  "baseline_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "subject_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "reviewed_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "app_head_tree": "65705962f43b3c1a3b35920b66436d3c210c4db6",
+  "actual_ci_checkout_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+  "checkout_tree": "65705962f43b3c1a3b35920b66436d3c210c4db6",
+  "tree_equivalence": "PASS: independently read local app tree and public GitHub commit objects; CI checkout SHA originates in retained CI receipt, not a fresh download of raw checkout logs.",
+  "checkouts": {
+    "independent_public_clone": "D:/Chatwoot-Foundation-Checks/app-c77",
+    "implementation": "WSL Ubuntu-22.04:/root/code/chatwoot-foundation-worktrees/complete-001",
+    "observed_head": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+    "status_porcelain_before_and_after": "",
+    "note": "This reviewer reused the existing independently cloned checkout; did not create a clone or run a fresh-machine lifecycle. Seven changed checkout files are byte-identical to Git blobs. README has Windows CRLF (core.autocrlf=true), normalizes exactly to the subject blob; Linux README SHA256 matches the subject blob."
+  },
+  "control_binding": {
+    "control_head_observed": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+    "meaning": "Hashes bind actual local inputs read, not a claim that current working files equal control HEAD. Product record intentionally still awaits this final review. A later coordinator update to its review field requires preserving this receipt and final traceability checks.",
+    "input_sha256": {
+      "tasks/COMPLETE-001/task.json": "0364359a2ee954b536f471196b508aa22aaec915826670188deaba3c9d1a87f2",
+      "tasks/COMPLETE-001/evidence/app-task.json": "1ac864f407ddf7585e2d16f1b199c3dc511cd076a0b09f9553082ce086e02e5d",
+      "tasks/COMPLETE-001/evidence/product-record.json": "0d63d3448ac617a6cde78a5c25ccbd8c168fea00355a5e69b8c164446356dac4",
+      "tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json": "2506b51f3315a94ea4266a72d1ca40524c5568787e83379a0b5896a880f5ba9c",
+      "tasks/COMPLETE-001/evidence/app-docs-review.json": "8c035c0a9a731353677dbc1014abcf47de8b86cebecb86e27ad8abb93b4055b5",
+      "tasks/COMPLETE-001/evidence/runner-runtime-code-review.json": "94093cfc4cd94654a42867bd7b305ff8ed1042e8bd5d24650dc8af9164e0f701",
+      "tasks/COMPLETE-001/evidence/startup-fix-review.json": "f327a21755b6c9cf5bb1b531bbb9c8392be6115462650d07582d70cf1de21d0c",
+      "tasks/COMPLETE-001/evidence/app-review-before-runtime.json": "d0400204c8df41e178cb05f3b8f98749e8f72990075ce40fd96c3865b1857bda",
+      "tasks/COMPLETE-001/evidence/fresh-source-handoff.json": "20d4f34dfc879a29dcf2023f4df5f61de6138bd6c9f1052b95202d3e1e076329",
+      "tasks/COMPLETE-001/evidence/app-workflow-current.json": "e739655b27156ea633481212a20c06c03924b58004b705a0a23e295d0bbcf892"
+    }
+  },
+  "app_files": {
+    ".github/workflows/foundation-ci.yml": {
+      "git_blob_sha256": "873b6261ffd1b20029ec477292d079fc9dd48002c4027300352b5cc5183c9ce0",
+      "checkout_sha256": "873b6261ffd1b20029ec477292d079fc9dd48002c4027300352b5cc5183c9ce0",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/Dockerfile": {
+      "git_blob_sha256": "d53890a64e7818478bc274e6d1dc8d4500c691d0d89547f75ef732fb9670e07c",
+      "checkout_sha256": "d53890a64e7818478bc274e6d1dc8d4500c691d0d89547f75ef732fb9670e07c",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/isolated/README.md": {
+      "git_blob_sha256": "fcb25becc3b8737a0134d9c31b59b5a2a53ff309e81c1be58f4271458cdc92aa",
+      "checkout_sha256": "5d50a6037c9029665a97ccf957d21504572a58edba18d8a0dce5ff72b42d8c4f",
+      "checkout_matches_git_blob": false,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/isolated/bootstrap.py": {
+      "git_blob_sha256": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+      "checkout_sha256": "31a220e9de1578e452fa1948766be0360b5cdaa36e942ea9a4a57ebcda66f772",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/isolated/compose.yaml": {
+      "git_blob_sha256": "76a5c519aa96194f6fb7c3c3ee14b174524e3b746c1ea42dc5996ccebccbe076",
+      "checkout_sha256": "76a5c519aa96194f6fb7c3c3ee14b174524e3b746c1ea42dc5996ccebccbe076",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/isolated/entrypoint.sh": {
+      "git_blob_sha256": "39cac94404d98e08caed91a10aeb673c7bbb2a8f89b5cb74d230fc8ebb662148",
+      "checkout_sha256": "39cac94404d98e08caed91a10aeb673c7bbb2a8f89b5cb74d230fc8ebb662148",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/isolated/test_bootstrap.py": {
+      "git_blob_sha256": "e166b3906e902783fe8b904d85aabd0a061b1fa93fb96c7481fd488fee61e149",
+      "checkout_sha256": "e166b3906e902783fe8b904d85aabd0a061b1fa93fb96c7481fd488fee61e149",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    },
+    "docker/isolated/verify_runtime.py": {
+      "git_blob_sha256": "b41d797f02827fffdd826ed815d491b40ce2fb4c3e5e8841c49d2175cb101cfd",
+      "checkout_sha256": "b41d797f02827fffdd826ed815d491b40ce2fb4c3e5e8841c49d2175cb101cfd",
+      "checkout_matches_git_blob": true,
+      "matches_after_crlf_normalization": true
+    }
+  },
+  "source_checks": [
+    {
+      "id": "instructions_and_scope",
+      "status": "PASS",
+      "observed": "Read control AGENTS/README/agent route/reviewer brief/operating model, specified local organization guide and its actual kien-thuc/BAT-DAU.md entrance. Read actual app root AGENTS, confirmed no root override and no nested docker/.github AGENTS/override. Exact diff contains only eight app-task paths. No app/enterprise core API, model, schema or localization changes; no enterprise/docker or enterprise/.github counterpart tracked."
+    },
+    {
+      "id": "metadata_regression",
+      "status": "PASS",
+      "observed": "Dockerfile changes only original metadata block: explicit lowercase 40-hex SHA or normal Git fallback. bootstrap.py:308 reads pinned real baseline block, requires linked-worktree repository failure specifically, verifies output SHA, rejects short/nonhex/long SHA and exercises synthetic normal Git fallback. Workflow has no continue-on-error on regression; successful metadata job is consistent with all assertions completing.",
+      "evidence_kind": "Independent source read plus hash-bound CI receipt and independently confirmed successful job; Docker NOT_RUN by reviewer."
+    },
+    {
+      "id": "source_and_secret_boundaries",
+      "status": "PASS",
+      "observed": "bootstrap.py:116 checks real HEAD and staged/unstaged/untracked nonignored cleanliness with GIT_* removed. Archive uses tracked HEAD, data extraction filter, rejects tracked .codex/.git/overrides/non-example env, and omits only exact pinned Windsurf symlink shape. Build and runtime source copies differ. Newly generated random secrets are ignored, chmod600 and state parent chmod700. Compose explicitly selects project/file/env and overwrites structural CW variables; inherited secret overrides removed. Manual changed-source read and targeted private-key/GitHub-token/AWS-key patterns found no embedded secret.",
+      "limits": "No full-history secret certification or malicious-local-user sandbox."
+    },
+    {
+      "id": "runtime_isolation",
+      "status": "PASS",
+      "observed": "cwdev namespace excludes protected identities; fresh prepare checks occupied localhost ports and existing project-labeled containers/volumes. Compose uses project-scoped nonexternal DB/Redis/storage/tmp volumes, no database/cache host ports, localhost-only Rails/Vite/Mailhog, distinct test DB/Redis index/storage/tmp. Fixed wrapper commands contain no lab reset, volume prune or deploy. Optional reuse retains exact image identity, independent tag and --no-prune cleanup; failure to preserve image identity refuses deletion.",
+      "limits": "Project naming and ownership are coordination boundaries; external daemon/local filesystem mutations are not isolated."
+    },
+    {
+      "id": "entrypoint_and_upgrade",
+      "status": "PASS",
+      "observed": "entrypoint checks built Vite or bundle check then execs; it does not install on startup or remove shared PID/cache. Dockerfile runtime/dependency setup otherwise stays upstream. Bootstrap records source and archive omission policy, refuses stale HEAD/config and requires a new project on changes. README explicitly states mutable image/package dependencies, FULL_BUILD versus CACHE_REUSE and lack of bit-identical reproducibility.",
+      "limits": "No future upstream upgrade, dependency update or production migration executed; baseline-specific archive omission/metadata markers must be re-reviewed on upstream changes."
+    },
+    {
+      "id": "lifecycle_helper",
+      "status": "PASS",
+      "observed": "verify_runtime.py checks measured 15GiB free before prepare; uses fixed disposable project, waits HTTP readiness, runs focused RSpec/Vitest, restarts, verifies selected counts, creates synthetic dump and restores to new DB, repeats prepare, stops owned services in finally. Failure, including stop failure, makes exit nonzero. Logs redact generated secret values on captured failure.",
+      "limits": "Helper is documented for disposable Linux runner; it does not enforce hosted identity. Capacity gate measures runner filesystem, not local Windows C. Restore checks selected counts only; browser login/realtime and production recovery not proved."
+    },
+    {
+      "id": "ci_and_live_traceability",
+      "status": "PASS",
+      "observed": "Workflow uses hosted ubuntu24.04, contents:read, pinned checkout/setup-node actions, persist-credentials:false, PR/manual triggers and no publish/deploy/secrets/schedule. Public REST readback independently confirmed 17 inherited workflows disabled and foundation active; PR3 open Draft, unmerged, head/base exact and body contains full app issue URL plus Task: tasks/COMPLETE-001/task.json.",
+      "readback_urls": [
+        "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/actions/workflows?per_page=100",
+        "https://api.github.com/repos/trdat1605/s-251521f7e9131fb0/pulls/3"
+      ],
+      "limits": "Point-in-time workflow inventory, not permanent enforcement. Main branch rules and broader control review remain coordinator responsibilities."
+    },
+    {
+      "id": "evidence_relations",
+      "status": "PASS",
+      "observed": "All four product-record check SHA256 values match referenced receipts; all four actual_evidence_sha256 values match app-ci-lifecycle-success.json. Every receipt binds current subject, actual merge checkout and same run. Prior code-only/doc reviews retained with original subjects; not relabeled as current runtime execution."
+    }
+  ],
+  "ci_evidence": {
+    "run_id": 45082996742,
+    "url": "https://github.com/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+    "independent_public_api_readback": {
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+      "event": "pull_request",
+      "path": ".github/workflows/foundation-ci.yml",
+      "jobs": [
+        {
+          "id": 137395198857,
+          "name": "metadata",
+          "conclusion": "success"
+        },
+        {
+          "id": 137395199109,
+          "name": "focused-frontend",
+          "conclusion": "success"
+        },
+        {
+          "id": 137395199200,
+          "name": "isolated-runtime",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "retained_receipt_observations": [
+      "23 Python tests and 14 focused frontend tests",
+      "Measured 90990755840 bytes free; minimum16106127360",
+      "Full app build/.git_sha, prepare/start, HTTP API/login/Vite/Mailhog, focused application tests and API/session specs, restart and repeated prepare PASS",
+      "Synthetic dump424607 bytes; selected accounts/users/installation_configs counts match before/after restore; stop PASS"
+    ],
+    "qualification": "Independent public REST confirmation establishes run/job completion and subject; detailed command output, merge checkout line, runtime values and raw-log SHA256 are read from the retained receipt. Raw logs were not downloaded or independently rehashed in this review."
+  },
+  "official_sources_read": [
+    {
+      "url": "https://developers.chatwoot.com/contributing-guide/environment-setup/docker",
+      "source_says": "Base-first build, db:chatwoot_prepare and startup.",
+      "applied_criterion": "Keep upstream setup sequence, confine DB preparation to a new synthetic project.",
+      "version_limit": "Living documentation; exact Docker metadata behavior checked against local pinned baseline source."
+    },
+    {
+      "url": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/docker/Dockerfile",
+      "source_says": "Original pinned Dockerfile copies source then runs git rev-parse HEAD for .git_sha.",
+      "read_method": "Local git show of pinned baseline and baseline-to-subject diff, not only a search snippet.",
+      "applied_criterion": "Keep original default Git behavior while supplying verified external SHA for archive/worktree context."
+    },
+    {
+      "url": "https://git-scm.com/docs/git-worktree#_details",
+      "source_says": "Linked-worktree .git points at separate private/common metadata.",
+      "applied_criterion": "Do not copy dangling host Git pointer as authoritative build metadata."
+    },
+    {
+      "url": "https://docs.docker.com/build/concepts/context/#filesystem-contexts",
+      "source_says": "Build context controls files visible to COPY/ADD.",
+      "applied_criterion": "Build from tracked archive, excluding host adapters/secrets and original Git metadata."
+    },
+    {
+      "url": "https://docs.docker.com/compose/how-tos/project-name/",
+      "source_says": "Project names isolate Compose environments; -p has highest name precedence.",
+      "applied_criterion": "Use explicit project plus separate port/source/data settings; project alone is not resource/security isolation."
+    },
+    {
+      "url": "https://docs.docker.com/engine/storage/volumes/#mounting-a-volume-over-existing-data",
+      "source_says": "Empty volumes are populated from image directory by default and named volumes persist beyond containers.",
+      "applied_criterion": "Private node_modules volume can seed from built image; stop must preserve project data."
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request",
+      "source_says": "Default PR checkout uses merge commit.",
+      "applied_criterion": "Record actual checkout separately from branch head, compare trees rather than claim identical metadata."
+    }
+  ],
+  "fresh_reader_assessment": {
+    "status": "PASS_STATIC_ROUTE",
+    "route": [
+      "Control README -> source-reproduction.md identifies app repository, branch, immutable subject and clean clone/detach/read sequence.",
+      "Read actual app AGENTS then docker/isolated/README.md at subject; confirm Linux/Git/Python data-filter/Docker/Compose/network prerequisites, project/ports and local host capacity/plan boundary.",
+      "Use documented boundary/regression instructions, fetch pinned upstream object if a shallow clone lacks it, then reviewed prepare/config/build/prepare-db/up/smoke/test/restart; fixed helper reserved for disposable runner.",
+      "Follow app README control-task/completion URLs and product receipts; keep head/merge SHA, runtime limits, review and owner decisions separate."
+    ],
+    "independently_reproduced": "Navigation and all source/receipt/ref/hash checks only, in preexisting public clone plus read-only Linux source. No claim of a fresh-machine runtime build by this reviewer.",
+    "previous_handover_findings": "README now consistently says no startup install, documents lifecycle helper/fixed identities/capacity/cleanup and shallow baseline fetch, and links separate control task. Prior documentation issues are resolved in exact subject.",
+    "remaining_questions": [
+      {
+        "question": "Does interactive login/realtime/all-feature UX and long-duration behavior work?",
+        "answer": "NOT_RUN; outside focused foundation runtime acceptance."
+      },
+      {
+        "question": "Can another local machine reproduce with its actual hardware/network/dependency availability?",
+        "answer": "NOT_RUN by this reviewer; hosted disposable lifecycle is real evidence, local Windows host remains capacity-blocked."
+      },
+      {
+        "question": "Are images bit-identical and does a future upstream update apply without adaptation?",
+        "answer": "Not promised; mutable dependencies and baseline-specific wrapper checks require new validation."
+      }
+    ]
+  },
+  "commands_and_outcomes": [
+    {
+      "command": "git -C D:/Chatwoot-Foundation-Checks/app-c77 rev-parse HEAD; git status --porcelain; git diff --name-status BASE SUBJECT; git diff --check BASE HEAD; git show SUBJECT:PATH; Python SHA256/byte comparison",
+      "status": "PASS",
+      "result": "Exact subject, clean Git status, eight scoped paths, no whitespace errors; hashes above including documented README CRLF normalization."
+    },
+    {
+      "command": "WSL read-only git HEAD/status, actual AGENTS read/hash, root override test and scoped find; SHA256 of Linux README",
+      "status": "PASS",
+      "result": "Exact clean subject, no root/nested relevant override, README subject bytes match."
+    },
+    {
+      "command": "Public unauthenticated GitHub REST GET run/jobs, two git/commits, workflows and PR3",
+      "status": "PASS",
+      "result": "Independent success, tree/parent equivalence, disabled inherited workflows and exact Draft PR traceability."
+    },
+    {
+      "command": "Hash and parse product-record, four check receipts and shared app CI receipt",
+      "status": "PASS",
+      "result": "All specified SHA256 bindings matched."
+    },
+    {
+      "command": "Windows gh api and local git cat-file merge-checkout object probe",
+      "status": "NOT_AVAILABLE",
+      "result": "Windows gh lacks login; merge object absent from shallow clone. Used unauthenticated public REST successfully; did not authenticate or fetch/mutate Git."
+    },
+    {
+      "command": "Docker/runtime/install/RSpec/Vitest/Python boundary reruns",
+      "status": "NOT_RUN",
+      "result": "No new execution needed for this review: Linux-only boundary suite and actual current-subject CI already succeeded; reviewer used source plus verified job/receipt relations."
+    }
+  ],
+  "limits": [
+    "PASS covers the reviewed application diff and scoped CI/foundation evidence; not complete acceptance of all seven control improvements.",
+    "No Docker operation, runtime access/mutation, package install, Git mutation, merge, release or lab/course action by this reviewer.",
+    "No interactive browser, full application test suite, security certification, production deployment/restore or fresh-machine local runtime reproduction.",
+    "Retained detailed CI receipt reviewed; public run/jobs/trees independently read; raw log hashes not independently recomputed.",
+    "Agent review is not a human GitHub approval. Owner merge/release and product acceptance remain separate."
+  ]
+}

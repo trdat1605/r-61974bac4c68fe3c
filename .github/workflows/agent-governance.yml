@@ -43,3 +43,27 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EXPECTED_REPOSITORY: ${{ github.repository }}
         run: python -B tools/agents/product_check.py pr --repo . --expected-repository "$EXPECTED_REPOSITORY"
+      - name: Read the recorded COMPLETE-001 application pin
+        id: pilot
+        shell: python
+        run: |
+          import json, os, re
+          from pathlib import Path
+          record = json.loads(Path('tasks/COMPLETE-001/evidence/product-record.json').read_text(encoding='utf-8'))
+          if record['source']['repository'] != 'https://github.com/trdat1605/s-251521f7e9131fb0':
+              raise SystemExit('Unexpected pilot application repository')
+          subject = record['implementation']['subject_commit']
+          if not re.fullmatch(r'[0-9a-f]{40}', subject):
+              raise SystemExit('Invalid pilot application commit')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write('subject=' + subject + '\n')
+      - name: Check out the actual pilot application source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: trdat1605/s-251521f7e9131fb0
+          ref: ${{ steps.pilot.outputs.subject }}
+          path: .local/app-source-check
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify the committed pilot record against the separate app checkout
+        run: python -B tools/agents/product_check.py verify --record tasks/COMPLETE-001/evidence/product-record.json --source-repo .local/app-source-check

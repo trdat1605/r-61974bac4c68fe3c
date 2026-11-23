@@ -45,6 +45,12 @@ python -B tools/agents/product_check.py pr --repo . --expected-repository trdat1
 
 Legacy task/handoff/review giữ nguyên. Phiếu dự kiến có thể nằm ở issue trước khi có reviewed implementation; strict repository handoff gate vẫn chặn thiếu hồ sơ khi được gọi. Không hạ status để bỏ review.
 
+## Pilot COMPLETE-001 và điều kiện tích hợp
+
+Pilot thực ở [app issue2](https://github.com/trdat1605/s-251521f7e9131fb0/issues/2) / [appPR3](https://github.com/trdat1605/s-251521f7e9131fb0/pull/3): lỗi metadata worktree → baseline DockerFAIL → sửa + regression → review độc lập → fullbuild/CI → kiểm môi trường tổng hợp. Bằng chứng từng SHA giữ ở tasks/COMPLETE-001; CI checkout mergeSHA được ghi riêng và phải đối chiếu tree với apphead, không thay controlSHA vào apprecord. Các bước runtime chưa đạt phải giữ FAIL/NOT_RUN.
+
+Kho control hiện còn PR stack chưa tích hợp. COMPLETE-001 chuẩn bị PR tổng hợp dựa trên toàn bộ lịch sử đã review, nhắm main và dùng merge commit để giữ ancestry. Không squash/rebase hoặc sửa reviewed receipts; default-template activation chỉ xác minh sau khi chủ sản phẩm cho phép merge PR/SHA cụ thể. Tích hợp GitHub không tự triển khai Chatwoot hoặc phát hành production.
+
 ## Căn cứ và điều chỉnh
 
 [Chatwoot PR guidelines](https://www.chatwoot.com/hc/handbook/articles/pull-request-guidelines-32), trang cập nhật 17/04/2023, hỗ trợ issue/owner/tests/docs. [AGENTS ở app pin](https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md) và [PR template cùng pin](https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/.github/PULL_REQUEST_TEMPLATE.md) có khác biệt về test/format: dự án giao rõ regression/checks cần thiết, giữ product How to test, dẫn automated outputs sang evidence. Các cổng G1–G10 là điều chỉnh của dự án, chưa là kết quả hoàn thành.

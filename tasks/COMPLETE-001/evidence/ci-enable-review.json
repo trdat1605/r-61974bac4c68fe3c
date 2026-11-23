@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/foundation_ci_audit",
+  "result": "PASS",
+  "script_sha256": "f0cf85ec15ccd77c7d5b3e6a696198d1814efeaf0b5fcbc784fa2ccefd807580",
+  "app_subject": "07686773cb515aba4029823ffe585e80fca705a5",
+  "workflow_sha256": "5d99ffa2d51e39becea2a2a54581ff840efe685652c70a8f8bb5956b93f3da79",
+  "prior_blocked_script_sha256": "13cf08306955c604a9f2814e973f22c8159c17c63aa1327867d03a1f05f5b0e0",
+  "resolved_findings": [
+    "PRliteralTaskline addedretainingcrossrepoURL",
+    "Selectedactionsrestrictionverifiedbeforeenable,after,duringwatch/final"
+  ],
+  "limits": [
+    "UnoptimizedPythonrequiredassertguards",
+    "OnlyCIenable/DraftPRphase; actualCItests/runtime/merge notapprovedaspassed",
+    "Readonlyreviewerno mutations"
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "task_id": "COMPLETE-001",
+  "status": "PASS",
+  "steps": [
+    {
+      "phase": "before_disable",
+      "id": 427113058,
+      "path": "auto-assign-pr.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113058,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113058,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113059,
+      "path": "deploy_check.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113059,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113059,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113060,
+      "path": "frontend-fe.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113060,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113060,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113061,
+      "path": "ghsa-linear-sync.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113061,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113061,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113064,
+      "path": "lint_pr.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113064,
+      "states": [
+        "active",
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113064,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113065,
+      "path": "lock.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113065,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113065,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113066,
+      "path": "logging_percentage_check.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113066,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113066,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113067,
+      "path": "migration_version_check.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113067,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113067,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113069,
+      "path": "nightly_installer.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113069,
+      "states": [
+        "active",
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113069,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113070,
+      "path": "publish_codespace_image.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113070,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113070,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113071,
+      "path": "publish_ee_docker.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113071,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113071,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113073,
+      "path": "publish_foss_docker.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113073,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113073,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113074,
+      "path": "run_foss_spec.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113074,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113074,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113075,
+      "path": "run_mfa_spec.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113075,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113075,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113077,
+      "path": "size-limit.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113077,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113077,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113078,
+      "path": "stale.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113078,
+      "states": [
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113078,
+      "state": "disabled_manually"
+    },
+    {
+      "phase": "before_disable",
+      "id": 427113079,
+      "path": "test_docker_build.yml"
+    },
+    {
+      "phase": "state_readback_observations",
+      "id": 427113079,
+      "states": [
+        "active",
+        "disabled_manually"
+      ]
+    },
+    {
+      "phase": "disabled",
+      "id": 427113079,
+      "state": "disabled_manually"
+    }
+  ],
+  "limits": [
+    "Onlydisablesoldworkflows; globallyActionsremainsdisabled, noenabling/push/merge/runtime mutations"
+  ],
+  "initial": [
+    {
+      "id": 427113058,
+      "path": ".github/workflows/auto-assign-pr.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113059,
+      "path": ".github/workflows/deploy_check.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113060,
+      "path": ".github/workflows/frontend-fe.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113061,
+      "path": ".github/workflows/ghsa-linear-sync.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113064,
+      "path": ".github/workflows/lint_pr.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113065,
+      "path": ".github/workflows/lock.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113066,
+      "path": ".github/workflows/logging_percentage_check.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113067,
+      "path": ".github/workflows/migration_version_check.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113069,
+      "path": ".github/workflows/nightly_installer.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113070,
+      "path": ".github/workflows/publish_codespace_image.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113071,
+      "path": ".github/workflows/publish_ee_docker.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113073,
+      "path": ".github/workflows/publish_foss_docker.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113074,
+      "path": ".github/workflows/run_foss_spec.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113075,
+      "path": ".github/workflows/run_mfa_spec.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113077,
+      "path": ".github/workflows/size-limit.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113078,
+      "path": ".github/workflows/stale.yml",
+      "state": "active"
+    },
+    {
+      "id": 427113079,
+      "path": ".github/workflows/test_docker_build.yml",
+      "state": "active"
+    }
+  ],
+  "exit_code": 0,
+  "final": [
+    {
+      "id": 427113058,
+      "path": ".github/workflows/auto-assign-pr.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113059,
+      "path": ".github/workflows/deploy_check.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113060,
+      "path": ".github/workflows/frontend-fe.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113061,
+      "path": ".github/workflows/ghsa-linear-sync.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113064,
+      "path": ".github/workflows/lint_pr.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113065,
+      "path": ".github/workflows/lock.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113066,
+      "path": ".github/workflows/logging_percentage_check.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113067,
+      "path": ".github/workflows/migration_version_check.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113069,
+      "path": ".github/workflows/nightly_installer.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113070,
+      "path": ".github/workflows/publish_codespace_image.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113071,
+      "path": ".github/workflows/publish_ee_docker.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113073,
+      "path": ".github/workflows/publish_foss_docker.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113074,
+      "path": ".github/workflows/run_foss_spec.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113075,
+      "path": ".github/workflows/run_mfa_spec.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113077,
+      "path": ".github/workflows/size-limit.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113078,
+      "path": ".github/workflows/stale.yml",
+      "state": "disabled_manually"
+    },
+    {
+      "id": 427113079,
+      "path": ".github/workflows/test_docker_build.yml",
+      "state": "disabled_manually"
+    }
+  ],
+  "global_actions_enabled": false
+}

@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "steps": [
+    {
+      "step": "before_cleanup",
+      "status": "PASS",
+      "containers": [
+        "2307a9772af217f8c688b99b5a87f53306e596ea489a18d7eb94aab8494fef3d",
+        "4e595d485b1a1e3a6a4c07898a63819071788cbf811a29ef7a980069cea328a3",
+        "742be1494948b0ed304733038cee302e99e6f5d657e9ff9b57957aaba8113535",
+        "cd944542a2caebbd10579c8d6386f645e457f93358c48c7a5595b7d396d55a1f",
+        "d2b64299bf4408c2cf3aaefecc98b5bea3d9810243696549cf32c456a6662950",
+        "f09c0b120f69627d946d30ed04606d475518007cad93cc2610356e196d9eeafc"
+      ],
+      "volumes": [
+        "cwdev-complete001_node_modules",
+        "cwdev-complete001_postgres",
+        "cwdev-complete001_redis",
+        "cwdev-complete001_storage",
+        "cwdev-complete001_tmp"
+      ],
+      "backup_sha256": "4547aac9626749a476ab2f8e48fdcd16ca96174b51c82d610e0c4c322ddd25a6"
+    },
+    {
+      "step": "stop_owned_container",
+      "id": "2307a9772af217f8c688b99b5a87f53306e596ea489a18d7eb94aab8494fef3d",
+      "status": "PASS"
+    },
+    {
+      "step": "stop_owned_container",
+      "id": "4e595d485b1a1e3a6a4c07898a63819071788cbf811a29ef7a980069cea328a3",
+      "status": "PASS"
+    },
+    {
+      "step": "stop_owned_container",
+      "id": "742be1494948b0ed304733038cee302e99e6f5d657e9ff9b57957aaba8113535",
+      "status": "PASS"
+    },
+    {
+      "step": "stop_owned_container",
+      "id": "cd944542a2caebbd10579c8d6386f645e457f93358c48c7a5595b7d396d55a1f",
+      "status": "PASS"
+    },
+    {
+      "step": "stop_owned_container",
+      "id": "d2b64299bf4408c2cf3aaefecc98b5bea3d9810243696549cf32c456a6662950",
+      "status": "PASS"
+    },
+    {
+      "step": "stop_owned_container",
+      "id": "f09c0b120f69627d946d30ed04606d475518007cad93cc2610356e196d9eeafc",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_container",
+      "id": "2307a9772af217f8c688b99b5a87f53306e596ea489a18d7eb94aab8494fef3d",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_container",
+      "id": "4e595d485b1a1e3a6a4c07898a63819071788cbf811a29ef7a980069cea328a3",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_container",
+      "id": "742be1494948b0ed304733038cee302e99e6f5d657e9ff9b57957aaba8113535",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_container",
+      "id": "cd944542a2caebbd10579c8d6386f645e457f93358c48c7a5595b7d396d55a1f",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_container",
+      "id": "d2b64299bf4408c2cf3aaefecc98b5bea3d9810243696549cf32c456a6662950",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_container",
+      "id": "f09c0b120f69627d946d30ed04606d475518007cad93cc2610356e196d9eeafc",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_synthetic_volume",
+      "name": "cwdev-complete001_node_modules",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_synthetic_volume",
+      "name": "cwdev-complete001_redis",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_synthetic_volume",
+      "name": "cwdev-complete001_storage",
+      "status": "PASS"
+    },
+    {
+      "step": "remove_owned_synthetic_volume",
+      "name": "cwdev-complete001_tmp",
+      "status": "PASS"
+    }
+  ],
+  "plan_sha256": "9a1a98b6c43ed58342e4053bcd7f0c5fa964b79acd618f8d7c9c3793452c6e5a",
+  "exit_code": 0,
+  "limits": [
+    "OnlyownedsyntheticcontainersandnonPGvolumesremoved; PGvolumepreserveduntilrestoreverified; backup+source+fullimage retained",
+    "No networkremove/globalprune/foreigncontainer orvolumeoperation"
+  ]
+}

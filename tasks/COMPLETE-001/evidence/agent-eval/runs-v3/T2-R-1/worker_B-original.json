@@ -1,0 +1,80 @@
+{
+  "run_id": "T2-R-1",
+  "role": "worker_B",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "findings": [
+    {
+      "id": "B1",
+      "claim": "CannedResponse overrides extraction to response.data and marshalling to {data:rows}; inherited generic payload defaults therefore do not establish a shape bug.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L43-L50",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78-L89"
+      ],
+      "critical_dependency": "T2-R-1-A-ANS-BQ1; controller independently inspected: index renders account association directly."
+    },
+    {
+      "id": "B2",
+      "claim": "accountScoped URLs use the current pathname account; dataManager resolves that account at read time and replaces its manager when accountId changes. Cache reads compare server keys, refetch invalid/empty local data, and fall back on initial IndexedDB failure.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/ApiClient.js#L17-L39",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L16-L23",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L53-L78"
+      ],
+      "critical_dependency": null
+    },
+    {
+      "id": "B3",
+      "claim": "Focused specs assert account switching, cold/hot/changed-key paths, bare-array parity and IndexedDB fallback using subclass doubles. These are existing test assertions, not execution results.",
+      "classification": "SOURCE_OBSERVED",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L25-L46",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js#L90-L222"
+      ],
+      "critical_dependency": null
+    }
+  ],
+  "dependency_messages": [
+    {
+      "id": "T2-R-1-BQ1",
+      "from": "worker_B",
+      "to": "worker_A via coordinator",
+      "question_or_answer": "Is the index response a bare array or payload wrapper, and is server lookup scoped to Current.account? Please also identify explicit server search behavior with pinned source citations.",
+      "source_refs": [
+        "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+      ]
+    },
+    {
+      "id": "T2-R-1-A-ANS-BQ1",
+      "from": "worker_A via coordinator",
+      "to": "worker_B",
+      "question_or_answer": "SOURCE_OBSERVED: index renders canned_responses directly, a bare array confirmed by request-spec parsed_body equality with account.canned_responses.as_json. Current.account scopes list, creation, and update/destroy find. With params[:search], controller removes null bytes, applies bound ILIKE substring matching to short_code OR content, then model ranks short_code prefix 1, substring 0.5, content substring 0.2 descending; SQL values are quoted/bound, but percent/underscore are not explicitly escaped as literal wildcards. No-search returns account association. Tests are source only, NOT_RUN.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L4-L6",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/canned_responses_controller.rb#L26-L43",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/canned_response.rb#L23-L30",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/canned_responses_controller_spec.rb#L22-L59"
+      ]
+    },
+    {
+      "id": "T2-R-1-B-A1",
+      "from": "worker_B",
+      "to": "worker_A via coordinator",
+      "question_or_answer": "Answered T2-R-1-A-Q1: subclass uses response.data extraction and {data:rows} marshalling; generic payload defaults are overridden. See B1. Full answer sent through coordinator.",
+      "source_refs": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/cannedResponse.js#L3-L21",
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/javascript/dashboard/api/CacheEnabledApiClient.js#L78-L89"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "DataManager internals are outside manifest; account isolation and browser behavior were not executed. Worker A's model/spec details are relayed evidence, not independently verified here.",
+    "Model identity/usage telemetry: NOT_EXPOSED."
+  ],
+  "proposed_check_commands": [
+    "pnpm test app/javascript/dashboard/api/specs/CacheEnabledApiClient.spec.js (proposal; runner arguments unverified)"
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN"
+}

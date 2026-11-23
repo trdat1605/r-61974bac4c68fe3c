@@ -1,0 +1,16 @@
+{
+  "status": "DOCUMENTED_ORIGINAL_OUTPUT_EXCEPTION",
+  "initial_git_diff_check_exit": 2,
+  "initial_issues": {
+    "CRLF_receipt_lines": 2045,
+    "producer_fullbuild_trailing_lines": 28
+  },
+  "resolution": "Exactpath attributes: -text+whitespace=cr-at-eol for two hashbound originalJSON receipts, whitespace=-blank-at-eol for selected fullbuild transcript only. No original/evidence bytes edited and no global whitespace exemption.",
+  "source": "https://git-scm.com/docs/gitattributes#_checking_out_and_checking_in",
+  "files": {
+    "tasks/COMPLETE-001/evidence/app-final-review.json": "86dadeff6c15f7815501e59ced39735f0fdaf5509a8966f8677ddf89dcd065ed",
+    "tasks/COMPLETE-001/evidence/agent-eval/grading/material-second-check.json": "c8597de91b879d7709d7dd1aaa184c61f750d1aa42595683d100a2f258100b7c",
+    "tasks/COMPLETE-001/evidence/full-build.txt": "7d1d6b02e3a0949d9c861adb4ef134a1b69497d8baf140e81c0f34f6845099d4"
+  },
+  "limits": "Attributes preserve evidence bytes, not a proof of testexecution or generic permission for whitespace/code issues."
+}

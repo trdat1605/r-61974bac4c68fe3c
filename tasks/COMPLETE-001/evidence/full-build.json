@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "python3 -B docker/isolated/bootstrap.py build",
+  "source_repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "subject_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "dependency_mode": "FULL_BUILD",
+  "image": "cwdev-complete001:app-07686773cb51",
+  "image_id": "sha256:02305e4328fe6b298bfec767f6fe8548d472e34fc029315fce54ec49eed82f3e",
+  "image_size_bytes": 3389035048,
+  "metadata_sha": "07686773cb515aba4029823ffe585e80fca705a5",
+  "log_sha256": "7d1d6b02e3a0949d9c861adb4ef134a1b69497d8baf140e81c0f34f6845099d4",
+  "limits": [
+    "FullappDockerfile developmentbuild, networkdependencies/cachemaybereused; notbit-identicalcoldbuildguarantee",
+    "Runtime/appRSpec/UI/restart notprovenbybuildalone",
+    "HostCfree~16GiB nearstop15; beforeeachnextoperationcheckresources"
+  ]
+}

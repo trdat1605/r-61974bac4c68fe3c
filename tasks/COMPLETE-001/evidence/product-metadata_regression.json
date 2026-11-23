@@ -1,0 +1,22 @@
+{
+  "source_repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "subject_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "actual_ci_checkout_commit": "8d953fd35000ffc06a9696ad0a6ba91c211f6466",
+  "tree_equivalence": "PASS; merge checkout metadata differs, tracked tree identical",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "foundation-ci metadata job:23boundarytests+realDockerupstreambaselineEXPECTED_FAIL/fixedPASS/normalclonefallback",
+  "criteria": [
+    "AC-METADATA"
+  ],
+  "actual_evidence": "tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json",
+  "actual_evidence_sha256": "2506b51f3315a94ea4266a72d1ca40524c5568787e83379a0b5896a880f5ba9c",
+  "run_id": 45082996742,
+  "url": "https://github.com/trdat1605/s-251521f7e9131fb0/actions/runs/45082996742",
+  "limits": [
+    "Disposable hosted runner and synthetic data only; no lab/course writes",
+    "Focused tests and selected row counts; not all features, browser UX, security or production stability",
+    "CI executed merge checkout, not branch-head Git metadata; identical tracked tree verified via API",
+    "Raw logs not committed; only selected lines and SHA256 retained"
+  ]
+}

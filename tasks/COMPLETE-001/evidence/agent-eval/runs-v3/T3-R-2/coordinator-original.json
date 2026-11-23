@@ -1,0 +1,177 @@
+{
+  "run_id": "T3-R-2",
+  "source_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "integrated_answer": {
+    "classification": "SOURCE_OBSERVED for described branches/existing assertions; INFERRED_FROM_SOURCE for proposed regression matrix and runtime expectations.",
+    "interactions": [
+      {
+        "claim": "toggle_status selects AgentBot pending + explicit open handoff first; otherwise present status sets status and optional stringified timestamp before save!, while absent/blank status calls model toggle and ignores supplied timestamp.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L187"
+        ]
+      },
+      {
+        "claim": "Model toggle maps open to resolved and every other enum state to open, then saves. before_save clears snoozed_until unless final status is snoozed; parser uses epoch seconds for the string received from controller.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L197",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L290-L292",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L136",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17"
+        ]
+      },
+      {
+        "claim": "Any resulting open human User enters locked AI-owner clearing; agents self-assign, administrators do not explicitly replace human assignee. Bot handoff initializes only blank waiting_since, clears AI, opens and dispatches; it skips human assignment.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L187",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L197"
+        ]
+      },
+      {
+        "claim": "Template exposes success=@status, display_id as conversation_id, current_status and snoozed_until. Explicit save/toggle assign @status; bot handoff branch does not. Bot success=null is an execution hypothesis, not a reproduced bug.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L4-L8"
+        ]
+      },
+      {
+        "claim": "Supplied enterprise controller has no toggle override. Enterprise model has no toggle/reset override, but Captain creation logic and conditional applied-SLA completion updates affect fixture setup and side effects.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/controllers/enterprise/api/v1/accounts/conversations_controller.rb#L1-L30",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/enterprise/app/models/enterprise/conversation.rb#L34-L65"
+        ]
+      }
+    ],
+    "regression_matrix": [
+      {
+        "cases": "Absent/null/empty status × open/resolved/pending/snoozed origins; include supplied timestamp.",
+        "assertions": "open→resolved; other origins→open; timestamp input ignored and persisted snooze cleared when leaving snoozed; compare response with reloaded record.",
+        "existing": "Empty open→resolved at 626; omitted pending→open at 651/661. Remaining combinations proposed.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L197",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L290-L292",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+        ]
+      },
+      {
+        "cases": "Explicit open/pending/resolved/snoozed; include already-open human request.",
+        "assertions": "Requested status persists; resulting open still applies human ownership path. Assert response fields.",
+        "existing": "Explicit pending→open/schema at 638; explicit pending at 674; snoozed at 686. Remaining rows proposed.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L187",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L4-L8",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+        ]
+      },
+      {
+        "cases": "Explicit snoozed + epoch; absent timestamp from nil/existing snooze; explicit non-snoozed + timestamp.",
+        "assertions": "Epoch persists for snoozed; absent timestamp leaves existing value; non-snoozed save resets timestamp. Assert persistence and JSON.",
+        "existing": "Human epoch persistence at 686; bot snoozed status at 703. Other postconditions proposed.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L187",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L290-L292",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/helpers/date_range_helper.rb#L13-L17",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+        ]
+      },
+      {
+        "cases": "Human agent/admin × omitted/explicit opening × AI owner/existing human assignee.",
+        "assertions": "AI clears; agent becomes assignee; admin preserves prior human assignee. Include already-open explicit open.",
+        "existing": "Omitted agent self-assignment at 651; admin clears bot and is not assigned at 661. Stronger combinations proposed.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L176-L187",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+        ]
+      },
+      {
+        "cases": "AgentBot pending + explicit open versus omitted/empty; waiting_since nil/present.",
+        "assertions": "Explicit handoff clears AI, fills blank/preserves existing waiting_since, opens, dispatches; blank generic toggle bypasses handoff. Verify persisted ownership and success/current_status/snoozed_until response.",
+        "existing": "Explicit pending→open and handoff event at 719; ownership/waiting_since/response comparisons proposed.",
+        "evidence": [
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/controllers/api/v1/accounts/conversations_controller.rb#L83-L100",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/models/conversation.rb#L172-L197",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/app/views/api/v1/accounts/conversations/toggle_status.json.jbuilder#L4-L8",
+          "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+        ]
+      }
+    ],
+    "existing_auth_case": {
+      "claim": "Unauthenticated unauthorized example exists at 610-615; preserve as access baseline.",
+      "evidence": [
+        "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/spec/controllers/api/v1/accounts/conversations_controller_spec.rb#L604-L735"
+      ]
+    }
+  },
+  "retained_worker_finding_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "B3",
+    "B4"
+  ],
+  "unresolved_dependencies": [],
+  "findings_or_risks": [
+    "No defect reproduced; no tests added or executed. Existing coverage means assertions read in supplied request block, not passing execution or exhaustive repository coverage.",
+    "Out-of-manifest authentication/assignment concerns, response schema and malformed-timestamp HTTP handling remain unverified. Telemetry NOT_EXPOSED.",
+    "Callback registration citation corrected from line 149 to line 136 before synthesis; semantics independently checked against pinned source."
+  ],
+  "proposed_check_commands": [
+    {
+      "command": "bundle exec rspec spec/controllers/api/v1/accounts/conversations_controller_spec.rb:604",
+      "status": "NOT_RUN",
+      "prerequisites": "Future separately authorized isolated test runtime at source_ref; correct repository Ruby with rbenv initialized, Bundler/dependencies and test services/schema prepared. Readiness unverified.",
+      "evidence": "https://github.com/chatwoot/chatwoot/blob/caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82/AGENTS.md#L3-L23"
+    }
+  ],
+  "dependency_message_receipts": [
+    {
+      "id": "T3-R-2-A-Q1",
+      "route": "A→coordinator→B",
+      "status": "RELAYED_UNCHANGED"
+    },
+    {
+      "id": "T3-R-2-BQ1",
+      "route": "B→coordinator→A",
+      "status": "RELAYED_UNCHANGED"
+    },
+    {
+      "id": "T3-R-2-BA1",
+      "route": "A→coordinator→B",
+      "status": "RELAYED_UNCHANGED"
+    },
+    {
+      "id": "T3-R-2-B-A1",
+      "route": "B→coordinator→A",
+      "status": "RELAYED_UNCHANGED"
+    },
+    {
+      "id": "T3-R-2-B-A1-correction",
+      "route": "B→coordinator→A",
+      "status": "RELAYED_UNCHANGED"
+    },
+    {
+      "id": "T3-R-2-A-V1",
+      "status": "A independently verified B answer; B separately reported independent verification of A."
+    }
+  ],
+  "worker_handoff_receipts": [
+    {
+      "role": "worker_A",
+      "received": "Full exact saved JSON through actual send_message; no role-file read.",
+      "reported_sha256": "c7bd3a88c8efa916d1bc0ca4c6fd1636f94c31273e99888b55ac95cd138b4d1a"
+    },
+    {
+      "role": "worker_B",
+      "received": "Full exact saved JSON through actual send_message; no role-file read.",
+      "reported_sha256": "2894c8fa393d7084a6a58adcd5e0ceb3978e2b83c24fbdb018cb7ef5fd0d2620"
+    }
+  ],
+  "execution_status": "SOURCE_ONLY_NOT_RUN",
+  "next_step": "Use this source-backed matrix in a separately authorized implementation/test task; define intended bot success contract before making a behavior change."
+}

@@ -1,0 +1,58 @@
+{
+  "control_task": "COMPLETE-001",
+  "issue": "https://github.com/trdat1605/s-251521f7e9131fb0/issues/2",
+  "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+  "baseline_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "branch": "codex/portable-foundation",
+  "checkout": "/root/code/chatwoot-foundation-worktrees/complete-001",
+  "write_scope": [
+    "docker/Dockerfile",
+    "docker/isolated/bootstrap.py",
+    "docker/isolated/compose.yaml",
+    "docker/isolated/entrypoint.sh",
+    "docker/isolated/README.md",
+    "docker/isolated/test_bootstrap.py",
+    ".github/workflows/foundation-ci.yml",
+    "docker/isolated/verify_runtime.py"
+  ],
+  "runtime_project": "cwdev-complete001",
+  "runtime_ports": [
+    44440,
+    44441,
+    44442
+  ],
+  "permissions": [
+    "Write only listed appfiles in newlinkedworktree",
+    "No currentlab/course writes",
+    "Runtimebuild/start only after separateplanreview",
+    "After independent concretecleanupscriptreview, remove ONLYtask-createdsyntheticproject001containers/volumes afterbackupverification; allownewsuccessorproject002, noforeignresources.",
+    "WhenhostCbelow15GiB, runisolatedverification onGitHubhostedLinuxrunneronly; no newlocalhostallocations. Scope includesverify_runtime.py andworkflowapp-smokejob, reviewexactcodebeforepush."
+  ],
+  "acceptance": [
+    "ActualbaselineDocker metadata fail withlinked.git pointer; fixed explicit40hexSHA succeeds and normalclone fallback retained",
+    "Wrapper checksrealGitHEAD/cleantrackedsource and trackedarchiveonly buildcontext; freshsecrets generated ignored outsideGit, protectednames/portsfailclosed",
+    "Uniqueprojectservices/volumes/ports, syntheticdev/testDB, setup/restart/smoke andbackuprestorecode/config/data exercised onlynewproject",
+    "Reviewed CI only after disablingevery inheritedworkflow/readback; actualfocusedregressionCI",
+    "Exactappcommit reviewer otherthanimplementer, sourceorigin/pin/hashes andcontrolapprecord separate"
+  ],
+  "implementation_subject": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "initial_subjects": [
+    "63aac3671d7dd8a8225b8ec12ba71584926f11e2",
+    "073c3a7ccd989505dedf8c579aa78683ea0c1a5c"
+  ],
+  "checks_observed": {
+    "python_boundary_tests": {
+      "status": "PASS",
+      "tests": 23,
+      "seconds": 0.515
+    },
+    "full_build_previous_subject": "PASS at0768677",
+    "actualCI_previous_subject": "PASS at0768677,21boundary+14frontend",
+    "runtime_vite_previous_subject": "FAIL at0768677; startup fix independently reviewed at2db109b, hosted runtime atc77 still in_progress",
+    "latest_doc_review": "PASS at27e1669; no new execution claim",
+    "actualCI_current_subject": "PASS27e1669 apphead; checkout8d953fd treeidentical; run45082996742 allmetadata/frontend/runtime jobs",
+    "runtime_current_subject": "PASS isolatedhosted: fullbuild/start/focusedRSpecVitest/HTTP/restart/syntheticbackuprestore/idempotence/stop; nointeractiveUI/production"
+  },
+  "runtime_recovery_project": "cwdev-complete002",
+  "runtime_recovery_plan": "runtime-recovery-plan.json"
+}

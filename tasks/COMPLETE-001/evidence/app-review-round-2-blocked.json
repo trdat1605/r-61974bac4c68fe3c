@@ -1,0 +1,13 @@
+{
+  "task_id": "COMPLETE-001",
+  "reviewer": "/root/portable_app_review",
+  "result": "BLOCKED_PENDING_FIX",
+  "subject_commit": "3df8f1d8a2967897b496ac61fdd11b2d75eb43af",
+  "finding": "Temporary named base tag cleanup may delete a caller-supplied existing image object if it originally had no tags and temporary tag is its final tag. Namespace/ID checks alone insufficient.",
+  "expected_correction": "Require independent existing tag and retain at least one other tag before removing ownedtag; untagged case rejected and tag-disappearance race fails closed.",
+  "checks_observed": "Reviewer18Python testsPASS; noDockerbuild/run",
+  "limits": [
+    "Preliminary reviewer finding; exactline/sourcefinalpending",
+    "No runtimechangesexecuted"
+  ]
+}

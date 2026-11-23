@@ -6,3 +6,8 @@
 .githooks/* text eol=lf
 .gitattributes text eol=lf
 .gitignore text eol=lf
+# Preserve exact independently authored receipt bytes already referenced by SHA256.
+tasks/COMPLETE-001/evidence/app-final-review.json -text whitespace=cr-at-eol
+tasks/COMPLETE-001/evidence/agent-eval/grading/material-second-check.json -text whitespace=cr-at-eol
+# Preserve selected full-build output, including producer trailing spaces.
+tasks/COMPLETE-001/evidence/full-build.txt whitespace=-blank-at-eol

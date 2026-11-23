@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/portable_app_review",
+  "result": "PASS",
+  "script_sha256": "b5e97112af83f780ce7492320855973da9f762a13a048061aebfa3146d9f5f4c",
+  "cleanup_plan_sha256": "9a1a98b6c43ed58342e4053bcd7f0c5fa964b79acd618f8d7c9c3793452c6e5a",
+  "recovery_plan_sha256": "45b92f21757c19d19c20870536c13728590b5e7fdaef7502e2ce9bcd8d79d4ed",
+  "independent_verification": [
+    "SixexactIDs/names/images/labels/mountsmatchplan,5volume labels,noforeigncontainermounts,9protectedIDs/starttimesunchanged",
+    "Backupsha4547aac9626749a476ab2f8e48fdcd16ca96174b51c82d610e0c4c322ddd25a6matches",
+    "Corrected --no-trunc enumerationbeforemutation; syntaxPASS"
+  ],
+  "limits": [
+    "Onlycleanup6ownedcontainers+4nonPGvolumes; preservedPGbackup/images/source",
+    "Noexecutionbyreviewer; newallocationrequiresfree>=15GiB andnewrendergate",
+    "UnoptimizedPythonrequired"
+  ]
+}

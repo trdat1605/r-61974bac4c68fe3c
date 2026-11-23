@@ -1,0 +1,152 @@
+{
+  "task_id": "COMPLETE-001",
+  "review_type": "PLAN_REVIEW_ADDENDUM",
+  "reviewer": "/root/docker_storage_plan_review",
+  "implementer": "root_foundation_completion",
+  "reviewed_at_utc": "2026-11-23T00:08:52Z",
+  "reviewed_commit": null,
+  "observed_control_head": "d5b0eaef4b5f14fafd0502a18f54219d7f27e8be",
+  "subject": {
+    "path": "docs/runbooks/docker-storage-migration.md",
+    "sha256": "490c11f7bce8daf1b7809826958afb9bb2e01dec98bf2add813b979fcde9cc5c",
+    "git_state": "UNTRACKED_WORKING_TREE_FILE",
+    "binding": "Exact-byte preparation review only. This is not an exact-commit maintenance execution review."
+  },
+  "original_review": {
+    "path": "tasks/COMPLETE-001/evidence/docker-storage-plan-review.json",
+    "sha256": "85061b004ee1f2713bca4d0e6de275fce009675ff2655760f9b0a330e9282bb0",
+    "reviewed_old_plan_sha256": "048ef61645bcdbe92096c93ef217709ad170442695cb09c6edd08f30833fbe7c",
+    "preservation": "Read only; not replaced or edited. Its original BLOCKED_FOR_EXECUTION decision remains valid for its subject."
+  },
+  "input_hashes": [
+    {
+      "path": "tasks/COMPLETE-001/task.json",
+      "sha256": "0364359a2ee954b536f471196b508aa22aaec915826670188deaba3c9d1a87f2"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/docker-storage-ui.json",
+      "sha256": "207499fc6ce92a6240d5eb1d1c8714beb98dcf19f81e3102b5f998ed80e596ec"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/docker-storage-mounts.json",
+      "sha256": "675673f420d5b1a2893eb11578368bd195367163ca51bc82ba8679beb5a33fa3"
+    },
+    {
+      "path": "tasks/COMPLETE-001/evidence/docker-storage-capacity.json",
+      "sha256": "3e0be9be63a637b42b332015b32c5ba5b5d882c036f1184c88b7c51c11176bf6"
+    }
+  ],
+  "scope": {
+    "authorized": "Prepare and independently review the storage relocation plan; no execution of maintenance steps.",
+    "preparation_acceptance": "The handover must identify supported direction, protected data, known hazards, future owners/decisions and explicit gates for unresolved evidence. Actual protected-application backup and restore are not required to finish this preparation-only scope.",
+    "execution_acceptance": "A separately scoped and authorized maintenance task, executable version-specific runbook and independent review must demonstrate the unresolved gates before any existing-runtime mutation.",
+    "independence_limit": "The reviewer did not author or edit the subject plan. Separate review context does not isolate shared machine permissions."
+  },
+  "results": {
+    "preparation_handover": "PASS",
+    "execution_readiness": "BLOCKED_FOR_EXECUTION",
+    "actual_migration": "NOT_RUN",
+    "actual_protected_application_backup_restore": "NOT_RUN",
+    "new_preparation_blocking_findings": [],
+    "conclusion": "The enriched plan is concrete enough for the requested preparation handover. It labels itself non-executable, identifies evidence and failure boundaries, and carries the five execution blockers forward explicitly. Preparation PASS does not close the execution findings, approve a maintenance window, or authorize Docker settings, restart, copy, move or cleanup."
+  },
+  "sources": [
+    {
+      "id": "D1",
+      "url": "https://docs.docker.com/desktop/features/wsl/",
+      "read_directly_on_utc": "2026-11-22",
+      "applicability": "WSL 2 guidance supports changing data location in Desktop settings. Current UI receipt shows the equivalent VM resources control in 4.99.0; it does not test the move."
+    },
+    {
+      "id": "D2",
+      "url": "https://docs.docker.com/desktop/settings-and-maintenance/settings/",
+      "read_directly_on_utc": "2026-11-22",
+      "applicability": "Disk image location documentation explains move and existing-image collision choices, although the table omits WSL 2. Installed UI evidence resolves control availability only."
+    },
+    {
+      "id": "D3",
+      "url": "https://docs.docker.com/desktop/settings-and-maintenance/backup-and-restore/",
+      "read_directly_on_utc": "2026-11-22",
+      "applicability": "Supports offline VHD backup with Desktop fully stopped and separate coverage for user distributions and mounted data. It does not validate this machine's rollback procedure or backup integrity."
+    },
+    {
+      "id": "M1",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/basic-commands",
+      "read_directly_on_utc": "2026-11-22",
+      "applicability": "Global WSL shutdown terminates all running distributions; named distribution export/import is separate. The plan appropriately avoids default global shutdown."
+    }
+  ],
+  "source_and_evidence_limits": [
+    "Primary sources were directly read during the first review in this same reviewer context; this addendum reuses that reading and does not claim a new web fetch.",
+    "Current UI receipt retains observation time 2026-11-22T23:18:16.929473+00:00. Its bytes differ from the first review's input hash; the addendum binds the current receipt and does not reinterpret it as a fresh UI observation.",
+    "Docker documentation is current online guidance, not release-pinned proof of 4.99.0 relocation/restore semantics. No browse, selection, Apply or relocation was independently reproduced by this reviewer."
+  ],
+  "finding_dispositions": [
+    {
+      "id": "DSR-01",
+      "preparation_disposition": "ADDRESSED_AS_EXPLICIT_FUTURE_GATE",
+      "execution_disposition": "OPEN_BLOCKING",
+      "plan_lines": "25-30,34-35,61-63,70,72-74",
+      "reviewed_change": "All nine protected containers now have sanitized mount metadata. The plan explicitly distinguishes external source/video/credential binds, flags Chatwoot's two Postgres mount destinations and requires real PGDATA identification. It requires consistent DB/Redis/uploads/config coverage and isolated restore, without treating synthetic COMPLETE-001 data as a substitute.",
+      "remaining_execution_gate": "Determine active PGDATA and all persistent state including writable layers and actual Chatwoot uploads. Establish exact private backup artifacts, methods, owners and recovery checks; resolve Ubuntu and external bind backup coverage. No protected application backup/restore has been performed or verified."
+    },
+    {
+      "id": "DSR-02",
+      "preparation_disposition": "ADDRESSED_AS_EXPLICIT_FUTURE_GATE",
+      "execution_disposition": "OPEN_BLOCKING",
+      "plan_lines": "9,16,64,67,70,72-74",
+      "reviewed_change": "A new receipt supplies measured C/D free bytes, VHD file length and an absent target. The plan calls two VHD lengths a rough lower-bound budget, explicitly adds application backups/scratch/recovery/growth, withholds a sufficient-capacity conclusion and records that independent backup storage is unselected.",
+      "remaining_execution_gate": "Measure all required allocations and stage-specific rollback space, D filesystem/permissions/health and backup destinations; choose a justified reserve and abort threshold. Refresh measurements immediately before execution. The absent target is only a point-in-time observation.",
+      "arithmetic_check": {
+        "D_free_bytes": 77744775168,
+        "two_vhd_file_lengths_bytes": 57759760384,
+        "remaining_bytes_before_all_other_requirements": 19985014784,
+        "remaining_gib": 18.61249542236328,
+        "result": "Arithmetic agrees with receipt; not capacity approval."
+      }
+    },
+    {
+      "id": "DSR-03",
+      "preparation_disposition": "ADDRESSED_AS_EXPLICIT_FUTURE_GATE",
+      "execution_disposition": "OPEN_BLOCKING",
+      "plan_lines": "3,47,55-56,60,65-66,69,72-74",
+      "reviewed_change": "The plan requires a new maintenance runtime owner and separate reviewer, identifies interruption of both applications, names Sheet sync/Sidekiq and request fencing, outlines app-before-datastore stop and datastore-before-app start, and prohibits default global WSL shutdown. It does not seek migration approval now.",
+      "remaining_execution_gate": "Name the actual operator/receiver and protected service owners in the maintenance task; define exact commands, restart-policy handling, fully-stopped proof and write-fencing checks. Establish start, abort and recovery deadlines from justified measurements. No maintenance window or permission to interrupt protected runtime exists in this addendum."
+    },
+    {
+      "id": "DSR-04",
+      "preparation_disposition": "ADDRESSED_AS_EXPLICIT_FUTURE_GATE",
+      "execution_disposition": "OPEN_BLOCKING",
+      "plan_lines": "39,43,62-63,67,69-70,72-74",
+      "reviewed_change": "The table distinguishes failure before versus during/after move, requires hashed offline backup and preserved partial target, warns not to assume C retains the source, stops rather than deletes when recovery space is insufficient, and explicitly requires a decision on post-cutover writes.",
+      "remaining_execution_gate": "Provide a supported, version-applicable recovery procedure with exact configured/source/target locations, triggers, known-good dataset and sufficient capacity at each failure stage. Verify the recovery path under separately authorized conditions. The general instruction to retain old source is qualified by the explicit warning that UI may move it; it is not evidence a second copy exists."
+    },
+    {
+      "id": "DSR-05",
+      "preparation_disposition": "ADDRESSED_AS_EXPLICIT_FUTURE_GATE",
+      "execution_disposition": "OPEN_BLOCKING",
+      "plan_lines": "34,38-39,63,68-70,72-74",
+      "reviewed_change": "The plan now distinguishes expected restart timestamps from the previous untouched-runtime comparison and names identity/location checks plus login/uploads/video/course authorization/Sheet sync/Chatwoot UI/API/worker checks. It retains backups until restore checks and product-owner acceptance, with deletion a separate decision.",
+      "remaining_execution_gate": "Record actual pre-change baselines, precise commands/expected results, allowed identity changes, datastore integrity checks and private test data references. Define how functional checks that need writes use controlled probes while normal ingress and job writers remain fenced. Review and execute acceptance checks only under the new maintenance scope."
+    }
+  ],
+  "remaining_unknowns": [
+    "Active Chatwoot PGDATA across named and anonymous Postgres mounts; actual database versions/configuration and writable-layer state are not established by selected mount metadata alone.",
+    "Exact location/coverage of Chatwoot uploads, Ubuntu source/config, course video and private credential binds; Docker-generated Vite bind path must be mapped to its durable underlying source for future backup/recreation.",
+    "Private backup storage choice, consistency mechanisms, artifact sizes and successful logical/VHD recovery evidence; no credentials, full environment or data need enter the public repository.",
+    "Destination filesystem/ACL/storage health, all intermediate allocations, independent backup medium, growth reserve and capacity abort threshold.",
+    "Actual runtime owner, owner-approved maintenance window, measured copy/recovery timing, shutdown/start commands and restart-policy behavior.",
+    "Release-specific supported VHD restore path, partial-move recovery, write fencing and any recovery-point decision after resumed writes.",
+    "Concrete before/after commands and expected application results for both applications, plus allowed identity changes and backup retention acceptance.",
+    "Desktop full build and engine version at execution time; current UI receipt establishes Desktop 4.99.0 and WSL 2 only."
+  ],
+  "verification": [
+    {"name": "Preparation scope and execution boundary", "status": "PASS", "basis": "Current task and plan repeatedly prohibit backup/restore/stop/start/target creation/move/cleanup during preparation."},
+    {"name": "Dispositions for all original findings", "status": "PASS", "basis": "DSR-01 through DSR-05 are represented explicitly, with future evidence and ownership gates; none is silently marked execution-resolved."},
+    {"name": "Independent runtime/UI checks by this reviewer", "status": "NOT_RUN", "basis": "Review reads only submitted sanitized receipts and plan."},
+    {"name": "Execution readiness", "status": "BLOCKED", "basis": "Five open execution findings and remaining unknowns above."},
+    {"name": "Actual migration and protected-data backup/restore", "status": "NOT_RUN", "basis": "Not authorized or required for current preparation handover."}
+  ],
+  "next_handoff": "Preparation can be handed to the product owner with PASS and the execution BLOCKED distinction. Do not request approval to migrate or perform backups now. A future maintenance task must complete and independently review the missing runbook inputs before seeking a concrete outage/migration decision.",
+  "authored_artifact_only": "tasks/COMPLETE-001/evidence/docker-storage-plan-review-addendum.json"
+}

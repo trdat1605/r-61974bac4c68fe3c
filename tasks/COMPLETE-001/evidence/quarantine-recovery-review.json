@@ -1,0 +1,10 @@
+{
+  "reviewer": "/root/foundation_ci_audit",
+  "result": "PASS",
+  "script_sha256": "150e1f0cd6a56dacb7239c7019772ac73e12cde9389fb5b91a668211ae71df8c",
+  "limits": [
+    "Onlydisableoldwhileglobaldisabled; noappcode/runtime/enable/mergeapproval",
+    "FirstGETdelayobserved, servercauseunproven; attempt1FAILpreserved",
+    "UnoptimizedPythonrequired"
+  ]
+}

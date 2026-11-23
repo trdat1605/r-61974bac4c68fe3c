@@ -1,0 +1,178 @@
+{
+  "project": "cwdev-complete001",
+  "containers": [
+    {
+      "id": "2307a9772af217f8c688b99b5a87f53306e596ea489a18d7eb94aab8494fef3d",
+      "name": "/cwdev-complete001-sidekiq-1",
+      "image": "sha256:02305e4328fe6b298bfec767f6fe8548d472e34fc029315fce54ec49eed82f3e",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/root/code/chatwoot-foundation-worktrees/complete-001/.codex/isolated/cwdev-complete001/source",
+          "name": null,
+          "destination": "/app"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_node_modules/_data",
+          "name": "cwdev-complete001_node_modules",
+          "destination": "/app/node_modules"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_storage/_data",
+          "name": "cwdev-complete001_storage",
+          "destination": "/app/storage"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_tmp/_data",
+          "name": "cwdev-complete001_tmp",
+          "destination": "/app/tmp"
+        }
+      ]
+    },
+    {
+      "id": "cd944542a2caebbd10579c8d6386f645e457f93358c48c7a5595b7d396d55a1f",
+      "name": "/cwdev-complete001-vite-1",
+      "image": "sha256:02305e4328fe6b298bfec767f6fe8548d472e34fc029315fce54ec49eed82f3e",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/root/code/chatwoot-foundation-worktrees/complete-001/.codex/isolated/cwdev-complete001/source",
+          "name": null,
+          "destination": "/app"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_node_modules/_data",
+          "name": "cwdev-complete001_node_modules",
+          "destination": "/app/node_modules"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_storage/_data",
+          "name": "cwdev-complete001_storage",
+          "destination": "/app/storage"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_tmp/_data",
+          "name": "cwdev-complete001_tmp",
+          "destination": "/app/tmp"
+        }
+      ]
+    },
+    {
+      "id": "d2b64299bf4408c2cf3aaefecc98b5bea3d9810243696549cf32c456a6662950",
+      "name": "/cwdev-complete001-rails-1",
+      "image": "sha256:02305e4328fe6b298bfec767f6fe8548d472e34fc029315fce54ec49eed82f3e",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/run/desktop/mnt/host/wsl/docker-desktop-bind-mounts/Ubuntu-22.04/c1979e37a3f7cc9eec2c7cc463d1cca0ef9b88fad3c88833955e428da3ae0ab7",
+          "name": null,
+          "destination": "/app"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_node_modules/_data",
+          "name": "cwdev-complete001_node_modules",
+          "destination": "/app/node_modules"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_storage/_data",
+          "name": "cwdev-complete001_storage",
+          "destination": "/app/storage"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_tmp/_data",
+          "name": "cwdev-complete001_tmp",
+          "destination": "/app/tmp"
+        }
+      ]
+    },
+    {
+      "id": "f09c0b120f69627d946d30ed04606d475518007cad93cc2610356e196d9eeafc",
+      "name": "/cwdev-complete001-mailhog-1",
+      "image": "sha256:8d76a3d4ffa32a3661311944007a415332c4bb855657f4f6c57996405c009bea",
+      "mounts": []
+    },
+    {
+      "id": "4e595d485b1a1e3a6a4c07898a63819071788cbf811a29ef7a980069cea328a3",
+      "name": "/cwdev-complete001-redis-1",
+      "image": "sha256:71885d8cc6e42f2bc0aa2eb853bfc4be200b5108a46ac50e117ae1df0531fb80",
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_redis/_data",
+          "name": "cwdev-complete001_redis",
+          "destination": "/data"
+        }
+      ]
+    },
+    {
+      "id": "742be1494948b0ed304733038cee302e99e6f5d657e9ff9b57957aaba8113535",
+      "name": "/cwdev-complete001-postgres-1",
+      "image": "sha256:0dd3149a06e4579a0d70d8fef9945636cd514005e7237deb27f9b67886f8dc4f",
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/cwdev-complete001_postgres/_data",
+          "name": "cwdev-complete001_postgres",
+          "destination": "/data/postgres"
+        },
+        {
+          "type": "volume",
+          "source": "/var/lib/docker/volumes/c41d0cee3154cdd99b26ee4b87e3dc69856f07587691212434bd35615a886506/_data",
+          "name": "c41d0cee3154cdd99b26ee4b87e3dc69856f07587691212434bd35615a886506",
+          "destination": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ],
+  "volumes": [
+    "cwdev-complete001_node_modules",
+    "cwdev-complete001_postgres",
+    "cwdev-complete001_redis",
+    "cwdev-complete001_storage",
+    "cwdev-complete001_tmp"
+  ],
+  "backup": {
+    "status": "PASS",
+    "exit_code": 0,
+    "command": "docker exec exactownedprojectPG pg_dump -U postgres -d cwdev_complete001_dev --format=custom --no-owner; streamtoDprivatebackup",
+    "backup_path": "D:\\Chatwoot-Foundation-Backups\\complete001\\synthetic-dev.pgcustom",
+    "backup_sha256": "4547aac9626749a476ab2f8e48fdcd16ca96174b51c82d610e0c4c322ddd25a6",
+    "backup_bytes": 424655,
+    "source_subject": "07686773cb515aba4029823ffe585e80fca705a5",
+    "project": "cwdev-complete001",
+    "limits": [
+      "Syntheticdataonlycreatedinthistask; nodataoflab/course",
+      "BackupbinaryoutsideGit; noDBdumpcontentsinreceipt",
+      "Restoreandcountscomparisonpending"
+    ]
+  },
+  "synthetic_counts": [
+    "accounts=2",
+    "users=1",
+    "installation_configs=129"
+  ],
+  "protected_before": "protected-runtime-before.json",
+  "limits": [
+    "DeleteONLYlistednewprojectcontainers/volumes afterindependentreview; noimageorforeignresourceprune",
+    "Current sourcecheckoutdifferent2db, oldcontainers/snapshot076readonlyuntilcleanup; no wrapperstaleHEADoverride",
+    "PreserveoriginalsyntheticPostgresvolumeUNTILactualbackuprestorerowcounts verified; firstcleanupdeletesonlynonPGcache/syntheticvolumes."
+  ],
+  "preserve_volumes": [
+    "cwdev-complete001_postgres"
+  ],
+  "delete_volumes": [
+    "cwdev-complete001_node_modules",
+    "cwdev-complete001_redis",
+    "cwdev-complete001_storage",
+    "cwdev-complete001_tmp"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "run_id": "T1-P-2",
+  "protocol_sha256": "655b140770ee224c1aa2cf716dccb80074d02ce7605a533c6524178f4b36a248",
+  "packet_sha256": "9f5f0de6bab626617ef01e588597ca6cac51cc2105fffb8ca4c443589327b16a",
+  "roster": {
+    "coordinator": "/root/v3_t1p2_c",
+    "worker_A": "/root/v3_t1p2_a",
+    "worker_B": "/root/v3_t1p2_b"
+  },
+  "dispatch_utc": "2026-11-22T22:50:15.980911+00:00",
+  "status": "COMPLETED_PENDING_ADJUDICATION",
+  "model_identity": "NOT_EXPOSED",
+  "observer_interventions": [],
+  "end_utc": "2026-11-22T22:55:50.769106+00:00",
+  "output_hashes": {
+    "worker_A": "a6684e0ffc29632535cbbd66c88bc7b73928d9df7450da6208d4a5086bfa4a63",
+    "worker_B": "98f13e0ad8e0bab67bd5f3974899fb80f280d0f9bb0d13ee8ae5bdebe9d0e6c6",
+    "coordinator": "539f3d6763d372e0fac54211a9f8fae221efdfae5fcd34ac472fd8838f49ba19"
+  }
+}

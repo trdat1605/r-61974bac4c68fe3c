@@ -1,0 +1,59 @@
+{
+  "task_id": "COMPLETE-001",
+  "date": "2026-11-23",
+  "status": "PLAN_NOT_EXECUTED",
+  "application": "tasks/COMPLETE-001/evidence/app-task.json",
+  "source_pin": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "checkout": "/root/code/chatwoot-foundation-worktrees/complete-001",
+  "project": "cwdev-complete001",
+  "ports": [
+    44440,
+    44441,
+    44442
+  ],
+  "protected_projects": [
+    "cwlab-9200023e",
+    "course-platform-local"
+  ],
+  "runtime_sequence": [
+    "Record all currentcontainers identity/image/start/selectednonsecretmounts andhostCfree; no inspectenv/logsecrets",
+    "Review exactappimplementation before anynewruntimebuild/start; scopedappcommit containsportablebootstrap andDocker metadatafix",
+    "Baseline controlledtinyDockercontext copiesactual.git pointer andexecutesoriginalDockerfilemetadatacommand, requireexpectedfailure; fixedactualsourceblockDockerregression includingnormalclone/40hexinvalid/mismatch tests",
+    "Bootstrap verifiescleanGit/sourceHEAD, usesgitarchive-onlysnapshot plusgenerated.git_sha andfreshignoredchmod600secretfile; ownproject/images/volumes/ports; renderselectedconfigassertnoexternalvolume/hostmountlab/secretenvoutput",
+    "RunfullDockerfiledevelopmentbuild withtestdeps; cachedbaseoverride maytestsetupfirstbutmustlabelCACHE_REUSEandnotreplacefullbuildproof",
+    "Prepareownsyntheticdev/testDB, startonlynewproject; HTTPhealth/loginpage/hostedVitemodules, focusedRSpecAPI+sessionandfrontendDateHelper; restartandrepeatbootstrap idempotence",
+    "BackupnewDB/config/sourceSHA only intoignoredprivateprojectpath thenrestoretonewisolatedtestdatabase, validateknownsyntheticrecord; neverbackupcurrentlab/customerdata",
+    "Aftertests compareoriginalcontainers IDs/starttimes/images/mounts unchanged; diskspacechecknoautoprune"
+  ],
+  "ci_sequence": [
+    "RecordrepoID1467945011/pinnedmain/currentrefs/runs0/repoActionsfalse and17inheritedworkflowIDsactive",
+    "DisableeachinheritedworkflowviaActionsworkflowdisablewhilegloballydisabled; readbackall17disabled_manually; ifcannotdo so STOPglobaldisabled",
+    "Review exactcandidatefoundation-ci.yml permissions/triggers/dependencies/output/sourceSHA; pushonlyscopedappbranchwhileglobaldisabled; rescaninventoryagainst17old+allowednewpath",
+    "Assertnoinheritedqueued/inprogressrun, then enableglobalActions; enableonlynewworkflowifrequired, confirmall17old remain disabled",
+    "CreateactualappPRagainstmain withissue2/controltasklink atreviewedappSHA, waitrealcandidatechecks; onanyunexpectedinheritedrun immediatelydisableglobalActionsandcancelonlyunexpectedruncreatedbythisenablephase, preservesanitizedfailure",
+    "Do notenableupstreampublish/nightly/stale/autodeployorrequireunexecutedproductchecks; addactualrequiredCI onlyafterobservedchecksource andindependentreview"
+  ],
+  "integration": [
+    "PrepareconsolidatedcontrolPRdescendantc714462 againstmain; preservetaskhistory/ancestry regularmergecommitrequired, no squash/rebase",
+    "Independentreviewaggregateintegrationandnewsubject, bothactualrequiredchecksPASS",
+    "PrepareconcreteownermergedecisionwithexactPR/SHA androllbackbeforeasking; do notmerge/releasewithoutownerdecision",
+    "Afterownerapprovedmerge verifydefaulttemplatesactivate andfreshclonemainhandshake; futureappreleaseproductionoutsidecurrenttask"
+  ],
+  "agent_eval": "UserapprovedavailableCodextopologycomparisonwhileClaudeunavailable; preregisterfixedsource3cases2arms2repeatsandindependentadjudication; resultsnotoptimalityclaim",
+  "stop_conditions": [
+    "Protectedruntime/source/datawrite required",
+    "C freebelow15GiB orDockerdaemonpressure; noautodelete/prune",
+    "Unknownworkflow executes orinventoryunexpected",
+    "Credential/customerdata candidate exposure",
+    "Plan/code changedafterreviewneedsaffectedreviewagain"
+  ],
+  "sources": [
+    "https://developers.chatwoot.com/contributing-guide/environment-setup/docker",
+    "https://docs.docker.com/compose/how-tos/project-name/",
+    "https://docs.docker.com/build/concepts/context/",
+    "https://git-scm.com/docs/git-worktree",
+    "https://docs.github.com/en/rest/actions/workflows",
+    "https://docs.github.com/en/rest/actions/permissions",
+    "https://docs.github.com/en/pull-requests/reference/pull-request-merges"
+  ]
+}

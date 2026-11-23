@@ -1,0 +1,166 @@
+{
+  "status": "PASS",
+  "source_commit": "07686773cb515aba4029823ffe585e80fca705a5",
+  "project": "cwdev-complete001",
+  "services": {
+    "mailhog": {
+      "image": "mailhog/mailhog:latest",
+      "mounts": [],
+      "ports": [
+        {
+          "host_ip": "127.0.0.1",
+          "published": "44442",
+          "target": 8025
+        }
+      ],
+      "build_context": null
+    },
+    "postgres": {
+      "image": "pgvector/pgvector:pg16",
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "postgres",
+          "target": "/data/postgres"
+        }
+      ],
+      "ports": [],
+      "build_context": null
+    },
+    "rails": {
+      "image": "cwdev-complete001:app-07686773cb51",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/root/code/chatwoot-foundation-worktrees/complete-001/.codex/isolated/cwdev-complete001/source",
+          "target": "/app"
+        },
+        {
+          "type": "volume",
+          "source": "node_modules",
+          "target": "/app/node_modules"
+        },
+        {
+          "type": "volume",
+          "source": "storage",
+          "target": "/app/storage"
+        },
+        {
+          "type": "volume",
+          "source": "tmp",
+          "target": "/app/tmp"
+        }
+      ],
+      "ports": [
+        {
+          "host_ip": "127.0.0.1",
+          "published": "44440",
+          "target": 3000
+        }
+      ],
+      "build_context": null
+    },
+    "redis": {
+      "image": "redis:alpine",
+      "mounts": [
+        {
+          "type": "volume",
+          "source": "redis",
+          "target": "/data"
+        }
+      ],
+      "ports": [],
+      "build_context": null
+    },
+    "sidekiq": {
+      "image": "cwdev-complete001:app-07686773cb51",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/root/code/chatwoot-foundation-worktrees/complete-001/.codex/isolated/cwdev-complete001/source",
+          "target": "/app"
+        },
+        {
+          "type": "volume",
+          "source": "node_modules",
+          "target": "/app/node_modules"
+        },
+        {
+          "type": "volume",
+          "source": "storage",
+          "target": "/app/storage"
+        },
+        {
+          "type": "volume",
+          "source": "tmp",
+          "target": "/app/tmp"
+        }
+      ],
+      "ports": [],
+      "build_context": null
+    },
+    "vite": {
+      "image": "cwdev-complete001:app-07686773cb51",
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "/root/code/chatwoot-foundation-worktrees/complete-001/.codex/isolated/cwdev-complete001/source",
+          "target": "/app"
+        },
+        {
+          "type": "volume",
+          "source": "node_modules",
+          "target": "/app/node_modules"
+        },
+        {
+          "type": "volume",
+          "source": "storage",
+          "target": "/app/storage"
+        },
+        {
+          "type": "volume",
+          "source": "tmp",
+          "target": "/app/tmp"
+        }
+      ],
+      "ports": [
+        {
+          "host_ip": "127.0.0.1",
+          "published": "44441",
+          "target": 44441
+        }
+      ],
+      "build_context": null
+    }
+  },
+  "volumes": {
+    "node_modules": {
+      "name": "cwdev-complete001_node_modules",
+      "external": false
+    },
+    "postgres": {
+      "name": "cwdev-complete001_postgres",
+      "external": false
+    },
+    "redis": {
+      "name": "cwdev-complete001_redis",
+      "external": false
+    },
+    "storage": {
+      "name": "cwdev-complete001_storage",
+      "external": false
+    },
+    "tmp": {
+      "name": "cwdev-complete001_tmp",
+      "external": false
+    }
+  },
+  "networks": {
+    "default": {
+      "name": "cwdev-complete001_default",
+      "external": false
+    }
+  },
+  "secret_mode": "0o600",
+  "dependency_mode": "FULL_BUILD"
+}
