@@ -2,6 +2,18 @@
 
 Ngày 23/11/2026. [Issue18](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/18), [phiếu việc](../../tasks/COMPLETE-001/task.json). Đây là trang theo dõi công việc đang thực hiện; **chưa phải báo cáo nghiệm thu**. Giữ nguyên task/review/evidence lịch sử.
 
+**Lối đọc ngắn:** [kết quả agent](agent-selection.md) →
+[pilot và review app](../../tasks/COMPLETE-001/evidence/app-final-review.json) →
+[CI vòng đời](../../tasks/COMPLETE-001/evidence/app-ci-lifecycle-success.json) →
+[quyền merge](review-and-merge.md). Mở [chỉ mục bằng chứng](../../tasks/COMPLETE-001/evidence/README.md)
+khi cần truy nguyên, không nạp toàn bộ các packet/log vào mỗi tác vụ.
+
+Các kiểm chứng kỹ thuật đã có bao gồm cả kết quả không đạt của phép thử agent.
+“Hoàn tất đánh giá” không có nghĩa tất cả agent đều làm đúng. Mốc tiếp theo là
+bản tích hợp được reviewer khác kiểm đúng commit, CI control đạt và Draft PR đủ
+thông tin để chủ sản phẩm quyết định. Chưa có quyết định thì giữ nguyên trạng thái
+chưa merge/chưa nghiệm thu; default-branch templates cũng chưa thể gọi active.
+
 ## Tiêu chí và phụ thuộc
 
 | Mục | Bằng chứng cần có để chấp nhận trong phạm vi này |
