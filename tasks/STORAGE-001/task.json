@@ -17,5 +17,5 @@
   "reviewer": "fresh-context storage-review",
   "receiver": "product owner",
   "status": "preflight",
-  "bound_inputs": ["tasks/STORAGE-001/maintenance-plan.md", "tasks/STORAGE-001/maintain.py"]
+  "bound_inputs": ["tasks/STORAGE-001/maintenance-plan.md", "tasks/STORAGE-001/maintain.py", "tasks/STORAGE-001/redis_verify.py"]
 }

@@ -82,8 +82,18 @@ def category(item):
 def assert_inventory():
     before = original()
     now_ids = dock('ps','-aq','--no-trunc').decode().split()
-    assert set(now_ids)=={x['Id'] for x in before}, 'Container identities changed'
+    expected_ids={x['Id'] for x in before}
+    fixture_record=PRIVATE/'redis-fixture.json'
+    fixture=json.loads(fixture_record.read_text()) if fixture_record.exists() else None
+    if fixture: expected_ids.add(fixture['id'])
+    assert set(now_ids)==expected_ids, 'Container identities changed'
     now = {x['Id']:x for x in json.loads(dock('inspect',*now_ids))}
+    if fixture:
+        diagnostic=now[fixture['id']]
+        assert diagnostic['Config']['Labels'].get('task')=='STORAGE-001' and diagnostic['Image']==fixture['image']
+        assert diagnostic['HostConfig']['NetworkMode']=='none' and not diagnostic['HostConfig']['PortBindings']
+        assert not diagnostic['State']['Running'], 'Diagnostic fixture must be stopped before original apps resume'
+        assert not any(x['Type']=='volume' for x in diagnostic['Mounts'])
     for item in before:
         other = now[item['Id']]
         assert item['Image']==other['Image'], 'Container image changed'
@@ -132,6 +142,19 @@ def datastore_snapshot(phase):
     write_json(PRIVATE / (phase+'-datastores.json'),snapshots)
     if phase=='after':
         before=read_private('before-datastores.json')
+        previous=[x for x in before if x['kind']=='redis'][0]
+        current=[x for x in snapshots if x['kind']=='redis'][0]
+        if previous['persistent_digest']!=current['persistent_digest']:
+            proof=json.loads((ROOT/'evidence/redis-reconciled.json').read_text())
+            assert proof['status']=='PASS' and proof['original_container_id']==current['container']
+            assert proof['baseline_opaque_dump_digest']==previous['persistent_digest']
+            assert proof['persistent_count']==int(previous['persistent_count'])==int(current['persistent_count'])
+            from redis_verify import LUA
+            logical=json.loads(dock('exec',current['container'],'sh','-c','export REDISCLI_AUTH="$REDIS_PASSWORD"; exec redis-cli --raw EVAL "$1" 0','storage-canonical-recheck',LUA))
+            assert logical=={'count':proof['persistent_count'],'digest':proof['canonical_digest'],'types':proof['type_histogram']}, 'Canonical data changed after reconciliation'
+            # Normalize only after exact pre-move-RDB semantic proof and fresh current recheck.
+            before=[dict(x) for x in before]
+            [x for x in before if x['kind']=='redis'][0]['persistent_digest']=current['persistent_digest']
         clean=lambda rows:[{k:v for k,v in x.items() if k!='expiring_keys_not_compared'} for x in rows]
         assert clean(before)==clean(snapshots), 'Datastore digest differs; keep writers stopped'
     evidence(phase+'-datastores',{'status':'PASS','datasets':len(snapshots),'postgres_tables':sum(x.get('tables',0) for x in snapshots),'redis_scope':'DB0 persistent keys; expiring keys NOT_COMPARED; full offline VHD retains all databases','private_detail':phase+'-datastores.json'})

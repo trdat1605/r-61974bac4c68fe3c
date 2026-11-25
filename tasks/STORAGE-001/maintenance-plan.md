@@ -35,3 +35,13 @@ Backups are private outside Git, restricted ACLs, on the same physical disk (C/D
 
 ## Completion
 Write sanitized receipts and exact source/task refs, PASS/FAIL/NOT_RUN, source/destination hashes, actual free space and remaining backup locations. No reports containing raw DB dumps, customer data, private keys, raw Env or logs. Existing backup/pruning cleanup remains a later task. No merge/release. Reviewer must evaluate current plan (not inherit old BLOCKED plan verdict) and any script bytes before running mutations.
+
+## Diagnostic extension after observed Redis mismatch
+
+Post-move first data check FAIL retained: all 30 PostgreSQL dataset digests match; Redis persistent count matches but opaque DUMP aggregate differs. Apps remain fenced. Official Redis 8.10.3 rdb.c dictionary iterators do not promise canonical ordering. This possibility alone does not waive a real mismatch.
+
+Read only the 360525-byte original dump.rdb from immutable offline Docker backup, without mounting or copying another whole disk. 7-Zip reports an ext4 Headers Error warning: preserve it, independently compare exact extracted bytes using Dissect VHDX+ExtFS readers opened rb, then validate same-version redis-check-rdb CRC and actual isolated load. Small reader wheels installed only in private task directory, not global/application environments.
+
+After targeted review, permit exactly one new diagnostic container storage001-redis-verification, task label STORAGE-001 and same image ID as existing Redis. Claim runtime ownership separately. No network, no ports, read-only filesystem/RDB bind, cap-drop ALL/no-new-privileges, user redis, 128MiB memory/0.5CPU, socket/tmp in tmpfs, /data tmpfs to avoid anonymous volume, no save/AOF or original runtime mounts. Keep stopped afterward; no cleanup.
+
+Compare logical persistent data against pre-move RDB: sorted binary keys, length framing, strings, ordered lists, sorted sets/hash fields, ordered zsets/scores. Require hash fields have no TTL; abort unsupported types. Output only digest/count/type histogram. Exact canonical equality plus fresh current recheck reconciles noncanonical DUMP bytes; original FAIL/opaque before/after evidence kept. Before app resume, validate fixture stopped, unchanged original IDs/images/volumes/mounts, all PostgreSQL comparisons and only this proof-bound Redis normalization. Additional fixture is documented, not presented as an original service or skipped unknown resource.
