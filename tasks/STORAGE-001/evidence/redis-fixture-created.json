@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-25T23:23:57Z",
+  "status": "PASS",
+  "container_id": "d491401e10dddb9dba18e305d3d1effb86a3cc4eefd19114a3010512c0c9ed12",
+  "image_id": "sha256:71885d8cc6e42f2bc0aa2eb853bfc4be200b5108a46ac50e117ae1df0531fb80",
+  "network": "none",
+  "tcp_port": 0,
+  "original_volumes_mounted": false,
+  "rdb_read_only": true,
+  "rdb_checksum": "PASS",
+  "fixture_load": "PASS"
+}

@@ -1,0 +1,50 @@
+{
+  "utc": "2026-11-25T22:46:45Z",
+  "status": "PASS",
+  "containers": 20,
+  "running": 15,
+  "volumes": 33,
+  "images_unique": 50,
+  "free_bytes": {
+    "C": 15787601920,
+    "D": 88461955072
+  },
+  "http": [
+    {
+      "url": "http://127.0.0.1:44330/app/login",
+      "status": 200,
+      "elapsed_seconds": 0.919
+    },
+    {
+      "url": "http://127.0.0.1:44331/vite-dev/@vite/client",
+      "status": 200,
+      "elapsed_seconds": 0.186
+    },
+    {
+      "url": "http://127.0.0.1:44332/",
+      "status": 200,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "url": "http://127.0.0.1:44400/",
+      "status": 200,
+      "elapsed_seconds": 0.288
+    },
+    {
+      "url": "https://127.0.0.1:44403/",
+      "status": 200,
+      "elapsed_seconds": 0.047
+    },
+    {
+      "url": "http://127.0.0.1:44405/",
+      "status": 200,
+      "elapsed_seconds": 0.007
+    },
+    {
+      "url": "https://127.0.0.1:44406/",
+      "status": "UNREACHABLE",
+      "elapsed_seconds": 0.017
+    }
+  ],
+  "sensitive_metadata": "restricted private folder only"
+}

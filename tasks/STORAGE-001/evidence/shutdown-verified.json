@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T22:56:27Z",
+  "status": "PASS",
+  "datastores": 5,
+  "exit_codes_all_zero": true,
+  "oom_all_false": true,
+  "clean_shutdown_markers": 5,
+  "writers_running": 0
+}

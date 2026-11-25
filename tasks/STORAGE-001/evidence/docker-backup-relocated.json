@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T23:08:41Z",
+  "status": "PASS",
+  "retained_at": "C:\\Users\\MFLAT-ADS-010\\.codex\\private-backups\\STORAGE-001\\docker\\docker_data.vhdx",
+  "bytes": 34207694848,
+  "sha256": "ff7bf40edf0d5056c4017dc1e3d206392ad577fb3c829e8a2cde410229dfa462",
+  "elapsed_seconds": 224,
+  "free_bytes": {
+    "C": 24858128384,
+    "D": 19945791488
+  },
+  "free_after_move": {
+    "C": 24865484800,
+    "D": 54153486336
+  }
+}

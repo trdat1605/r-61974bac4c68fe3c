@@ -1,0 +1,11 @@
+{
+  "observed_local_date": "2026-11-26",
+  "status": "FAIL_INITIAL_COMPARISON_RETAINED",
+  "phase": "first post-move datastore check before any app resumed",
+  "postgres_dataset_digests": "30 of 30 match",
+  "redis_persistent_key_count": "matches",
+  "redis_opaque_dump_aggregate": "differs",
+  "expiring_keys": "naturally decreased; excluded from equality",
+  "action": "kept app writers stopped; independently extracted pre-move RDB with two readers, checked CRC and loaded same-image isolated fixture; see redis-reconciled.json",
+  "limits": "DUMP is an opaque RDB serialization; no canonical-byte promise. The possibility of ordering differences was not used alone to bypass the failure."
+}

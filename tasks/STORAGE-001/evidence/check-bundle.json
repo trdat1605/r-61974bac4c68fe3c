@@ -1,0 +1,47 @@
+{
+  "subject_commit": "1cd6785e85ad908e3e554d34ee91cd8ca2ff442a",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "python -B inline current handover consistency validation; workflow validate task",
+  "kind": "handover evidence consistency and live path/backup-size verification",
+  "checks": [
+    "inventory",
+    "quiesced-datastore-baseline",
+    "offline-vhd-copy-sha256",
+    "ubuntu-export-integrity",
+    "relocation-paths",
+    "post-inventory-source-datastore-http",
+    "independent-review"
+  ],
+  "referenced_receipts": {
+    "inventory": "220c851fbf414c309b872caed5eb267c76c060e3ebafee8415b58a94acac2b0a",
+    "writers-stopped": "d59a0e40affde61426e524ccb3baa49ce4c190ec90119b61379d24d47a5057d4",
+    "before-datastores": "4c94212104d44be7d7967e56d1438c4d8760319563e3c03192fe93a9d19bc258",
+    "all-stopped": "cadabf21639a5a499d7da604d95ec03309631daba3977d4678c8c363d39a43fa",
+    "shutdown-verified": "1fb73857b01d392c2abec1a44f1d46ea028fbd90b7863479ce4204dad699ee42",
+    "docker-offline-backup": "236f64677089b50b8c09b4dc2763d130997e4febcd76e00da551d8adbabe832c",
+    "docker-backup-relocated": "1006da38d532e120ce104db8ae03b87072b923103b665a03b194d98d93941cf6",
+    "ubuntu-export": "96574fef5338168b03659781873ae1658cedaa909718551245cf0e598e51a067",
+    "ubuntu-moved": "4d21cc8830fe32556c74c0008fb721aef1d6f1fa3c953ce14a28b9322566613b",
+    "inventory-after": "62423ff62bb58a9291a9f9f94019eff193491a8b15ccae8abf363094ab15a360",
+    "after-datastores": "2ba096dbd1d85760b1630d43c7461a9eee4dbea69c19f50934d86e146f0d7390",
+    "services-resumed": "2e7d682ef2300998b8589280df1efc49ffa7fd7c560c81356e40ebddc5d51344",
+    "postcheck": "e3c52e051e2a2ed14c63342233452fb7221aa36d1b681f72bef558fc625268bd",
+    "redis-backup-extracted": "d0bcc91ec31d5a010f20024f46c284bab9d1055d36834ef5797b16f5618e33ee",
+    "redis-fixture-created": "6edc62b7f2c489c3c72d0619e88838b847461e4afe160ee53877fb0e2e0a06de",
+    "redis-reconciled": "561ed68572c45d316a15b27bb1eb775391df59ed41a3327b6fc8ebe39db14d5a",
+    "source-and-location": "ea736bc5edf9c5fd6d3d5383491c111880c6790293c96792bcb85c633973a222"
+  },
+  "independent_runtime_review_subject": "d62c6423d3bdd33bd6c66f165abc8864df312475",
+  "reviewed_runtime_inputs_identical_at_handover_subject": true,
+  "runtime_execution_history": [
+    "c8810b739f2db344986057e30e2819a217866c51",
+    "b3a7ee2059fc401ccd2545e44cd343c5d49b0fd3",
+    "d62c6423d3bdd33bd6c66f165abc8864df312475"
+  ],
+  "limits": [
+    "This current-subject check binds earlier actual maintenance receipts; it does not claim VHD copies or data migration were rerun at this metadata commit",
+    "Previous failures remain recorded",
+    "Full business/security/whole-VM restore acceptance not claimed"
+  ]
+}

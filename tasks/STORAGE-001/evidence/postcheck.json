@@ -1,0 +1,51 @@
+{
+  "utc": "2026-11-25T23:26:26Z",
+  "status": "PASS",
+  "http": [
+    {
+      "url": "http://127.0.0.1:44330/app/login",
+      "status": 200,
+      "elapsed_seconds": 0.162
+    },
+    {
+      "url": "http://127.0.0.1:44331/vite-dev/@vite/client",
+      "status": 200,
+      "elapsed_seconds": 0.032
+    },
+    {
+      "url": "http://127.0.0.1:44332/",
+      "status": 200,
+      "elapsed_seconds": 0.013
+    },
+    {
+      "url": "http://127.0.0.1:44400/",
+      "status": 200,
+      "elapsed_seconds": 0.123
+    },
+    {
+      "url": "https://127.0.0.1:44403/",
+      "status": 200,
+      "elapsed_seconds": 0.061
+    },
+    {
+      "url": "http://127.0.0.1:44405/",
+      "status": 200,
+      "elapsed_seconds": 0.022
+    },
+    {
+      "url": "https://127.0.0.1:44406/",
+      "status": "UNREACHABLE",
+      "elapsed_seconds": 0.016
+    }
+  ],
+  "free_bytes": {
+    "C": 42582097920,
+    "D": 18622251008
+  },
+  "limits": [
+    "Read-only HTTP probes, not full UI/security acceptance",
+    "Redis expiring keys not compared",
+    "No full application or whole-VM restore rehearsal; Redis-only isolated restore verified",
+    "Private raw metadata/backups retained outside Git"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T23:24:16Z",
+  "status": "PASS",
+  "datasets": 31,
+  "postgres_tables": 967,
+  "redis_scope": "DB0 persistent keys; expiring keys NOT_COMPARED; full offline VHD retains all databases",
+  "private_detail": "after-datastores.json"
+}
