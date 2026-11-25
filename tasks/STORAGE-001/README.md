@@ -2,7 +2,7 @@
 
 Ngày thực hiện: 26/11/2026, Asia/Saigon. [Issue 20](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/20). Chủ sản phẩm đã cho phép chuyển và yêu cầu dọn sau. Đây là bảo trì máy local dùng chung, không phải thay đổi tính năng hoặc merge/phát hành Chatwoot.
 
-**Trạng thái: đang thực hiện; chưa nghiệm thu.** Xem [phương án](maintenance-plan.md), [script đúng phạm vi](maintain.py), [review trước thực hiện](evidence/preflight-review.md) và các receipt trong `evidence/`. Không dùng việc có tệp làm bằng chứng bước đã chạy; chỉ đọc receipt có kết quả tương ứng.
+**Trạng thái: đã chuyển và kiểm tra runtime; đang review bàn giao.** Xem [phương án](maintenance-plan.md), [script đúng phạm vi](maintain.py), [review trước thực hiện](evidence/preflight-review.md) và các receipt trong `evidence/`. Không dùng việc có tệp làm bằng chứng bước đã chạy; chỉ đọc receipt có kết quả tương ứng.
 
 ## Bố trí đích
 
@@ -27,6 +27,10 @@ C/D cùng một ổ vật lý; backup phục vụ khôi phục khi di chuyển l
 ## Kiểm tra và điều chưa kiểm
 
 Trước dừng: 20 container, 15 running, 50 image riêng, 33 volume. Mốc dữ liệu: 31 dataset/967 bảng public PostgreSQL và persistent Redis DB0; key có TTL không so digest. Full VHD giữ cả volume/writable layers và phạm vi ngoài các digest được chọn. Năm datastore đã ghi nhận shutdown sạch exit 0/OOM false và đủ log markers riêng tư. Không coi đây là restore rehearsal hoặc full security test.
+
+Sau chuyển: source ref/tracked bytes và selected bind-file hashes giữ nguyên; 20 container gốc/images/volumes/mounts giữ nguyên. HTTP khớp mốc trước. PostgreSQL 30 dataset khớp. Redis opaque DUMP digest ban đầu FAIL được giữ; hai parser đọc cùng 360525 bytes RDB từ backup, CRC/load Redis-only fixture đạt, 49 persistent keys của 5 kiểu dữ liệu canonical giống nhau và fresh recheck đạt. Fixture network none/read-only không gắn volume gốc; đã dừng và giữ, tổng container hiện 21 (20 gốc + 1 diagnostic). Không có full application/whole-VM restore rehearsal hoặc kiểm thử toàn bộ UI/tính năng/bảo mật.
+
+Dung lượng tại kiểm tra sau: C khoảng 39,66 GiB, D khoảng 17,34 GiB. Đây là snapshot có hoạt động Windows, không gán mọi byte chênh lệch cho di chuyển. Backup Docker mới khoảng 31,86 GiB còn ở C, backup Ubuntu mới 16,54 GiB ở D, bản Ubuntu cũ 16,19 GiB vẫn ở C. Chưa dọn cache/old images/volumes/backups; không tự cam kết D đủ cho build lớn tiếp theo.
 
 HTTP trước chuyển: Chatwoot login/Vite/Mailhog và course 44400/44403/44405 trả 200; HTTPS trial 44406 đã UNREACHABLE trước chuyển, phải ghi riêng nếu còn lỗi, không quy thành regression do chuyển ổ hoặc giả toàn bộ UI đạt.
 

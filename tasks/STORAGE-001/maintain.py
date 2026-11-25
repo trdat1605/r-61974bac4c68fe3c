@@ -286,7 +286,7 @@ def postcheck():
     checks=http_checks()
     before=read_private('http-before.json')
     assert [(x['url'],x['status']) for x in checks]==[(x['url'],x['status']) for x in before], 'HTTP baseline differs'
-    evidence('postcheck',{'status':'PASS','http':checks,'free_bytes':free(),'limits':['Read-only HTTP probes, not full UI/security acceptance','Redis expiring keys not compared','No isolated restore rehearsal','Private raw metadata/backups retained outside Git']})
+    evidence('postcheck',{'status':'PASS','http':checks,'free_bytes':free(),'limits':['Read-only HTTP probes, not full UI/security acceptance','Redis expiring keys not compared','No full application or whole-VM restore rehearsal; Redis-only isolated restore verified','Private raw metadata/backups retained outside Git']})
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('stage',choices=['inventory','quiesce','before','stop-data','backup-docker','move-backup','export-ubuntu','move-ubuntu','inventory-after','start-data','after','resume','postcheck'])
