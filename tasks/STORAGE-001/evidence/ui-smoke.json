@@ -1,0 +1,17 @@
+{
+  "observed_local_date": "2026-11-26",
+  "method": "Computer Use in-app browser, read-only existing sessions and DOM/visual observation",
+  "chatwoot": {
+    "status": "PASS_RENDER",
+    "url": "http://localhost:44330/app/",
+    "observed": "Authenticated dashboard, navigation and conversation list render",
+    "initial_attempt": "Navigation timeout followed by initially blank development page; subsequently rendered. Retained as cold-load limitation, not a performance improvement claim."
+  },
+  "course": {
+    "status": "PASS_RENDER",
+    "entry_url": "http://localhost:44400/",
+    "redirected_url": "https://127.0.0.1:44403/",
+    "observed": "Course landing heading, curriculum, price and access section render"
+  },
+  "limits": ["No new login credentials entered", "No customer edits, Sheet edits, payment or messaging actions", "Not a full feature, performance or security test"]
+}

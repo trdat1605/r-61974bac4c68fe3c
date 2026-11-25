@@ -2,7 +2,7 @@
 
 Ngày thực hiện: 26/11/2026, Asia/Saigon. [Issue 20](https://github.com/trdat1605/r-61974bac4c68fe3c/issues/20). Chủ sản phẩm đã cho phép chuyển và yêu cầu dọn sau. Đây là bảo trì máy local dùng chung, không phải thay đổi tính năng hoặc merge/phát hành Chatwoot.
 
-**Trạng thái: đã chuyển và kiểm tra runtime; đang review bàn giao.** Xem [phương án](maintenance-plan.md), [script đúng phạm vi](maintain.py), [review trước thực hiện](evidence/preflight-review.md) và các receipt trong `evidence/`. Không dùng việc có tệp làm bằng chứng bước đã chạy; chỉ đọc receipt có kết quả tương ứng.
+**Trạng thái: đã chuyển, kiểm tra runtime và review độc lập đạt kỹ thuật.** [Review bàn giao](evidence/final-review.json) đối chiếu commit hồ sơ `d62c6423d3bdd33bd6c66f165abc8864df312475`; commit chứa bản ghi review/tổng kết đến sau và khác commit ứng dụng. Xem [phương án](maintenance-plan.md), [script đúng phạm vi](maintain.py), [review trước thực hiện](evidence/preflight-review.md) và các receipt trong `evidence/`. Không dùng việc có tệp làm bằng chứng bước đã chạy; chỉ đọc receipt có kết quả tương ứng.
 
 ## Bố trí đích
 
@@ -33,5 +33,7 @@ Sau chuyển: source ref/tracked bytes và selected bind-file hashes giữ nguy�
 Dung lượng tại kiểm tra sau: C khoảng 39,66 GiB, D khoảng 17,34 GiB. Đây là snapshot có hoạt động Windows, không gán mọi byte chênh lệch cho di chuyển. Backup Docker mới khoảng 31,86 GiB còn ở C, backup Ubuntu mới 16,54 GiB ở D, bản Ubuntu cũ 16,19 GiB vẫn ở C. Chưa dọn cache/old images/volumes/backups; không tự cam kết D đủ cho build lớn tiếp theo.
 
 HTTP trước chuyển: Chatwoot login/Vite/Mailhog và course 44400/44403/44405 trả 200; HTTPS trial 44406 đã UNREACHABLE trước chuyển, phải ghi riêng nếu còn lỗi, không quy thành regression do chuyển ổ hoặc giả toàn bộ UI đạt.
+
+UI smoke sau chuyển: Chatwoot dashboard đã render trong phiên đăng nhập có sẵn; landing khóa học đã render sau redirect HTTPS. Lần mở đầu Chatwoot bị timeout/trắng trước khi dev frontend render, nên không tuyên bố đã chữa F5 chậm. Xem [receipt UI](evidence/ui-smoke.json). Không gửi form, sửa khách hàng, Sheet, thanh toán hoặc tin nhắn trong phép kiểm này.
 
 Source Chatwoot lab khảo sát: `caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82`; pilot: `27e166927b93677863e7e7fda22109cfa2ae98b9`. Các commit hồ sơ bảo trì khác hai commit ứng dụng. Không sửa source trong nhiệm vụ này.
