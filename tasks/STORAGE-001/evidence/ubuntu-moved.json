@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T23:14:48Z",
+  "status": "PASS",
+  "path": "D:\\Dev\\Runtime\\Ubuntu\\ext4.vhdx",
+  "sha256": "1cb22afc534287d6b78cd76057661e237e3f2bfd5f34fc4e03ed42001ebb09c3",
+  "free_bytes": {
+    "C": 42629468160,
+    "D": 18625630208
+  }
+}

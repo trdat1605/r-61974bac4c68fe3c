@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T22:55:28Z",
+  "status": "PASS",
+  "bytes": 34207694848,
+  "sha256": "ff7bf40edf0d5056c4017dc1e3d206392ad577fb3c829e8a2cde410229dfa462",
+  "elapsed_seconds": 224,
+  "free_bytes": {
+    "C": 24788353024,
+    "D": 54254235648
+  }
+}

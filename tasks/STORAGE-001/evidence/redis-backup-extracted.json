@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T23:21:39Z",
+  "status": "PASS",
+  "bytes": 360525,
+  "sha256": "c05792986025fefc8b6619bcefa007a0e7547d0c4604626dfa7b862e81d006a0",
+  "two_independent_readers_equal": true,
+  "seven_zip_listing_warning": "Headers Error; cause unknown; specific file bytes validated by independent parser and later Redis checksum/load",
+  "source": "Immutable offline Docker backup",
+  "source_backup_sha256": "ff7bf40edf0d5056c4017dc1e3d206392ad577fb3c829e8a2cde410229dfa462"
+}

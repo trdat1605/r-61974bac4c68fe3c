@@ -1,0 +1,16 @@
+{
+  "observed_local_date": "2026-11-26",
+  "method": "Installed Docker Desktop 4.99.0 UI Disk image location and subsequent filesystem/daemon inventory checks",
+  "selected_parent": "D:/Dev/Runtime/Docker",
+  "ui_generated_location": "D:/Dev/Runtime/Docker/DockerDesktopWSL",
+  "data_file": "D:/Dev/Runtime/Docker/DockerDesktopWSL/disk/docker_data.vhdx",
+  "ui_actions": ["Browse", "Select Folder", "Apply & Restart Engine", "Yes, move it"],
+  "status": "PASS_LOCATION_AND_INVENTORY",
+  "containers": 20,
+  "images_unique": 50,
+  "volumes": 33,
+  "source_c_file_after_move": "ABSENT",
+  "only_expected_always_datastores_auto_started": true,
+  "all_containers_stopped_again_before_ubuntu_stage": true,
+  "limits": ["Application/datastore postchecks pending final restart", "No software update applied", "UI helper misattributed restarted Docker window app identity; Windows process ID/path confirmed actual Docker frontend before coordinate actions"]
+}

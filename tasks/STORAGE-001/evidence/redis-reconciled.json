@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-25T23:23:58Z",
+  "status": "PASS",
+  "original_container_id": "23c88773799b555b001cece968316a6843db962617736c7f414ffbfbb56323aa",
+  "fixture_container_id": "d491401e10dddb9dba18e305d3d1effb86a3cc4eefd19114a3010512c0c9ed12",
+  "image_id": "sha256:71885d8cc6e42f2bc0aa2eb853bfc4be200b5108a46ac50e117ae1df0531fb80",
+  "rdb_sha256": "c05792986025fefc8b6619bcefa007a0e7547d0c4604626dfa7b862e81d006a0",
+  "persistent_count": 49,
+  "canonical_digest": "338d210ae6cdb983a1913946accd0389bceb39d9",
+  "type_histogram": {
+    "hash": 15,
+    "string": 2,
+    "zset": 16,
+    "list": 14,
+    "set": 2
+  },
+  "baseline_opaque_dump_digest": "89a555aa19f33689c22c84a8ebdad8877bc730f8",
+  "current_opaque_dump_digest": "798052d77175c5c24553bb35dd0449c8b30006ab",
+  "original_failed_digest_check": "RETAINED; DUMP binary serialization is not a canonical logical comparison",
+  "expiring_keys": "not compared; expected natural expiration during maintenance",
+  "fixture": "stopped and retained; no cleanup"
+}

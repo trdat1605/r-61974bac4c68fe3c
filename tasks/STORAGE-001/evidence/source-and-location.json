@@ -1,0 +1,19 @@
+{
+  "observed_local_date": "2026-11-26",
+  "status": "PASS",
+  "ubuntu_registered_base_path": "D:/Dev/Runtime/Ubuntu",
+  "docker_data_file": "D:/Dev/Runtime/Docker/DockerDesktopWSL/disk/docker_data.vhdx",
+  "lab_source_commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
+  "lab_tracked_working_tree": "clean",
+  "pilot_source_commit": "27e166927b93677863e7e7fda22109cfa2ae98b9",
+  "source_file_hashes": {
+    "package.json": "c22cb09f1e3f353a175eda5dc2365e5ab93ac148beff6b49fee5b3f5cf2a6744",
+    "Gemfile.lock": "fa7c4da8ba4844f2077d959b3e0eabc8e7eba9ec9a3853987b2547bff116a386"
+  },
+  "selected_source_hashes_match_running_containers": ["cwlab-9200023e-rails-1", "cwlab-9200023e-vite-1", "cwlab-9200023e-sidekiq-1"],
+  "course_video_and_google_bind_directories": "present in original production web container",
+  "old_ubuntu_engine_units": "docker.service/docker.socket/containerd.service remain masked",
+  "app_source_or_configuration_edits": false,
+  "old_backup_pruning": false,
+  "diagnostic_fixture": "one task-owned Redis container stopped and retained; 20 original containers preserved"
+}

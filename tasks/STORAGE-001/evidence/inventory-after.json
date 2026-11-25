@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T23:15:37Z",
+  "status": "PASS",
+  "containers": 20,
+  "auto_running_datastores": 2,
+  "free_bytes": {
+    "C": 42590609408,
+    "D": 18625626112
+  }
+}
