@@ -1,0 +1,104 @@
+{
+  "task_id": "STORAGE-001",
+  "implementer": "root-storage-maintenance",
+  "implementation_branch": "codex/storage-to-d",
+  "implementation_base": "0d256ac060cd6556173caec6857b4d807beed942",
+  "subject_commit": "1cd6785e85ad908e3e554d34ee91cd8ca2ff442a",
+  "changed_files": [
+    "tasks/STORAGE-001/README.md",
+    "tasks/STORAGE-001/evidence/after-datastores.json",
+    "tasks/STORAGE-001/evidence/all-stopped.json",
+    "tasks/STORAGE-001/evidence/before-datastores.json",
+    "tasks/STORAGE-001/evidence/docker-backup-relocated.json",
+    "tasks/STORAGE-001/evidence/docker-location.json",
+    "tasks/STORAGE-001/evidence/docker-offline-backup.json",
+    "tasks/STORAGE-001/evidence/final-review.json",
+    "tasks/STORAGE-001/evidence/inventory-after.json",
+    "tasks/STORAGE-001/evidence/inventory.json",
+    "tasks/STORAGE-001/evidence/postcheck.json",
+    "tasks/STORAGE-001/evidence/preflight-review.md",
+    "tasks/STORAGE-001/evidence/redis-backup-extracted.json",
+    "tasks/STORAGE-001/evidence/redis-fixture-created.json",
+    "tasks/STORAGE-001/evidence/redis-initial-failure.json",
+    "tasks/STORAGE-001/evidence/redis-reconciled.json",
+    "tasks/STORAGE-001/evidence/services-resumed.json",
+    "tasks/STORAGE-001/evidence/shutdown-verified.json",
+    "tasks/STORAGE-001/evidence/source-and-location.json",
+    "tasks/STORAGE-001/evidence/ubuntu-export.json",
+    "tasks/STORAGE-001/evidence/ubuntu-moved.json",
+    "tasks/STORAGE-001/evidence/ui-smoke.json",
+    "tasks/STORAGE-001/evidence/writers-stopped.json",
+    "tasks/STORAGE-001/issue-body.md",
+    "tasks/STORAGE-001/maintain.py",
+    "tasks/STORAGE-001/maintenance-plan.md",
+    "tasks/STORAGE-001/pr-body.md",
+    "tasks/STORAGE-001/redis_verify.py",
+    "tasks/STORAGE-001/task.json"
+  ],
+  "checks": [
+    {
+      "name": "inventory",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    },
+    {
+      "name": "quiesced-datastore-baseline",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    },
+    {
+      "name": "offline-vhd-copy-sha256",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    },
+    {
+      "name": "ubuntu-export-integrity",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    },
+    {
+      "name": "relocation-paths",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    },
+    {
+      "name": "post-inventory-source-datastore-http",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    },
+    {
+      "name": "independent-review",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-001/evidence/check-bundle.json",
+      "sha256": "dd58ecdba82d4d0406d5a012f2e7e3c4e06581698d21f03fb84ada4441e22c12"
+    }
+  ],
+  "input_hashes": {
+    "tasks/STORAGE-001/maintenance-plan.md": "9115ef0b5e5cae45f54701376c1da4204f71235be3de1af835ff12977ed1fca0",
+    "tasks/STORAGE-001/maintain.py": "f613c3410c09c7820180c6130cc3151b28602163f34d919d16cbdf9e87c95566",
+    "tasks/STORAGE-001/redis_verify.py": "2a6fa2a29ab4cb44e4f1638e73459f9ef86c607ffe8815ff695c281c003ee657"
+  },
+  "open_issues": [
+    "Cleanup deferred; old/new backups retained",
+    "Same physical disk backup limitation",
+    "Redis expiring keys not compared",
+    "No full application/whole-VM restore or security certification",
+    "Existing dev cold-load/F5 delay and HTTPS IP44406 baseline failure remain outside this relocation"
+  ],
+  "next_step": "User can use moved local apps now; Draft PR records maintenance only. Retain backups; cleanup/merge/release require their own scope.",
+  "receiver": "product owner",
+  "status": "awaiting_product_owner"
+}
