@@ -2,20 +2,119 @@
   "id": "STORAGE-001",
   "title": "Relocate shared local Docker and Ubuntu storage to D without cleanup",
   "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/20",
-  "objective": "Move active Docker data and Ubuntu-22.04 to D:/Dev/Runtime using supported mechanisms, preserve data and old backups, and verify both products after restart.",
   "source_ref": "0d256ac060cd6556173caec6857b4d807beed942",
   "app_ref": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82",
-  "scope": ["tasks/STORAGE-001/", "runtime:docker-desktop", "runtime:Ubuntu-22.04", "D:/Dev/Runtime/", "D:/Dev/Backups/STORAGE-001/", "C:/Users/MFLAT-ADS-010/.codex/private-backups/STORAGE-001/"],
-  "acceptance": ["A1 Docker uses D; inventory preserved", "A2 Ubuntu uses D; Linux paths and source commits preserved", "A3 datastore baselines and endpoints match after restart", "A4 backups retained; no pruning or application edits", "A5 independent exact-plan/script review and sanitized evidence"],
-  "dependencies": ["Installed Docker Desktop location UI", "WSL 3.0.5 --manage --move and --export vhd", "Measured per-stage free space", "Independent reviewer approval before runtime mutation"],
-  "environment": {"profile": "config/agents/runtime.json", "runtime_access": "maintenance-authorized-by-user-2026-11-26", "shared_runtime": true},
-  "permissions": ["User now authorizes relocation to D, superseding preparation-only scope of COMPLETE-001 for this separate task", "Controlled stop/start of existing services and Desktop/Ubuntu required for relocation", "Private backups and supported filesystem/config relocation after review", "Create task issue and separate branch; no merge/release or public secrets"],
-  "checks": ["inventory", "quiesced-datastore-baseline", "offline-vhd-copy-sha256", "ubuntu-export-integrity", "relocation-paths", "post-inventory-source-datastore-http", "independent-review"],
+  "scope": [
+    "tasks/STORAGE-001/",
+    "runtime:docker-desktop",
+    "runtime:Ubuntu-22.04",
+    "D:/Dev/Runtime/",
+    "D:/Dev/Backups/STORAGE-001/",
+    "C:/Users/MFLAT-ADS-010/.codex/private-backups/STORAGE-001/"
+  ],
+  "acceptance": [
+    "A1 Docker uses D; inventory preserved",
+    "A2 Ubuntu uses D; Linux paths and source commits preserved",
+    "A3 datastore baselines and endpoints match after restart",
+    "A4 backups retained; no pruning or application edits",
+    "A5 independent exact-plan/script review and sanitized evidence"
+  ],
+  "dependencies": [
+    "Installed Docker Desktop location UI",
+    "WSL 3.0.5 --manage --move and --export vhd",
+    "Measured per-stage free space",
+    "Independent reviewer approval before runtime mutation"
+  ],
+  "environment": {
+    "profile": "config/agents/runtime.json",
+    "runtime_access": "exclusive-write",
+    "shared_runtime": true
+  },
+  "permissions": [
+    "User now authorizes relocation to D, superseding preparation-only scope of COMPLETE-001 for this separate task",
+    "Controlled stop/start of existing services and Desktop/Ubuntu required for relocation",
+    "Private backups and supported filesystem/config relocation after review",
+    "Create task issue and separate branch; no merge/release or public secrets"
+  ],
+  "checks": [
+    "inventory",
+    "quiesced-datastore-baseline",
+    "offline-vhd-copy-sha256",
+    "ubuntu-export-integrity",
+    "relocation-paths",
+    "post-inventory-source-datastore-http",
+    "independent-review"
+  ],
   "evidence_location": "tasks/STORAGE-001/evidence/",
-  "stop_conditions": ["Competing runtime work", "Unrecognized mounts or insufficient backup coverage", "Destination exists/conflicts", "Capacity below per-stage guard", "Hash mismatch or unsupported Desktop UI", "Need to delete/prune/reset/unregister/upgrade or expose secrets"],
+  "stop_conditions": [
+    "Competing runtime work",
+    "Unrecognized mounts or insufficient backup coverage",
+    "Destination exists/conflicts",
+    "Capacity below per-stage guard",
+    "Hash mismatch or unsupported Desktop UI",
+    "Need to delete/prune/reset/unregister/upgrade or expose secrets"
+  ],
   "implementer": "root-storage-maintenance",
-  "reviewer": "fresh-context storage-review",
+  "reviewer": "/root/storage_review",
   "receiver": "product owner",
-  "status": "runtime-verified-review-passed",
-  "bound_inputs": ["tasks/STORAGE-001/maintenance-plan.md", "tasks/STORAGE-001/maintain.py", "tasks/STORAGE-001/redis_verify.py"]
+  "status": "awaiting_product_owner",
+  "bound_inputs": [
+    "tasks/STORAGE-001/maintenance-plan.md",
+    "tasks/STORAGE-001/maintain.py",
+    "tasks/STORAGE-001/redis_verify.py"
+  ],
+  "goal": "Move active Docker data and Ubuntu-22.04 to D:/Dev/Runtime using supported mechanisms, preserve data and old backups, and verify both products after restart.",
+  "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+  "branch": "codex/storage-to-d",
+  "baseline_commit": "0d256ac060cd6556173caec6857b4d807beed942",
+  "application": {
+    "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "affected": [
+    "Docker Desktop shared local storage",
+    "Ubuntu-22.04 source and private configuration storage"
+  ],
+  "start_conditions": [
+    "User authorized relocation and deferred cleanup",
+    "Current inventory and stage capacity measured",
+    "Independent review before runtime mutations",
+    "Exclusive runtime ownership claims held"
+  ],
+  "role_brief": "agents/codex/implementer.md",
+  "write_scope": [
+    "tasks/STORAGE-001/README.md",
+    "tasks/STORAGE-001/__pycache__/maintain.cpython-313.pyc",
+    "tasks/STORAGE-001/evidence/after-datastores.json",
+    "tasks/STORAGE-001/evidence/all-stopped.json",
+    "tasks/STORAGE-001/evidence/before-datastores.json",
+    "tasks/STORAGE-001/evidence/check-bundle.json",
+    "tasks/STORAGE-001/evidence/docker-backup-relocated.json",
+    "tasks/STORAGE-001/evidence/docker-location.json",
+    "tasks/STORAGE-001/evidence/docker-offline-backup.json",
+    "tasks/STORAGE-001/evidence/final-review.json",
+    "tasks/STORAGE-001/evidence/inventory-after.json",
+    "tasks/STORAGE-001/evidence/inventory.json",
+    "tasks/STORAGE-001/evidence/postcheck.json",
+    "tasks/STORAGE-001/evidence/preflight-review.md",
+    "tasks/STORAGE-001/evidence/redis-backup-extracted.json",
+    "tasks/STORAGE-001/evidence/redis-fixture-created.json",
+    "tasks/STORAGE-001/evidence/redis-initial-failure.json",
+    "tasks/STORAGE-001/evidence/redis-reconciled.json",
+    "tasks/STORAGE-001/evidence/services-resumed.json",
+    "tasks/STORAGE-001/evidence/shutdown-verified.json",
+    "tasks/STORAGE-001/evidence/source-and-location.json",
+    "tasks/STORAGE-001/evidence/ubuntu-export.json",
+    "tasks/STORAGE-001/evidence/ubuntu-moved.json",
+    "tasks/STORAGE-001/evidence/ui-smoke.json",
+    "tasks/STORAGE-001/evidence/writers-stopped.json",
+    "tasks/STORAGE-001/handoff.json",
+    "tasks/STORAGE-001/issue-body.md",
+    "tasks/STORAGE-001/maintain.py",
+    "tasks/STORAGE-001/maintenance-plan.md",
+    "tasks/STORAGE-001/pr-body.md",
+    "tasks/STORAGE-001/redis_verify.py",
+    "tasks/STORAGE-001/review.json",
+    "tasks/STORAGE-001/task.json"
+  ]
 }
