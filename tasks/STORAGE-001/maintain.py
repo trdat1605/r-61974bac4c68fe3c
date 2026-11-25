@@ -113,7 +113,8 @@ def datastore_snapshot(phase):
         if '-redis-' in item['Name']:
             # Only persistent keys to avoid TTL/process-heartbeat expiration false mismatches.
             lua="local k=redis.call('KEYS','*');table.sort(k);local a={};local exp=0;for _,v in ipairs(k) do if redis.call('PTTL',v)==-1 then local d=redis.call('DUMP',v);if d then table.insert(a,redis.sha1hex(v)..redis.sha1hex(d)) end else exp=exp+1 end end;return {#a,redis.sha1hex(table.concat(a)),exp}"
-            value=dock('exec',item['Id'],'redis-cli','--raw','EVAL',lua,'0').decode().strip().splitlines()
+            value=dock('exec',item['Id'],'sh','-c','export REDISCLI_AUTH="$REDIS_PASSWORD"; exec redis-cli --raw EVAL "$1" 0','maintenance-redis',lua).decode().strip().splitlines()
+            assert len(value)==3 and value[0].isdigit() and len(value[1])==40 and value[2].isdigit(), 'Redis snapshot failed; keep writers stopped'
             snapshots.append({'container':item['Id'],'kind':'redis','persistent_count':value[0],'persistent_digest':value[1],'expiring_keys_not_compared':value[2]})
             continue
         data_directory=pg(item,'SHOW data_directory;').decode().strip()
