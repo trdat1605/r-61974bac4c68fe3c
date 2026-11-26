@@ -1,6 +1,8 @@
 """Losslessly archive exactly three offline backups; never touch active runtimes."""
 import ctypes
 from ctypes import wintypes
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
 import gzip
 import hashlib
 import json
@@ -92,12 +94,29 @@ def compact(key):
   pinned_stat=os.fstat(inp.fileno())
   assert (pinned_stat.st_ino,pinned_stat.st_size,pinned_stat.st_mtime_ns)==(stat.st_ino,stat.st_size,stat.st_mtime_ns),'Source changed before lock'
   with partial.open('xb') as raw:
-   with gzip.GzipFile(filename='',mode='wb',compresslevel=1,fileobj=raw,mtime=0) as compressed:
-    while block:=inp.read(8*1024*1024):
-     assert free()[folder.drive[0]]>=10*GIB,'Capacity guard; retain source and partial for inspection'
-     digest.update(block);compressed.write(block);total+=len(block)
-     if time.monotonic()-report>=30:
-      print(json.dumps({'backup':key,'phase':'compress','read_gib':round(total/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
+   if key=='docker-20261126':
+    # Concatenated gzip members are a standard gzip stream. Bounded four chunks;
+    # preserve source order, final full-stream decompression checks every member.
+    pending=deque()
+    with ThreadPoolExecutor(max_workers=4) as pool:
+     while True:
+      block=inp.read(8*1024*1024)
+      if block:
+       digest.update(block);total+=len(block)
+       pending.append(pool.submit(gzip.compress,block,compresslevel=1,mtime=0))
+      if pending and (len(pending)>=4 or not block):
+       assert free()[folder.drive[0]]>=10*GIB,'Capacity guard; keep source'
+       raw.write(pending.popleft().result())
+      if time.monotonic()-report>=30:
+       print(json.dumps({'backup':key,'phase':'compress','read_gib':round(total/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
+      if not block and not pending:break
+   else:
+    with gzip.GzipFile(filename='',mode='wb',compresslevel=1,fileobj=raw,mtime=0) as compressed:
+     while block:=inp.read(8*1024*1024):
+      assert free()[folder.drive[0]]>=10*GIB,'Capacity guard; retain source and partial for inspection'
+      digest.update(block);compressed.write(block);total+=len(block)
+      if time.monotonic()-report>=30:
+       print(json.dumps({'backup':key,'phase':'compress','read_gib':round(total/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
    raw.flush();os.fsync(raw.fileno())
   assert total==expected_size
   sha=digest.hexdigest();assert expected_sha is None or sha==expected_sha,'Backup SHA differs from migration evidence'
