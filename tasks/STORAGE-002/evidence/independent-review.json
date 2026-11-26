@@ -1,0 +1,29 @@
+{
+  "reviewer": "/root/backup_review",
+  "recorded_by": "coordinator from independent reviewer response",
+  "initial_review_subject": "fd66c08b439e1c13f113bcbeddb13fd8895ac079",
+  "updated_review_subject": "1497c7bad58d775a6e7b45bb1f70167d04d80f33",
+  "verdict": "APPROVE_PRE_EXECUTION",
+  "blocking_findings": [],
+  "observed": [
+    "All three offline file sizes match allowlist and expected migration SHA constants",
+    "No reparse attributes or active WSL/runtime path matches",
+    "Python3.13.5 locked handle/path identity tuples match on all three actual files",
+    "Revised script keeps continuous read+DELETE source handle while denying competing write/delete access",
+    "FileDispositionInfo4 and one-byte BOOLEAN match Microsoft documented semantics",
+    "Exact source removal is conditional on full decompression CRC/size/SHA256, archive publication and manifest"
+  ],
+  "implementer_disposable_helper_check": "Task-created tiny file: competing write access denied, verified handle deletion after close PASS; no real backup used in this helper check",
+  "sources": [
+    "https://docs.python.org/3.13/library/gzip.html",
+    "https://github.com/python/cpython/blob/v3.13.5/Lib/gzip.py",
+    "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew",
+    "https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-setfileinformationbyhandle",
+    "https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-file_disposition_info"
+  ],
+  "docker_parallel_delta_subject": "d4684cf8d59194e2747e0ee6d94dfeab49cc4b20",
+  "docker_parallel_delta_verdict": "APPROVE; ordered FIFO bounded4 chunks, EOF drains all, failures precede removal; no change to locking or verification",
+  "independent_in_memory_checks": ["Exact Docker branch via AST: chunk boundaries1/8MiB-1/8MiB/8MiB+1/3chunks/4chunks/4chunks+1/9chunks+123", "40MiB+17 random incompressible bytes roundtrip size/SHA256", "Queue <=4 and fully drained", "Corrupted final-member CRC rejected"],
+  "parallel_ubuntu_sequence_review": "ALLOWED after conservative projected reserve >=10.5GiB; actual launch gate11.05GiB. Docker waits new Ubuntu verification/removal on D.",
+  "limits": ["Actual backup hashes/compression/decompression/source removal/space recovery NOT_RUN by reviewer at pre-execution review", "No full VM boot restore", "Same physical disk backup remains vulnerable to hardware failure", "Source removal after lossless archival preserves all snapshot contents; no entire snapshot discarded"]
+}

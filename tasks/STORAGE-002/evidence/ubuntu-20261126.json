@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "source_path": "D:\\Dev\\Backups\\STORAGE-001\\ubuntu\\ext4.vhdx",
+  "archive_path": "C:\\Users\\MFLAT-ADS-010\\.codex\\private-backups\\archives\\ubuntu-20261126.vhdx.gz",
+  "original_bytes": 17763926016,
+  "archive_bytes": 7477712775,
+  "uncompressed_sha256": "1cb22afc534287d6b78cd76057661e237e3f2bfd5f34fc4e03ed42001ebb09c3",
+  "gzip_crc_and_full_decompressed_sha256": "PASS",
+  "free_before_bytes": {
+    "C": 43649687552,
+    "D": 18622128128
+  },
+  "elapsed_seconds": 623,
+  "source_unlinked": true,
+  "runtime_modified": false,
+  "free_after_bytes": {
+    "C": 65958977536,
+    "D": 36386045952
+  }
+}

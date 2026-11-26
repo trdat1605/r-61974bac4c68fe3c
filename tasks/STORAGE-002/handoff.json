@@ -1,0 +1,54 @@
+{
+  "task_id": "STORAGE-002",
+  "implementer": "root-storage-footprint",
+  "implementation_branch": "codex/storage-footprint",
+  "implementation_base": "b08a7c852510a1263f108b6b00ff8fa9887fe806",
+  "subject_commit": "fef545a2da37fef9aea1008c9459afe5d78e2590",
+  "changed_files": [
+    "tasks/STORAGE-002/README.md",
+    "tasks/STORAGE-002/compact_backups.py",
+    "tasks/STORAGE-002/evidence/docker-20261126.json",
+    "tasks/STORAGE-002/evidence/independent-review.json",
+    "tasks/STORAGE-002/evidence/summary.json",
+    "tasks/STORAGE-002/evidence/ubuntu-20261111.json",
+    "tasks/STORAGE-002/evidence/ubuntu-20261126.json",
+    "tasks/STORAGE-002/issue-body.md",
+    "tasks/STORAGE-002/task.json"
+  ],
+  "checks": [
+    {
+      "name": "backup_byte_preservation",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-002/evidence/checks.json",
+      "sha256": "0d15a8b28fa5c28fb13a3531927bbe87fa37a6f124493068084a3df83c8d085c"
+    },
+    {
+      "name": "runtime_preservation",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-002/evidence/checks.json",
+      "sha256": "0d15a8b28fa5c28fb13a3531927bbe87fa37a6f124493068084a3df83c8d085c"
+    },
+    {
+      "name": "space_and_recovery_manifest",
+      "status": "PASS",
+      "exit_code": 0,
+      "evidence": "tasks/STORAGE-002/evidence/checks.json",
+      "sha256": "0d15a8b28fa5c28fb13a3531927bbe87fa37a6f124493068084a3df83c8d085c"
+    }
+  ],
+  "input_hashes": {
+    "tasks/STORAGE-002/compact_backups.py": "3673913d014b299799be1f8d05189c4fc01f5c8e398e76cc208e9555f0b4f5ad",
+    "tasks/STORAGE-002/README.md": "9e793014c082accfa407061c11768ac4194b1551b718eb2a6cdf0c1aab6c397d"
+  },
+  "open_issues": [
+    "Full VM boot restore not performed",
+    "C/D share one physical disk",
+    "Cache/image/volume pruning intentionally not in scope",
+    "Whole-volume free-space delta includes unrelated Windows activity"
+  ],
+  "next_step": "Use D:/Dev/Backups/README.md for current archive locations; no merge needed for local storage result. Keep all three compressed snapshots; future backup retention changes separate scope.",
+  "receiver": "product owner",
+  "status": "awaiting_product_owner"
+}

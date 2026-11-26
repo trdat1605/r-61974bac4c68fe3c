@@ -1,0 +1,3 @@
+Reduce disk waste after the verified STORAGE-001 relocation. The owner requests organizing storage to avoid running out of space. Three retained offline VHD backups total about64.6GiB; preserve their complete contents using lossless gzip archives, verify decompressed size and SHA256, and only then remove the exact corresponding uncompressed backup. No runtime stop/start, cache pruning, active VHD changes, app changes or backup-age deletion. Keep dated recovery instructions and measured space before/after. Abort on conflict, insufficient space, source change or hash mismatch. Same-disk backups are not hardware-loss protection.
+
+Task: tasks/STORAGE-002/task.json
