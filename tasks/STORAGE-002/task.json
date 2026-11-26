@@ -1,0 +1,76 @@
+{
+  "id": "STORAGE-002",
+  "goal": "Reduce offline backup footprint through verified lossless compression, preserving all three recovery snapshots",
+  "repository": "https://github.com/trdat1605/r-61974bac4c68fe3c",
+  "branch": "codex/storage-footprint",
+  "baseline_commit": "b08a7c852510a1263f108b6b00ff8fa9887fe806",
+  "issue_url": "https://github.com/trdat1605/r-61974bac4c68fe3c/issues/22",
+  "application": {
+    "repository": "https://github.com/trdat1605/s-251521f7e9131fb0",
+    "commit": "caab07a8f00032d5205b5a5d7e2eb0ba2f3d2d82"
+  },
+  "acceptance": [
+    "Three dated offline snapshots preserved in lossless archives",
+    "Full gzip decompression size/CRC/SHA256 verified before exact source unlink",
+    "No active runtime/source/cache or app changes",
+    "Private archive ACLs and manifests; public sanitized receipts only",
+    "Before/after measured free space; independent review before source removal"
+  ],
+  "write_scope": [
+    "tasks/STORAGE-002/compact_backups.py",
+    "tasks/STORAGE-002/README.md",
+    "tasks/STORAGE-002/issue-body.md",
+    "tasks/STORAGE-002/task.json",
+    "tasks/STORAGE-002/evidence/ubuntu-20261126.json",
+    "tasks/STORAGE-002/evidence/docker-20261126.json",
+    "tasks/STORAGE-002/evidence/ubuntu-20261111.json",
+    "tasks/STORAGE-002/evidence/summary.json",
+    "tasks/STORAGE-002/evidence/checks.json",
+    "tasks/STORAGE-002/evidence/independent-review.json",
+    "tasks/STORAGE-002/handoff.json",
+    "tasks/STORAGE-002/review.json"
+  ],
+  "affected": [
+    "Three exact offline VHD backup paths from STORAGE-001 and historical migration"
+  ],
+  "dependencies": [
+    "Python Windows3.13 gzip/hashlib/Win32 source read locks",
+    "Source identity and target capacity checks",
+    "Independent review"
+  ],
+  "start_conditions": [
+    "User requests space organization/cleanup",
+    "Shared runtime read-only",
+    "Exact backup path scope and review ready"
+  ],
+  "environment": {
+    "runtime_access": "read-only",
+    "shared_runtime": true
+  },
+  "permissions": [
+    "Compress and reorganize exact offline backups locally; remove uncompressed duplicates only after full decompressed checksum match",
+    "Write private archive manifests outside Git and sanitized task receipts",
+    "No removal of an entire recovery snapshot, no runtime stop/start/prune, no app edits or merge/release"
+  ],
+  "checks": [
+    "backup_byte_preservation",
+    "runtime_preservation",
+    "space_and_recovery_manifest"
+  ],
+  "evidence_location": "tasks/STORAGE-002/evidence/",
+  "stop_conditions": [
+    "Active path or reparse target",
+    "Source identity changes or SHA mismatch",
+    "Archive conflict or insufficient space",
+    "Compression not beneficial or decompression integrity failure"
+  ],
+  "implementer": "root-storage-footprint",
+  "reviewer": "/root/backup_review",
+  "receiver": "product owner",
+  "role_brief": "agents/codex/implementer.md",
+  "status": "in_progress",
+  "bound_inputs": [
+    "tasks/STORAGE-002/compact_backups.py",
+    "tasks/STORAGE-002/README.md"
+  ]
+}
