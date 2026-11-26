@@ -1,0 +1,29 @@
+{
+  "subject_commit": "fef545a2da37fef9aea1008c9459afe5d78e2590",
+  "status": "PASS",
+  "exit_code": 0,
+  "command": "python -B inline current archive/source/manifest/receipt consistency verification; workflow validate task",
+  "checks": [
+    "backup_byte_preservation",
+    "runtime_preservation",
+    "space_and_recovery_manifest"
+  ],
+  "receipt_hashes": {
+    "tasks/STORAGE-002/evidence/ubuntu-20261126.json": "6cf3b655cd90a1cd71a24474b46de37a08f98a8ca17647d4442a1325951f1f17",
+    "tasks/STORAGE-002/evidence/docker-20261126.json": "b81b87cc1933e650d13c454a1ab8083378663a56ee5b9e55c2536ef0c3134278",
+    "tasks/STORAGE-002/evidence/ubuntu-20261111.json": "571deec0746d110d19e9a2c33c10ea9e9a26e4905ac936efdffb9b57f1b9a237",
+    "tasks/STORAGE-002/evidence/summary.json": "bf7585904a501657684bbd14f627e9e0deee0c93119d168ab8481053d9edce72",
+    "tasks/STORAGE-002/evidence/independent-review.json": "431fd286fec352fcc7b3b272cfe901b8ecf84be81064e5bb3296eb53356069fd"
+  },
+  "measured_file_length_reduction_bytes": 40491070585,
+  "snapshots_preserved": 3,
+  "execution_subjects": {
+    "ubuntu_archives": "1497c7bad58d775a6e7b45bb1f70167d04d80f33",
+    "docker_archive": "d4684cf8d59194e2747e0ee6d94dfeab49cc4b20"
+  },
+  "limits": [
+    "Current handover metadata binds earlier actual full compression/decompression executions; no claim giant archives were recompressed at report commit",
+    "Reviewer runtime observations separate from full-stream implementer verification",
+    "Not full VM boot restore or hardware resilience"
+  ]
+}
