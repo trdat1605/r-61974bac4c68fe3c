@@ -56,7 +56,7 @@ def locked_read(path,allow_removal=False):
 
 def remove_exact_locked_file(stream):
  # Delete the already-open, already-verified file by handle, not by a mutable pathname.
- class Disposition(ctypes.Structure):_fields_=[('DeleteFile',wintypes.BOOL)]
+ class Disposition(ctypes.Structure):_fields_=[('DeleteFile',ctypes.c_ubyte)]
  kernel=ctypes.WinDLL('kernel32',use_last_error=True)
  fn=kernel.SetFileInformationByHandle
  fn.argtypes=[wintypes.HANDLE,ctypes.c_int,ctypes.c_void_p,wintypes.DWORD]
