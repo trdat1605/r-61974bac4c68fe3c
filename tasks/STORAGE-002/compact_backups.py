@@ -42,17 +42,28 @@ def active_paths():
     result.append((Path(base)/name).resolve())
  return result
 
-def locked_read(path):
+def locked_read(path,allow_removal=False):
  kernel=ctypes.WinDLL('kernel32',use_last_error=True)
  fn=kernel.CreateFileW
  fn.argtypes=[wintypes.LPCWSTR,wintypes.DWORD,wintypes.DWORD,ctypes.c_void_p,wintypes.DWORD,wintypes.DWORD,wintypes.HANDLE]
  fn.restype=wintypes.HANDLE
- handle=fn(str(path),0x80000000,1,None,3,0,None) # read only; deny concurrent writes/deletes
+ handle=fn(str(path),0x80000000|(0x00010000 if allow_removal else 0),1,None,3,0,None) # deny concurrent writes/deletes
  if handle==ctypes.c_void_p(-1).value:raise ctypes.WinError(ctypes.get_last_error())
  try:fd=msvcrt.open_osfhandle(handle,os.O_RDONLY|os.O_BINARY)
  except Exception:
   kernel.CloseHandle(wintypes.HANDLE(handle));raise
  return os.fdopen(fd,'rb')
+
+def remove_exact_locked_file(stream):
+ # Delete the already-open, already-verified file by handle, not by a mutable pathname.
+ class Disposition(ctypes.Structure):_fields_=[('DeleteFile',wintypes.BOOL)]
+ kernel=ctypes.WinDLL('kernel32',use_last_error=True)
+ fn=kernel.SetFileInformationByHandle
+ fn.argtypes=[wintypes.HANDLE,ctypes.c_int,ctypes.c_void_p,wintypes.DWORD]
+ fn.restype=wintypes.BOOL
+ request=Disposition(True)
+ if not fn(wintypes.HANDLE(msvcrt.get_osfhandle(stream.fileno())),4,ctypes.byref(request),ctypes.sizeof(request)):
+  raise ctypes.WinError(ctypes.get_last_error())
 
 def setup():
  no_links(ARCHIVES)
@@ -77,25 +88,26 @@ def compact(key):
  before=free();stat=source.stat();assert stat.st_size==expected_size
  assert before[folder.drive[0]]>=12*GIB,'Insufficient archive reserve'
  start=time.monotonic();digest=hashlib.sha256();total=0;report=0
- with locked_read(source) as inp,partial.open('xb') as raw:
-  with gzip.GzipFile(filename='',mode='wb',compresslevel=1,fileobj=raw,mtime=0) as compressed:
-   while block:=inp.read(8*1024*1024):
-    assert free()[folder.drive[0]]>=10*GIB,'Capacity guard; retain source and partial for inspection'
-    digest.update(block);compressed.write(block);total+=len(block)
-    if time.monotonic()-report>=30:
-     print(json.dumps({'backup':key,'phase':'compress','read_gib':round(total/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
-  raw.flush();os.fsync(raw.fileno())
+ with locked_read(source,allow_removal=True) as inp:
+  pinned_stat=os.fstat(inp.fileno())
+  assert (pinned_stat.st_ino,pinned_stat.st_size,pinned_stat.st_mtime_ns)==(stat.st_ino,stat.st_size,stat.st_mtime_ns),'Source changed before lock'
+  with partial.open('xb') as raw:
+   with gzip.GzipFile(filename='',mode='wb',compresslevel=1,fileobj=raw,mtime=0) as compressed:
+    while block:=inp.read(8*1024*1024):
+     assert free()[folder.drive[0]]>=10*GIB,'Capacity guard; retain source and partial for inspection'
+     digest.update(block);compressed.write(block);total+=len(block)
+     if time.monotonic()-report>=30:
+      print(json.dumps({'backup':key,'phase':'compress','read_gib':round(total/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
+   raw.flush();os.fsync(raw.fileno())
   assert total==expected_size
   sha=digest.hexdigest();assert expected_sha is None or sha==expected_sha,'Backup SHA differs from migration evidence'
- # Fully decompress without writing a second 16/32GiB VHD; CRC checked by gzip EOF.
- verified=hashlib.sha256();count=0;report=0
- with locked_read(source) as pinned,gzip.open(partial,'rb') as restored:
-  pinned_stat=os.fstat(pinned.fileno())
-  assert (pinned_stat.st_ino,pinned_stat.st_size,pinned_stat.st_mtime_ns)==(stat.st_ino,stat.st_size,stat.st_mtime_ns),'Source changed'
-  while block:=restored.read(8*1024*1024):
-   verified.update(block);count+=len(block)
-   if time.monotonic()-report>=30:
-    print(json.dumps({'backup':key,'phase':'verify','verified_gib':round(count/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
+  # Source remains locked continuously; fully decompress+CRC without another giant file.
+  verified=hashlib.sha256();count=0;report=0
+  with gzip.open(partial,'rb') as restored:
+   while block:=restored.read(8*1024*1024):
+    verified.update(block);count+=len(block)
+    if time.monotonic()-report>=30:
+     print(json.dumps({'backup':key,'phase':'verify','verified_gib':round(count/GIB,2),'elapsed_seconds':round(time.monotonic()-start)}),flush=True);report=time.monotonic()
   assert count==total and verified.hexdigest()==sha,'Decompressed data differ; retain source'
   assert partial.stat().st_size<total,'Archive did not reduce size; retain source'
   # Atomic publish only to new name (Windows rename refuses an existing target).
@@ -103,11 +115,9 @@ def compact(key):
   record={'status':'PASS_VERIFIED_SOURCE_RETAINED','source_path':str(source),'archive_path':str(target),'original_bytes':total,'archive_bytes':target.stat().st_size,'uncompressed_sha256':sha,'gzip_crc_and_full_decompressed_sha256':'PASS','free_before_bytes':before,'elapsed_seconds':round(time.monotonic()-start),'source_unlinked':False,'runtime_modified':False}
   write(folder/(key+'.manifest.json'),record)
   write(ROOT/'evidence'/(key+'.json'),record)
- # Only this exact offline source is removed, after durable verified archive+manifest.
- current=source.stat()
- assert (current.st_ino,current.st_size,current.st_mtime_ns)==(stat.st_ino,stat.st_size,stat.st_mtime_ns)
- assert source.resolve() not in active_paths() and target.is_file()
- source.unlink()
+  assert source.resolve() not in active_paths() and target.is_file()
+  remove_exact_locked_file(inp)
+ assert not source.exists(),'Delete pending; do not report space reclaimed yet'
  record.update(status='PASS',source_unlinked=True,free_after_bytes=free(),elapsed_seconds=round(time.monotonic()-start))
  write(folder/(key+'.manifest.json'),record)
  write(ROOT/'evidence'/(key+'.json'),record)
