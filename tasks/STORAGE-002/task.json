@@ -68,9 +68,13 @@
   "reviewer": "/root/backup_review",
   "receiver": "product owner",
   "role_brief": "agents/codex/implementer.md",
-  "status": "in_progress",
+  "status": "awaiting_product_owner",
   "bound_inputs": [
     "tasks/STORAGE-002/compact_backups.py",
     "tasks/STORAGE-002/README.md"
+  ],
+  "external_reports": [
+    "D:/Dev/README.md",
+    "D:/Dev/Backups/README.md"
   ]
 }

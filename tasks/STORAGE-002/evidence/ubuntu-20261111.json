@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "source_path": "C:\\Users\\MFLAT-ADS-010\\Documents\\Codex\\2026-11-11\\xin-2\\work\\private-backup\\ubuntu-before-mirrored.vhdx",
+  "archive_path": "C:\\Users\\MFLAT-ADS-010\\.codex\\private-backups\\archives\\ubuntu-20261111.vhdx.gz",
+  "original_bytes": 17388535808,
+  "archive_bytes": 6696438590,
+  "uncompressed_sha256": "978458e1c90e5e0ac6d944ef4b557bc7e26f1f71a4b9bc223ad04db232fef65e",
+  "gzip_crc_and_full_decompressed_sha256": "PASS",
+  "free_before_bytes": {
+    "C": 39955488768,
+    "D": 18622119936
+  },
+  "elapsed_seconds": 637,
+  "source_unlinked": true,
+  "runtime_modified": false,
+  "free_after_bytes": {
+    "C": 83263778816,
+    "D": 26499153920
+  }
+}
